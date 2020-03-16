@@ -39,11 +39,7 @@ function Precache( context )
   PrecacheResource("particle_folder", "particles/buildinghelper", context)
 
   -- General Precaches
-  PrecacheUnitByNameSync("dotacraft_corpse", context)
-  PrecacheResource("particle", "particles/dire_fx/fire_barracks.vpcf", context)
-  PrecacheResource("particle", "particles/units/heroes/hero_magnataur/magnus_dust_hit.vpcf", context) -- splash attack
-  PrecacheResource("particle", "particles/abilities/generic/quad_damage/rune_quaddamage_owner.vpcf", context) -- quad damage
-  PrecacheResource("particle", "particles/econ/generic/generic_timer/generic_timer.vpcf", context)
+  PrecacheResource("particle", "particles/custom/construction_dust.vpcf", context)
 
   PrecacheUnitByNameSync("archer_tower_1", context)
   
