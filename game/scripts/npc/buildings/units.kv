@@ -1,0 +1,51 @@
+"DOTAUnits"
+{
+  "archer_tower_1"
+  {
+    "Model"                     "models/heroes/drow/drow_base.vmdl"
+    "ModelScale"                "1.4"
+    "ModelRotation"             "180"
+    "ModelOffset"               "1"
+    "PedestalModel"             "models/props_structures/stone_trim/stone_trim_00.vmdl"
+    "PedestalModelScale"        "0.3"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+    "ProjectileSpeed"           "2500"
+    "SoundSet"                  "Hero_DrowRanger"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+
+    "Ability1"                  ""
+
+    "AttackDamageMin"           "10"
+    "AttackDamageMax"           "10"
+    "AttackRange"               "800"
+    "AttackAcquisitionRange"    "800"
+    "AttackRate"                "0.9"
+    "AttackAnimationPoint"      "0.65"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "100"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "13070" } // Weapon
+        "2"  { "ItemDef" "13072" } // Quiver
+        "3"  { "ItemDef" "13074" } // Head
+        "4"  { "ItemDef" "13075" } // Back
+        "5"  { "ItemDef" "13071" } // Shoulder
+        "6"  { "ItemDef" "13073" } // Legs
+        "7"  { "ItemDef" "13076" } // Arms
+      }
+    }
+  }
+}

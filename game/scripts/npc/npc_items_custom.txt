@@ -1,3 +1,5 @@
+#base "buildings/items.kv"
+
 "DOTAAbilities"
 {
 }

@@ -1,3 +1,12 @@
 "AddonInfo"
 {
+  "TeamCount"         "8"
+  "maps"              "8_lanes"
+  "IsPlayable"        "1"
+  "PenaltiesEnabled"  "0"
+
+  "8_lanes"
+  {
+    "MaxPlayers" "8"
+  }
 }

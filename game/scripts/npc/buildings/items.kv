@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+  "Version"   "1"
+
+  "item_building_cancel"
+  {
+    "ID"                    "2000"
+    "BaseClass"             "item_datadriven"
+    "AbilityTextureName"    "item_cancel"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityCastPoint"      "0"
+
+    "ItemDroppable"         "0"
+    "ItemPurchasable"       "0"
+    "ItemSellable"          "0"
+    
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "builder.lua"
+        "Function"    "CancelBuilding"
+      }
+    }
+  }
+
+  "item_building_sell"
+  {
+    "ID"                          "2001"
+    "AbilityTextureName"          "alchemist_goblins_greed"
+    "BaseClass"                   "item_lua"
+    "ScriptFile"                  "abilities/buildings/sell"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityCooldown"             "0.0"
+    "AbilityManaCost"             "0"
+
+    "ItemDroppable"               "0"
+    "ItemSellable"                "0"
+    "ItemKillable"                "0"
+
+    "ItemShareability"            "ITEM_NOT_SHAREABLE"
+  }
+}
