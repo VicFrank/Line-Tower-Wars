@@ -3,9 +3,6 @@ General
   Prevent building that would block a lane
 
 Map
-  - Build all 8 lanes
-  - Match lane width and height
-   31x8
   - Decorate Map
 
 Towers
