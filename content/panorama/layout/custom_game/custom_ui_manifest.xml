@@ -5,8 +5,8 @@
     // Uncomment any of the following lines in order to disable that portion of the default UI
 
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false );      //Time of day (clock).
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false );     //Heroes and team score at the top of the HUD.
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, false );      //Lefthand flyout scoreboard.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false );     //Heroes and team score at the top of the HUD.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, false );      //Lefthand flyout scoreboard.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );     //Hero actions UI.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, false );     //Minimap.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PANEL, false );      //Entire Inventory UI
@@ -37,37 +37,29 @@
     GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_7] = "#c7e40d;";
     GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_8] = "#8c2af4;";
 
-    //var HUD = $.GetContextPanel().GetParent().GetParent();
-    //var newUI = HUD.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block");
-    //var NoGlyphAndRadar = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
-//
-    ////Talent UI
-    //newUI.FindChildTraverse("StatBranch").style.visibility = "collapse";
-    //newUI.FindChildTraverse("StatBranch").SetPanelEvent("onmouseover", function(){});
-    //newUI.FindChildTraverse("StatBranch").SetPanelEvent("onactivate", function(){});
-//
-    ////Levelup button
+    var HUD = $.GetContextPanel().GetParent().GetParent();
+    var newUI = HUD.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block");
+    var NoGlyphAndRadar = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+
+    newUI.FindChildTraverse("StatBranch").style.visibility = "collapse";
+    newUI.FindChildTraverse("StatBranch").SetPanelEvent("onmouseover", function(){});
+    newUI.FindChildTraverse("StatBranch").SetPanelEvent("onactivate", function(){});
+	
+	NoGlyphAndRadar.FindChildTraverse("GlyphScanContainer").style.visibility = "collapse";
+	HUD.FindChildTraverse("stackable_side_panels").FindChildTraverse("quickstats").style.visibility = "collapse";
+	newUI.FindChildTraverse("inventory_tpscroll_container").style.visibility = "collapse";
+	newUI.FindChildTraverse("right_flare").style.visibility = "collapse";
+	newUI.FindChildTraverse("inventory_neutral_slot_container").style.visibility = "collapse";
+    
     //newUI.FindChildTraverse("level_stats_frame").style.visibility = "collapse";
-//
-    ////TP scroll slot
-    //newUI.FindChildTraverse("inventory_tpscroll_container").style.visibility = "collapse";
-//
-    ////Back UI
     //newUI.FindChildTraverse("inventory").FindChildTraverse("inventory_items").FindChildTraverse("inventory_backpack_list").style.visibility = "collapse";
-//
-    ////RadarAndGlyphContainer
-    // NoGlyphAndRadar.FindChildTraverse("GlyphScanContainer").style.visibility = "collapse";
-//
-    ////Quick Stats
-    //HUD.FindChildTraverse("stackable_side_panels").FindChildTraverse("quickstats").style.visibility = "collapse";
-    ////Tertiary Ability Container (blocks modifiers)
     //newUI.FindChildrenWithClassTraverse("TertiaryAbilityContainer")[0].style.visibility = "collapse";
 	
   </script> 
 
   <Panel>
     <!-- <CustomUIElement type="LoadingScreen" layoutfile="file://{resources}/layout/custom_game/custom_loading_screen.xml" /> -->
-    
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/MainUI.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/building_helper.xml" />

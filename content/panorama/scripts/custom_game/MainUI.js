@@ -1,0 +1,1 @@
+GameUI.SetCameraDistance( 1400 );
