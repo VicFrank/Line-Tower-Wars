@@ -22,16 +22,7 @@ function GameMode:OnNPCSpawned(keys)
   if unitName == "" then return end
 
   if npc:IsHero() then
-    npc:SetAbilityPoints(0)
-
-    Timers:CreateTimer(.03, function()
-      for i=0,16 do
-        local item = hero:GetItemInSlot(i)
-        if item ~= nil then
-          item:RemoveSelf()
-        end
-      end
-    end)
+    GameMode:OnHeroInGame(npc)
   end
 
   for i=0,16 do
@@ -41,9 +32,23 @@ function GameMode:OnNPCSpawned(keys)
       ability:SetLevel(level)
     end
   end
+
+  Units:Init(npc)
 end
 
 function GameMode:OnHeroInGame(hero)
+  AddNewLane(hero)
+
+  hero:SetAbilityPoints(0)
+
+  Timers:CreateTimer(.03, function()
+    for i=0,16 do
+      local item = hero:GetItemInSlot(i)
+      if item ~= nil then
+        item:RemoveSelf()
+      end
+    end
+  end)
 end
 
 function GameMode:OnEntityKilled(keys)

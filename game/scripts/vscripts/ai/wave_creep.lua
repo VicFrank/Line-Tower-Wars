@@ -25,10 +25,10 @@ function thisEntity:AIThink()
     return 0.1
   end
 
-  if not self:CanReachGoal() then
-    -- attack nearest building
-    return self:AttackBuildings()
-  end
+  -- if not self:CanReachGoal() then
+  --   -- attack nearest building
+  --   return self:AttackBuildings()
+  -- end
 
   return self:MoveTowardsGoal()
 end

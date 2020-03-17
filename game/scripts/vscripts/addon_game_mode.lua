@@ -174,8 +174,8 @@ function GameMode:InitGameMode()
   GameRules.precached = {}
   GameRules.income = {}
 
+  GameRules.numLanes = 0
+
   -- Modifier Applier
   GameRules.Applier = CreateItem("item_apply_modifiers", nil, nil)
-
-  -- GameRules.Damage = LoadKeyValues("scripts/kv/damage_table.kv")
 end

@@ -2,4 +2,72 @@
 
 "DOTAAbilities"
 {
+  "item_apply_modifiers"
+  {
+    "ID"                          "2000"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_ALL"
+    "BaseClass"                   "item_datadriven"
+
+    "precache"
+    {
+      "particle"  "particles/dire_fx/fire_barracks.vpcf"
+    }
+
+    "Modifiers"
+    {     
+      "modifier_onfire"
+      {
+        "IsHidden"      "1"
+      
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"        "particles/dire_fx/fire_barracks.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "TARGET"
+            "ControlPointEntities"
+            {
+              "TARGET"  "attach_fx"
+            }
+          }
+        }
+      }
+
+      "builder_invulnerable_modifier"
+      {
+        "Passive"    "1"
+        "IsHidden"   "1"
+        "States"
+        {
+          "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_ATTACK_IMMUNE"          "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_MAGIC_IMMUNE"           "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+        }
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"   "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"    "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"       "1"
+        }
+      }
+
+      "modifier_unselectable"
+      {
+        "IsHidden"      "1"
+        "States"
+        {
+          "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+
+      "modifier_splash_attack"
+      {
+        "IsHidden"    "1"
+        "TextureName" "modifiers/splash_attack"
+      }      
+    }
+  }
 }

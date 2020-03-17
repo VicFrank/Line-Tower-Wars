@@ -1,7 +1,6 @@
 function GameMode:OnScriptReload()
   print("Script Reload")
 
-  SpawnWave()
 end
 
 function KillAllUnits()

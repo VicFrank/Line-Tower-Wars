@@ -1,0 +1,17 @@
+﻿"addon"
+{
+  "addon_game_name"                "Castle Fight"
+  "DOTA_GameMode_15"               "Castle Fight"
+  "addonname"                      "Castle Fight"
+
+  "DOTA_GoodGuys"                   "Lane 1"
+  "DOTA_BadGuys"                    "Lane 2"
+  "DOTA_Custom1"                    "Lane 3"
+  "DOTA_Custom2"                    "Lane 4"
+  "DOTA_Custom3"                    "Lane 5"
+  "DOTA_Custom4"                    "Lane 6"
+  "DOTA_Custom5"                    "Lane 7"
+  "DOTA_Custom6"                    "Lane 8"
+  "DOTA_Custom7"                    "Lane 9"
+  "DOTA_Custom8"                    "Lane 10"
+}

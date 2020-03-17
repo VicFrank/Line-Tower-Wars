@@ -1,0 +1,164 @@
+General
+  25 life, 30 gold, 20 income
+  Prevent building that would block a lane
+
+Map
+  - Build all 8 lanes
+  - Match lane width and height
+   31x8
+  - Decorate Map
+
+Towers
+  - Map out all towers we need
+  - Choose models/cosmetics
+  - Hide healthbar after spawning
+  - 75% refund
+
+Creeps
+  - Map out all creeps we need
+  - Choose models/cosmetics
+
+Waves
+  - Enable purchasing units to spawn
+  - Test ai
+  - Figure out income
+
+UI
+  - Unit purchasing UI (items?)
+  - Income UI
+  - Wave UI
+
+Towers
+
+  Archer Tower (10)
+  Damage 1-2
+  Range 450
+  Attack Speed 1.0s
+  Splash 0
+
+  Gunner (30)
+  Damage: 3-5
+  Range: 500
+  Attack Speed: 0.8s
+  Splash 0
+
+    Watch Tower (120)
+    11-12
+    600
+    0.75s
+
+      Guard Tower (1000)
+      21-22
+      600
+      0.5s
+
+
+    Cannon Tower (120)
+    10-14
+    600
+    2.0s
+    Splash 125
+    Only Ground
+
+      Bombard Tower (1000)
+      63-67
+      600
+      2.0s
+      Splash 150
+      Only Ground
+
+        Artillery Tower (10000)
+        359-365
+        700
+        2.0s
+        Splash 225
+        Only Ground
+        Ability: Magic Sentry
+          Reveals invisible enemies with 700 radius
+
+
+  Cutter
+  Damage 2-4
+  Range 150
+  Attack Speed 1.0s
+  Splash 0
+  Targets: Ground
+
+  Grinder (30)
+  Damage: 4-8
+  Range 150
+  0.8s
+  Targets Ground
+
+  Carver (120)
+  8-16
+  150
+  0.5s
+  only ground
+
+    Executioner (1000)
+    38-54
+    150
+    0.5s
+    only ground
+
+  Crusher (120)
+  16-19
+  150
+  5.0s
+  Splash 150
+  air, ground
+
+    Wrecker (1000)
+    93-96
+    150
+    5.0s
+    Splash 200
+    air, ground
+
+Units
+
+Tier 1
+
+Sheep (5, 1)
+Frost Wolves (10, 2)
+Skeleton Warrior (20, 3)
+  - Sturdy Armor
+  - Damage from over 450 range reduced by 20%
+Acolytes (35, 5)
+  - Unholy Sacrifice
+  - Heals all creeps for 2 health in a small radius when killed
+Corrupted Treants (50, 6)
+  - Evasion (10%)
+Swordsmen (70, 8)
+  - Devotion Aura
+  - Increase armor of nearby creeps by 1
+Fel Orc Grunts (100, 11)
+  - Fel Blood
+  - increased health regen
+Vile Temptress (150, 15)
+  - Endurance Aura
+  - +5s AS, +10% ms
+Shades (200, 18)
+  - Flying
+Mud Golems (350, 35)
+  - Spell Immunity
+Demolish Machines (750, 30)
+  - Attacks enemy towers
+Rot Golem (1000, 75)
+  - Boss (1)
+  High base health regen and armor
+  Spell Immunity
+
+Tier 2
+Knights (1000, 100)
+  - Sturdy Armor (2)
+  - 400 range, 25% reduction
+Venegeful Spirits (2250, 200)
+  Carrier
+  Spawns 2 lesser spirits when killed
+Forest Troll Berserkers (4000, 335)
+  Dash
+  420 base ms
+Wraiths (7500, 600)
+  Flying

@@ -4,17 +4,20 @@ function Build( event )
     local ability = event.ability
     local ability_name = ability:GetAbilityName()
     local building_name = ability:GetAbilityKeyValues()['UnitName']
-    -- local gold_cost = ability:GetGoldCost(1) 
-    local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
+    local gold_cost = ability:GetGoldCost(1) 
+    -- local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
     local hero = caster:IsRealHero() and caster or caster:GetOwner()
     local playerID = hero:GetPlayerID()
+    local lane = hero.lane
 
     -- If the ability has an AbilityGoldCost, it's impossible to not have enough gold the first time it's cast
     -- Always refund the gold here, as the building hasn't been placed yet
 
-    -- if not PlayerResource:IsFakeClient(playerID) then
-    --     hero:ModifyGold(gold_cost, false, 0)
-    -- end
+    if not PlayerResource:IsFakeClient(playerID) then
+        hero:ModifyGold(gold_cost, false, 0)
+    end
+
+    print(gold_cost)
 
     -- Makes a building dummy and starts panorama ghosting
     BuildingHelper:AddBuilding(event)
@@ -34,7 +37,7 @@ function Build( event )
             SendErrorMessage(playerID, "#error_not_enough_gold")
             return false
         end
-
+       
         return true
     end)
 
@@ -112,6 +115,14 @@ function Build( event )
 
         -- Remove invulnerability on npc_dota_building baseclass
         unit:RemoveModifierByName("modifier_invulnerable")
+
+        -- check if it is blocking the lane
+        if not GridNav:CanFindPath(hero.waveSpawner, hero.waveTarget) then
+            SendErrorMessage(playerID, "#error_cant_block_lane")
+            CancelBuilding({unit = unit})
+            unit:AddNoDraw()
+        end
+
     end)
 
     -- A building finished construction
@@ -128,7 +139,7 @@ function Build( event )
         -- Add the sell item
         local sell_item = CreateItem("item_building_sell", hero, hero)
         unit:AddItem(sell_item)
-        unit:SwapItems(0,1)
+        -- unit:SwapItems(0,1)
 
         -- Remove the dust construction particle
         if unit.construction_particle and BuildingHelper:GetNumBuildersRepairing(unit) == 0 then 
