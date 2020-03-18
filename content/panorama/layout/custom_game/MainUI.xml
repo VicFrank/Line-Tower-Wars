@@ -6,9 +6,20 @@
     
     <scripts>
         <include src="file://{resources}/scripts/custom_game/MainUI.js" />
+		<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
     </scripts>
 	
 	<Panel hittest="false" class="Root">
 	
+		<Panel hittest="false" class="TopLeftMenu">
+			<Button id="NewDashboardButton" class="TopLeftMenuButton" onactivate="DOTAHUDShowDashboard();" onmouseover="UIShowTextTooltip(DOTA_HUD_BackToDashboard)"  onmouseout="UIHideTextTooltip()" />
+			<Button id="NewScoreboardButton" class="TopLeftMenuButton" onactivate="OnScoreboardOpenButtonPressed();" onmouseover="UIShowTextTooltip(Scoreboard - Coming Soon)"  onmouseout="UIHideTextTooltip()" />
+			<Button id="LeaderboardButton" class="TopLeftMenuButton" onactivate="OnLeaderboardOpenButtonPressed();" onmouseover="UIShowTextTooltip(Leaderboard - Coming Soon)"  onmouseout="UIHideTextTooltip()" />
+		</Panel>
+	
+	
+	
+		<Panel id="Avatars" class="AvatarsPanel">
+		</Panel>
 	</Panel>
 </root>

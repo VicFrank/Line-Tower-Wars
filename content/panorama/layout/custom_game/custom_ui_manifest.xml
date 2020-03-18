@@ -10,7 +10,7 @@
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );     //Hero actions UI.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, false );     //Minimap.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PANEL, false );      //Entire Inventory UI
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, false );     //Shop portion of the Inventory. 
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, false );     //Shop portion of the Inventory. 
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, false );      //Player items.
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_QUICKBUY, false );     //Quickbuy.
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false );      //Courier controls.
@@ -40,10 +40,15 @@
     var HUD = $.GetContextPanel().GetParent().GetParent();
     var newUI = HUD.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block");
     var NoGlyphAndRadar = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+	var newUITOP = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements").FindChildTraverse("MenuButtons");
 
     newUI.FindChildTraverse("StatBranch").style.visibility = "collapse";
     newUI.FindChildTraverse("StatBranch").SetPanelEvent("onmouseover", function(){});
     newUI.FindChildTraverse("StatBranch").SetPanelEvent("onactivate", function(){});
+	
+	newUITOP.FindChildTraverse("DashboardButton").style.visibility = "collapse";
+    newUITOP.FindChildTraverse("ToggleScoreboardButton").style.visibility = "collapse";
+    newUITOP.FindChildTraverse("SettingsButton").style.visibility = "collapse";
 	
 	NoGlyphAndRadar.FindChildTraverse("GlyphScanContainer").style.visibility = "collapse";
 	HUD.FindChildTraverse("stackable_side_panels").FindChildTraverse("quickstats").style.visibility = "collapse";
