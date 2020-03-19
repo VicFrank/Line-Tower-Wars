@@ -1,157 +1,160 @@
 .Root {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .TopLeftMenu {
-    width: 775px;
-    height: 149px;
-	margin-top: -30px;
-	margin-left: -260px;
-	
-	background-size: 100%;
-	opacity: 1;
-	transition-duration: .05s;
-	transition-property: background-image;
-	transition-timing-function: ease-in-out;
+  width: 775px;
+  height: 149px;
+  margin-top: -30px;
+  margin-left: -260px;
+  
+  background-size: 100%;
+  opacity: 1;
+  transition-duration: .05s;
+  transition-property: background-image;
+  transition-timing-function: ease-in-out;
 }
 
 .TopLeftMenuButton {
-	width: 30px;
-	height: 30px;
-	background-repeat: no-repeat;
-	margin-bottom: 0px;
-	opacity: 0.7;
-	wash-color: #CCDDFF;
-	transition-property: opacity;
-	transition-duration: 0.2s;
-	tooltip-position: bottom;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  margin-bottom: 0px;
+  opacity: 0.7;
+  wash-color: #CCDDFF;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  tooltip-position: bottom;
 }
 
 #NewDashboardButton {
-	background-image: url("s2r://panorama/images/control_icons/return_to_game_png.vtex");
-	background-size: 100%;
-	margin-top: 42px;
-	margin-left: 285px;
+  background-image: url("s2r://panorama/images/control_icons/return_to_game_png.vtex");
+  background-size: 100%;
+  margin-top: 42px;
+  margin-left: 285px;
 }
 #NewScoreboardButton {
-	background-image: url("s2r://panorama/images/control_icons/hamburger_png.vtex");
-	background-size: 25px;
-	margin-top: 43px;
-	margin-left: 325px;
+  background-image: url("s2r://panorama/images/control_icons/hamburger_png.vtex");
+  background-size: 25px;
+  margin-top: 43px;
+  margin-left: 325px;
 }
 #LeaderboardButton {
-	background-image: url("s2r://panorama/images/hud/reborn/icon_combat_log_psd.vtex");
-	background-size: 26px;
-	margin-top: 43px;
-	margin-left: 360px;
+  background-image: url("s2r://panorama/images/hud/reborn/icon_combat_log_psd.vtex");
+  background-size: 26px;
+  margin-top: 43px;
+  margin-left: 360px;
 }
 
 .AvatarsPanel
 {
-	flow-children: down;
-	horizontal-align: right;
-	z-index: 3;
-	margin-top: 60px;
-	padding-bottom: 10px;
+  flow-children: down;
+  horizontal-align: right;
+  z-index: 3;
+  margin-top: 80px;
+  padding-bottom: 10px;
 }
 
 .PlayerPanel
-{			
-	width: 220px;
-	height: 77px;
-	opacity: 1;
-	background-color: #000000bb;
-	border-top: 1px solid #77849519;
-	border-left: 1px solid #77849509;
-	border-right: 1px solid #77849509;
-	transition-duration: .05s;
-	transition-property: background-image;
-	transition-timing-function: ease-in-out;
-	margin-bottom: 5px;
+{     
+  width: 280px;
+  height: 85px;
+  opacity: 1;
+  background-color: #000000bb;
+  border-top: 1px solid #77849519;
+  border-left: 1px solid #77849509;
+  border-right: 1px solid #77849509;
+  transition-duration: .05s;
+  transition-property: background-image;
+  transition-timing-function: ease-in-out;
+  margin-bottom: 10px;
+
+  flow-children: right;
 }
 
 .UserAvatar
-{			
-	width: 72px;
-	height: 72px;
-	background-size: 100%;
-	background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
-	horizontal-align: left;
-	margin-left: 2px;
-	margin-top: 2px;
+{
+  width: 85px;
+  height: 85px;
+  background-size: 100%;
+  background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
+  horizontal-align: left;
+  margin-left: 2px;
+  margin-top: 2px;
 }
 
 .Username
-{	
-	horizontal-align: center;
-	margin-top: 0px;
-	margin-left: 20px;
-	
-
+{ 
+  horizontal-align: center;
 }
+
 Label {
-	color: white;
-	font-size: 25px;
-	text-shadow: 2px 2px 2px black;
-	text-overflow: clip;
-	
+  color: white;
+  font-size: 25px;
+  text-shadow: 2px 2px 2px black;
+  text-overflow: clip;
+}
+
+.UserInfoContainer
+{
+  flow-children: down;
+}
+
+.HealthContainer
+{
+  flow-children: right;
+}
+
+.GoldContainer
+{
+  flow-children: right;
 }
 
 .HealthIcon
-{			
-	width: 24px;
-	height: 24px;
-	background-size: 100%;
-	background-image:url('file://{images}/custom_game/PlayerPanel/HealthIcon.png');
-	horizontal-align: left;
-	margin-top: 28px;
-	margin-left: 80px;
+{     
+  width: 24px;
+  height: 24px;
+  background-size: 100%;
+  background-image:url('file://{images}/custom_game/PlayerPanel/HealthIcon.png');
+  horizontal-align: left;
+  margin: 2px 5px 2px 5px;
 }
 
 .HealthText
-{	
-	horizontal-align: center;
-	margin-top: 28px;
-	margin-left: 16px;
-	color: #87C080;
-	text-shadow: 2px 2px 2px black;
-	font-size: 20px;
+{ 
+  horizontal-align: center;
+  color: #87C080;
+  text-shadow: 2px 2px 2px black;
+  font-size: 20px;
 }
 
 .GoldIcon
-{			
-	width: 24px;
-	height: 24px;
-	background-size: 100%;
-	background-image:url('file://{images}/custom_game/PlayerPanel/GoldIcon.png');
-	horizontal-align: left;
-	margin-top: 53px;
-	margin-left: 80px;
+{     
+  width: 24px;
+  height: 24px;
+  background-size: 100%;
+  background-image:url('file://{images}/custom_game/PlayerPanel/GoldIcon.png');
+  horizontal-align: left;
+  margin: 2px 5px 2px 5px;
 }
 
 .GoldText
-{	
-	horizontal-align: center;
-	margin-top: 51px;
-	margin-left: 30px;
-	color: #F7CD60;
-	text-shadow: 2px 2px 2px black;
-	font-size: 20px;
+{ 
+  horizontal-align: center;
+  color: #F7CD60;
+  text-shadow: 2px 2px 2px black;
+  font-size: 20px;
 }
 
 .InterestText
-{	
-	horizontal-align: center;
-	margin-top: 51px;
-	margin-left: 120px;
-	color: lime;
-	text-shadow: 2px 2px 2px black;
-	font-size: 19px;
-	padding-left: 15px;
+{ 
+  color: lime;
+  text-shadow: 2px 2px 2px black;
+  font-size: 19px;
 }
 
 .Invisible
 {
-	opacity: 0;
+  opacity: 0;
 }

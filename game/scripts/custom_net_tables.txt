@@ -5,6 +5,8 @@
     "builders",
     "selection",
     "construction_size",
-    "building_settings"
+    "building_settings",
+    "custom_shop",
+    "player_stats"
   ]
 } 

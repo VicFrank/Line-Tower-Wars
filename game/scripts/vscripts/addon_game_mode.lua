@@ -10,6 +10,9 @@ require("libraries/animations")
 
 require("mechanics/units")
 require("mechanics/wave_controller")
+require("mechanics/income")
+
+require("shop/custom_shop")
 
 require("testing")
 require("events")
@@ -85,7 +88,7 @@ function GameMode:InitGameMode()
   GameRules:SetStrategyTime(0)
   GameRules:SetShowcaseTime(0)
   GameRules:SetGoldTickTime(0)
-  GameRules:SetStartingGold(65)
+  GameRules:SetStartingGold(STARTING_GOLD)
   GameRules:SetGoldPerTick(0)
 
   GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 1)
@@ -161,10 +164,7 @@ function GameMode:InitGameMode()
   -- Lua Modifiers
   LinkLuaModifier("modifier_disable_turning", "libraries/modifiers/modifier_disable_turning", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_under_construction", "libraries/modifiers/modifier_under_construction", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("income_modifier", "abilities/generic/income_modifier", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_hide_hero", "abilities/modifiers/modifier_hide_hero", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_stunned_custom", "abilities/modifiers/modifier_stunned_custom", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_end_round", "abilities/modifiers/modifier_end_round", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("income_modifier", "abilities/income_modifier", LUA_MODIFIER_MOTION_NONE)
 
   self.vUserIds = {}
 
@@ -175,6 +175,7 @@ function GameMode:InitGameMode()
   GameRules.income = {}
 
   GameRules.numLanes = 0
+  GameRules.lanes = {}
 
   -- Modifier Applier
   GameRules.Applier = CreateItem("item_apply_modifiers", nil, nil)

@@ -17,8 +17,6 @@ function Build( event )
         hero:ModifyGold(gold_cost, false, 0)
     end
 
-    print(gold_cost)
-
     -- Makes a building dummy and starts panorama ghosting
     BuildingHelper:AddBuilding(event)
 

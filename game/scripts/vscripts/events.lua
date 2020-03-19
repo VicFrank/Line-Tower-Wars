@@ -9,6 +9,7 @@ end
 
 function GameMode:OnGameInProgress()
   StartSpawning()
+  GameMode:StartPayingIncome()
 end
 
 function GameMode:OnNPCSpawned(keys)
@@ -37,9 +38,10 @@ function GameMode:OnNPCSpawned(keys)
 end
 
 function GameMode:OnHeroInGame(hero)
-  AddNewLane(hero)
+  InitializeLane(hero)
 
   hero:SetAbilityPoints(0)
+  hero:ModifyIncome(STARTING_INCOME)
 
   Timers:CreateTimer(.03, function()
     for i=0,16 do

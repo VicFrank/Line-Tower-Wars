@@ -1,0 +1,33 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="s2r://panorama/styles/custom_game/custom_shop.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/custom_shop.js" />     
+  </scripts>
+  <Panel class="CustomShopRoot" hittest="false">
+    <Button id="ShopButton" hittest="true" onactivate="OnShopButtonPressed()" oncontextmenu="OnShopButtonPressed()">
+      <Image id="ShopIcon" src="s2r://panorama/images/control_icons/shop_icon_main_psd.vtex" />
+      <Label id="ShopLabel" text="#shop" />
+    </Button>
+
+    <Panel id="ShopHolder">
+      <Panel id="Items" class="ShopHidden">
+        <Label id="ShopHeader" text="#shop" />
+        <Panel class="ItemRow">
+          <Button id="item_scroll_of_stone"
+              class="ShopIcon"
+              onactivate="AttemptPurchase('item_scroll_of_stone')"
+              oncontextmenu="AttemptPurchase('item_scroll_of_stone')"
+              >
+            <DOTAItemImage itemname="item_scroll_of_stone" />
+            <Panel class="Cooldown" hittest="false">
+              <Panel class="CooldownOverlay" hittest="false"/>
+            </Panel>
+          </Button>
+        </Panel>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

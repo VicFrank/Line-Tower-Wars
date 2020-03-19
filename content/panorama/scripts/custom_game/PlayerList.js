@@ -4,12 +4,9 @@ for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
   if (Game.GetPlayerInfo(i)) {
     var steam_id = Game.GetPlayerInfo(i).player_steamid;
     var team = Players.GetTeam(i);
-	var hero = Players.GetPlayerSelectedHero(i);
+    var hero = Players.GetPlayerSelectedHero(i);
 
     createPlayerPanel(i, steam_id);
-	 createPlayerPanel(i, steam_id);
-	  createPlayerPanel(i, steam_id);
-	   createPlayerPanel(i, steam_id);
 
     $("#player_avatar_" + i).steamid = steam_id;
   }
@@ -26,25 +23,72 @@ function createPlayerPanel(id, steam_id){
     false
   );
 
-  var usernamePanel = $.CreatePanel("DOTAUserName", playerPanel, "username_player_" + id);
+  var UserInfoContainer = $.CreatePanel("Panel", playerPanel, "user_info" + id);
+  UserInfoContainer.AddClass("UserInfoContainer");
+
+  var usernamePanel = $.CreatePanel("DOTAUserName", UserInfoContainer, "username_player_" + id);
   usernamePanel.AddClass("Username");
   usernamePanel.steamid = steam_id;
+
+  var HealthContainer = $.CreatePanel("Panel", UserInfoContainer, "health_panel" + id);
+  HealthContainer.AddClass("HealthContainer");
   
-  var HealthIconPanel = $.CreatePanel("Panel", playerPanel, "health_icon" + id);
+  var HealthIconPanel = $.CreatePanel("Panel", HealthContainer, "health_icon" + id);
   HealthIconPanel.AddClass("HealthIcon");
   
-  var HealthIconText = $.CreatePanel("Label", playerPanel, "health_text" + id);
+  var HealthIconText = $.CreatePanel("Label", HealthContainer, "health_text" + id);
   HealthIconText.AddClass("HealthText");
   HealthIconText.text = "30"
+
+  var GoldContainer = $.CreatePanel("Panel", UserInfoContainer, "gold_container" + id);
+  GoldContainer.AddClass("GoldContainer");
   
-  var GoldIconPanel = $.CreatePanel("Panel", playerPanel, "gold_icon" + id);
+  var GoldIconPanel = $.CreatePanel("Panel", GoldContainer, "gold_icon" + id);
   GoldIconPanel.AddClass("GoldIcon");
   
-  var GoldIconText = $.CreatePanel("Label", playerPanel, "gold_text" + id);
+  var GoldIconText = $.CreatePanel("Label", GoldContainer, "gold_text" + id);
   GoldIconText.AddClass("GoldText");
-  GoldIconText.text = "138k"
+  GoldIconText.text = Players.GetGold(id);
   
-  var InterestText = $.CreatePanel("Label", playerPanel, "interest_text" + id);
+  var InterestText = $.CreatePanel("Label", GoldContainer, "interest_text" + id);
   InterestText.AddClass("InterestText");
   InterestText.text = "(+279k)"
 }
+
+UpdateGold();
+
+function UpdateGold() {
+  for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
+    if (Game.GetPlayerInfo(i)) {
+      $("#gold_text" + i).text = Players.GetGold(i);
+    }
+  }
+
+  $.Schedule(0.1, UpdateGold);
+}
+
+function UpdateIncomes() {
+  $.Msg("Update Incomes")
+  for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
+    if (Game.GetPlayerInfo(i)) {
+      var data = CustomNetTables.GetTableValue("player_stats", i);
+      var income = data.income;
+
+      $("#interest_text" + i).text = "(+" + income + ")";
+    }
+  }
+  
+}
+
+function OnIncomeChanged(table_name, key, data) {
+  var playerID = key;
+  var income = data.income;
+
+  $("#interest_text" + id).text = "(+" + income + ")";
+}
+
+(function () {
+  UpdateIncomes();
+
+  CustomNetTables.SubscribeNetTableListener("player_stats", OnIncomeChanged);
+})();

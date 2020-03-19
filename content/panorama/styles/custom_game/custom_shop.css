@@ -1,0 +1,149 @@
+.CustomShopRoot
+{
+  width: 100%;
+  height: 100%;
+}
+
+#ShopButton
+{
+  horizontal-align: right;
+  vertical-align: bottom;
+
+  margin-right: 131px;
+
+  width: fit-children;
+
+  flow-children: right;
+
+  background-image: url("s2r://panorama/images/hud/reborn/bg_mainshop_psd.vtex");
+}
+
+#ShopButton:Hover
+{
+  brightness: 1.4;
+}
+
+#ShopLabel
+{
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  horizontal-align: center;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#ShopIcon
+{
+	width: 48px;
+	height: 48px;
+	margin-top: -1px;
+	margin-left: 0px;
+}
+
+#ShopHolder
+{
+  width: 280px;
+  height: 550px;
+
+  horizontal-align: right;
+  vertical-align: center;
+
+  flow-children: down;
+}
+
+.ShopHidden
+{
+  
+  transform: translatex(300px);
+}
+
+#ShopHeader
+{
+  font-size: 32px;
+  horizontal-align: center;
+}
+
+#Items
+{
+  width: 100%;
+
+  flow-children: down;
+  horizontal-align: center;
+
+  background-color: #000000da;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_mainshop_psd.vtex");
+  background-size: cover;
+
+  transition-property: transform;
+  transition-duration: 0.25s;
+}
+
+.ItemRow
+{
+  flow-children: right;
+  horizontal-align: center;
+  padding: 10px;
+}
+
+.ShopIcon
+{
+  margin-right: 5px; 
+  margin-left: 5px;
+}
+
+.ShopIcon:Hover
+{
+  brightness: 1.4;
+}
+
+.CooldownOverlay
+{
+  height: 100%;
+  background-color: #000000DD;
+}
+
+.Cooldown
+{
+  width: 100%;
+  height: 100%;
+  visibility: collapse;
+}
+
+.in_cooldown .Cooldown
+{
+  visibility: visible;
+}
+
+.GoldCost
+{
+  vertical-align: bottom;
+  horizontal-align: left;
+
+  color: #FFFF99;
+  font-size: 18px;
+  text-shadow: 0px 0px 3px 3.0 #000000;
+
+  margin-left: 5px;
+
+  /*background-image: url("s2r://panorama/images/hud/goldamount_bg_png.vtex");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;*/
+}
+
+.Stock
+{
+  vertical-align: bottom;
+  horizontal-align: right;
+
+  margin-right: 5px;
+  margin-bottom: -3px;
+
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0px 0px 3px 4.0 #000000;
+
+  font-family: RadianceM;
+}
