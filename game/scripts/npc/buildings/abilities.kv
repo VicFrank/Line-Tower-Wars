@@ -26,4 +26,29 @@
       }
     }
   }
+  
+   "build_gunner_tower"
+  {
+    "AbilityTextureName"            "sniper_assassinate"
+
+    "UnitName"                      "gunner_tower_1"
+    "AbilityGoldCost"               "30"
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "MaxLevel"                      "1"
+    "Building"                      "1"
+    "AbilityCastRange"              "260"
+    "Scale"                         "1"
+    "PlayerCanControl"              "1"
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"        "builder.lua"
+        "Function"          "Build"
+      }
+    }
+  }
 }

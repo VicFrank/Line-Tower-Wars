@@ -6,7 +6,7 @@
     "ModelScale"                "1.0"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
-    "PedestalModel"             "models/props_structures/stone_trim/stone_trim_00.vmdl"
+    "PedestalModel"             ""
     "PedestalModelScale"        "0.3"
     "PedestalOffset"            "5"
     "ProjectileModel"           "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
@@ -16,6 +16,7 @@
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
 
     "Ability1"                  ""
+	"Ability2"					"no_health_bar"
 
     "AttackDamageMin"           "1"
     "AttackDamageMax"           "2"
@@ -45,6 +46,54 @@
         "5"  { "ItemDef" "80" } // Shoulder
         "6"  { "ItemDef" "78" } // Legs
         "7"  { "ItemDef" "75" } // Arms
+      }
+    }
+  }
+  
+  "gunner_tower_1"
+  {
+    "Model"                     "models/heroes/sniper/sniper.vmdl"
+    "ModelScale"                "1.0"
+    "ModelRotation"             "0"
+    "ModelOffset"               "1"
+    "PedestalModel"             ""
+    "PedestalModelScale"        "0.3"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+    "ProjectileSpeed"           "2500"
+    "SoundSet"                  "Hero_Sniper"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+
+    "Ability1"                  ""
+	"Ability2"					"no_health_bar"
+
+    "AttackDamageMin"           "3"
+    "AttackDamageMax"           "5"
+    "AttackRange"               "500"
+    "AttackAcquisitionRange"    "500"
+    "AttackRate"                "0.8"
+    "AttackAnimationPoint"      "0.17"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "100"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "281" }  // Weapon
+        "2"  { "ItemDef" "283" }  // Head
+        "3"  { "ItemDef" "284" }  // Shoulder
+        "4"  { "ItemDef" "285" }  // Arms
+        "5"  { "ItemDef" "282" }  // Back
       }
     }
   }

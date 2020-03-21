@@ -1,6 +1,5 @@
 General
   25 life, 30 gold, 20 income
-  Prevent building that would block a lane
 
 Map
   - Decorate Map
@@ -8,7 +7,6 @@ Map
 Towers
   - Map out all towers we need
   - Choose models/cosmetics
-  - Hide healthbar after spawning
   - 75% refund
 
 Creeps

@@ -38,13 +38,13 @@
   background-image: url("s2r://panorama/images/control_icons/hamburger_png.vtex");
   background-size: 25px;
   margin-top: 43px;
-  margin-left: 325px;
+  margin-left: 330px;
 }
 #LeaderboardButton {
   background-image: url("s2r://panorama/images/hud/reborn/icon_combat_log_psd.vtex");
   background-size: 26px;
   margin-top: 43px;
-  margin-left: 360px;
+  margin-left: 370px;
 }
 
 .AvatarsPanel
@@ -127,6 +127,7 @@ Label {
   color: #87C080;
   text-shadow: 2px 2px 2px black;
   font-size: 20px;
+  margin-top: 1px;
 }
 
 .GoldIcon

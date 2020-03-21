@@ -1,8 +1,8 @@
 8_lanes
 {
 	material materials/overviews/8_lanes.vmat
-	pos_x -11776
-	pos_y 11776
-	scale 23.000
+	pos_x -12544
+	pos_y 12544
+	scale 24.500
 }
 

@@ -16,6 +16,7 @@
       "builder_invulnerable_modifier"
       {
         "Passive"    "1"
+		"IsHidden"	 "1"
         "States"
         {
           "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
@@ -59,4 +60,27 @@
       }
     }
   }
+  
+	//============================================================
+	// No Health Bar
+	//============================================================
+	"no_health_bar"
+	{
+		"BaseClass"                 "ability_datadriven"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"                  "1"
+		"AbilityTextureName"        "no_health_bar"
+		"Modifiers"
+		{
+		  "no_health_bar_modifier"
+		  {
+			"Passive"    "1"
+			"IsHidden"	 "1"
+			"States"
+			{
+			  "MODIFIER_STATE_NO_HEALTH_BAR"		  "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		  }
+		}
+	}
 }
