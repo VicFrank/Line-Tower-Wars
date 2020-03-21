@@ -15,6 +15,9 @@ function GameMode:InitializeShopData()
 end
 
 function GameMode:SetupShopForPlayer(playerID)
+  local player = PlayerResource:GetPlayer(playerID)
+  CustomGameEventManager:Send_ServerToPlayer(player, "setup_shop", {})
+  
   local maxStock = 30
   for _,shopItems in ipairs(shopTables) do
     for _,itemData in ipairs(shopItems) do

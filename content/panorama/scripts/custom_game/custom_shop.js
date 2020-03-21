@@ -27,7 +27,6 @@ function LoadItems() {
   InitializeItemData(tier3);
 
   BuildShopPanels();
-  RefreshShopData();
 }
 
 function InitializeItemData(tier) {
@@ -57,6 +56,10 @@ function BuildShopPanels() {
 }
 
 function RefreshShopUI() {
+  if (!CurrentTier) {
+    LoadItems();
+  }
+
   for (var i=0; i<NUM_SHOP_ITEMS; ++i) {
     if (CurrentTier[i+1]) {
       var itemname = CurrentTier[i+1]; // lua is 1 indexed
@@ -67,11 +70,11 @@ function RefreshShopUI() {
   }
 } 
 
-function UpdateItemInfo(data) {
+function UpdateItemInfo(data) {  
   var itemname = data.itemname;
   itemData[itemname] = data;
 
-  RefreshShopUI()
+  RefreshShopUI();
 }
 
 function RefreshShopData() {
@@ -80,24 +83,24 @@ function RefreshShopData() {
   items.forEach(function(itemname) {
     var key = itemname + localPlayerID;
     var shopData = CustomNetTables.GetTableValue("custom_shop", key);
-    if (shopData)
+    if (shopData) {
       UpdateItemInfo(shopData);
+    }
   });
+
+  RefreshShopUI();
 }
 
 function OnShopUpdated(table_name, key, data) {
-  if (key.startsWith("tier")) {
-    LoadItems();
-  }
   if (data.playerID === localPlayerID) {
     UpdateItemInfo(data)
-  }  
+  }
 }
 
 (function () {
   LoadItems();
   RefreshShopData();
-  RefreshShopUI();
 
+  GameEvents.Subscribe("setup_shop", RefreshShopData);
   CustomNetTables.SubscribeNetTableListener("custom_shop", OnShopUpdated);
 })();
