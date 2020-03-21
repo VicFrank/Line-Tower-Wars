@@ -18,6 +18,7 @@
       <Panel hittest="false" id="Cooldown">
         <Panel hittest="false" id="CooldownOverlay" />
         <Label hittest="false" id="CooldownTimer" />
+        <Label hittest="false" id="InactiveOverlay" />
       </Panel>
       <Label hittest="false" class="Charges" id="ChargeCount" />
     </Button>

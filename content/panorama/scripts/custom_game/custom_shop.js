@@ -47,7 +47,7 @@ function BuildShopPanels() {
   shopItemPanels = [];
 
   for(var i=0; i< NUM_SHOP_ITEMS; ++i) {
-    var row = (i % 3) + 1;
+    var row = Math.floor(i/4) + 1;
     var rowPanel = $("#ShopRow" + row);
     var shopItemPanel = $.CreatePanel("Panel", rowPanel, "");
     shopItemPanel.BLoadLayout("file://{resources}/layout/custom_game/shop_item.xml", false, false);

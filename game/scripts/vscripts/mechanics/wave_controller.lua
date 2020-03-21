@@ -10,6 +10,12 @@ function InitializeLane(hero)
 
   Timers:CreateTimer(function()
     FindClearSpaceForUnit(hero, startPosition, true)
+
+    -- Move the camera to the player
+    PlayerResource:SetCameraTarget(hero:GetPlayerID(), hero)
+    Timers:CreateTimer(0.1, function()
+      PlayerResource:SetCameraTarget(hero:GetPlayerID(), nil)
+    end)
   end)
 
   -- Create the lane object
@@ -29,7 +35,6 @@ function SendCreep(hero, unitname, income)
   local spawnLocation = laneToSend.spawner
 
   -- Spawn the creep
-  unitname = "spider"
   local waveUnit = CreateUnitByName(unitname, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
   waveUnit.lane = laneToSend.laneNumber
 
@@ -72,7 +77,7 @@ function SpawnWave()
     local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. i):GetAbsOrigin()
 
     Timers:CreateTimer(function()
-      local waveUnit = CreateUnitByName("spider", spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
+      local waveUnit = CreateUnitByName("radiant_creep", spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
       waveUnit.lane = i
 
       numToSpawn = numToSpawn - 1

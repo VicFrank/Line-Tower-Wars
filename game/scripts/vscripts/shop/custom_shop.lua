@@ -16,7 +16,6 @@ end
 
 function GameMode:SetupShopForPlayer(playerID)
   local player = PlayerResource:GetPlayer(playerID)
-  CustomGameEventManager:Send_ServerToPlayer(player, "setup_shop", {})
   
   local maxStock = 30
   for _,shopItems in ipairs(shopTables) do
@@ -47,6 +46,8 @@ function GameMode:SetupShopForPlayer(playerID)
       StartRestockTimer(shopKey, initial_cd)
     end
   end
+
+  CustomGameEventManager:Send_ServerToPlayer(player, "setup_shop", {})
 end
 
 function StartRestockTimer(shopKey, initial_cd)

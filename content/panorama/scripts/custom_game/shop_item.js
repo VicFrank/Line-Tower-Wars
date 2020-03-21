@@ -61,16 +61,16 @@ function PurchaseItem() {
   GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: itemname})
 
   // See if we can buy the item on the client-side
-  var gold = Players.GetGold(localPlayerID);
+  // var gold = Players.GetGold(localPlayerID);
 
-  // Check if we should start the cooldown (assuming this purchase is verified)
-  if (gold > cost && stock === 1) {
-    restockTime = Game.GetGameTime();
+  // // Check if we should start the cooldown (assuming this purchase is verified)
+  // if (gold > cost && stock === 1) {
+  //   restockTime = Game.GetGameTime();
 
-    var itemButtonPanel = $("#" + itemname);
-    $.GetContextPanel().SetHasClass("cooldown_ready", false);
-    $.GetContextPanel().SetHasClass("in_cooldown", true);  
-  }
+  //   var itemButtonPanel = $("#" + itemname);
+  //   $.GetContextPanel().SetHasClass("cooldown_ready", false);
+  //   $.GetContextPanel().SetHasClass("in_cooldown", true);  
+  // }
 }
 
 function SetItem(data)
