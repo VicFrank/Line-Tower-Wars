@@ -4,13 +4,14 @@
 }
 
 .TopLeftMenu {
-  width: 775px;
-  height: 149px;
-  margin-top: -30px;
-  margin-left: -260px;
-  
+  width: 200px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: -5px;
+  background-color: gradient( linear, 0% 0%, 0% 5%, from( #000b ), to( #000b ) );
+  border-radius: 5px;
   background-size: 100%;
-  opacity: 1;
+  opacity: 1.2;
   transition-duration: .05s;
   transition-property: background-image;
   transition-timing-function: ease-in-out;
@@ -29,22 +30,51 @@
 }
 
 #NewDashboardButton {
-  background-image: url("s2r://panorama/images/control_icons/return_to_game_png.vtex");
+  background-image: url("s2r://panorama/images/control_icons/dota_logo_white_png.vtex");
   background-size: 100%;
-  margin-top: 42px;
-  margin-left: 285px;
+  margin-top: 5px;
+  margin-left: 20px;
+  transition-duration: 0.3s;
+  transition-property: wash-color;
+  transition-timing-function: ease-in-out;
+}
+#NewSettingsButton {
+  background-image: url("s2r://panorama/images/control_icons/gear_png.vtex");
+  background-size: 25px;
+  margin-top: 8px;
+  margin-left: 67px;
+  transition-duration: 0.3s;
+  transition-property: wash-color;
+  transition-timing-function: ease-in-out;
 }
 #NewScoreboardButton {
-  background-image: url("s2r://panorama/images/control_icons/hamburger_png.vtex");
-  background-size: 25px;
-  margin-top: 43px;
-  margin-left: 330px;
+  background-image: url("s2r://panorama/images/control_icons/toc_psd.vtex");
+  background-size: 28px;
+  margin-top: 6px;
+  margin-left: 110px;
+  transition-duration: 0.3s;
+  transition-property: wash-color;
+  transition-timing-function: ease-in-out;
 }
 #LeaderboardButton {
-  background-image: url("s2r://panorama/images/hud/reborn/icon_combat_log_psd.vtex");
+  background-image: url("s2r://panorama/images/control_icons/stats_psd.vtex");
   background-size: 26px;
-  margin-top: 43px;
-  margin-left: 370px;
+  margin-top: 7px;
+  margin-left: 155px;
+  transition-duration: 0.3s;
+  transition-property: wash-color;
+  transition-timing-function: ease-in-out;
+}
+
+#NewDashboardButton:hover,
+#NewSettingsButton:hover,
+#NewScoreboardButton:hover,
+#LeaderboardButton:hover
+{
+	wash-color: white;
+	transition-duration: 0.3s;
+    transition-property: wash-color;
+    transition-timing-function: ease-in-out;
 }
 
 .AvatarsPanel
@@ -58,10 +88,10 @@
 
 .PlayerPanel
 {     
-  width: 280px;
+  width: 230px;
   height: 85px;
   opacity: 1;
-  background-color: #000000bb;
+  background-color: gradient( linear, 0% 0%, 0% 5%, from( #000d ), to( #000d ) );
   border-top: 1px solid #77849519;
   border-left: 1px solid #77849509;
   border-right: 1px solid #77849509;
@@ -80,13 +110,13 @@
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
   horizontal-align: left;
-  margin-left: 2px;
-  margin-top: 2px;
+
 }
 
 .Username
 { 
   horizontal-align: center;
+  margin-right: 20px;
 }
 
 Label {
@@ -127,7 +157,8 @@ Label {
   color: #87C080;
   text-shadow: 2px 2px 2px black;
   font-size: 20px;
-  margin-top: 1px;
+  margin-top: 2px;
+  margin-left: -3px;
 }
 
 .GoldIcon
@@ -146,6 +177,7 @@ Label {
   color: #F7CD60;
   text-shadow: 2px 2px 2px black;
   font-size: 20px;
+  margin-left: -3px;
 }
 
 .InterestText
@@ -153,6 +185,7 @@ Label {
   color: lime;
   text-shadow: 2px 2px 2px black;
   font-size: 19px;
+  margin-left: 2px;
 }
 
 .Invisible

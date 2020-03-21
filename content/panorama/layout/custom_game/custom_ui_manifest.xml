@@ -54,6 +54,8 @@
 	HUD.FindChildTraverse("stackable_side_panels").FindChildTraverse("quickstats").style.visibility = "collapse";
 	newUI.FindChildTraverse("inventory_tpscroll_container").style.visibility = "collapse";
 	newUI.FindChildTraverse("right_flare").style.visibility = "collapse";
+	newUI.FindChildTraverse("left_flare").style.visibility = "collapse";
+	newUI.FindChildTraverse("xp").style.visibility = "collapse";
 	newUI.FindChildTraverse("inventory_neutral_slot_container").style.visibility = "collapse";
     
     //newUI.FindChildTraverse("level_stats_frame").style.visibility = "collapse";
