@@ -81,7 +81,7 @@ function GameMode:InitGameMode()
   GameRules:SetUseUniversalShopMode(false)
   GameRules:SetHeroRespawnEnabled(false)
   GameRules:SetSafeToLeave(true)
-  GameRules:SetCustomGameSetupAutoLaunchDelay(30)
+  GameRules:SetCustomGameSetupAutoLaunchDelay(1)
   GameRules:SetCustomGameEndDelay(0)
   GameRules:SetHeroSelectionTime(0)
   GameRules:SetPreGameTime(0)
@@ -158,6 +158,9 @@ function GameMode:InitGameMode()
   ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GameMode, 'OnGameRulesStateChange'), self)
   ListenToGameEvent('player_chat', Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
 
+  -- Custom Event Hooks
+  CustomGameEventManager:RegisterListener('attempt_purchase', OnAttemptPurchase)
+
   -- Filters
   -- mode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
 
@@ -179,4 +182,6 @@ function GameMode:InitGameMode()
 
   -- Modifier Applier
   GameRules.Applier = CreateItem("item_apply_modifiers", nil, nil)
+
+  GameMode:InitializeShopData()
 end

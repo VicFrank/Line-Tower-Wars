@@ -1,4 +1,5 @@
 #base "buildings/items.kv"
+#base "creeps/items.kv"
 
 "DOTAAbilities"
 {

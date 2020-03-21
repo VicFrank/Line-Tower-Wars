@@ -42,6 +42,7 @@ function GameMode:OnHeroInGame(hero)
 
   hero:SetAbilityPoints(0)
   hero:ModifyIncome(STARTING_INCOME)
+  GameMode:SetupShopForPlayer(hero:GetPlayerOwnerID())
 
   Timers:CreateTimer(.03, function()
     for i=0,16 do

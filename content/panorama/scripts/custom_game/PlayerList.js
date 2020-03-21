@@ -52,7 +52,6 @@ function createPlayerPanel(id, steam_id){
   
   var InterestText = $.CreatePanel("Label", GoldContainer, "interest_text" + id);
   InterestText.AddClass("InterestText");
-  InterestText.text = "(+279k)"
 }
 
 UpdateGold();
@@ -72,19 +71,19 @@ function UpdateIncomes() {
   for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
     if (Game.GetPlayerInfo(i)) {
       var data = CustomNetTables.GetTableValue("player_stats", i);
-      var income = data.income;
-
-      $("#interest_text" + i).text = "(+" + income + ")";
+      if (data) {
+        var income = data.income;
+        $("#interest_text" + i).text = "(+" + income + ")";
+      }
     }
-  }
-  
+  }  
 }
 
 function OnIncomeChanged(table_name, key, data) {
   var playerID = key;
   var income = data.income;
 
-  $("#interest_text" + id).text = "(+" + income + ")";
+  $("#interest_text" + playerID).text = "(+" + income + ")";
 }
 
 (function () {

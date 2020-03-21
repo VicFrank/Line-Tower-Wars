@@ -2,7 +2,6 @@ function GameMode:OnScriptReload()
   print("Script Reload")
 
   for _,hero in pairs(HeroList:GetAllHeroes()) do
-    hero:ModifyIncome(STARTING_INCOME)
   end
 end
 

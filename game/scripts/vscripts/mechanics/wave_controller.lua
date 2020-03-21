@@ -14,23 +14,24 @@ function InitializeLane(hero)
 
   -- Create the lane object
   table.insert(GameRules.lanes, {
-    lane = lane,
+    laneNumber = lane,
     hero = hero,
-    spawner = waveSpawner,
-    target = waveTarget,
+    spawner = hero.waveSpawner,
+    target = hero.waveTarget,
   })
 
   print("Initialized Lane " .. lane)
 end
 
 function SendCreep(hero, unitname, income)
-  local lane = hero.lane
-  local laneToSend = GetNextLane(lane)
+  local laneNumber = hero.lane
+  local laneToSend = GetNextLane(laneNumber)
   local spawnLocation = laneToSend.spawner
 
   -- Spawn the creep
+  unitname = "spider"
   local waveUnit = CreateUnitByName(unitname, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
-  waveUnit.lane = i
+  waveUnit.lane = laneToSend.laneNumber
 
   -- Increase income
   hero:ModifyIncome(income)
@@ -38,9 +39,9 @@ end
 
 function GetNextLane(laneNumber)
   local numLanes = #GameRules.lanes
-  for i=1,numLanes do
+  for i=0,numLanes-1 do
     -- check the next lane in order, circling around
-    local laneToCheck = (laneNumber + i) % numLanes
+    local laneToCheck = ((laneNumber + i) % numLanes) + 1
     local lane = GameRules.lanes[laneToCheck]
 
     if IsValidAlive(lane.hero) then

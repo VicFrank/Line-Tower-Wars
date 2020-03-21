@@ -68,5 +68,6 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/building_helper.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/custom_shop.xml" />
   </Panel>
 </root>

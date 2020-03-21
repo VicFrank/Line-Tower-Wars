@@ -1,129 +1,103 @@
-function OnShopButtonPressed() {
-  Game.EmitSound("ui_chat_slide_out")
-  $("#Items").ToggleClass("ShopHidden");
-}
+"use strict";
 
 var localPlayerID = Players.GetLocalPlayer();
-var localPlayerTeam = Players.GetTeam(localPlayerID);
+var shopPanel = $("#Items");
+var shopItemPanels = [];
+var itemData = {};
 
-var restockTimes = {};
+var tier1;
+var tier2;
+var tier3;
 
-function UpdateItemInfo(data) {
-  // $.Msg(data);
+var CurrentTier;
 
-  var itemname = data.itemname;
-  var gold_cost = data.gold_cost;
-  var lumber_cost = data.lumber_cost;
-  var stock = data.stock;
-  var restock_time = data.restock_time;
-  var purchase_time = data.purchase_time;
+var NUM_SHOP_ITEMS = 12;
 
-  var itemButtonPanel = $("#" + itemname);
+function LoadItems() {
+  $.Msg("Load Items");
 
-  // var goldCostLabel = itemButtonPanel.FindChildrenWithClassTraverse("GoldCost")[0];
-  // var lumberCostLabel = itemButtonPanel.FindChildrenWithClassTraverse("LumberCost")[0];
-  var stockLabel = itemButtonPanel.FindChildrenWithClassTraverse("Stock")[0];
-  stockLabel.text = stock;
+  tier1 = CustomNetTables.GetTableValue("custom_shop", "tier1");
+  tier2 = CustomNetTables.GetTableValue("custom_shop", "tier2");
+  tier3 = CustomNetTables.GetTableValue("custom_shop", "tier3");
 
-  // goldCostLabel.text = gold_cost;
-  // if (lumber_cost > 0)
-  //   lumberCostLabel.text = lumber_cost;
+  CurrentTier = tier1;
 
-  restockTimes[itemname] = {restock_time: restock_time, purchase_time: purchase_time};
+  InitializeItemData(tier1);
+  InitializeItemData(tier2);
+  InitializeItemData(tier3);
 
-  if (stock > 0) {
-    itemButtonPanel.SetHasClass("cooldown_ready", true);
-    itemButtonPanel.SetHasClass("in_cooldown", false);
-  }
-  else {
-    itemButtonPanel.SetHasClass("cooldown_ready", false);
-    itemButtonPanel.SetHasClass("in_cooldown", true);
+  BuildShopPanels();
+  RefreshShopData();
+}
 
-    if (restock_time < 0) {
-      var cooldownPanel = itemButtonPanel.GetChild(1);
-      var cooldownOverlay = cooldownPanel.GetChild(0);
+function InitializeItemData(tier) {
+  Object.values(tier).forEach(function(itemname) {
+    itemData[itemname] = {};
+  });
+} 
 
-      cooldownOverlay.style.width = "100%";    
-    }
+function ClearShopPanels() {
+  $("#ShopRow1").RemoveAndDeleteChildren();
+  $("#ShopRow2").RemoveAndDeleteChildren();
+  $("#ShopRow3").RemoveAndDeleteChildren();
+  $("#ShopRow4").RemoveAndDeleteChildren();
+} 
+
+function BuildShopPanels() {
+  ClearShopPanels();
+  shopItemPanels = [];
+
+  for(var i=0; i< NUM_SHOP_ITEMS; ++i) {
+    var row = (i % 3) + 1;
+    var rowPanel = $("#ShopRow" + row);
+    var shopItemPanel = $.CreatePanel("Panel", rowPanel, "");
+    shopItemPanel.BLoadLayout("file://{resources}/layout/custom_game/shop_item.xml", false, false);
+    shopItemPanels.push(shopItemPanel);
   }
 }
 
-function RefreshShopInfo() {
+function RefreshShopUI() {
+  for (var i=0; i<NUM_SHOP_ITEMS; ++i) {
+    if (CurrentTier[i+1]) {
+      var itemname = CurrentTier[i+1]; // lua is 1 indexed
+      var shopItemPanel = shopItemPanels[i];
+      var data = itemData[itemname];
+      shopItemPanel.SetItem(data);
+    }
+  }
+} 
+
+function UpdateItemInfo(data) {
+  var itemname = data.itemname;
+  itemData[itemname] = data;
+
+  RefreshShopUI()
+}
+
+function RefreshShopData() {
+  var items = Object.keys(itemData);
+
   items.forEach(function(itemname) {
-    var key = itemname + localPlayerTeam;
+    var key = itemname + localPlayerID;
     var shopData = CustomNetTables.GetTableValue("custom_shop", key);
     if (shopData)
       UpdateItemInfo(shopData);
   });
 }
 
-function UpdateItemCooldowns() {
-  Object.keys(restockTimes).forEach(function(itemname) {
-    var restock_time = restockTimes[itemname].restock_time;
-    var purchase_time = restockTimes[itemname].purchase_time;
-
-    if (purchase_time + restock_time > Game.GetGameTime()) {
-      var itemButtonPanel = $("#" + itemname);
-
-      var cooldownLength = restock_time;
-      var cooldownRemaining = (purchase_time + restock_time) - Game.GetGameTime();
-      var cooldownPercent = Math.ceil(100 * cooldownRemaining / cooldownLength);
-
-      var cooldownPanel = itemButtonPanel.GetChild(1);
-      var cooldownOverlay = cooldownPanel.GetChild(0);
-
-      cooldownOverlay.style.width = cooldownPercent+"%";      
-    }
-  });
-}
-
-function AutoUpdateItems()
-{
-  UpdateItemCooldowns();
-  $.Schedule(0.1, AutoUpdateItems);
-}
-
 function OnShopUpdated(table_name, key, data) {
-  if (data.team == localPlayerTeam) {
+  if (key.startsWith("tier")) {
+    LoadItems();
+  }
+  if (data.playerID === localPlayerID) {
     UpdateItemInfo(data)
   }  
 }
 
-function AttemptPurchase(itemname) {
-  if (Game.IsGamePaused()) return;
-  
-  GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: itemname})
-
-  // See if we can buy the item on the client-side
-  var data = CustomNetTables.GetTableValue("resources", localPlayerID);
-  var lumber = 0;
-  var gold = 0;
-  if (data && data.lumber){
-    lumber = data.lumber;
-    gold = data.gold;
-  } 
-
-  var key = itemname + localPlayerTeam;
-  var itemData = CustomNetTables.GetTableValue("custom_shop", key);
-  if (itemData) {
-    var gold_cost = data.gold_cost;
-    var lumber_cost = data.lumber_cost;
-    var stock = data.stock;
-
-    // Check if we should start the cooldown (assuming this purchase is verified)
-    if (stock == 1 && lumber > lumber_cost && gold > gold_cost) {
-      restockTimes[itemname] = {purchase_time: Game.GetGameTime()};
-
-      var itemButtonPanel = $("#" + itemname);
-      itemButtonPanel.SetHasClass("cooldown_ready", false);
-      itemButtonPanel.SetHasClass("in_cooldown", true);  
-    }
-  }  
-}
-
 (function () {
-  AutoUpdateItems();
-  RefreshShopInfo(); 
+  LoadItems();
+  RefreshShopData();
+  RefreshShopUI();
 
   CustomNetTables.SubscribeNetTableListener("custom_shop", OnShopUpdated);
 })();
