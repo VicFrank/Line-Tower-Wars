@@ -6,14 +6,15 @@
 
 #ShopHolder
 {
-  width: 400px;
-  height: 230px;
-  border-radius: 5px;
-
+  width: 380px;
+  height: 215px;
+  border-radius: 1px;
   horizontal-align: right;
   vertical-align: bottom;
 
   flow-children: down;
+  
+  border: 1px solid #000e;
 }
 
 #ShopHeader
@@ -30,11 +31,83 @@
   flow-children: down;
   horizontal-align: center;
 
-  background-color: gradient( linear, 0% 0%, 0% 5%, from( #000d ), to( #000d ) );
+  background-color: gradient( linear, 0% 0%, 0% 5%, from( #000c ), to( #000c ) );
   background-size: cover;
 
   transition-property: transform;
   transition-duration: 0.25s;
+  
+  border: 1px solid #000c;
+}
+
+.PageButtons
+{
+	width: 115px;
+	height: 45px;
+	align: right bottom;
+	margin-bottom: 214px;
+	
+	background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_psd.vtex");
+	background-size: 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+
+	transition-property: box-shadow, background-image, background-color;
+	transition-duration: .16s;
+	transition-timing-function: ease-in-out;
+}
+
+.PageButtons:hover
+{
+	brightness: 2;
+}
+
+.PageButtonsActive
+{
+	width: 115px;
+	height: 45px;
+	align: right bottom;
+	margin-bottom: 214px;
+	brightness: 1.5;
+	background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_hover_psd.vtex");
+}
+
+.PageButtonsActive:hover
+{
+	brightness: 2;
+}
+
+#Page1
+{
+	margin-right: 245px;
+	border-left: 1px solid #000c;
+	border-top: 1px solid #000c;
+}
+
+#Page2
+{
+	margin-right: 130px;
+	border-top: 1px solid #000c;
+	border-left: 1px solid #000c;
+	border-right: 1px solid #000c;
+}
+
+#Page3
+{
+	margin-right: 15px;
+	border-top: 1px solid #000c;
+	border-right: 1px solid #000c;
+}
+
+.PageButtonsText
+{
+	color: #ffa;
+	font-size: 20px;
+	text-transform: uppercase;
+    letter-spacing: 1px;
+	text-align: center;
+	align: center center;
+	vertical-align: middle;
 }
 
 .ShopRow

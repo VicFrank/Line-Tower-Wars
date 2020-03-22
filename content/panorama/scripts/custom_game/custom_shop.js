@@ -13,6 +13,21 @@ var CurrentTier;
 
 var NUM_SHOP_ITEMS = 12;
 
+function OnPage1ButtonClicked() {
+	Game.EmitSound("ui_chat_slide_out")
+}
+
+function OnPage2ButtonClicked() {
+	Game.EmitSound("ui_chat_slide_out")
+}
+
+function OnPage3ButtonClicked() {
+	Game.EmitSound("ui_chat_slide_out")
+}
+
+
+
+
 function LoadItems() {
   $.Msg("Load Items");
 

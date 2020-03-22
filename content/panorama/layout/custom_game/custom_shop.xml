@@ -7,13 +7,22 @@
     <include src="file://{resources}/scripts/custom_game/custom_shop.js" />     
   </scripts>
   <Panel class="CustomShopRoot" hittest="false">
+		<Panel id="Page1" class="PageButtonsActive" onactivate="OnPage1ButtonClicked()">
+			<Label hittest="false" class="PageButtonsText" text="Page 1" />
+		</Panel>	
+		<Panel id="Page2" class="PageButtons" onactivate="OnPage2ButtonClicked()">
+			<Label hittest="false" class="PageButtonsText" text="Page 2" />
+		</Panel>
+		<Panel id="Page3" class="PageButtons" onactivate="OnPage3ButtonClicked()">
+			<Label hittest="false" class="PageButtonsText" text="Page 3" />
+		</Panel>
     <Panel id="ShopHolder">
-      <Panel id="Items">
-        <Panel id="ShopRow1" class="ShopRow"></Panel>
-        <Panel id="ShopRow2" class="ShopRow"></Panel>
-        <Panel id="ShopRow3" class="ShopRow"></Panel>
-        <Panel id="ShopRow4" class="ShopRow"></Panel>
-      </Panel>
+		<Panel id="Items">
+			<Panel id="ShopRow1" class="ShopRow"></Panel>
+			<Panel id="ShopRow2" class="ShopRow"></Panel>
+			<Panel id="ShopRow3" class="ShopRow"></Panel>
+			<Panel id="ShopRow4" class="ShopRow"></Panel>
+		</Panel>
     </Panel>
   </Panel>
 </root>

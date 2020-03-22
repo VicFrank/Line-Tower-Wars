@@ -10,7 +10,6 @@
   margin-left: -5px;
   background-color: gradient( linear, 0% 0%, 0% 5%, from( #000b ), to( #000b ) );
   border-radius: 5px;
-  background-size: 100%;
   opacity: 1.2;
   transition-duration: .05s;
   transition-property: background-image;
@@ -88,8 +87,8 @@
 
 .PlayerPanel
 {     
-  width: 230px;
-  height: 85px;
+  width: 200px;
+  height: 67px;
   opacity: 1;
   background-color: gradient( linear, 0% 0%, 0% 5%, from( #000d ), to( #000d ) );
   border-top: 1px solid #77849519;
@@ -105,8 +104,8 @@
 
 .UserAvatar
 {
-  width: 85px;
-  height: 85px;
+  width: 67px;
+  height: 67px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
   horizontal-align: left;
@@ -116,14 +115,15 @@
 .Username
 { 
   horizontal-align: center;
-  margin-right: 20px;
-}
+  margin-right: 25px;
 
+}
 Label {
   color: white;
-  font-size: 25px;
+  font-size: 20px;
   text-shadow: 2px 2px 2px black;
   text-overflow: clip;
+  text-shadow: 0px 0px 4px #CD6BAA;
 }
 
 .UserInfoContainer
@@ -143,49 +143,53 @@ Label {
 
 .HealthIcon
 {     
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 20px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/HealthIcon.png');
   horizontal-align: left;
-  margin: 2px 5px 2px 5px;
+  margin: -1px 5px 2px 5px;
 }
 
 .HealthText
 { 
   horizontal-align: center;
   color: #87C080;
-  text-shadow: 2px 2px 2px black;
-  font-size: 20px;
-  margin-top: 2px;
+  text-shadow: 2px 2px 8px 3.0 black;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: -1px;
   margin-left: -3px;
 }
 
 .GoldIcon
 {     
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/GoldIcon.png');
   horizontal-align: left;
-  margin: 2px 5px 2px 5px;
+  margin: 0px 5px 2px 5px;
 }
 
 .GoldText
 { 
   horizontal-align: center;
   color: #F7CD60;
-  text-shadow: 2px 2px 2px black;
-  font-size: 20px;
+  text-shadow: 2px 2px 8px 3.0 black;
+  font-weight: bold;
+  font-size: 18px;
   margin-left: -3px;
+  margin-top: -2px;
 }
 
 .InterestText
 { 
   color: lime;
-  text-shadow: 2px 2px 2px black;
-  font-size: 19px;
+  text-shadow: 2px 2px 5px 1.0 black;
+  font-size: 16px;
   margin-left: 2px;
+  margin-top: -1px;
 }
 
 .Invisible

@@ -42,12 +42,17 @@
 	margin-bottom: 4px;
 	margin-left: 4px;
 	margin-right: 4px;
+	border: 1px solid #000e;
 }
 
 .Charges
 {
-	font-size: 24px;
-	text-shadow: 0px 0px 6px 6 #000000;
+	text-shadow: 0px 0px 2px #CD6BFB;
+	color: #fff;
+	background-color: gradient( linear, 0% 0%, 0% 5%, from( #000e ), to( #000e ) );
+	height: 40%;
+	width: 30%;
+	font-size: 20px;
 }
 
 #ChargeCount
@@ -55,13 +60,12 @@
 	visibility: collapse;
 	vertical-align: bottom;
 	horizontal-align: right;
-	margin-right: 4px;
-	margin-bottom: -6px;
+	text-align: center;
 }
 
 #AltChargeCount
 {
-	font-size: 20px;
+	font-size: 15px;
 	visibility: collapse;
 	vertical-align: bottom;
 	horizontal-align: left;
