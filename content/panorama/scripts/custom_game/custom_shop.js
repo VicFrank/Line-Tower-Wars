@@ -30,7 +30,7 @@ function OnPageClicked(tier) {
     CurrentTier = tier3;
   }
 
-  RefreshShopData();
+  RefreshShopUI();
 }
 
 function LoadItems() {
@@ -75,6 +75,10 @@ function BuildShopPanels() {
   }
 }
 
+function ObjectIsEmpty(obj) {
+  return Object.keys(obj).length === 0 && obj.constructor === Object
+}
+
 function RefreshShopUI() {
   if (!CurrentTier) {
     LoadItems();
@@ -85,16 +89,15 @@ function RefreshShopUI() {
       var itemname = CurrentTier[i+1]; // lua is 1 indexed
       var shopItemPanel = shopItemPanels[i];
       var data = itemData[itemname];
+
+      // I'm not sure why, but sometimes the data isn't initialized
+      if (ObjectIsEmpty(data)) {
+        RefreshShopData();
+      }
+
       shopItemPanel.SetItem(data);
     }
   }
-} 
-
-function UpdateItemInfo(data) {  
-  var itemname = data.itemname;
-  itemData[itemname] = data;
-
-  RefreshShopUI();
 }
 
 function RefreshShopData() {
@@ -103,23 +106,26 @@ function RefreshShopData() {
   items.forEach(function(itemname) {
     var key = itemname + localPlayerID;
     var shopData = CustomNetTables.GetTableValue("custom_shop", key);
+
     if (shopData) {
-      UpdateItemInfo(shopData);
+      itemData[itemname] = shopData;
     }
   });
-
-  RefreshShopUI();
 }
 
 function OnShopUpdated(table_name, key, data) {
   if (data.playerID === localPlayerID) {
-    UpdateItemInfo(data)
+    var itemname = data.itemname;
+    itemData[itemname] = data;
+
+    RefreshShopUI();
   }
 }
 
 (function () {
   LoadItems();
   RefreshShopData();
+  RefreshShopUI();
 
   GameEvents.Subscribe("setup_shop", RefreshShopData);
   CustomNetTables.SubscribeNetTableListener("custom_shop", OnShopUpdated);
