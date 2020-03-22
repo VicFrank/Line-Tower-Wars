@@ -13,20 +13,25 @@ var CurrentTier;
 
 var NUM_SHOP_ITEMS = 12;
 
-function OnPage1ButtonClicked() {
-	Game.EmitSound("ui_chat_slide_out")
+function OnPageClicked(tier) {
+	Game.EmitSound("ui_chat_slide_out");
+
+  $("#Page1").SetHasClass("PageButtonsActive", false);
+  $("#Page2").SetHasClass("PageButtonsActive", false);
+  $("#Page3").SetHasClass("PageButtonsActive", false);
+
+  $("#Page" + tier).SetHasClass("PageButtonsActive", true);
+
+  if (tier === 1) {
+    CurrentTier = tier1;
+  } else if (tier === 2) {
+    CurrentTier = tier2;
+  } else if (tier === 3) {
+    CurrentTier = tier3;
+  }
+
+  RefreshShopData();
 }
-
-function OnPage2ButtonClicked() {
-	Game.EmitSound("ui_chat_slide_out")
-}
-
-function OnPage3ButtonClicked() {
-	Game.EmitSound("ui_chat_slide_out")
-}
-
-
-
 
 function LoadItems() {
   $.Msg("Load Items");
