@@ -4,7 +4,7 @@
 }
 
 .TopLeftMenu {
-  width: 200px;
+  width: 250px;
   height: 40px;
   margin-top: 10px;
   margin-left: -5px;
@@ -64,11 +64,22 @@
   transition-property: wash-color;
   transition-timing-function: ease-in-out;
 }
+#DiscordButton {
+  background-image:url('file://{images}/custom_game/Discord.png');
+  background-size: 95% 70%;
+  margin-top: 10px;
+  margin-left: 200px;
+  transition-duration: 0.3s;
+  transition-property: wash-color;
+  transition-timing-function: ease-in-out;	
+
+}
 
 #NewDashboardButton:hover,
 #NewSettingsButton:hover,
 #NewScoreboardButton:hover,
-#LeaderboardButton:hover
+#LeaderboardButton:hover,
+#DiscordButton:hover
 {
 	wash-color: white;
 	transition-duration: 0.3s;

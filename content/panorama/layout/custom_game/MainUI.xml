@@ -16,6 +16,7 @@
 			<Button id="NewSettingsButton" class="TopLeftMenuButton" onactivate="DOTAShowSettingsPopup();" onmouseover="UIShowTextTooltip(DOTA_HUD_Settings)"  onmouseout="UIHideTextTooltip()" />
 			<Button id="NewScoreboardButton" class="TopLeftMenuButton" onactivate="OnScoreboardButtonPressed();" onmouseover="UIShowTextTooltip(Scoreboard - Coming Soon)"  onmouseout="UIHideTextTooltip()" />
 			<Button id="LeaderboardButton" class="TopLeftMenuButton" onactivate="OnLeaderboardButtonPressed();" onmouseover="UIShowTextTooltip(Leaderboard - Coming Soon)"  onmouseout="UIHideTextTooltip()" />
+			<Button id="DiscordButton" class="TopLeftMenuButton" onactivate="ExternalBrowserGoToURL('');" onmouseover="UIShowTextTooltip(Join the Community)"  onmouseout="UIHideTextTooltip()"/>
 		</Panel>
 	
 	
