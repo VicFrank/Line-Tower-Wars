@@ -6,8 +6,7 @@ var m_QueryUnit = -1;
 var itemname = "";
 var restockTime = -1;
 var cooldownLength = -1;
-var stock = -1
-var cost = -1;
+var stock = -1;
 
 function UpdateItem()
 {
@@ -58,26 +57,13 @@ function ItemHideTooltip()
 function PurchaseItem() {
   if (Game.IsGamePaused()) return;
   
-  GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: itemname})
-
-  // See if we can buy the item on the client-side
-  // var gold = Players.GetGold(localPlayerID);
-
-  // // Check if we should start the cooldown (assuming this purchase is verified)
-  // if (gold > cost && stock === 1) {
-  //   restockTime = Game.GetGameTime();
-
-  //   var itemButtonPanel = $("#" + itemname);
-  //   $.GetContextPanel().SetHasClass("cooldown_ready", false);
-  //   $.GetContextPanel().SetHasClass("in_cooldown", true);  
-  // }
+  GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: itemname});
 }
 
 function SetItem(data)
 {
   itemname = data.itemname;
   stock = data.stock;
-  cost = data.cost;
   restockTime = data.restock_time;
   cooldownLength = data.cooldown_length;
 }

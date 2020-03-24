@@ -30,7 +30,7 @@ function OnPageClicked(tier) {
     CurrentTier = tier3;
   }
 
-  RefreshShopUI();
+  RefreshShop();
 }
 
 function LoadItems() {
@@ -42,44 +42,29 @@ function LoadItems() {
 
   CurrentTier = tier1;
 
-  InitializeItemData(tier1);
-  InitializeItemData(tier2);
-  InitializeItemData(tier3);
-
   BuildShopPanels();
+  RefreshShop();
 }
 
-function InitializeItemData(tier) {
-  Object.values(tier).forEach(function(itemname) {
-    itemData[itemname] = {};
-  });
-} 
+function BuildShopPanels() {
+  shopItemPanels = [];
 
-function ClearShopPanels() {
   $("#ShopRow1").RemoveAndDeleteChildren();
   $("#ShopRow2").RemoveAndDeleteChildren();
   $("#ShopRow3").RemoveAndDeleteChildren();
   $("#ShopRow4").RemoveAndDeleteChildren();
-} 
-
-function BuildShopPanels() {
-  ClearShopPanels();
-  shopItemPanels = [];
 
   for(var i=0; i< NUM_SHOP_ITEMS; ++i) {
     var row = Math.floor(i/4) + 1;
     var rowPanel = $("#ShopRow" + row);
     var shopItemPanel = $.CreatePanel("Panel", rowPanel, "");
+
     shopItemPanel.BLoadLayout("file://{resources}/layout/custom_game/shop_item.xml", false, false);
     shopItemPanels.push(shopItemPanel);
   }
 }
 
-function ObjectIsEmpty(obj) {
-  return Object.keys(obj).length === 0 && obj.constructor === Object
-}
-
-function RefreshShopUI() {
+function RefreshShop() {
   if (!CurrentTier) {
     LoadItems();
   }
@@ -88,45 +73,32 @@ function RefreshShopUI() {
     if (CurrentTier[i+1]) {
       var itemname = CurrentTier[i+1]; // lua is 1 indexed
       var shopItemPanel = shopItemPanels[i];
-      var data = itemData[itemname];
+      var key = itemname + localPlayerID;
+      var data = CustomNetTables.GetTableValue("custom_shop", key);
 
-      // I'm not sure why, but sometimes the data isn't initialized
-      if (ObjectIsEmpty(data)) {
-        RefreshShopData();
+      if (data) {
+        shopItemPanel.SetItem(data);
+      } else {
+        shopItemPanel.SetItem({
+          itemname,
+          stock: 0,
+          restock_time: 0,
+          cooldown_length: 0,
+        });
       }
-
-      shopItemPanel.SetItem(data);
     }
   }
 }
 
-function RefreshShopData() {
-  var items = Object.keys(itemData);
-
-  items.forEach(function(itemname) {
-    var key = itemname + localPlayerID;
-    var shopData = CustomNetTables.GetTableValue("custom_shop", key);
-
-    if (shopData) {
-      itemData[itemname] = shopData;
-    }
-  });
-}
-
 function OnShopUpdated(table_name, key, data) {
   if (data.playerID === localPlayerID) {
-    var itemname = data.itemname;
-    itemData[itemname] = data;
-
-    RefreshShopUI();
+    RefreshShop()
   }
 }
 
 (function () {
   LoadItems();
-  RefreshShopData();
-  RefreshShopUI();
 
-  GameEvents.Subscribe("setup_shop", RefreshShopData);
+  GameEvents.Subscribe("setup_shop", LoadItems);
   CustomNetTables.SubscribeNetTableListener("custom_shop", OnShopUpdated);
 })();
