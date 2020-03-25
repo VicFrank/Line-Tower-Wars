@@ -26,6 +26,7 @@ function GameMode:SetupShopForPlayer(playerID)
       local initial_cd = itemData.initial_cd
       local cd = itemData.cd
       local unit = itemData.unit
+      local max_stock = itemData.max_stock
 
       local shopKey = GetShopItemKey(itemname, playerID)
 
@@ -41,6 +42,7 @@ function GameMode:SetupShopForPlayer(playerID)
           restock_time = GameRules:GetGameTime() + initial_cd,
           cooldown_length = initial_cd,
           cd = cd,
+          max_stock = max_stock,
       })
 
       StartRestockTimer(shopKey, initial_cd)
@@ -55,7 +57,7 @@ function StartRestockTimer(shopKey, initial_cd)
     local itemData = CustomNetTables:GetTableValue("custom_shop", shopKey)
     local stock = itemData.stock
 
-    if stock < MAX_ITEM_STOCK then
+    if stock < itemData.max_stock then
       CustomNetTables:SetTableValue(
         "custom_shop",
         shopKey,
@@ -69,6 +71,7 @@ function StartRestockTimer(shopKey, initial_cd)
           restock_time = GameRules:GetGameTime() + itemData.cd,
           cooldown_length = itemData.cd,
           cd = itemData.cd,
+          max_stock = itemData.max_stock,
       })
     else
       return 1
@@ -102,15 +105,13 @@ function OnAttemptPurchase(eventSourceIndex, args)
     return false
   end
 
-  -- Make sure we have enough resources to buy this item
-  if hero:GetGold() < cost then
-    SendErrorMessage(playerID, "#error_not_enough_gold")
+  if stock <= 0 then
+    SendErrorMessage(playerID, "#error_out_of_stock")
     return false
   end
 
-  -- Make sure the item is in stock
-  if stock <= 0 then
-    SendErrorMessage(playerID, "#error_out_of_stock")
+  if hero:GetGold() < cost then
+    SendErrorMessage(playerID, "#error_not_enough_gold")
     return false
   end
 
@@ -130,10 +131,8 @@ function OnAttemptPurchase(eventSourceIndex, args)
       restock_time = restock_time,
       cooldown_length = cooldown_length,
       cd = itemData.cd,
+      max_stock = itemData.max_stock,
     })
-
-  -- Play success sound
-  EmitSoundOnClient("General.Buy", hero:GetPlayerOwner())
 
   -- Send the creep
   SendCreep(hero, unit, income)

@@ -7,6 +7,7 @@ var itemname = "";
 var restockTime = -1;
 var cooldownLength = -1;
 var stock = -1;
+var cost = -1;
 
 function UpdateItem()
 {
@@ -55,8 +56,14 @@ function ItemHideTooltip()
 }
 
 function PurchaseItem() {
-  if (Game.IsGamePaused()) return;
-  
+  var gold = Players.GetGold(localPlayerID);
+  if (stock === 0 || gold < cost || Game.IsGamePaused()) {
+    // Game.EmitSound("General.SecretShopNotInRange");
+  } else {
+    Game.EmitSound("General.Buy");
+  }
+
+  // we need to call this even on a failed purchase to show the error messages
   GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: itemname});
 }
 
@@ -66,12 +73,12 @@ function SetItem(data)
   stock = data.stock;
   restockTime = data.restock_time;
   cooldownLength = data.cooldown_length;
+  cost = data.cost;
 }
 
 (function()
 {
   $.GetContextPanel().SetItem = SetItem;
-  // $.GetContextPanel().data().SetItem = SetItem;
 
   UpdateItem(); // initial update of dynamic state
 })();

@@ -14,6 +14,8 @@ require("mechanics/income")
 
 require("shop/custom_shop")
 
+require("filters/damage_filter")
+
 require("testing")
 require("events")
 require("constants")
@@ -68,7 +70,6 @@ end
 
 function GameMode:InitGameMode()
   GameMode = self
-  print("Castle Fight has loaded.")
 
   LimitPathingSearchDepth(0.5)
 
@@ -163,6 +164,7 @@ function GameMode:InitGameMode()
 
   -- Filters
   -- mode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
+  mode:SetDamageFilter(Dynamic_Wrap(GameMode, "FilterDamage"), self)
 
   -- Lua Modifiers
   LinkLuaModifier("modifier_disable_turning", "libraries/modifiers/modifier_disable_turning", LUA_MODIFIER_MOTION_NONE)
@@ -182,6 +184,8 @@ function GameMode:InitGameMode()
 
   -- Modifier Applier
   GameRules.Applier = CreateItem("item_apply_modifiers", nil, nil)
+
+  GameRules.Damage = LoadKeyValues("scripts/kv/damage_table.kv")
 
   GameMode:InitializeShopData()
 end

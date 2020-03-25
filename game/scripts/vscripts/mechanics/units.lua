@@ -11,6 +11,22 @@ function Units:Init( unit )
     ApplyModifier(unit, "builder_invulnerable_modifier")
   end
 
+  -- Apply armor and damage modifier (for visuals)
+  local attack_type = unit:GetAttackType()
+  if attack_type and unit:GetAttackDamage() > 0 then
+    ApplyModifier(unit, "modifier_attack_"..attack_type)
+  end
+
+  local armor_type = unit:GetArmorType()
+  if armor_type then
+    ApplyModifier(unit, "modifier_armor_"..armor_type)
+    if armor_type == "divine" then
+      unit:SetBaseMagicalResistanceValue(75)
+    elseif armor_type == "hero" then
+      unit:SetBaseMagicalResistanceValue(60)
+    end
+  end
+
   local bBuilding = IsCustomBuilding(unit)
 
   -- Adjust Hull
@@ -198,8 +214,43 @@ function CDOTA_BaseNPC:IsDummy()
   return self:GetUnitName():match("dummy_") or self:GetUnitLabel():match("dummy")
 end
 
-function CDOTA_BaseNPC:GetBuildingType()
-  return self:GetKeyValue("BuildingType")
+function CDOTA_BaseNPC:HasSplashAttack()
+  return self:GetKeyValue("SplashAttack")
+end
+
+-- All units should have DOTA_COMBAT_CLASS_ATTACK_HERO and DOTA_COMBAT_CLASS_DEFEND_HERO, or no CombatClassAttack/ArmorType defined
+-- Returns a string with the wc3 damage name
+function CDOTA_BaseNPC:GetAttackType()
+  return self.AttackType or self:GetKeyValue("AttackType")
+end
+
+-- Returns a string with the wc3 armor name
+function CDOTA_BaseNPC:GetArmorType()
+  return self.ArmorType or self:GetKeyValue("ArmorType")
+end
+
+-- Changes the AttackType and current visual tooltip of the unit
+function CDOTA_BaseNPC:SetAttackType( attack_type )
+  local current_attack_type = self:GetAttackType()
+  self:RemoveModifierByName("modifier_attack_"..current_attack_type)
+  self.AttackType = attack_type
+  ApplyModifier(self, "modifier_attack_"..attack_type)
+end
+
+-- Changes the ArmorType and current visual tooltip of the unit
+function CDOTA_BaseNPC:SetArmorType( armor_type )
+  local current_armor_type = self:GetArmorType()
+  self:RemoveModifierByName("modifier_armor_"..current_armor_type)
+  self.ArmorType = armor_type
+  ApplyModifier(self, "modifier_armor_"..armor_type)
+end
+
+-- Returns the damage factor this unit does against another
+function CDOTA_BaseNPC:GetAttackFactorAgainstTarget( unit )
+  local attack_type = self:GetAttackType()
+  local armor_type = unit:GetArmorType()
+  local damageTable = GameRules.Damage
+  return damageTable[attack_type] and damageTable[attack_type][armor_type] or 1
 end
 
 function CDOTA_BaseNPC:IsMechanical()
