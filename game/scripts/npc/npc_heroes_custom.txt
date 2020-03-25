@@ -33,7 +33,7 @@
     "ArmorPhysical"                 "0"
     "HasInventory"                  "1"
     "MagicalResistance"             "0"
-    "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_FLY"
     "MovementSpeed"                 "1000"
     "MovementTurnRate"              "1.0"
     "StatusHealth"                  "1"
