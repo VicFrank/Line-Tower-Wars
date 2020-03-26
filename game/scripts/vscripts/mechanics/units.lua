@@ -29,6 +29,8 @@ function Units:Init( unit )
 
   local bBuilding = IsCustomBuilding(unit)
 
+  ApplyMaterialGroup(unit)
+
   -- Adjust Hull
   unit:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
   local collision_size = unit:GetCollisionSize()
@@ -39,6 +41,18 @@ end
 
 function ApplyModifier(unit, modifier_name)
   GameRules.Applier:ApplyDataDrivenModifier(unit, unit, modifier_name, {})
+end
+
+MATERIAL_GROUPS = {
+  ["ward_tower_1"] = "1",
+  ["ultimate_ward_tower_1"] = "1",
+}
+
+function ApplyMaterialGroup(unit)
+  local materialGroup = MATERIAL_GROUPS[unit:GetUnitName()]
+  if materialGroup then
+    unit:SetMaterialGroup(materialGroup)
+  end
 end
 
 HULL_SIZES = {

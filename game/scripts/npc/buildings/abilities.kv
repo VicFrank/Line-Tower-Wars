@@ -26,129 +26,196 @@
       }
     }
   }
-  
-   "build_gunner_tower"
+
+  "upgrade_gunner_tower"
   {
     "AbilityTextureName"            "GunnerTower"
-
-    "UnitName"                      "gunner_tower_1"
     "AbilityGoldCost"               "30"
+    "AbilityChannelTime"            "3"
 
     "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                      "1"
-    "Building"                      "1"
-    "AbilityCastRange"              "260"
-    "Scale"                         "1"
-    "PlayerCanControl"              "1"
 
     "OnSpellStart"
     {
       "RunScript"
       {
-        "ScriptFile"        "builder.lua"
-        "Function"          "Build"
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "gunner_tower_1"
       }
     }
   }
-  
-   "build_watch_tower"
+
+  "upgrade_watch_tower"
   {
     "AbilityTextureName"            "WatchTower"
-
-    "UnitName"                      "watch_tower_1"
     "AbilityGoldCost"               "120"
+    "AbilityChannelTime"            "3"
 
     "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                      "1"
-    "Building"                      "1"
-    "AbilityCastRange"              "260"
-    "Scale"                         "1"
-    "PlayerCanControl"              "1"
 
     "OnSpellStart"
     {
       "RunScript"
       {
-        "ScriptFile"        "builder.lua"
-        "Function"          "Build"
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "watch_tower_1"
       }
     }
   }
   
-  "build_guard_tower"
+  "upgrade_guard_tower"
   {
     "AbilityTextureName"            "GuardTower"
-
-    "UnitName"                      "guard_tower_1"
     "AbilityGoldCost"               "1000"
+    "AbilityChannelTime"            "3"
 
     "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                      "1"
-    "Building"                      "1"
-    "AbilityCastRange"              "260"
-    "Scale"                         "1"
-    "PlayerCanControl"              "1"
 
     "OnSpellStart"
     {
       "RunScript"
       {
-        "ScriptFile"        "builder.lua"
-        "Function"          "Build"
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "guard_tower_1"
       }
     }
   }
   
-  "build_ward_tower"
+  "upgrade_ward_tower"
   {
     "AbilityTextureName"            "WardTower"
-
-    "UnitName"                      "ward_tower_1"
     "AbilityGoldCost"               "10000"
+    "AbilityChannelTime"            "3"
 
     "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                      "1"
-    "Building"                      "1"
-    "AbilityCastRange"              "260"
-    "Scale"                         "1"
-    "PlayerCanControl"              "1"
 
     "OnSpellStart"
     {
       "RunScript"
       {
-        "ScriptFile"        "builder.lua"
-        "Function"          "Build"
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "ward_tower_1"
       }
     }
   }
   
-  "build_ultimate_ward_tower"
+  "upgrade_ultimate_ward_tower"
   {
     "AbilityTextureName"            "UltimateWardTower"
-
-    "UnitName"                      "ultimate_ward_tower_1"
     "AbilityGoldCost"               "30000"
+    "AbilityChannelTime"            "3"
 
     "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                      "1"
-    "Building"                      "1"
-    "AbilityCastRange"              "260"
-    "Scale"                         "1"
-    "PlayerCanControl"              "1"
 
     "OnSpellStart"
     {
       "RunScript"
       {
-        "ScriptFile"        "builder.lua"
-        "Function"          "Build"
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "ultimate_ward_tower_1"
       }
     }
   }
+  
+  
 }

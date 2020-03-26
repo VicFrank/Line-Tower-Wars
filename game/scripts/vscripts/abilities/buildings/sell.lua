@@ -10,7 +10,7 @@ function item_building_sell:OnSpellStart()
   local player = PlayerResource:GetPlayer(playerID)
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 
-  local sellPrice = caster.gold_cost * 0.5
+  local sellPrice = caster.gold_cost * 0.75
 
   hero:ModifyGold(sellPrice, true, 0)
 

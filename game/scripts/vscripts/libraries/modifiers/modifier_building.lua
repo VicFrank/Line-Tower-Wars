@@ -15,11 +15,15 @@ function modifier_building:GetModifierIgnoreCastAngle()
 end
 
 function modifier_building:CheckState() 
-    return { [MODIFIER_STATE_MAGIC_IMMUNE] = false,
-             [MODIFIER_STATE_SPECIALLY_DENIABLE] = self.deniable or true,
-             [MODIFIER_STATE_ROOTED] = true,
-             [MODIFIER_STATE_LOW_ATTACK_PRIORITY] = true,
-             [MODIFIER_STATE_NO_UNIT_COLLISION] = true, }
+    local isDamaged = self:GetParent():GetHealth() < self:GetParent():GetMaxHealth()
+    return {
+        [MODIFIER_STATE_MAGIC_IMMUNE] = false,
+        [MODIFIER_STATE_SPECIALLY_DENIABLE] = self.deniable or true,
+        [MODIFIER_STATE_ROOTED] = true,
+        [MODIFIER_STATE_LOW_ATTACK_PRIORITY] = true,
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+        [MODIFIER_STATE_NO_HEALTH_BAR] = not isDamaged,
+    }
 end
 
 function modifier_building:DeclareFunctions() 

@@ -79,7 +79,6 @@ function GameMode:OnConnectFull(keys)
 end
 
 function GameMode:OnConstructionCompleted(building, ability, isUpgrade, previousIncomeValue)
-  local buildingType = building:GetBuildingType()
   local hero = building:GetOwner()
   local playerID = building:GetPlayerOwnerID()
 end

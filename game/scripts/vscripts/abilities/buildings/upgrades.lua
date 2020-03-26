@@ -4,7 +4,7 @@ function ResourceCheck(keys)
   local playerID = caster:GetPlayerOwnerID()
   local hero = caster:GetOwner()
 
-  -- local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
+  local gold_cost = ability:GetGoldCost(1)
 
   -- if hero:GetGold() < gold_cost then
   --   SendErrorMessage(playerID, "#error_not_enough_gold")
@@ -14,9 +14,11 @@ function ResourceCheck(keys)
   --   end)
   --   ability.refund = false
   --   return false
+  -- end
 
+  -- Don't need to modify gold, it already happened
   -- hero:ModifyGold(-gold_cost, false, 0)
-  ability.refund = true
+  -- ability.refund = true
 end
 
 function UpgradeBuilding(keys)
@@ -26,7 +28,6 @@ function UpgradeBuilding(keys)
   local playerID = caster:GetPlayerOwnerID()
   local hero = caster:GetOwner()
   local currentHealthPercentage = caster:GetHealthPercent() * 0.01
-  -- local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
   local gold_cost = ability:GetGoldCost(1)
 
   -- Keep the gridnav blockers, hull radius and orientation
@@ -61,15 +62,9 @@ end
 function RefundUpgradePrice(keys)
   local caster = keys.caster
   local ability = keys.ability
-  
-  -- local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
   local gold_cost = ability:GetGoldCost(1)
-    
   local playerID = caster:GetPlayerOwnerID()
-
   local hero = caster:GetOwner()
   
-  if ability.refund then
-    hero:ModifyGold(gold_cost, false, 0)
-  end
+  hero:ModifyGold(gold_cost, false, 0)
 end
