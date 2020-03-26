@@ -68,7 +68,7 @@
     "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 
     "Ability1"                  "upgrade_watch_tower"
-	"Ability2"					""
+	"Ability2"					"upgrade_cannon_tower"
 
     "AttackDamageMin"           "3"
     "AttackDamageMax"           "5"
@@ -253,4 +253,159 @@
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
   }
+  
+  
+  "cannon_tower_1"
+  {
+    "Model"                     "models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"
+    "ModelScale"                "0.5"
+    "ModelRotation"             "0"
+    "ModelOffset"               "1"
+    "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
+    "PedestalModelScale"        "0.5"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/base_attacks/ranged_siege_good.vpcf"
+    "ProjectileSpeed"           "2500"
+    "SoundSet"                  "Creep_Good_Engine"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            ""
+
+    "Ability1"                  "upgrade_bombard_tower"
+	"Ability2"					""
+
+    "AttackDamageMin"           "10"
+    "AttackDamageMax"           "12"
+    "AttackRange"               "700"
+    "AttackAcquisitionRange"    "700"
+    "AttackRate"                "2"
+    "AttackAnimationPoint"      "0.7"
+	
+	"AttackType"                "siege"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "100"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+  }
+  
+  "bombard_tower_1"
+  {
+    "Model"                     "models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl"
+    "ModelScale"                "0.6"
+    "ModelRotation"             "0"
+    "ModelOffset"               "1"
+    "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
+    "PedestalModelScale"        "0.5"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"           "2500"
+    "SoundSet"                  "Creep_Bad_Engine"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            ""
+
+    "Ability1"                  "upgrade_artillery_tower"
+	"Ability2"					""
+
+    "AttackDamageMin"           "60"
+    "AttackDamageMax"           "65"
+    "AttackRange"               "700"
+    "AttackAcquisitionRange"    "700"
+    "AttackRate"                "2"
+    "AttackAnimationPoint"      "0.7"
+	
+	"AttackType"                "siege"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "100"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+  }
+  
+  "artillery_tower_1"
+  {
+    "Model"                     "models/props_structures/rock_golem/tower_radiant_rock_golem.vmdl"
+    "ModelScale"                "0.7"
+    "ModelRotation"             "0"
+    "ModelOffset"               "1"
+    "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
+    "PedestalModelScale"        "0.5"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/radiant_tower_attack.vpcf"
+    "ProjectileSpeed"           "2500"
+    "SoundSet"                  "Tower.Water"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            ""
+
+    "Ability1"                  "upgrade_ultimate_artillery_tower"
+	"Ability2"					""
+
+    "AttackDamageMin"           "350"
+    "AttackDamageMax"           "360"
+    "AttackRange"               "800"
+    "AttackAcquisitionRange"    "800"
+    "AttackRate"                "2"
+    "AttackAnimationPoint"      "0.6"
+	
+	"AttackType"                "siege"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "100"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+  }
+  
+  "ultimate_artillery_tower_1"
+  {
+    "Model"                     "models/props_structures/rock_golem/tower_dire_rock_golem.vmdl"
+    "ModelScale"                "0.7"
+    "ModelRotation"             "0"
+    "ModelOffset"               "1"
+    "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
+    "PedestalModelScale"        "0.5"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/dire_tower_attack.vpcf"
+    "ProjectileSpeed"           "2500"
+    "SoundSet"                  "Tower.Fire"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            ""
+
+    "Ability1"                  ""
+	"Ability2"					""
+
+    "AttackDamageMin"           "1270"
+    "AttackDamageMax"           "1280"
+    "AttackRange"               "800"
+    "AttackAcquisitionRange"    "800"
+    "AttackRate"                "2"
+    "AttackAnimationPoint"      "0.6"
+	
+	"AttackType"                "siege"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "100"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+  }
+  
+  
 }

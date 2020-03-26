@@ -4,11 +4,11 @@
 }
 
 .TopLeftMenu {
-  width: 250px;
+  width: 200px;
   height: 40px;
   margin-top: 10px;
   margin-left: -5px;
-  background-color: gradient( linear, 0% 0%, 0% 5%, from( #000b ), to( #000b ) );
+  background-color: gradient( linear, 0% 0%, 0% 5%, from( #000a ), to( #000a ) );
   border-radius: 5px;
   opacity: 1.2;
   transition-duration: .05s;
@@ -99,42 +99,45 @@
 .PlayerPanel
 {     
   width: 200px;
-  height: 80px;
+  height: 60px;
   opacity: 1;
   background-color: gradient( linear, 0% 0%, 0% 5%, from( #000d ), to( #000d ) );
-  border-top: 1px solid #77849519;
-  border-left: 1px solid #77849509;
-  border-right: 1px solid #77849509;
   transition-duration: .05s;
   transition-property: background-image;
   transition-timing-function: ease-in-out;
-  margin-bottom: 10px;
-
+  margin-bottom: 5px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
   flow-children: right;
+  margin-right: 0px;
+
 }
 
 .UserAvatar
 {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
   horizontal-align: left;
+  border-radius: 30px;
+  border: 1px solid lime;
 }
 
 .Username
 { 
-  horizontal-align: center;
+  horizontal-align: left;
   margin-right: 25px;
   margin-bottom: 10px;
 }
 
 Label {
   color: white;
-  font-size: 20px;
+  font-size: 19px;
   text-shadow: 2px 2px 2px black;
   text-overflow: clip;
   text-shadow: 0px 0px 4px #CD6BAA;
+  margin-left: 8px;
 }
 
 .UserInfoContainer
@@ -147,6 +150,7 @@ Label {
 .HealthContainer
 {
   flow-children: right;
+  margin-top: -13px;
 }
 
 .GoldContainer
@@ -156,12 +160,12 @@ Label {
 
 .HealthIcon
 {     
-  width: 18px;
-  height: 20px;
+  width: 16px;
+  height: 18px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/HealthIcon.png');
   horizontal-align: left;
-  margin: -1px 5px 2px 5px;
+  margin: 0px 5px 2px 5px;
 }
 
 .HealthText
@@ -170,15 +174,15 @@ Label {
   color: #87C080;
   text-shadow: 2px 2px 8px 3.0 black;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 17px;
   margin-top: -1px;
   margin-left: -3px;
 }
 
 .GoldIcon
 {     
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/GoldIcon.png');
   horizontal-align: left;
@@ -191,7 +195,7 @@ Label {
   color: #F7CD60;
   text-shadow: 2px 2px 8px 3.0 black;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 17px;
   margin-left: -3px;
   margin-top: -2px;
 }
@@ -200,7 +204,7 @@ Label {
 { 
   color: lime;
   text-shadow: 2px 2px 5px 1.0 black;
-  font-size: 18px;
+  font-size: 14px;
   margin-left: 2px;
   margin-top: -1px;
 }

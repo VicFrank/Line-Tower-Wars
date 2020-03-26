@@ -217,5 +217,156 @@
     }
   }
   
+  "upgrade_cannon_tower"
+  {
+    "AbilityTextureName"            "CannonTower"
+    "AbilityGoldCost"               "120"
+    "AbilityChannelTime"            "3"
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                      "1"
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "cannon_tower_1"
+      }
+    }
+  }
+  
+  "upgrade_bombard_tower"
+  {
+    "AbilityTextureName"            "BombardTower"
+    "AbilityGoldCost"               "1000"
+    "AbilityChannelTime"            "3"
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                      "1"
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "bombard_tower_1"
+      }
+    }
+  }
+  
+   "upgrade_artillery_tower"
+  {
+    "AbilityTextureName"            "ArtilleryTower"
+    "AbilityGoldCost"               "10000"
+    "AbilityChannelTime"            "3"
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                      "1"
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "artillery_tower_1"
+      }
+    }
+  }
+  
+  "upgrade_ultimate_artillery_tower"
+  {
+    "AbilityTextureName"            "UltimateArtilleryTower"
+    "AbilityGoldCost"               "30000"
+    "AbilityChannelTime"            "3"
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                      "1"
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "ResourceCheck"
+      }
+    }
+    
+    "OnChannelInterrupted"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "RefundUpgradePrice"
+      }
+    }
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/buildings/upgrades.lua"
+        "Function"    "UpgradeBuilding"
+        "UnitName"    "ultimate_artillery_tower_1"
+      }
+    }
+  }
   
 }

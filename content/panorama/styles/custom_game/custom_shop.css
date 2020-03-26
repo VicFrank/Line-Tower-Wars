@@ -82,6 +82,7 @@
 	margin-right: 245px;
 	border-left: 1px solid #000c;
 	border-top: 1px solid #000c;
+	border-top-left-radius: 5px;
 }
 
 #Page2
@@ -97,6 +98,7 @@
 	margin-right: 15px;
 	border-top: 1px solid #000c;
 	border-right: 1px solid #000c;
+	border-top-right-radius: 5px;
 }
 
 .PageButtonsText
