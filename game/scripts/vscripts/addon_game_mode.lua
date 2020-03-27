@@ -46,7 +46,7 @@ function Precache( context )
   -- General Precaches
   PrecacheResource("particle", "particles/custom/construction_dust.vpcf", context)
 
-  PrecacheUnitByNameSync("archer_tower_1", context)
+  PrecacheUnitByNameSync("archer_tower", context)
   
 end
 

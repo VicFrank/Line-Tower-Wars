@@ -44,8 +44,8 @@ function ApplyModifier(unit, modifier_name)
 end
 
 MATERIAL_GROUPS = {
-  ["ward_tower_1"] = "1",
-  ["ultimate_ward_tower_1"] = "1",
+  ["ward_tower"] = "1",
+  ["ultimate_ward_tower"] = "1",
 }
 
 function ApplyMaterialGroup(unit)
