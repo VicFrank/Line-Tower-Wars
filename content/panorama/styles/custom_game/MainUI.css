@@ -99,15 +99,15 @@
 .PlayerPanel
 {     
   width: 200px;
-  height: 60px;
+  height: 80px;
   opacity: 1;
   background-color: gradient( linear, 0% 0%, 0% 5%, from( #000d ), to( #000d ) );
   transition-duration: .05s;
   transition-property: background-image;
   transition-timing-function: ease-in-out;
   margin-bottom: 5px;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius: 30px;
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
   flow-children: right;
   margin-right: 0px;
 
@@ -115,12 +115,12 @@
 
 .UserAvatar
 {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
   horizontal-align: left;
-  border-radius: 30px;
+  border-radius: 40px;
   border: 1px solid lime;
 }
 
@@ -128,7 +128,8 @@
 { 
   horizontal-align: left;
   margin-right: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
+  margin-top: 5px;
 }
 
 Label {
@@ -204,7 +205,7 @@ Label {
 { 
   color: lime;
   text-shadow: 2px 2px 5px 1.0 black;
-  font-size: 14px;
+  font-size: 17px;
   margin-left: 2px;
   margin-top: -1px;
 }

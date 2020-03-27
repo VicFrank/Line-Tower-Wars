@@ -1,22 +1,3 @@
-Creep Abilities:
-  Tier 1
-   9 - flying
-   11 - attacking (potato)
-   12 - boss
-  Tier 2
-   4 - flying
-   5 - invisible
-   9 - flying
-   10 - attacking (tomato)
-   12 - boss (infernal)
-  Tier 3
-   1 - attacker
-   5 - invisible
-   8 - flying
-   10 - attacker
-   11 - flying, invisible
-   12 - boss, attacker
-
 Towers
 
   Archer Tower (10)
