@@ -3,6 +3,13 @@
   "builder"
   {
     "override_hero"       "npc_dota_hero_kunkka"
+	"Model"				  "models/props_gameplay/donkey.vmdl"
+	"ModelScale"		  "1.5"
+	"RingRadius"		  "60"
+	"DisableWearables" 	  "1"
+	"GameSoundsFile"	  ""
+	"VoiceFile"			  ""
+	"SoundSet"			  ""
 
     "Ability1"    "build_archer_tower"
     "Ability2"    "build_cutter_tower"

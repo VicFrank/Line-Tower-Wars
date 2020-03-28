@@ -65,7 +65,7 @@
   </script> 
 
   <Panel>
-    <!-- <CustomUIElement type="LoadingScreen" layoutfile="file://{resources}/layout/custom_game/custom_loading_screen.xml" /> -->
+    <CustomUIElement type="LoadingScreen" layoutfile="file://{resources}/layout/custom_game/custom_loading_screen.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/MainUI.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" />
