@@ -7,3 +7,8 @@ function OnScoreboardButtonPressed() {
 function OnLeaderboardButtonPressed() {
 	Game.EmitSound("ui_chat_slide_in")
 }
+
+function OnShopButtonPressed() {
+  Game.EmitSound("ui_chat_slide_out")
+  $("#Items").ToggleClass("ShopHidden");
+}
