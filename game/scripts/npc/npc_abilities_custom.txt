@@ -1,4 +1,5 @@
 #base "buildings/abilities.kv"
+#base "buildings/construction_abilities.kv"
 #base "creeps/abilities.kv"
 
 "DOTAAbilities"

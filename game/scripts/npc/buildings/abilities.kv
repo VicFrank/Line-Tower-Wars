@@ -2,371 +2,1411 @@
 {
   "Version"   "1"
 
-  "build_archer_tower"
+  // Ignite 1: Periodically put a nearby random enemy on fire, dealing 1 damage per second over 7 seconds
+  "ignite"
   {
-    "AbilityTextureName"            "ArcherTower"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/ignite"
+    "MaxLevel"                    "2"
 
-    "UnitName"                      "archer_tower"
-    "AbilityGoldCost"               "10"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "MaxLevel"                      "1"
-    "Building"                      "1"
-    "AbilityCastRange"              "260"
-    "Scale"                         "1"
-    "PlayerCanControl"              "1"
-
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
       {
-        "ScriptFile"        "builder.lua"
-        "Function"          "Build"
+        "var_type"      "FIELD_INTEGER"
+        "dps"           "1 5"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "7.0"
       }
     }
   }
 
-  "upgrade_gunner_tower"
+  // Overwhelming impact 2: Attacts meteors to the ground causing them to light the ground
+  // on fire for 3 seconds and burn enemy units for 65 damage per second
+  "overwhelming_impact"
   {
-    "AbilityTextureName"            "GunnerTower"
-    "AbilityGoldCost"               "30"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/overwhelming_impact"
+    "MaxLevel"                    "2"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"      "FIELD_INTEGER"
+        "dps"           "17 65"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "gunner_tower"
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "3.0"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "200"
       }
     }
   }
 
-  "upgrade_watch_tower"
+  // Lunar Strike: Each attack reduces Attack Speed by 50%%, down to 0.5s, then reset
+  // back to 4.0s. Each attack also has a 20%% chance to project a moonray after a 0.6
+  // second delay that will deal 40%% of damage dealt over a 200 radius and also hit
+  // flying units.
+  "lunar_strike"
   {
-    "AbilityTextureName"            "WatchTower"
-    "AbilityGoldCost"               "120"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/lunar_strike"
+    "MaxLevel"                    "1"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"     "FIELD_INTEGER"
+        "chance"       "20"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "watch_tower"
+        "var_type"     "FIELD_INTEGER"
+        "radius"       "200"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "percent_damage"  "40"
       }
     }
   }
-  
-  "upgrade_guard_tower"
+
+  // Rising heat (1): Each attack lowers the towers attackspeed by 0.02 down to 0.00.
+  // Reaching 0.00s attack speed the tower resets the attack speed back to 0.5s.
+  "rising_heat"
   {
-    "AbilityTextureName"            "GuardTower"
-    "AbilityGoldCost"               "1000"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/rising_heat"
+    "MaxLevel"                    "2"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
-      }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "guard_tower"
+        "var_type"             "FIELD_FLOAT"
+        "attack_rate_drop"     "0.02 0.03"
       }
     }
   }
-  
-  "upgrade_ward_tower"
+
+  // Volcanic Eruption: Each attack has a 40%% chance to trigger a Volcanic Eruption,
+  // causing 5 nearby enemy creeps of the target to take 160%% of the damage dealt as damage.
+  // When the Ultimate Firelord attacks a target with less than 35%% health, attack speed is
+  // increased by 50%%.
+  "volcanic_eruption"
   {
-    "AbilityTextureName"            "WardTower"
-    "AbilityGoldCost"               "10000"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/volcanic_eruption"
+    "MaxLevel"                    "1"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "40"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "ward_tower"
+        "var_type"                 "FIELD_INTEGER"
+        "aoe_damage_multiplier"    "160"
+      }
+      "03"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "num_enemies"    "5"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "attack_speed_bonus"    "50"
+      }
+      "05"
+      {
+        "var_type"                 "FIELD_INTEGER"
+        "enemy_health_threshold"   "35"
       }
     }
   }
-  
-  "upgrade_ultimate_ward_tower"
+
+  // Frost Attack: Each attack slows enemies by 15%%, up to 30%%
+  "frost_attack"
   {
-    "AbilityTextureName"            "UltimateWardTower"
-    "AbilityGoldCost"               "30000"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/frost_attack"
+    "MaxLevel"                    "5"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"        "FIELD_INTEGER"
+        "initial_slow"    "15 15 20 25 25"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "ultimate_ward_tower"
+        "var_type"      "FIELD_INTEGER"
+        "max_slow"      "30 45 50 50 60"
       }
     }
   }
-  
-  "upgrade_cannon_tower"
+
+  // Ice Lance: Every 6th attack deals 80%% additional damage and stuns the target for
+  // 0.3 seconds
+  "ice_lance"
   {
-    "AbilityTextureName"            "CannonTower"
-    "AbilityGoldCost"               "120"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/ice_lance"
+    "MaxLevel"                    "1"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"      "FIELD_INTEGER"
+        "num_attacks"   "6"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "cannon_tower"
+        "var_type"       "FIELD_INTEGER"
+        "bonus_damage_percent"   "80"
+      }
+      "03"
+      {
+        "var_type"       "FIELD_FLOAT"
+        "stun_duration"  "0.3"
       }
     }
   }
-  
-  "upgrade_bombard_tower"
+
+  // Ice Barrage: Attacks hit 2 additional targets and have a 10%% chance to deal 150%%
+  // additional damage and stun the target for 0.3 seconds
+  "ice_barrage"
   {
-    "AbilityTextureName"            "BombardTower"
-    "AbilityGoldCost"               "1000"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/ice_barrage"
+    "MaxLevel"                    "2"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"      "FIELD_INTEGER"
+        "num_targets"   "2 5"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "bombard_tower"
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "10"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "bonus_damage_percent"  "150 200"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "stun_duration" "0.3"
       }
     }
   }
-  
-   "upgrade_artillery_tower"
+
+  // Overcharge (1): Gives a 20%% chance on attack to deal 6 damage to nearby units
+  "overcharge"
   {
-    "AbilityTextureName"            "ArtilleryTower"
-    "AbilityGoldCost"               "10000"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/overcharge"
+    "MaxLevel"                    "2"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "20"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "artillery_tower"
+        "var_type"      "FIELD_INTEGER"
+        "damage"        "6 14"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "250"
       }
     }
   }
-  
-  "upgrade_ultimate_artillery_tower"
+
+  // Focused Lightning (1): Each attack on the same target increases base damage by 80%%.
+  // Attacking a new target resets the bonus.
+  "focused_lightning"
   {
-    "AbilityTextureName"            "UltimateArtilleryTower"
-    "AbilityGoldCost"               "30000"
-    "AbilityChannelTime"            "3"
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/focused_lightning"
+    "MaxLevel"                    "2"
 
-    "BaseClass"                     "ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                      "1"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "OnSpellStart"
+    "precache"
     {
-      "RunScript"
-      {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "ResourceCheck"
-      }
+      "particle"  ""
+      "soundfile" ""
     }
-    
-    "OnChannelInterrupted"
+
+    "AbilitySpecial"
     {
-      "RunScript"
+      "01"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "RefundUpgradePrice"
+        "var_type"               "FIELD_INTEGER"
+        "bonus_damage_percent"   "50 80"
       }
-    }
-    "OnChannelSucceeded"
-    {
-      "RunScript"
+      "02"
       {
-        "ScriptFile"  "abilities/buildings/upgrades.lua"
-        "Function"    "UpgradeBuilding"
-        "UnitName"    "ultimate_artillery_tower"
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "7"
       }
     }
   }
-  
+
+  // Annihilation: Each attack randomly changes attack speed between 1.0s and 2.0s
+  "annihilation"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/annihilation"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "attack_rate_min"   "1.0"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "attack_rate_max"   "2.0"
+      }
+    }
+  }
+
+  // Electrocute (1): Attacks deal additonal damage equal to 0.52%% of the target's current health
+  "electrocute"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/electrocute"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                   "FIELD_FLOAT"
+        "health_as_damage"           "0.52 1.07"
+      }
+    }
+  }
+
+  // Depth Current: Each attack has a 20%% chance to shock all nearby creeps within 225
+  // radius, while dealing 1.78%% of their current health as damage
+  "depth_current"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/depth_current"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                   "FIELD_FLOAT"
+        "health_as_damage"           "1.78"
+      }
+      "02"
+      {
+        "var_type"    "FIELD_INTEGER"
+        "chance"      "20"
+      }
+      "02"
+      {
+        "var_type"    "FIELD_INTEGER"
+        "radius"      "225"
+      }
+    }
+  }
+
+  // Bursting Light (1): Attacks will hit 2 additional targets
+  "bursting_light"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/bursting_light"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "num_targets"           "2 3"
+      }
+    }
+  }
+
+  // Rejuvenating Spores (1): 5%% of damage dealt will heal nearby friendly towers within
+  // 300 radius. Air units damaged by the Lightshroom will be pushed back a short distance.
+  "rejuvenating_spores"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/rejuvenating_spores"
+    "MaxLevel"                    "3"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "heal_percent"   "5 7 10"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "300"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "knockback"     "50 75 100"
+      }
+    }
+  }
+
+  // Blinding Light (1): Attacks will hit 4 additional targets and reduce their damage
+  // by 10%% for 3 seconds.
+  "blinding_light"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/blinding_light"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "num_targets"   "4 6"
+      }
+      "02"
+      {
+        "var_type"           "FIELD_INTEGER"
+        "damage_reduction"   "10 15"
+      }
+      "03"
+      {
+        "var_type"   "FIELD_INTEGER"
+        "duration"   "2"
+      }
+    }
+  }
+
+  // Titan Defense Mechanism: Attacks will hit 10 additional targets, reduce their damage
+  // by 20%% and slow their movement by 10%% for 3 seconds. This affects magic immune enemies.
+  // Whenever a friendly tower within 300 radius takes damage, increase their armor by 3 for
+  // 4 seconds.
+  "titan_defense_mechanism"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/blinding_light"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "num_targets"   "10"
+      }
+      "02"
+      {
+        "var_type"           "FIELD_INTEGER"
+        "damage_reduction"   "20"
+      }
+      "03"
+      {
+        "var_type"   "FIELD_INTEGER"
+        "duration"   "3"
+      }
+      "04"
+      {
+        "var_type"     "FIELD_INTEGER"
+        "armor_bonus"  "3"
+      }
+      "05"
+      {
+        "var_type"   "FIELD_INTEGER"
+        "radius"     "3"
+      }
+    }
+  }
+
+  // Corruption (1): Attacks corrupt enemies for 3 seconds. Corrupted enemies explode upon
+  // death, dealing 12 damage to nearby enemies.
+  "corruption"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/corruption"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "damage"        "12 36"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "duration"      "3"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "200"
+      }
+    }
+  }
+
+  // Death Plague: Infects targets, increasing their damage taken from all sources by 10%%
+  // for 3 seconds.
+  "death_plague"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/death_plague"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage_increase"   "10 16"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "duration"      "3"
+      }
+    }
+  }
+
+  // Gravestrike: Infects targets, increasing their damage taken from all sources by 20%%
+  // for 3 seconds. Creeps that die with this effect have a 15%% chance to reanimate as a
+  // skeleton with health equal to 125%% of the max health of the creep. The skeleton is
+  // sent to your current enemy, and has no bounty.
+  "gravestrike"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/death_plague"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage_increase"   "20"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "duration"      "3"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "15"
+      }
+      "04"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_health_percent"    "125"
+      }
+    }
+  }
+
+  // Unholy Miasma (1): Each attack increases splash by 20, up to 400. This effect is
+  // reduced by 10 every second, down to a minimum of 100.
+  "unholy_miasma"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/unholy_miasma"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"             "FIELD_INTEGER"
+        "splash_increase"      "20 30"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "max_splash"    "400 600"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "min_splash"    "100 150"
+      }
+      "04"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "loss_per_second"   "10 15"
+      }
+    }
+  }
+
+  // Crushing Wave (1): Every 5th attack against ground creeps unleashes a Crushing Wave,
+  // dealing 3 damage to all ground enemies hit.
+  "crushing_wave"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/crushing_wave"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "num_attacks"   "5"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage"        "3 10"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "radius"        "50"
+      }
+    }
+  }
+
+  // Pressuring Water (1): Deals up to 25%% additional damage to closer enemies.
+  "pressuring_water"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/pressuring_water"
+    "MaxLevel"                    "3"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"             "FIELD_INTEGER"
+        "max_bonus_damage"     "25 40 60"
+      }
+    }
+  }
+
+  // Hurricane Storm: Attacks also damage enemies within 500 radius.
+  "hurricane_storm"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/hurricane_storm"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "500"
+      }
+    }
+  }
+
+  // Torrent (1): Attacks unleash a devastating torrent at the attacked location.
+  // After 0.9 seconds the torrent explodes, dealing damage to all enemies hit.
+
+  "torrent"
+  {
+    "AbilityTextureName"          "kunkka_torrent"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/torrent"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "delay"         "0.9"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "200 250"
+      }
+    }
+  }
+
+  // Torrent (2): Attacks unleash a devastating torrent at the attacked location.
+  // After 0.9 seconds the torrent explodes, dealing damage to all enemies hit.
+  // The torrent explodes again after 2 seconds, for 30%% of the original splash and damage.
+  "torrent2"
+  {
+    "AbilityTextureName"          "kunkka_torrent"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/torrent"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+       "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "delay"         "0.9"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "200 250"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "second_delay"  "2"
+      }
+    }
+  }
+
+  // Crippling Decay: Enemy creeps within 600 radius take 10%% additional damage.
+  // Attacks have a 45%% chance to slow the movement speed of enemies by 2%%, up to 75%%.
+  "crippling_decay"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/hells_fist"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "600"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "1 5"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "bonus_damage_percent"      "10"
+      }
+      "03"
+      {
+        "var_type"    "FIELD_INTEGER"
+        "chance"      "45"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "move_slow"     "2"
+      }
+      "05"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "max_move_slow"    "75"
+      }
+    }
+  }
+
+  // Shatter Armor (1): Attacks have a 40%% chance to reduce armor by 2 for 4 seconds.
+  "shatter_armor"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/shatter_armor"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "40 50"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "4.0"
+      }
+      "03"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "armor_reduction"  "-2 -4"
+      }
+    }
+  }
+
+  // Devastating Attack (1): Attacks have a 15%% chance to permanently reduce the base
+  // armor of creeps by 1
+  "devastating_attack"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/shatter_armor"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "15"
+      }
+      "02"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "armor_reduction"  "-1.0 -1.6"
+      }
+    }
+  }
+
+  // Nature's Guidance: The ancient warden heals itself for 2.8%% of all damage dealt.
+  // Attacks have a 20%% chance to permanently reduce the armor of creeps by 2
+  "natures_guidance"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/shatter_armor"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "heal_percent"  "2.8"
+      }
+      "02"
+      {
+        "var_type"    "FIELD_INTEGER"
+        "chance"      "20"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "armor_reduction"   "-2"
+      }
+    }
+  }
+
+  // Paralyzing Poison: Attacks poison enemies for 2 seconds, 51dps, 20%% attack and
+  // movement slow.
+  "paralyzing_poison"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/paralyzing_poison"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "dps"           "51 98"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "2.0"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "slow"          "20 25"
+      }
+    }
+  }
+
+  // Deadly Strike: Attacks poison enemies for 2 seconds, 98dps, 25%% attack and movement
+  // slow. Attacks also have a 35%% chance to deal 85%% additional damage.
+  "deadly_strike"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/deadly_strike"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "chance"        "35"
+      }
+      "02"
+      {
+        "var_type"               "FIELD_INTEGER"
+        "bonus_damage_percent"   "85"
+      }
+    }
+  }
+
+  // Arcanize (1): Each attack causes the spellslinger to gain 1 mana. When mana has reached
+  // its capacity (50), damage dealt is increased by 200%%.
+  "arcanize"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/arcanize"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "mana_gained"   "1 5"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"    "200 250"
+      }
+    }
+  }
+
+  // Spellcast (1): Casts a random spell on attack when at full mana.
+  // Slow: Slows the target by 50%% for 2 seconds.
+  // Firebolt: Fires a powerful firebolt at a target creep, dealing 200%% damage and stunning
+  // for 0.5s seconds.
+  // Casting a spell resets mana to 0%%. Archmage generates 25 mana per second. (100 mana)
+  "spellcast"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/spellcast"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"             "FIELD_INTEGER"
+        "slow_percent"         "50 70"
+      }
+      "02"
+      {
+        "var_type"           "FIELD_FLOAT"
+        "slow_duration"      "2.0 2.6"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "bonus_damage_percent"      "200 230"
+      }
+      "04"
+      {
+        "var_type"           "FIELD_FLOAT"
+        "stun_duration"      "0.5 0.8"
+      }
+    }
+  }
+
+  // Kirin Tor Mastery: Slows all enemies within 400 radius by 15%%.
+  // Casts a random spell on attack when at full mana.
+  // Frost Nova: Deals 50%% damage in 150 radius and slows movement speed by 50%% for 2
+  // seconds.
+  // Blizzard: Deal 215%% damage in 300 radius.
+  // Arcange Barrage: Deals 400%% damage to 3 random targets, stunning them for 0.6 seconds.
+  // Generates 33 mana per second.
+  "kirin_tor_mastery"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/spellcast"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "400"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"             "FIELD_INTEGER"
+        "nova_aoe_damage_percent"         "50"
+      }
+      "02"
+      {
+        "var_type"           "FIELD_FLOAT"
+        "slow_duration"      "2.0 2.6"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "bonus_damage_percent"      "200 230"
+      }
+      "04"
+      {
+        "var_type"           "FIELD_FLOAT"
+        "stun_duration"      "0.6"
+      }
+      "05"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "slow_radius"      "400"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "aoe_slow_percent"      "15"
+      }
+      "07"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "nova_radius"      "150"
+      }
+      "08"
+      {
+        "var_type"             "FIELD_INTEGER"
+        "blizzard_radius"      "300"
+      }
+      "09"
+      {
+        "var_type"                         "FIELD_INTEGER"
+        "blizzard_aoe_damage_percent"      "215"
+      }
+      "10"
+      {
+        "var_type"                    "FIELD_INTEGER"
+        "arcane_barrage_targets"      "3"
+      }
+      "11"
+      {
+        "var_type"                         "FIELD_INTEGER"
+        "arcane_barrage_damage_percent"    "400"
+      }
+    }
+  }
+
+  // Volatile Arcane (1): Each attack bounces up to 3 times, and will cause Arcane Pylon
+  // to gain 1 mana. At full mana (500), mana is reset to 0 and Attack Rate is permanently
+  // reduced by 0.03, down to a minimum of 0.33s.
+  "volatile_arcane"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/volatile_arcane"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bounces"         "3 4"
+      }
+      "02"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "mana_gained"      "1"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "attack_rate_reduction"     "0.03"
+      }
+      "04"
+      {
+        "var_type"           "FIELD_FLOAT"
+        "min_attack_rate"    "0.33"
+      }
+    }
+  }
+
+  // Overwhelming Arcane: Each attack bounces up to 5 times, and will cause Arcane Pylon
+  // to gain 3 mana, up to 1000. Damage dealt is increased by 3%% for every 1%% mana, up
+  // to 300%%. Loses 20 mana per second
+  "overwhelming_arcane"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/volatile_arcane"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bounces"         "5"
+      }
+      "02"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "mana_gained"      "3"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "damage_increase"     "3"
+      }
+      "04"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "mana_loss_per_second"    "20"
+      }
+    }
+  }
+
+  // Unstable: It probably does something
+  "unstable"
+  {
+    "AbilityTextureName"          "lone_druid_spirit_bear_demolish"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/unstable"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+    }
+  }
 }

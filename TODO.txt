@@ -1,4 +1,52 @@
+- Implement Elemental system
+- Implement custom gold
+- Choose models/projectiles for remaining towers
+- Create icons for remaining towers
+- addon english
+- Come up with abilities for all the creeps (I will do this, these are going to be unique to our version)
+- Code abilities for all creeps/towers
+- Add splash damage (already in, just need to add to units)
+- End game score screen (?)
+- Logic/UI for dead players
+- Spectator logic
+- Update lanes
+
+
+Research
+  Start with 4 research points
+    Can purchase another research point for 50,000 gold
+    cost of research point increases by 50,000 for each purchase
+
+
+
+  Fire
+    Meteor Attractor
+    Living Flame
+  Ice
+    Frozen Watcher
+    Icicle
+  Lightning
+    Lightning Beacon
+    Voltage
+  Light
+    Lightshroom
+    Sunray Tower
+  Unholy
+    Septic Tank
+    Decayed Guardian
+  Water
+    Water Elemental
+    Tidal Guardian
+  Earth
+    Earth Protector
+    Poisonous Roots
+  Arcane
+    Archmage
+    Arcane Pylon
+
 Towers
+
+  All towers have foritifed armor
 
   Archer Tower (10)
   Damage 1-2
