@@ -17,10 +17,48 @@
 			<Button id="NewScoreboardButton" class="TopLeftMenuButton" onactivate="OnScoreboardButtonPressed();" onmouseover="UIShowTextTooltip(Scoreboard - Coming Soon)"  onmouseout="UIHideTextTooltip()" />
 			<Button id="LeaderboardButton" class="TopLeftMenuButton" onactivate="OnLeaderboardButtonPressed();" onmouseover="UIShowTextTooltip(Leaderboard - Coming Soon)"  onmouseout="UIHideTextTooltip()" />
 		</Panel>
-	
-	
-	
+
 		<Panel id="Avatars" class="AvatarsPanel">
 		</Panel>
+		
+		
+
+		<Panel id="ShopHolder">
+			<Button id="ShopButton" hittest="true" onactivate="OnShopButtonPressed()" oncontextmenu="OnShopButtonPressed()">
+				<Image id="ShopIcon" src="file://{images}/custom_game/Elements.png" />
+				<Label id="ShopLabel" text="#Elements" />
+			</Button>
+			<Panel id="Items" class="ShopHidden">
+				<Panel class="ItemColumnLeft">
+					<Panel class="ItemRow">
+						<Image id="Arcane" src="file://{images}/custom_game/Elements/Arcane.png" onmouseover="UIShowTextTooltip(Arcane)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="ItemRow2">
+						<Image id="Earth" src="file://{images}/custom_game/Elements/Earth.png" onmouseover="UIShowTextTooltip(Earth)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="ItemRow3">
+						<Image id="Fire" src="file://{images}/custom_game/Elements/Fire.png" onmouseover="UIShowTextTooltip(Fire)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="ItemRow4">
+						<Image id="Ice" src="file://{images}/custom_game/Elements/Ice.png" onmouseover="UIShowTextTooltip(Ice)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					</Panel>
+				<Panel class="ItemColumnRight">
+					<Panel class="ItemRow">
+						<Image id="Light" src="file://{images}/custom_game/Elements/Light.png" onmouseover="UIShowTextTooltip(Light)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="ItemRow2">
+						<Image id="Lightning" src="file://{images}/custom_game/Elements/Lightning.png" onmouseover="UIShowTextTooltip(Lightning)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="ItemRow3">
+						<Image id="Unholy" src="file://{images}/custom_game/Elements/Unholy.png" onmouseover="UIShowTextTooltip(Unholy)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+					<Panel class="ItemRow4">
+						<Image id="Water" src="file://{images}/custom_game/Elements/Water.png" onmouseover="UIShowTextTooltip(Water)"  onmouseout="UIHideTextTooltip()" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+
 	</Panel>
 </root>

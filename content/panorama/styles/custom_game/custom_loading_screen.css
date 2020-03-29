@@ -1,90 +1,102 @@
-@define TotalLength: 40s;
-@define TimingFunc: linear;
-@define IterationCount: 1;
-@define AnimationDelay: 0s;
-
 .AddonLoadingRoot
 {
     width: 100%;
     height: 100%;
-    background-color: black;
     overflow: clip;
 }
 
-#TitlePanel
+.TitleBig
 {
-  horizontal-align: left;
-  vertical-align: bottom;
-  margin-bottom: 150px;
-  margin-left: 100px;
-  flow-children: right;
+    vertical-align: top;
+    horizontal-align: left;
+	margin-left: 20px;
+	margin-top: 100px;
+	
+	font-size: 64px;
+	letter-spacing: 2px;
+	text-shadow: 0px 0px 4px #777f88;
+	text-transform: uppercase;
+	font-family: defaultFont;
 }
 
-#AddonTitle
+.BattlePassCellTitle
 {
-  margin-bottom: -15px;
-  vertical-align: center;
-  text-transform: uppercase;
-  font-size: 80px;
-  color: #cccccc;
-  text-shadow: 2px 2px 2px #000000;
+	height: 30px;
+	background-color: accentColorSectionBG;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	padding: 6px;
+	letter-spacing: 2.25px;
+	text-transform: uppercase;
+	z-index: 2;
+	text-overflow: shrink;
+
+	transition-property: border, background-color, color;
+	transition-duration: .5s;
+	transition-timing-function: ease-in-out;
 }
 
-.SeqImg
+#NewsTab
 {
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 100% 100%;
+	background-color: #000000aa;
+	width: 458px;
+	margin-left: 16px;
+	height: 282px;
+	vertical-align: top;
+	horizontal-align: center;
+	border: BRD;
+	margin-top: 16px;
+	margin-left: 16px;
+	margin-right: 450px;	
 }
 
-#CustomBg
+#PredictionWell
 {
-
-  margin-top: 350px;
-    overflow: clip;
-  pre-transform-scale2d: 1.0;
-  animation-name: gamemode_anim;
-  animation-delay: AnimationDelay;
-  animation-duration: TotalLength;
-  animation-timing-function: TimingFunc;
-  animation-iteration-count: IterationCount;
+	background-color: #000000aa;
+	width: 458px;
+	margin-left: 16px;
+	height: 382px;
+	vertical-align: top;
+	border: BRD;
+	margin-top: 16px;
 }
 
-#gamemode
+#CourierShowcase
 {
-  margin-left: 160px;
-  /*margin-bottom: 0px;*/
-  
+	width: 240px;
+	height: 240px;
+	horizontal-align: center;
+	vertical-align: bottom;
+	overflow: noclip;
+	z-index: 2;
+	transform: translateY(-60px);	
+	transition-property: opacity-mask, opacity, saturation, wash-color, pre-transform-scale2d;
+	transition-duration: .2s;
+	transition-delay: .2s, 0s;
+	transition-timing-function: ease-in-out;
 }
 
-@keyframes 'gamemode_anim'
+#NewBloom2019RoshanModel
 {
-  0%
-  {
-    transform: translateX( 0px ) translateY( 0px );
-    pre-transform-scale2d: .8;
-  }
-
-  100%
-  {
-    transform: translateX( 0px ) translateY( -200px );
-  }
+	width: 380px;
+	height: 380px;
+	opacity: 0.99;
+	transform: translateX(-70px) translateY(-5px);
 }
 
-#OptionListAdvanced {
-	width: 400px;
-	height: 230px;
-    flow-children: down;
-    animation-name: TeamsListAppear;
-    animation-duration: 0.75s;
-	background-color: #000000BA;
-	border-radius: 8px;
+#CourierShowcaseBase
+{
+	width: 240px;
+	height: 116px;
+	background-image: url("s2r://panorama/images/events/frostivus/frostivus2018_snowglobebase_psd.vtex");
+	background-size: 100%;
+	vertical-align: bottom;
+	horizontal-align: center;
+	transform: translateX(5px) translateY(-63px);
 }
 
-#OptionListGroupAdvanced {
-	width: 100%;
-    height: 100%;
-    padding: 8px;
-    vertical-align: middle;
-	border-radius: 8px;
+#CourierShowcase:hover .InspectIcon
+{
+	opacity: 1;
 }
