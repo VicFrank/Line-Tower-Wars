@@ -40,6 +40,8 @@ function SendCreep(hero, unitname, income)
 
   -- Increase income
   hero:ModifyIncome(income)
+
+  return waveUnit
 end
 
 function GetNextLane(laneNumber)

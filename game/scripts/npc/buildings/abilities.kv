@@ -2,7 +2,9 @@
 {
   "Version"   "1"
 
-  // Ignite 1: Periodically put a nearby random enemy on fire, dealing 1 damage per second over 7 seconds
+  // Ignite 1: Periodically put a nearby random enemy on fire, dealing 1 damage per second
+  // over 7 seconds
+  // TODO: how often is periodically?
   "ignite"
   {
     "AbilityTextureName"          "ogre_magi_ignite"
@@ -11,11 +13,12 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
     }
 
     "AbilitySpecial"
@@ -33,8 +36,9 @@
     }
   }
 
-  // Overwhelming impact 2: Attacts meteors to the ground causing them to light the ground
+  // Overwhelming impact 2: Attracts meteors to the ground, causing them to light the ground
   // on fire for 3 seconds and burn enemy units for 65 damage per second
+  // TODO: Cooldown? On attack? Radius?
   "overwhelming_impact"
   {
     "AbilityTextureName"          "invoker_chaos_meteor"
@@ -46,8 +50,8 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/neutral_fx/black_dragon_fireball.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
     }
 
     "AbilitySpecial"
@@ -82,11 +86,12 @@
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
     }
 
     "AbilitySpecial"
@@ -120,12 +125,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -148,12 +147,13 @@
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
+    //"precache"
+    //{
+    //  "particle"  ""
+    //  "soundfile" ""
+    //}
 
     "AbilitySpecial"
     {
@@ -197,8 +197,8 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/status_fx/status_effect_frost.vpcf"
+      "particle"  "particles/generic_gameplay/generic_slowed_cold.vpcf"
     }
 
     "AbilitySpecial"
@@ -213,6 +213,11 @@
         "var_type"      "FIELD_INTEGER"
         "max_slow"      "30 45 50 50 60"
       }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "duration"      "5"
+      }
     }
   }
 
@@ -226,11 +231,12 @@
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_PHYSICAL"
 
     "precache"
     {
       "particle"  ""
-      "soundfile" ""
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
     }
 
     "AbilitySpecial"
@@ -263,12 +269,7 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_PHYSICAL"
 
     "AbilitySpecial"
     {
@@ -304,11 +305,12 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
+    "AbilityCastRange"            "250"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/items_fx/chain_lightning.vpcf"
     }
 
     "AbilitySpecial"
@@ -328,6 +330,11 @@
         "var_type"      "FIELD_INTEGER"
         "radius"        "250"
       }
+      "04"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "targets"       "6"
+      }
     }
   }
 
@@ -342,23 +349,12 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"               "FIELD_INTEGER"
         "bonus_damage_percent"   "50 80"
-      }
-      "02"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "duration"      "7"
       }
     }
   }
@@ -394,7 +390,8 @@
     }
   }
 
-  // Electrocute (1): Attacks deal additonal damage equal to 0.52%% of the target's current health
+  // Electrocute (1): Attacks deal additonal damage equal to 0.52%% of the target's current
+  // health
   "electrocute"
   {
     "AbilityTextureName"          "Electrocute"
@@ -406,8 +403,7 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
     }
 
     "AbilitySpecial"
@@ -427,14 +423,15 @@
     "AbilityTextureName"          "DepthCurrent"
     "BaseClass"                   "ability_lua"
     "ScriptFile"                  "abilities/buildings/depth_current"
-    "MaxLevel"                    "2"
+    "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
     }
 
     "AbilitySpecial"
@@ -515,7 +512,12 @@
       "03"
       {
         "var_type"      "FIELD_INTEGER"
-        "knockback"     "50 75 100"
+        "knockback"     "100 150 200"
+      }
+      "04"
+      {
+        "var_type"             "FIELD_FLOAT"
+        "knockback_duration"   "0.3 0.4 0.5"
       }
     }
   }
@@ -530,12 +532,6 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
 
     "AbilitySpecial"
     {
@@ -558,9 +554,7 @@
   }
 
   // Titan Defense Mechanism: Attacks will hit 10 additional targets, reduce their damage
-  // by 20%% and slow their movement by 10%% for 3 seconds. This affects magic immune enemies.
-  // Whenever a friendly tower within 300 radius takes damage, increase their armor by 3 for
-  // 4 seconds.
+  // by 20%% and slow their movement by 10%% for 3 seconds.
   "titan_defense_mechanism"
   {
     "AbilityTextureName"          "TitanDefenseMechanism"
@@ -569,12 +563,7 @@
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
+    "AbilityCastRange"            "300"
 
     "AbilitySpecial"
     {
@@ -595,13 +584,8 @@
       }
       "04"
       {
-        "var_type"     "FIELD_INTEGER"
-        "armor_bonus"  "3"
-      }
-      "05"
-      {
         "var_type"   "FIELD_INTEGER"
-        "radius"     "3"
+        "slow"       "10"
       }
     }
   }
@@ -616,11 +600,13 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_enigma/enigma_malefice.vpcf"
+      "particle"  "particles/econ/events/ti9/blink_dagger_ti9_end.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
     }
 
     "AbilitySpecial"
@@ -761,6 +747,38 @@
     }
   }
 
+  // Hellfire: Each attack launches Hellfire. Damage starts low on the primary target, and
+  // is increased by 3%% for each creep hit. 
+  "hellfire"
+  {
+    "AbilityTextureName"          "doom_bringer_infernal_blade"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/hellfire"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  ""
+      "soundfile" ""
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage_increase"   "3"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "400"
+      }
+    }
+  }
+
   // Crushing Wave (1): Every 5th attack against ground creeps unleashes a Crushing Wave,
   // dealing 3 damage to all ground enemies hit.
   "crushing_wave"
@@ -852,13 +870,12 @@
 
   // Torrent (1): Attacks unleash a devastating torrent at the attacked location.
   // After 0.9 seconds the torrent explodes, dealing damage to all enemies hit.
-
   "torrent"
   {
     "AbilityTextureName"          "kunkka_torrent"
     "BaseClass"                   "ability_lua"
     "ScriptFile"                  "abilities/buildings/torrent"
-    "MaxLevel"                    "2"
+    "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -878,7 +895,7 @@
       "02"
       {
         "var_type"      "FIELD_INTEGER"
-        "radius"        "200 250"
+        "radius"        "200"
       }
     }
   }
@@ -891,7 +908,7 @@
     "AbilityTextureName"          "kunkka_torrent"
     "BaseClass"                   "ability_lua"
     "ScriptFile"                  "abilities/buildings/torrent"
-    "MaxLevel"                    "2"
+    "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -911,7 +928,7 @@
       "02"
       {
         "var_type"      "FIELD_INTEGER"
-        "radius"        "200 250"
+        "radius"        "250"
       }
       "03"
       {

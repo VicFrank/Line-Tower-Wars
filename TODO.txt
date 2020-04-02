@@ -1,15 +1,26 @@
-- Implement Elemental system
-- Implement custom gold
-- Choose models/projectiles for remaining towers
-- Create icons for remaining towers
-- addon english
-- Come up with abilities for all the creeps (I will do this, these are going to be unique to our version)
-- Code abilities for all creeps/towers
-- Add splash damage (already in, just need to add to units)
+- Implement Elemental system - (5 hours)
+- Element Shop UI - (kill me)
+- Implement custom gold - (1 hour)
+- Choose models/projectiles for remaining towers (Flam3s)
+- Create icons for remaining towers (Flam3s)
+- Addon English
+  - Construction Abilities (4 hours)
+  - Building Abilities (38) (2 hours)
+  - Building Abilitie Modifiers (1 hour)
+  - Creep Abilities (10-20?) (1 hour)
+- Brainstorm Creep Abilities (2 hours)
+- Code Creep Abilities (10-20) (5-10 hours)
+- Code Building Abilities (38) (10 hours)
+  - Code Abilities (21/38)
+  - Test Abilities (0/38)
+  - Polish Abilities (fuck you)
+- Add Building Abilities to buildings (1 hour)
 - End game score screen (?)
-- Logic/UI for dead players
-- Spectator logic
-- Update lanes
+- Logic/UI for dead players (2 hours)
+- Spectator logic (2 hours)
+- Update lanes / map - prevent build on edge of lane (4 hours)
+- Leak damage (1 hour)
+- Precache units and towers (1 hour)
 
 
 Research

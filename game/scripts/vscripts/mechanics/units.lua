@@ -229,7 +229,7 @@ function CDOTA_BaseNPC:IsDummy()
 end
 
 function CDOTA_BaseNPC:HasSplashAttack()
-  return self:GetKeyValue("SplashAttack")
+  return self:GetKeyValue("SplashRadius")
 end
 
 -- All units should have DOTA_COMBAT_CLASS_ATTACK_HERO and DOTA_COMBAT_CLASS_DEFEND_HERO, or no CombatClassAttack/ArmorType defined

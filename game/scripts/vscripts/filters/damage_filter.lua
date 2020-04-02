@@ -74,13 +74,13 @@ function SplashAttackGround(attacker, position)
 end
 
 function SplashAttackUnit(attacker, position)
-  local full_damage_radius = attacker:GetKeyValue("SplashFullRadius") or 0
-  local medium_damage_radius = attacker:GetKeyValue("SplashMediumRadius") or 0
-  local small_damage_radius = attacker:GetKeyValue("SplashSmallRadius") or 0
+  local full_damage_radius = attacker:GetKeyValue("SplashRadius") or 0
+  local medium_damage_radius = full_damage_radius * 2
+  local small_damage_radius = full_damage_radius * 6
 
   local full_damage = attacker:GetAttackDamage()
-  local medium_damage = full_damage * attacker:GetKeyValue("SplashMediumDamage") or 0
-  local small_damage = full_damage * attacker:GetKeyValue("SplashSmallDamage") or 0
+  local medium_damage = full_damage * 0.4 or 0
+  local small_damage = full_damage * 0.25 or 0
   medium_damage = medium_damage + small_damage -- Small damage gets added to the mid aoe
 
   local splash_targets = FindAllUnitsAroundPoint(attacker, position, small_damage_radius)
