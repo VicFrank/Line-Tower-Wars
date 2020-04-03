@@ -7,6 +7,7 @@
     <scripts>
         <include src="file://{resources}/scripts/custom_game/MainUI.js" />
 		<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
+		<include src="file://{resources}/scripts/custom_game/Elements.js" />
     </scripts>
 	
 	<Panel hittest="false" class="Root">
@@ -30,35 +31,84 @@
 			</Button>
 			<Panel id="Items" class="ShopHidden">
 				<Panel class="ItemColumnLeft">
+				<Panel class="ItemRow">
+					<Panel id="Arcane1" onactivate="Arcane1PurchasePressed()" onmouseover="UIShowTextTooltip(Arcane 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow2">
+					<Panel id="Earth1" onactivate="Earth1PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow3">
+					<Panel id="Fire1" onactivate="Fire1PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 1)" onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow4">
+					<Panel id="Ice1" onactivate="Ice1PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow5">
+					<Panel id="Light1" onactivate="Light1PurchasePressed()" onmouseover="UIShowTextTooltip(Light 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow6">
+					<Panel id="Lightning1" onactivate="Lightning1PurchasePressed()" onmouseover="UIShowTextTooltip(Lightning 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow7">
+					<Panel id="Unholy1" onactivate="Unholy1PurchasePressed()" onmouseover="UIShowTextTooltip(Unholy 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow8">
+					<Panel id="Water1" onactivate="Water1PurchasePressed()" onmouseover="UIShowTextTooltip(Water 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				</Panel>
+				<Panel class="ItemColumnUpgrade1">
 					<Panel class="ItemRow">
-						<Image id="Arcane" src="file://{images}/custom_game/Elements/Arcane.png" onmouseover="UIShowTextTooltip(Arcane)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					<Panel class="ItemRow2">
-						<Image id="Earth" src="file://{images}/custom_game/Elements/Earth.png" onmouseover="UIShowTextTooltip(Earth)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					<Panel class="ItemRow3">
-						<Image id="Fire" src="file://{images}/custom_game/Elements/Fire.png" onmouseover="UIShowTextTooltip(Fire)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					<Panel class="ItemRow4">
-						<Image id="Ice" src="file://{images}/custom_game/Elements/Ice.png" onmouseover="UIShowTextTooltip(Ice)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					</Panel>
-				<Panel class="ItemColumnRight">
-					<Panel class="ItemRow">
-						<Image id="Light" src="file://{images}/custom_game/Elements/Light.png" onmouseover="UIShowTextTooltip(Light)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					<Panel class="ItemRow2">
-						<Image id="Lightning" src="file://{images}/custom_game/Elements/Lightning.png" onmouseover="UIShowTextTooltip(Lightning)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					<Panel class="ItemRow3">
-						<Image id="Unholy" src="file://{images}/custom_game/Elements/Unholy.png" onmouseover="UIShowTextTooltip(Unholy)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
-					<Panel class="ItemRow4">
-						<Image id="Water" src="file://{images}/custom_game/Elements/Water.png" onmouseover="UIShowTextTooltip(Water)"  onmouseout="UIHideTextTooltip()" />
-					</Panel>
+					<Panel class="Unpurchasable" id="Arcane2" onactivate="Arcane2PurchasePressed()" onmouseover="UIShowTextTooltip(Arcane 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow2">
+					<Panel class="Unpurchasable" id="Earth2" onactivate="Earth2PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow3">
+					<Panel class="Purchased" id="Fire2" onactivate="Fire2PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow4">
+					<Panel class="Unpurchasable" id="Ice2" onactivate="Ice2PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow5">
+					<Panel class="Unpurchasable" id="Light2" onactivate="Light2PurchasePressed()" onmouseover="UIShowTextTooltip(Light 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow6">
+					<Panel class="Unpurchasable" id="Lightning2" onactivate="Lightning2PurchasePressed()" onmouseover="UIShowTextTooltip(Lightning 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow7">
+					<Panel class="Unpurchasable" id="Unholy2" onactivate="Unholy2PurchasePressed()" onmouseover="UIShowTextTooltip(Unholy 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow8">
+					<Panel class="Unpurchasable" id="Water2" onactivate="Water2PurchasePressed()" onmouseover="UIShowTextTooltip(Water 2)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				</Panel>
+				<Panel class="ItemColumnUpgrade2">
+				<Panel class="ItemRow">
+					<Panel class="Unpurchasable" id="Arcane3" onactivate="Arcane3PurchasePressed()" onmouseover="UIShowTextTooltip(Arcane 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow2">
+					<Panel class="Unpurchasable" id="Earth3" onactivate="Earth3PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow3">
+					<Panel class="Unpurchasable" id="Fire3" onactivate="Fire3PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow4">
+					<Panel class="Unpurchasable" id="Ice3" onactivate="Ice3PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow5">
+					<Panel class="Unpurchasable" id="Light3" onactivate="Light3PurchasePressed()" onmouseover="UIShowTextTooltip(Light 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow6">
+					<Panel class="Unpurchasable" id="Lightning3" onactivate="Lightning3PurchasePressed()" onmouseover="UIShowTextTooltip(Lightning 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow7">
+					<Panel class="Unpurchasable" id="Unholy3" onactivate="Unholy3PurchasePressed()" onmouseover="UIShowTextTooltip(Unholy 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow8">
+					<Panel class="Unpurchasable" id="Water3" onactivate="Water3PurchasePressed()" onmouseover="UIShowTextTooltip(Water 3)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
 				</Panel>
 			</Panel>
 		</Panel>
-
 	</Panel>
 </root>

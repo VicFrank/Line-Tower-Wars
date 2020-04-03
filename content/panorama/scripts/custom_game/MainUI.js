@@ -12,3 +12,8 @@ function OnShopButtonPressed() {
   Game.EmitSound("ui_chat_slide_out")
   $("#Items").ToggleClass("ShopHidden");
 }
+
+function UIContinuePressed() {
+  Game.EmitSound("ui_chat_slide_out")
+  $("#PopupWindow").ToggleClass("Invisible");
+}
