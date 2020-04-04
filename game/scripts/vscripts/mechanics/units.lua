@@ -232,6 +232,14 @@ function CDOTA_BaseNPC:HasSplashAttack()
   return self:GetKeyValue("SplashRadius")
 end
 
+function CDOTA_BaseNPC:GetSplashRadius()
+  local splashRadius = self:GetKeyValue("SplashRadius") or 0
+  if self:HasModifier("modifier_unholy_miasma") then
+    splashRadius = self:GetModifierStackCount("modifier_unholy_miasma", self)
+  end
+  return splashRadius
+end
+
 -- All units should have DOTA_COMBAT_CLASS_ATTACK_HERO and DOTA_COMBAT_CLASS_DEFEND_HERO, or no CombatClassAttack/ArmorType defined
 -- Returns a string with the wc3 damage name
 function CDOTA_BaseNPC:GetAttackType()
