@@ -8,7 +8,7 @@
   height: 40px;
   margin-top: 10px;
   margin-left: -5px;
-  background-image: url("s2r://panorama/images/hud/reborn/bg_scoreboard_psd.vtex");
+  background-color: #000a;
   border-bottom: 1px solid #111111FF;
   border-top: 1px solid #111111FF;
   border-right: 1px solid #111111FF;
@@ -99,16 +99,20 @@
 {
   horizontal-align: left;
   vertical-align: center;
-  width: fit-children;
   flow-children: right;
-  background-image: url("s2r://panorama/images/hud/reborn/bg_scoreboard_psd.vtex");
-  background-size: cover;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom: 1px solid #111111FF;
-  border-top: 1px solid #111111FF;
-  border-right: 1px solid #111111FF;
-  width: 200px;
+  width: 180px;
+  height: 60px;
+  margin-bottom: 180px;
+  
+  box-shadow: #F78F9015 -1px -1px 3px 3px;
+  background-color: black;
+
+  background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_hover_psd.vtex");
+  background-size: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 #ShopButton:Hover
@@ -122,8 +126,32 @@
   text-align: center;
   text-transform: uppercase;
   horizontal-align: center;
-  margin-top: 7px;
-  margin-right: 20px;
+  margin-top: 8px;
+  margin-right: 3px;
+  margin-left: 10px;
+  font-family: defaultFont;
+}
+
+#ResearchPointsHolder
+{
+	width: 18%;
+	height: 70%;
+	margin-left: 4px;
+	margin-top: 7px;
+	background-color: gradient( linear, 0% 0%, 0% 5%, from( #000e ), to( #000e ) );
+	border-radius: 5px;
+}
+
+#ResearchPoints
+{
+  font-size: 25px;
+  align: center top;
+  text-transform: uppercase;
+  margin-right: 5px;
+  margin-top: 2px;
+  text-shadow: 0px 0px 2px #CD6BFB;
+  font-family: RadianceM;
+  color: #fff;
 }
 
 #ShopIcon
@@ -136,7 +164,7 @@
 #ShopHolder
 {
   width: 280px;
-  height: 750px;
+  height: 850px;
   horizontal-align: left;
   vertical-align: center;
   flow-children: down;
@@ -158,7 +186,7 @@
 #Items
 {
   width: 100%;
-
+  height: 73%;
   flow-children: right;
   horizontal-align: center;
 
@@ -180,7 +208,7 @@
 {
   horizontal-align: left;
   width: 30%;
-  height: 550px;
+  height: 534px;
   border-right: 1px solid #000000da;
 }
 
@@ -189,7 +217,7 @@
   horizontal-align: center;
   vertical-align: top;
   width: 30%;
-  height: 550px;
+  height: 534px;
   margin-left: 20px;
 
 }
@@ -198,10 +226,90 @@
 {
   horizontal-align: center;
   vertical-align: top;
-  height: 550px;
+  height: 534px;
   margin-left: 0px;
   margin-right: 5px;
+}
 
+.ItemColumnBottom
+{
+  vertical-align: bottom;
+  height: 13%;
+  width: 100%;
+
+  horizontal-align: left;
+  margin-left: -275px;
+  margin-bottom: 5px;
+
+  border-top: 1px solid #000000da;
+}
+
+#BuyRPButton
+{
+  horizontal-align: center;
+  vertical-align: center;
+  height: 35px;
+  flow-children: right;
+  width: 230px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  
+  box-shadow: #F78F9015 -1px -1px 3px 3px;
+  background-color: black;
+
+  background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_hover_psd.vtex");
+  background-size: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  
+  transition-property: box-shadow, background-image, background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in-out;
+  
+  tooltip-position: right;
+}
+
+#BuyRPButton:Hover
+{
+  background-image: url("s2r://panorama/images/textures/glassbutton_darkmoon_psd.vtex");
+}
+
+#BuyRPButtonLabel
+{
+  text-align: center;
+  text-transform: uppercase;
+  horizontal-align: center;
+  margin-right: 3px;
+  margin-left: 2px;
+  margin-top: 7px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-family: defaultFont;
+}
+
+.RPInformation
+{
+  text-align: center;
+  text-transform: uppercase;
+  horizontal-align: center;
+  margin-right: 3px;
+  margin-left: 2px;
+  margin-top: 46px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-family: defaultFont;
+}
+
+.RPInformationNote
+{
+  text-align: center;
+  horizontal-align: center;
+  margin-right: 3px;
+  margin-left: 2px;
+  margin-top: 65px;
+  font-size: 14px;
+  letter-spacing: 0px;
+  font-family: defaultFont;	
 }
 
 .ItemRow
@@ -600,7 +708,7 @@
   brightness: 0.1;
 }
 
-.Purchased
+.PurchasedIcon
 {
   width: 32px;
   height: 32px;
@@ -608,7 +716,7 @@
   background-image: url("file://{images}/custom_game/purchased.png");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 50% 50%;
+  align: center center;
 }
 
 .AvatarsPanel
@@ -625,14 +733,15 @@
   width: 190px;
   height: 70px;
   opacity: 1;
-  background-image: url("s2r://panorama/images/hud/reborn/bg_deathsummary_psd.vtex");
   transition-duration: .05s;
   transition-property: background-image;
   transition-timing-function: ease-in-out;
   margin-bottom: 5px;
-  border-bottom-left-radius: 40px;
-  border-top-left-radius: 40px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
   flow-children: right;
+  
+  background-color: #000e;
 }
 
 .UserAvatar
@@ -642,8 +751,9 @@
   background-size: 100%;
   background-image:url('file://{images}/custom_game/PlayerPanel/user_avatar.png');
   horizontal-align: left;
-  border-radius: 40px;
-  border: 2px solid #000a;
+
+  border: 1px solid #373A40;
+  
 }
 
 .Username

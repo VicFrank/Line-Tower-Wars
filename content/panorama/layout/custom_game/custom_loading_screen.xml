@@ -30,7 +30,15 @@
 				<Panel>
 					<Label class="BattlePassCellTitle" text="#Current_Builder" onmouseout="UIHideTextTooltip();"/>
 				</Panel>
-					<Image id="NewsIcon" src="file://{images}/custom_game/coming_soon.png" style="vertical-align: center;"/>
+					<Panel id="BalanceRankWell" class="TopBottomFlow">
+					<Panel id="CourierShowcase" class="">
+						<DOTAUIEconSetPreview id="NewBloom2019RoshanModel" hittest="false" hittestchildren="false" itemdef="595" displaymode="loadout_small" drawbackground="false" renderdeferred="false" deferredalpha="true"/>
+					</Panel>
+					<Panel id="CourierShowcaseBase"/>
+					<DropDown style="horizontal-align: center; margin-top: -30px;" oninputsubmit="OnDropDownChanged()">
+					  <Label text="Default" id="entry1"/>
+					</DropDown>
+				</Panel>
 			</Panel>
 			<Panel id="NewsTab" class="BattlePassHomeCell">
 				<Panel>

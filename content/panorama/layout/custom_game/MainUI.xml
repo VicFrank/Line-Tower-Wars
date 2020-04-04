@@ -25,10 +25,6 @@
 		
 
 		<Panel id="ShopHolder">
-			<Button id="ShopButton" hittest="true" onactivate="OnShopButtonPressed()" oncontextmenu="OnShopButtonPressed()">
-				<Image id="ShopIcon" src="file://{images}/custom_game/Elements.png" />
-				<Label id="ShopLabel" text="#Elements" />
-			</Button>
 			<Panel id="Items" class="ShopHidden">
 				<Panel class="ItemColumnLeft">
 				<Panel class="ItemRow">
@@ -64,10 +60,12 @@
 					<Panel class="Unpurchasable" id="Earth2" onactivate="Earth2PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow3">
-					<Panel class="Purchased" id="Fire2" onactivate="Fire2PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Fire2" onactivate="Fire2PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow4">
-					<Panel class="Unpurchasable" id="Ice2" onactivate="Ice2PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Ice2" onactivate="Ice2PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 2)"  onmouseout="UIHideTextTooltip()" >
+						<Panel class="PurchasedIcon" />
+					</Panel>
 				</Panel>
 				<Panel class="ItemRow5">
 					<Panel class="Unpurchasable" id="Light2" onactivate="Light2PurchasePressed()" onmouseover="UIShowTextTooltip(Light 2)"  onmouseout="UIHideTextTooltip()" />
@@ -108,7 +106,20 @@
 					<Panel class="Unpurchasable" id="Water3" onactivate="Water3PurchasePressed()" onmouseover="UIShowTextTooltip(Water 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>
+				<Panel class="ItemColumnBottom">
+					<Button id="BuyRPButton" hittest="true" onactivate="OnBuyRPButtonPressed()">
+						<Label id="BuyRPButtonLabel" text="#BuyRP" />
+					</Button>
+					<Label class="RPInformation" text="#BuyRP_Description" />
+					<Label class="RPInformationNote" text="#BuyRP_Note" />
+				</Panel>
 			</Panel>
+			<Button id="ShopButton" hittest="true" onactivate="OnShopButtonPressed()" oncontextmenu="OnShopButtonPressed()">
+				<Label id="ShopLabel" text="#Elements" />
+				<Panel id="ResearchPointsHolder" onmouseover="UIShowTextTooltip(Research Points)"  onmouseout="UIHideTextTooltip()">
+					<Label id="ResearchPoints" text="4" onmouseover="UIShowTextTooltip(Research Points)"  onmouseout="UIHideTextTooltip()"/>
+				</Panel>
+			</Button>
 		</Panel>
 	</Panel>
 </root>
