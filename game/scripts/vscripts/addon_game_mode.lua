@@ -23,31 +23,28 @@ require("triggers")
 require("utility_functions")
 
 function Precache( context )
-  --[[
-  PrecacheResource( "model", "*.vmdl", context )
-  PrecacheModel should generally used over PrecacheResource for individual models
-  PrecacheModel("models/heroes/viper/viper.vmdl", context)
-
-  PrecacheResource( "soundfile", "*.vsndevts", context )
-  PrecacheResource( "particle", "*.vpcf", context )
-  PrecacheResource( "particle_folder", "particles/folder", context )
-
-  Entire items can be precached by name
-  Abilities can also be precached in this way despite the name
-  PrecacheItemByNameSync("item_rune_heal", context)
-
-  Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
-  Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
-  PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
-  ]]
-
   PrecacheResource("particle_folder", "particles/buildinghelper", context)
 
   -- General Precaches
   PrecacheResource("particle", "particles/custom/construction_dust.vpcf", context)
-
   PrecacheUnitByNameSync("archer_tower", context)
   
+  -- Sounds
+  
+  PrecacheResource( "soundfile", "soundevents/game_sounds.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_main.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_greevils.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_items.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_ambient.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_cny.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_creeps.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_frostivus.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_hero_pick.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_roshan_halloween.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/game_sounds_ui_imported.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/soundevents_dota.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/soundevents_dota_ui.vsndevts", context )
+  PrecacheResource( "soundfile", "soundevents/soundevents_minigames.vsndevts", context )
 end
 
 -- Create the game mode when we activate
