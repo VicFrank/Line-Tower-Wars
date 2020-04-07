@@ -8,7 +8,6 @@ modifier_template = class({})
 function modifier_template:IsHidden() return true end
 
 function modifier_template:OnCreated()
-  self.caster = self:GetCaster()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
 
@@ -28,7 +27,7 @@ function modifier_template:OnAttackLanded(keys)
   local attacker = keys.attacker
   local target = keys.target
 
-  if attacker == self.caster then
+  if attacker == self.parent then
     
   end
 end

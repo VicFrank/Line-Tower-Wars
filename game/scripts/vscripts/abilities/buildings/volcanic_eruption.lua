@@ -41,7 +41,7 @@ function modifier_volcanic_eruption:OnAttackLanded(keys)
 
     if RollPercentage(self.chance) then
       -- 5 creeps near the target takes 160% of damage dealt
-      local enemies = FindEnemiesInRadius(target, self.radius)
+      local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
       local enemiestoHit = self.num_enemies
 
       for _,enemy in pairs(enemies) do

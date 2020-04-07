@@ -52,7 +52,7 @@ function modifier_frost_attack:OnAttackLanded(keys)
         stackCount + 1
       )
     else
-      local enemies = FindEnemiesInRadius(target, self.radius)
+      local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
 
       for _,enemy in pairs(enemies) do
         local stackCount = enemy:GetModifierStackCount(

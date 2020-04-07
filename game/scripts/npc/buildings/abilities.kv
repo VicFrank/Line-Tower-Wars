@@ -149,12 +149,6 @@
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
-    //"precache"
-    //{
-    //  "particle"  ""
-    //  "soundfile" ""
-    //}
-
     "AbilitySpecial"
     {
       "01"
@@ -235,7 +229,6 @@
 
     "precache"
     {
-      "particle"  ""
       "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
     }
 
@@ -369,12 +362,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -464,12 +451,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -490,12 +471,6 @@
     "MaxLevel"                    "3"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
 
     "AbilitySpecial"
     {
@@ -640,12 +615,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -673,12 +642,6 @@
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
 
     "AbilitySpecial"
     {
@@ -716,12 +679,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -757,12 +714,7 @@
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_PHYSICAL"
 
     "AbilitySpecial"
     {
@@ -789,11 +741,11 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
     }
 
     "AbilitySpecial"
@@ -808,10 +760,20 @@
         "var_type"      "FIELD_FLOAT"
         "damage"        "3 10"
       }
-      "02"
+      "03"
       {
         "var_type"      "FIELD_FLOAT"
-        "radius"        "50"
+        "radius"        "200"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "distance"      "600"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "speed"         "900"
       }
     }
   }
@@ -822,27 +784,22 @@
     "AbilityTextureName"          "PressuringWater"
     "BaseClass"                   "ability_lua"
     "ScriptFile"                  "abilities/buildings/pressuring_water"
-    "MaxLevel"                    "3"
+    "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"             "FIELD_INTEGER"
-        "max_bonus_damage"     "25 40 60"
+        "max_bonus_damage"     "25 40"
       }
     }
   }
 
-  // Hurricane Storm: Attacks also damage enemies within 500 radius.
+  // Hurricane Storm: Attacks also damage enemies within 500 radius. Deals up to 60%%
+  // additional damage to closer enemies.
   "hurricane_storm"
   {
     "AbilityTextureName"          "HurricaneStorm"
@@ -854,8 +811,8 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
     }
 
     "AbilitySpecial"
@@ -864,6 +821,11 @@
       {
         "var_type"      "FIELD_INTEGER"
         "radius"        "500"
+      }
+      "02"
+      {
+        "var_type"             "FIELD_INTEGER"
+        "max_bonus_damage"     "60"
       }
     }
   }
@@ -881,8 +843,9 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
+      "particle"  "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
     }
 
     "AbilitySpecial"
@@ -912,12 +875,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
        "01"
@@ -933,7 +890,12 @@
       "03"
       {
         "var_type"      "FIELD_FLOAT"
-        "second_delay"  "2"
+        "second_delay"  "2.0"
+      }
+      "04"
+      {
+        "var_type"               "FIELD_INTEGER"
+        "second_splash_percent"  "30"
       }
     }
   }
@@ -952,8 +914,7 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_undying/undying_fg_aura.vpcf"
     }
 
     "AbilitySpecial"
@@ -961,7 +922,7 @@
       "01"
       {
         "var_type"      "FIELD_INTEGER"
-        "radius"        "1 5"
+        "radius"        "600"
       }
       "02"
       {
@@ -996,12 +957,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -1028,16 +983,10 @@
   {
     "AbilityTextureName"          "DevastatingAttack"
     "BaseClass"                   "ability_lua"
-    "ScriptFile"                  "abilities/buildings/shatter_armor"
+    "ScriptFile"                  "abilities/buildings/devastating_attack"
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
 
     "AbilitySpecial"
     {
@@ -1060,15 +1009,14 @@
   {
     "AbilityTextureName"          "treant_living_armor"
     "BaseClass"                   "ability_lua"
-    "ScriptFile"                  "abilities/buildings/shatter_armor"
+    "ScriptFile"                  "abilities/buildings/natures_guidance"
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
     }
 
     "AbilitySpecial"
@@ -1104,8 +1052,7 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_broodmother/broodmother_poison_debuff.vpcf"
     }
 
     "AbilitySpecial"
@@ -1141,8 +1088,7 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_broodmother/broodmother_poison_debuff.vpcf"
     }
 
     "AbilitySpecial"
@@ -1157,6 +1103,21 @@
         "var_type"               "FIELD_INTEGER"
         "bonus_damage_percent"   "85"
       }
+      "03"
+      {
+        "var_type"               "FIELD_INTEGER"
+        "slow"                   "25"
+      }
+      "04"
+      {
+        "var_type"               "FIELD_INTEGER"
+        "dps"                    "98"
+      }
+      "05"
+      {
+        "var_type"               "FIELD_FLOAT"
+        "duration"               "2.0"
+      }
     }
   }
 
@@ -1170,12 +1131,6 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
 
     "AbilitySpecial"
     {
@@ -1205,11 +1160,15 @@
     "MaxLevel"                    "2"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "800"
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_slow_debuff.vpcf"
+      "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
+      "particle"  "particles/hero/clinkz/searing_flames_active/clinkz_searing_arrow.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
     }
 
     "AbilitySpecial"
@@ -1244,11 +1203,11 @@
   // Blizzard: Deal 215%% damage in 300 radius.
   // Arcange Barrage: Deals 400%% damage to 3 random targets, stunning them for 0.6 seconds.
   // Generates 33 mana per second.
-  "kirin_tor_mastery"
+  "spell_mastery"
   {
     "AbilityTextureName"          "KirinTorMastery"
     "BaseClass"                   "ability_lua"
-    "ScriptFile"                  "abilities/buildings/spellcast"
+    "ScriptFile"                  "abilities/buildings/spell_mastery"
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1256,8 +1215,12 @@
 
     "precache"
     {
-      "particle"  ""
-      "soundfile" ""
+      "particle"  "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+      "particle"  "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+      "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
     }
 
     "AbilitySpecial"
@@ -1270,22 +1233,17 @@
       "02"
       {
         "var_type"           "FIELD_FLOAT"
-        "slow_duration"      "2.0 2.6"
+        "slow_duration"      "2.0"
       }
       "03"
       {
         "var_type"                  "FIELD_INTEGER"
-        "bonus_damage_percent"      "200 230"
+        "nova_slow_percent"         "50"
       }
       "04"
       {
         "var_type"           "FIELD_FLOAT"
         "stun_duration"      "0.6"
-      }
-      "05"
-      {
-        "var_type"         "FIELD_INTEGER"
-        "slow_radius"      "400"
       }
       "06"
       {
@@ -1332,12 +1290,6 @@
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "precache"
-    {
-      "particle"  ""
-      "soundfile" ""
-    }
-
     "AbilitySpecial"
     {
       "01"
@@ -1360,6 +1312,11 @@
         "var_type"           "FIELD_FLOAT"
         "min_attack_rate"    "0.33"
       }
+      "05"
+      {
+        "var_type"                    "FIELD_INTEGER"
+        "damage_reduction_percent"    "0"
+      }
     }
   }
 
@@ -1370,7 +1327,7 @@
   {
     "AbilityTextureName"          "OverwhelmingArcane"
     "BaseClass"                   "ability_lua"
-    "ScriptFile"                  "abilities/buildings/volatile_arcane"
+    "ScriptFile"                  "abilities/buildings/overwhelming_arcane"
     "MaxLevel"                    "1"
 
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"

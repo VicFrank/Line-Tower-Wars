@@ -52,7 +52,7 @@ function modifier_lunar_strike:OnAttackLanded(keys)
         if IsValidAlive(target) then
           self:PlayEffects2(target)
 
-          local enemies = FindEnemiesInRadius(target, self.radius)
+          local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
           local aoeDamage = damage * self.percent_damage / 100
 
           for _,enemy in pairs(enemies) do
@@ -71,8 +71,6 @@ function modifier_lunar_strike:OnAttackLanded(keys)
 end
 
 function modifier_lunar_strike:GetModifierFixedAttackRate(keys)
-  if not IsServer() then return end
-
   local charges = self:GetStackCount()
   local baseAttackRate = 4.0
 

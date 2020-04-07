@@ -38,7 +38,7 @@ function modifier_depth_current:OnAttackLanded(keys)
 
       caster:EmitSound("Hero_Zuus.StaticField")
 
-      local enemies = FindEnemiesInRadius(target, self.radius)
+      local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
 
       for _,enemy in pairs(enemies) do
         local damage = enemy:GetHealth() * self.health_as_damage / 100
