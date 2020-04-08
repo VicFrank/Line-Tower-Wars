@@ -10,17 +10,14 @@
   - Creep Abilities (10-20?) (1 hour)
 - Brainstorm Creep Abilities (2 hours)
 - Code Creep Abilities (10-20) (5-10 hours)
-- Code Building Abilities (38) (10 hours)
-  - Code Abilities (21/38)
+- Code Building Abilities (38)
   - Test Abilities (0/38)
   - Polish Abilities (fuck you)
-- Add Building Abilities to buildings (1 hour)
 - End game score screen (?)
 - Logic/UI for dead players (2 hours)
 - Spectator logic (2 hours)
 - Update lanes / map - prevent build on edge of lane (4 hours)
 - Leak damage (1 hour)
-- Precache units and towers (1 hour)
 
 
 Research

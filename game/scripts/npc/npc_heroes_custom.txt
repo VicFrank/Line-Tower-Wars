@@ -13,7 +13,7 @@
 
     "Ability1"    "build_archer_tower"
     "Ability2"    "build_cutter_tower"
-    "Ability3"    ""
+    "Ability3"    "build_elemental_core"
     "Ability4"    ""
     "Ability5"    ""
     "Ability6"    ""

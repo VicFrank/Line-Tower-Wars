@@ -16,6 +16,8 @@ require("shop/custom_shop")
 
 require("filters/damage_filter")
 
+local PrecacheTables = require("tables/precache_tables")
+
 require("testing")
 require("events")
 require("constants")
@@ -27,10 +29,8 @@ function Precache( context )
 
   -- General Precaches
   PrecacheResource("particle", "particles/custom/construction_dust.vpcf", context)
-  PrecacheUnitByNameSync("archer_tower", context)
   
   -- Sounds
-  
   PrecacheResource( "soundfile", "soundevents/game_sounds.vsndevts", context )
   PrecacheResource( "soundfile", "soundevents/game_sounds_main.vsndevts", context )
   PrecacheResource( "soundfile", "soundevents/game_sounds_greevils.vsndevts", context )
@@ -45,6 +45,18 @@ function Precache( context )
   PrecacheResource( "soundfile", "soundevents/soundevents_dota.vsndevts", context )
   PrecacheResource( "soundfile", "soundevents/soundevents_dota_ui.vsndevts", context )
   PrecacheResource( "soundfile", "soundevents/soundevents_minigames.vsndevts", context )
+
+  -- Precache all towers
+  for _,tower in pairs(PrecacheTables.towers) do
+    PrecacheUnitByNameSync(tower, context)
+  end
+
+  -- Precache all creeps
+  for _,tier in pairs(PrecacheTables.creeps) do
+    for _,creep in pairs(tier) do
+      PrecacheUnitByNameSync(creep, context)
+    end
+  end
 end
 
 -- Create the game mode when we activate

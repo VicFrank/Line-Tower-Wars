@@ -1,8 +1,8 @@
 overwhelming_impact = class({})
 
-LinkLuaModifier("modifier_overwhelming_impact", "abilities/orc/burning_ammo.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_overwhelming_impact_thinker", "abilities/orc/burning_ammo.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_overwhelming_impact_debuff", "abilities/orc/burning_ammo.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_overwhelming_impact", "abilities/buildings/overwhelming_impact.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_overwhelming_impact_thinker", "abilities/buildings/overwhelming_impact.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_overwhelming_impact_debuff", "abilities/buildings/overwhelming_impact.lua", LUA_MODIFIER_MOTION_NONE)
 
 function overwhelming_impact:GetIntrinsicModifierName()
   return "modifier_overwhelming_impact"

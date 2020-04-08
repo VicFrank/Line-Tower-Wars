@@ -1,14 +1,14 @@
-LinkLuaModifier("modifier_volatile_arcane", "abilities/buildings/volatile_arcane.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_overwhelming_arcane", "abilities/buildings/overwhelming_arcane.lua", LUA_MODIFIER_MOTION_NONE)
 
-volatile_arcane = class({})
-function volatile_arcane:GetIntrinsicModifierName() return "modifier_volatile_arcane" end
+overwhelming_arcane = class({})
+function overwhelming_arcane:GetIntrinsicModifierName() return "modifier_overwhelming_arcane" end
 
-function volatile_arcane:OnCreated()
+function overwhelming_arcane:OnCreated()
   self.caster = self:GetCaster()
   self.mana_gained = self.ability:GetSpecialValueFor("mana_gained")
 end
 
-function volatile_arcane:BounceAttack(target, source, extraData)
+function overwhelming_arcane:BounceAttack(target, source, extraData)
   local caster = self:GetCaster()
   local hSource = source or caster
 
@@ -35,11 +35,11 @@ function volatile_arcane:BounceAttack(target, source, extraData)
   ProjectileManager:CreateTrackingProjectile(projectile)
 end
 
-function volatile_arcane:OnProjectileHit_ExtraData(target, position, extraData)
+function overwhelming_arcane:OnProjectileHit_ExtraData(target, position, extraData)
   if not IsServer() then return end
 
   if target then
-    local caster = self:GetCaster()
+    local caster = self.caster
     local ability = self
     
     local damage = tonumber(extraData.damage)
@@ -81,38 +81,35 @@ function volatile_arcane:OnProjectileHit_ExtraData(target, position, extraData)
   end
 end
 
-modifier_volatile_arcane = class({})
+modifier_overwhelming_arcane = class({})
 
-function modifier_volatile_arcane:IsHidden() return false end
+function modifier_overwhelming_arcane:IsHidden() return false end
 
-function modifier_volatile_arcane:OnCreated()
+function modifier_overwhelming_arcane:OnCreated()
   self.caster = self:GetCaster()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
 
   self.bounces = self.ability:GetSpecialValueFor("bounces")
   self.mana_gained = self.ability:GetSpecialValueFor("mana_gained")
-  self.attack_rate_reduction = self.ability:GetSpecialValueFor("attack_rate_reduction")
-  self.min_attack_rate = self.ability:GetSpecialValueFor("min_attack_rate")
+  self.damage_increase = self.ability:GetSpecialValueFor("damage_increase")
   self.range = 300
+
+  
 end
 
-function modifier_volatile_arcane:DeclareFunctions()
+function modifier_overwhelming_arcane:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
+    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
   }
 end
 
-function modifier_volatile_arcane:GetModifierFixedAttackRate(keys)
-  local charges = self:GetStackCount()
-  local baseAttackRate = 0.5
-  local attackRate = math.max(self.min_attack_rate, baseAttackRate - self.attack_rate_reduction * charges)
-
-  return attackRate
+function modifier_overwhelming_arcane:GetModifierBaseDamageOutgoing_Percentage()
+  return self.damage_increase * self.parent:GetManaPercent()
 end
 
-function modifier_volatile_arcane:OnTakeDamage(keys)
+function modifier_overwhelming_arcane:OnTakeDamage(keys)
   local attacker = keys.attacker
   local target = keys.unit
 
@@ -122,11 +119,6 @@ function modifier_volatile_arcane:OnTakeDamage(keys)
     not keys.inflictor then
 
     self.parent:GiveMana(self.mana_gained)
-
-    if self.parent:GetManaPercent() == 100 then
-      self.parent:SetMana(0)
-      self:IncrementStackCount()
-    end
 
     local enemies = FindEnemiesInRadius(self.parent, self.range, target:GetAbsOrigin())
     for _, enemy in ipairs(enemies) do
