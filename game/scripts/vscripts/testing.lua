@@ -38,22 +38,8 @@ function GameMode:GreedIsGood(playerID, value)
   end
 end
 
-function GameMode:SpawnUnits(playerID, unitname, count)
-  local position = Vector(0,0,0)
-  local team = PlayerResource:GetTeam(playerID)
-
-  count = tonumber(count) or 1
-
-  if count < 0 then
-    count = count * -1
-    team = GetOpposingTeam(team)
-  end
-
-  unitname = UnitTypeToUnitName(unitname)
-
-  for i=1,count do
-    CreateUnitByName(unitname, position, true, nil, nil, team)
-  end
+function GameMode:Spawn(playerID, unitname, count)
+  SpawnWave(unitname, count)
 end
 
 function GameMode:Reset()
@@ -65,9 +51,10 @@ end
 
 
 CHEAT_CODES = {
-  ["greedisgood"] = function(...) GameMode:GreedIsGood(...) end,           -- "Gives you X gold and lumber"
-  ["killallunits"] = function(...) KillAllUnits() end,                     -- "Kills all units"
-  ["killallbuildings"] = function(...) KillAllBuildings() end,             -- "Kills all buildings"
+  ["greedisgood"] = function(...) GameMode:GreedIsGood(...) end,   -- "Gives you X gold and lumber"
+  ["killallunits"] = function(...) KillAllUnits() end,             -- "Kills all units"
+  ["killallbuildings"] = function(...) KillAllBuildings() end,     -- "Kills all buildings"
+  ["spawn"] = function(...) GameMode:Spawn(...) end,                  -- "Spawns units in each lane"
 }
 
 function GameMode:OnPlayerChat(keys)

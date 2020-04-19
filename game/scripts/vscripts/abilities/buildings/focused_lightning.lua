@@ -13,13 +13,12 @@ function modifier_focused_lightning:OnCreated()
   self.parent = self:GetParent()
 
   self.bonus_damage_percent = self.ability:GetSpecialValueFor("bonus_damage_percent")
-  self.base_damage = self.parent:GetAverageTrueAttackDamage()
 end
 
 function modifier_focused_lightning:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
   }
   return funcs
 end
@@ -41,8 +40,6 @@ function modifier_focused_lightning:OnAttackLanded(keys)
   end
 end
 
-function modifier_focused_lightning:GetModifierBaseAttack_BonusDamage()
-  if not IsServer() then return end
-
-  return self.base_damage * (self.bonus_damage_percent / 100) * self:GetStackCount()
+function modifier_focused_lightning:GetModifierBaseDamageOutgoing_Percentage()
+  return (self.bonus_damage_percent / 100) * self:GetStackCount()
 end

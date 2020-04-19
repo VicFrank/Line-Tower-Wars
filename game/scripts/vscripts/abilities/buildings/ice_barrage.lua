@@ -61,7 +61,7 @@ function modifier_ice_barrage:OnAttack(keys)
       ApplyDamage({
         victim = keys.target,
         attacker = self:GetParent(),
-        damage = damage * self.bonus_damage_percent / 100,
+        damage = keys.damage * self.bonus_damage_percent / 100,
         damage_type = self:GetAbility():GetAbilityDamageType(),
         ability = self:GetAbility()
       })

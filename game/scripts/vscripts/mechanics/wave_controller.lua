@@ -65,21 +65,24 @@ function StartSpawning()
   local waveDelay = 30
 
   Timers:CreateTimer(function()
-    SpawnWave()
+    SpawnWave("radiant_creep", 5)
 
     return waveDelay
   end)
 end
 
-function SpawnWave()
+function SpawnWave(creepName, count)
   local spawnDelay = 0.2
+  local count = count or 1
+
+  if not creepName then return end
 
   for i = 1,GameRules.numLanes do
-    local numToSpawn = 5
+    local numToSpawn = count
     local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. i):GetAbsOrigin()
 
     Timers:CreateTimer(function()
-      local waveUnit = CreateUnitByName("radiant_creep", spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
+      local waveUnit = CreateUnitByName(creepName, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
       waveUnit.lane = i
 
       numToSpawn = numToSpawn - 1

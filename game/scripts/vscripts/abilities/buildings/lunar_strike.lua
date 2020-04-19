@@ -39,7 +39,7 @@ function modifier_lunar_strike:OnAttackLanded(keys)
 
   if attacker == self.caster then
     self:IncrementStackCount()
-    if self:GetStackCount > self.max_stacks then
+    if self:GetStackCount() > self.max_stacks then
       self:SetStackCount(1)
     end
 

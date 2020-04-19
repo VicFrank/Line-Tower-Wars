@@ -1,40 +1,49 @@
-LinkLuaModifier("modifier_electrocute", "abilities/buildings/electrocute.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_annihilation", "abilities/buildings/annihilation.lua", LUA_MODIFIER_MOTION_NONE)
 
-electrocute = class({})
-function electrocute:GetIntrinsicModifierName() return "modifier_electrocute" end
+annihilation = class({})
+function annihilation:GetIntrinsicModifierName() return "modifier_annihilation" end
 
-modifier_electrocute = class({})
+-----------------------------
 
-function modifier_electrocute:IsHidden() return true end
+modifier_annihilation = class({})
 
-function modifier_electrocute:OnCreated()
+function modifier_annihilation:IsHidden() return true end
+
+function modifier_annihilation:OnCreated()
   self.caster = self:GetCaster()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
 
-  self.health_as_damage = self.ability:GetSpecialValueFor("health_as_damage")
+  self.attack_rate_min = self.ability:GetSpecialValueFor("attack_rate_min")
+  self.attack_rate_max = self.ability:GetSpecialValueFor("attack_rate_max")
 end
 
-function modifier_electrocute:DeclareFunctions()
+function modifier_annihilation:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_FIXED_ATTACK_RATE
   }
-
   return funcs
 end
 
-function modifier_electrocute:GetModifierProcAttack_BonusDamage_Physical(keys)
-  if IsServer() then
-    local damage = keys.target:GetHealth() * self.health_as_damage / 100
+function modifier_annihilation:OnAttackLanded(keys)
+  if not IsServer() then return end
 
-    local particleName = "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
-    local casterPosition = self:GetParent():GetAbsOrigin()
+  local attacker = keys.attacker
+  local target = keys.target
+  local damage = keys.damage
 
-    local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
-    ParticleManager:SetParticleControl(particle, 0, casterPosition)   
-    ParticleManager:SetParticleControl(particle, 1, casterPosition * 100) 
-    ParticleManager:ReleaseParticleIndex(particle)
-    
-    return damage
+  if attacker == self.caster then
+    self:IncrementStackCount()
+  end
+end
+
+function modifier_annihilation:GetModifierFixedAttackRate(keys)
+  if not IsServer() then return end
+
+  if RollPercentage(50) then
+    return self.attack_rate_min
+  else
+    return self.attack_rate_max
   end
 end

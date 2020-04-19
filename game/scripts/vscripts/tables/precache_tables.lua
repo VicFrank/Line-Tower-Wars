@@ -131,7 +131,7 @@ return {
       "prowler",
       "fire_panda",
       "dragon",
-      "roshan",
+      "custom_roshan",
     },    
   }
 }

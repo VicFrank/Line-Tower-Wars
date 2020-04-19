@@ -1,15 +1,15 @@
-LinkLuaModifier("modifier_rising_strike", "abilities/buildings/rising_strike.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rising_heat", "abilities/buildings/rising_heat.lua", LUA_MODIFIER_MOTION_NONE)
 
-rising_strike = class({})
-function rising_strike:GetIntrinsicModifierName() return "modifier_rising_strike" end
+rising_heat = class({})
+function rising_heat:GetIntrinsicModifierName() return "modifier_rising_heat" end
 
 -----------------------------
 
-modifier_rising_strike = class({})
+modifier_rising_heat = class({})
 
-function modifier_rising_strike:IsHidden() return true end
+function modifier_rising_heat:IsHidden() return true end
 
-function modifier_rising_strike:OnCreated()
+function modifier_rising_heat:OnCreated()
   self.caster = self:GetCaster()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
@@ -19,7 +19,7 @@ function modifier_rising_strike:OnCreated()
   self:SetStackCount(0)
 end
 
-function modifier_rising_strike:DeclareFunctions()
+function modifier_rising_heat:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE
@@ -27,7 +27,7 @@ function modifier_rising_strike:DeclareFunctions()
   return funcs
 end
 
-function modifier_rising_strike:OnAttackLanded(keys)
+function modifier_rising_heat:OnAttackLanded(keys)
   if not IsServer() then return end
 
   local attacker = keys.attacker
@@ -39,7 +39,7 @@ function modifier_rising_strike:OnAttackLanded(keys)
   end
 end
 
-function modifier_rising_strike:GetModifierFixedAttackRate(keys)
+function modifier_rising_heat:GetModifierFixedAttackRate(keys)
   if not IsServer() then return end
 
   local charges = self:GetStackCount()

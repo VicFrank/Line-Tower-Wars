@@ -16,7 +16,7 @@ function modifier_frost_attack:OnCreated()
   self.parent = self:GetParent()
 
   self.duration = self.ability:GetSpecialValueFor("duration")
-  self.radius = attacker:GetKeyValue("SplashRadius") or 0
+  self.radius = self.parent:GetKeyValue("SplashRadius") or 0
 end
 
 function modifier_frost_attack:DeclareFunctions()

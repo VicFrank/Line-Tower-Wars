@@ -321,7 +321,7 @@ return {
     },
     {
       itemname = "item_roshan",
-      unit = "roshan",
+      unit = "custom_roshan",
       cost = 2250000,
       income = -100000,
       initial_cd = 1500,
