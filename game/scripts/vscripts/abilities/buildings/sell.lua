@@ -1,7 +1,8 @@
 item_building_sell = class({})
 
-function item_building_sell:OnSpellStart()
+function item_building_sell:OnChannelFinish(interrupted)
   if not IsServer() then return end
+  if interrupted then return end
   
   local caster = self:GetCaster()
   local ability = self

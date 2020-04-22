@@ -58,6 +58,10 @@ function GetNextLane(laneNumber)
   end
 end
 
+function GetLane(laneNumber)
+  return GameRules.lanes[laneNumber]
+end
+
 function StartSpawning()
   if GameRules.SpawningWaves then return end
   GameRules.SpawningWaves = true
@@ -77,7 +81,7 @@ function SpawnWave(creepName, count)
 
   if not creepName then return end
 
-  for i = 1,GameRules.numLanes do
+  for i=1,GameRules.numLanes do
     local numToSpawn = count
     local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. i):GetAbsOrigin()
 

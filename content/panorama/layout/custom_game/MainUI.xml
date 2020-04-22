@@ -21,103 +21,99 @@
 
 		<Panel id="Avatars" class="AvatarsPanel">
 		</Panel>
-		
-		
 
 		<Panel id="ShopHolder">
 			<Panel id="Items" class="ShopHidden">
 				<Panel class="ItemColumnLeft">
 				<Panel class="ItemRow">
-					<Panel id="Arcane1" onactivate="Arcane1PurchasePressed()" onmouseover="UIShowTextTooltip(Arcane 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Arcane1" onactivate="ResearchItem('arc1')" onmouseover="UIShowTextTooltip(Arcane 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow2">
-					<Panel id="Earth1" onactivate="Earth1PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Earth1" onactivate="ResearchItem('ear1')" onmouseover="UIShowTextTooltip(Earth 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow3">
-					<Panel id="Fire1" onactivate="Fire1PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 1)" onmouseout="UIHideTextTooltip()" />
+					<Panel id="Fire1" onactivate="ResearchItem('fir1')" onmouseover="UIShowTextTooltip(Fire 1)" onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow4">
-					<Panel id="Ice1" onactivate="Ice1PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Ice1" onactivate="ResearchItem('ice1')" onmouseover="UIShowTextTooltip(Ice 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow5">
-					<Panel id="Light1" onactivate="Light1PurchasePressed()" onmouseover="UIShowTextTooltip(Light 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Light1" onactivate="ResearchItem('lit1')" onmouseover="UIShowTextTooltip(Light 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow6">
-					<Panel id="Lightning1" onactivate="Lightning1PurchasePressed()" onmouseover="UIShowTextTooltip(Lightning 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Lightning1" onactivate="ResearchItem('lig1')" onmouseover="UIShowTextTooltip(Lightning 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow7">
-					<Panel id="Unholy1" onactivate="Unholy1PurchasePressed()" onmouseover="UIShowTextTooltip(Unholy 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Unholy1" onactivate="ResearchItem('unh1')" onmouseover="UIShowTextTooltip(Unholy 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow8">
-					<Panel id="Water1" onactivate="Water1PurchasePressed()" onmouseover="UIShowTextTooltip(Water 1)"  onmouseout="UIHideTextTooltip()" />
+					<Panel id="Water1" onactivate="ResearchItem('wat1')" onmouseover="UIShowTextTooltip(Water 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>
 				<Panel class="ItemColumnUpgrade1">
 					<Panel class="ItemRow">
-					<Panel class="Unpurchasable" id="Arcane2" onactivate="Arcane2PurchasePressed()" onmouseover="UIShowTextTooltip(Arcane 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Arcane2" onactivate="ResearchItem('arc2')" onmouseover="UIShowTextTooltip(Arcane 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow2">
-					<Panel class="Unpurchasable" id="Earth2" onactivate="Earth2PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Earth2" onactivate="ResearchItem('ear2')" onmouseover="UIShowTextTooltip(Earth 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow3">
-					<Panel class="Unpurchasable" id="Fire2" onactivate="Fire2PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Fire2" onactivate="ResearchItem('fir2')" onmouseover="UIShowTextTooltip(Fire 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow4">
-					<Panel class="Unpurchasable" id="Ice2" onactivate="Ice2PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 2)"  onmouseout="UIHideTextTooltip()" >
-						<Panel class="PurchasedIcon" />
+					<Panel class="Unpurchasable" id="Ice2" onactivate="ResearchItem('ice2')" onmouseover="UIShowTextTooltip(Ice 2)"  onmouseout="UIHideTextTooltip()" >
 					</Panel>
 				</Panel>
 				<Panel class="ItemRow5">
-					<Panel class="Unpurchasable" id="Light2" onactivate="Light2PurchasePressed()" onmouseover="UIShowTextTooltip(Light 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Light2" onactivate="ResearchItem('lit2')" onmouseover="UIShowTextTooltip(Light 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow6">
-					<Panel class="Unpurchasable" id="Lightning2" onactivate="Lightning2PurchasePressed()" onmouseover="UIShowTextTooltip(Lightning 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Lightning2" onactivate="ResearchItem('lig2')" onmouseover="UIShowTextTooltip(Lightning 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow7">
-					<Panel class="Unpurchasable" id="Unholy2" onactivate="Unholy2PurchasePressed()" onmouseover="UIShowTextTooltip(Unholy 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Unholy2" onactivate="ResearchItem('unh2')" onmouseover="UIShowTextTooltip(Unholy 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow8">
-					<Panel class="Unpurchasable" id="Water2" onactivate="Water2PurchasePressed()" onmouseover="UIShowTextTooltip(Water 2)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Water2" onactivate="ResearchItem('wat2')" onmouseover="UIShowTextTooltip(Water 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>
 				<Panel class="ItemColumnUpgrade2">
 				<Panel class="ItemRow">
-					<Panel class="Unpurchasable" id="Arcane3" onactivate="Arcane3PurchasePressed()" onmouseover="UIShowTextTooltip(Arcane 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Arcane3" onactivate="ResearchItem('arc3')" onmouseover="UIShowTextTooltip(Arcane 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow2">
-					<Panel class="Unpurchasable" id="Earth3" onactivate="Earth3PurchasePressed()" onmouseover="UIShowTextTooltip(Earth 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Earth3" onactivate="ResearchItem('ear3')" onmouseover="UIShowTextTooltip(Earth 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow3">
-					<Panel class="Unpurchasable" id="Fire3" onactivate="Fire3PurchasePressed()" onmouseover="UIShowTextTooltip(Fire 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Fire3" onactivate="ResearchItem('fir3')" onmouseover="UIShowTextTooltip(Fire 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow4">
-					<Panel class="Unpurchasable" id="Ice3" onactivate="Ice3PurchasePressed()" onmouseover="UIShowTextTooltip(Ice 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Ice3" onactivate="ResearchItem('ice3')" onmouseover="UIShowTextTooltip(Ice 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow5">
-					<Panel class="Unpurchasable" id="Light3" onactivate="Light3PurchasePressed()" onmouseover="UIShowTextTooltip(Light 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Light3" onactivate="ResearchItem('lit3')" onmouseover="UIShowTextTooltip(Light 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow6">
-					<Panel class="Unpurchasable" id="Lightning3" onactivate="Lightning3PurchasePressed()" onmouseover="UIShowTextTooltip(Lightning 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Lightning3" onactivate="ResearchItem('lig3')" onmouseover="UIShowTextTooltip(Lightning 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow7">
-					<Panel class="Unpurchasable" id="Unholy3" onactivate="Unholy3PurchasePressed()" onmouseover="UIShowTextTooltip(Unholy 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Unholy3" onactivate="ResearchItem('unh3')" onmouseover="UIShowTextTooltip(Unholy 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				<Panel class="ItemRow8">
-					<Panel class="Unpurchasable" id="Water3" onactivate="Water3PurchasePressed()" onmouseover="UIShowTextTooltip(Water 3)"  onmouseout="UIHideTextTooltip()" />
+					<Panel class="Unpurchasable" id="Water3" onactivate="ResearchItem('wat3')" onmouseover="UIShowTextTooltip(Water 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>
 				<Panel class="ItemColumnBottom">
-					<Button id="BuyRPButton" hittest="true" onactivate="OnBuyRPButtonPressed()">
+					<Button id="BuyRPButton" hittest="true" onactivate="BuyResearchPoint()" onmouseover="UIShowTextTooltip(#BuyRP_Note)"  onmouseout="UIHideTextTooltip()">
 						<Label id="BuyRPButtonLabel" text="#BuyRP" />
 					</Button>
 					<Label class="RPInformation" text="#BuyRP_Description" />
-					<Label class="RPInformationNote" text="#BuyRP_Note" />
 				</Panel>
 			</Panel>
 			<Button id="ShopButton" hittest="true" onactivate="OnShopButtonPressed()" oncontextmenu="OnShopButtonPressed()">
 				<Label id="ShopLabel" text="#Elements" />
 				<Panel id="ResearchPointsHolder" onmouseover="UIShowTextTooltip(Research Points)"  onmouseout="UIHideTextTooltip()">
-					<Label id="ResearchPoints" text="4" onmouseover="UIShowTextTooltip(Research Points)"  onmouseout="UIHideTextTooltip()"/>
+					<Label id="ResearchPoints" text="4" onmouseover="UIShowTextTooltip(Research Points)" onmouseout="UIHideTextTooltip()"/>
 				</Panel>
 			</Button>
 		</Panel>
