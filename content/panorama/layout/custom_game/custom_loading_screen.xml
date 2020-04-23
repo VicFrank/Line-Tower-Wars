@@ -26,7 +26,13 @@
 		<Label class="TitleBig" text="Line Tower Wars" />
 		
 		<Panel class="CompendiumBody">
-			<Panel id="PredictionWell" class="BattlePassHomeCell">
+			<Panel id="PlayerTab" class="BattlePassHomeCell">
+				<Panel>
+					<Label class="BattlePassCellTitle" text="#Profile" onmouseout="UIHideTextTooltip();"/>
+				</Panel>
+				<Image id="NewsIcon" src="file://{images}/custom_game/coming_soon.png" style="vertical-align: center;"/>
+			</Panel>
+				<Panel id="PredictionWell" class="BattlePassHomeCell">
 				<Panel>
 					<Label class="BattlePassCellTitle" text="#Current_Builder" onmouseout="UIHideTextTooltip();"/>
 				</Panel>
@@ -39,12 +45,6 @@
 					  <Label text="Default" id="entry1"/>
 					</DropDown>
 				</Panel>
-			</Panel>
-			<Panel id="NewsTab" class="BattlePassHomeCell">
-				<Panel>
-					<Label class="BattlePassCellTitle" text="#News" onmouseout="UIHideTextTooltip();"/>
-				</Panel>
-				<Image id="NewsIcon" src="file://{images}/custom_game/coming_soon.png" style="vertical-align: center;"/>
 			</Panel>
 		</Panel>
 	</Panel>

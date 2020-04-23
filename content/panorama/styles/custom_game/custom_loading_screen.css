@@ -37,29 +37,30 @@
 	transition-timing-function: ease-in-out;
 }
 
-#NewsTab
+#PlayerTab
 {
 	background-color: #000000aa;
 	width: 458px;
 	margin-left: 16px;
 	height: 282px;
 	vertical-align: top;
-	horizontal-align: center;
+	
 	border: BRD;
-	margin-top: 16px;
+	margin-top: 16px;	
 	margin-left: 16px;
-	margin-right: 450px;	
 }
 
 #PredictionWell
 {
 	background-color: #000000aa;
 	width: 458px;
-	margin-left: 16px;
 	height: 382px;
 	vertical-align: top;
+	horizontal-align: middle;
 	border: BRD;
-	margin-top: 16px;
+	margin-bottom: 50px;
+	margin-left: 16px;
+	margin-right: 450px;
 }
 
 #CourierShowcase
