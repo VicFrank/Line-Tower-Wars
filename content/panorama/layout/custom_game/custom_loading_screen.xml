@@ -11,7 +11,8 @@
 		<include src="s2r://panorama/styles/battle_pass/international2018/bp_international2018_background.vcss_c"/>
 		<include src="s2r://panorama/styles/battle_pass/international2018/bp_international2018_home.vcss_c"/>
 		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
-
+		<include src="s2r://panorama/styles/leaf_pages/dashboard_page_debut_styles.vcss_c" />
+		<include src="s2r://panorama/styles/leaf_pages/dashboard_page_debut_dueling_fates.vcss_c" />
     </styles>
     
     <scripts>
@@ -20,12 +21,13 @@
 	
 	<Panel hittest="false" class="AddonLoadingRoot">
 		<Panel id="CompendiumBG" class="FullScreenBackground"/>
-		<DOTAScenePanel id="CompendiumBackgroundScene" style="margin-top: 0px;" hittest="false" camera="camera_1" map="backgrounds/spectate_background_default" light="bp_light" renderdeferred="true" deferredalpha="false" particleonly="false"/>
+		<DOTAScenePanel id="Model" map="backgrounds/hero_showcase_armadillo" camera="hero_camera" light="light_armadillo" renderdeferred="true" rotateonmousemove="true" yawmin="62" yawmax="56" pitchmin="-12" pitchmax="-6" antialias="true" particleonly="false"/>
 		<Panel class="Vignette"/>
 		<Panel class="Frost"/>
 		<Label class="TitleBig" text="Line Tower Wars" />
 		
 		<Panel hittest="false" class="CompendiumBody">
 		</Panel>
+
 	</Panel>
 </root>

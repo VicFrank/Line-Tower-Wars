@@ -447,10 +447,12 @@
     width: 100%;
     margin: 5px;
     
-    border-top: 1px solid #ffffff10;
-	border-right: 1px solid #000000ff;
-	border-left: 1px solid #ffffff10;
-	border-bottom: 1px solid #000000ff;
+    border-top: 1px solid #111111FF;
+	border-right: 1px solid #111111FF;
+	border-left: 1px solid #111111FF;
+	border-bottom: 1px solid #111111FF;
+	
+	border-radius: 10px;
 }
 
 .TeamSelectTeam.local_player_on_this_team
