@@ -7,14 +7,15 @@
 
 .TitleBig
 {
-    vertical-align: top;
+	vertical-align: top;
     horizontal-align: left;
 	margin-left: 20px;
 	margin-top: 100px;
-	
 	font-size: 64px;
-	letter-spacing: 2px;
-	text-shadow: 0px 0px 4px #777f88;
+	letter-spacing: 3px;
+	color: #dfef4a;
+    text-shadow: 0px 1px 12px 3.0 #474c15;
 	text-transform: uppercase;
 	font-family: defaultFont;
+	font-weight: bold;
 }
