@@ -20,32 +20,12 @@
 	
 	<Panel hittest="false" class="AddonLoadingRoot">
 		<Panel id="CompendiumBG" class="FullScreenBackground"/>
-		<DOTAScenePanel id="CompendiumBackgroundScene" style="margin-top: 0px;" hittest="false" camera="camera_1" map="scenes/battlepass_ti8_header_undersea" light="bp_light" renderdeferred="true" deferredalpha="false" particleonly="false"/>
+		<DOTAScenePanel id="CompendiumBackgroundScene" style="margin-top: 0px;" hittest="false" camera="camera_1" map="terrain_previews/dota_spring_preview" light="bp_light" renderdeferred="true" deferredalpha="false" particleonly="false"/>
 		<Panel class="Vignette"/>
 		<Panel class="Frost"/>
 		<Label class="TitleBig" text="Line Tower Wars" />
 		
-		<Panel class="CompendiumBody">
-			<Panel id="PlayerTab" class="BattlePassHomeCell">
-				<Panel>
-					<Label class="BattlePassCellTitle" text="#Profile" onmouseout="UIHideTextTooltip();"/>
-				</Panel>
-				<Image id="NewsIcon" src="file://{images}/custom_game/coming_soon.png" style="vertical-align: center;"/>
-			</Panel>
-				<Panel id="PredictionWell" class="BattlePassHomeCell">
-				<Panel>
-					<Label class="BattlePassCellTitle" text="#Current_Builder" onmouseout="UIHideTextTooltip();"/>
-				</Panel>
-					<Panel id="BalanceRankWell" class="TopBottomFlow">
-					<Panel id="CourierShowcase" class="">
-						<DOTAUIEconSetPreview id="NewBloom2019RoshanModel" hittest="false" hittestchildren="false" itemdef="595" displaymode="loadout_small" drawbackground="false" renderdeferred="false" deferredalpha="true"/>
-					</Panel>
-					<Panel id="CourierShowcaseBase"/>
-					<DropDown style="horizontal-align: center; margin-top: -30px;" oninputsubmit="OnDropDownChanged()">
-					  <Label text="Default" id="entry1"/>
-					</DropDown>
-				</Panel>
-			</Panel>
+		<Panel hittest="false" class="CompendiumBody">
 		</Panel>
 	</Panel>
 </root>
