@@ -20,7 +20,7 @@
 	
 	<Panel hittest="false" class="AddonLoadingRoot">
 		<Panel id="CompendiumBG" class="FullScreenBackground"/>
-		<DOTAScenePanel id="CompendiumBackgroundScene" style="margin-top: 0px;" hittest="false" camera="camera_1" map="terrain_previews/dota_spring_preview" light="bp_light" renderdeferred="true" deferredalpha="false" particleonly="false"/>
+		<DOTAScenePanel id="CompendiumBackgroundScene" style="margin-top: 0px;" hittest="false" camera="camera_1" map="backgrounds/spectate_background_default" light="bp_light" renderdeferred="true" deferredalpha="false" particleonly="false"/>
 		<Panel class="Vignette"/>
 		<Panel class="Frost"/>
 		<Label class="TitleBig" text="Line Tower Wars" />

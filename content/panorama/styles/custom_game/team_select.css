@@ -343,6 +343,11 @@
 	wash-color: #CCDDFF;
 }
 
+.PlayButton
+{
+	border-radius: 10px;
+}
+
 #LockAndStartButton
 { 
     horizontal-align: right;
@@ -366,6 +371,7 @@
 {
     transition-property: opacity;
     transition-duration: 0.2s;
+	margin-top: 5px;
 }
 
 .unassigned_players #LockAndStartButton Label 
@@ -630,7 +636,7 @@ DOTAAvatarImage
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	margin: 4px;
-        
+    margin-top: 19px;
     visibility: collapse;
 }
 
