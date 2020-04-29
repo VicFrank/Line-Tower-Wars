@@ -11,7 +11,6 @@
 		<include src="s2r://panorama/styles/battle_pass/international2018/bp_international2018_background.vcss_c"/>
 		<include src="s2r://panorama/styles/battle_pass/international2018/bp_international2018_home.vcss_c"/>
 		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
-		<include src="s2r://panorama/styles/leaf_pages/dashboard_page_debut_styles.vcss_c" />
 		<include src="s2r://panorama/styles/leaf_pages/dashboard_page_debut_dueling_fates.vcss_c" />
     </styles>
     
