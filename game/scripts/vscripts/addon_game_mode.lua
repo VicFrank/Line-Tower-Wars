@@ -179,6 +179,7 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_disable_turning", "libraries/modifiers/modifier_disable_turning", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_under_construction", "libraries/modifiers/modifier_under_construction", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("income_modifier", "abilities/income_modifier", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_autoattack", "ai/attack_modifiers", LUA_MODIFIER_MOTION_NONE)
 
   self.vUserIds = {}
 
@@ -197,4 +198,13 @@ function GameMode:InitGameMode()
   GameRules.Damage = LoadKeyValues("scripts/kv/damage_table.kv")
 
   GameMode:InitializeShopData()
+  GameMode:InitializeAttacks()
+end
+
+function GameMode:InitializeAttacks()
+  for name,values in pairs(GameRules.UnitKV) do
+    if type(values)=="table" and values['AttacksEnabled'] then
+      CustomNetTables:SetTableValue("attacks_enabled", name, {enabled = values['AttacksEnabled']})
+    end
+  end
 end

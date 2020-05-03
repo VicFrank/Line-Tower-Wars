@@ -30,6 +30,36 @@ function OnRightButtonPressed()
     var targetIndex = GetMouseTarget()
     var pressedShift = GameUI.IsShiftDown()
 
+    // Enemy right click
+    if (targetIndex && Entities.IsEnemy(targetIndex))
+    {
+        // If it can't be attacked by a unit on the selected group, send them to attack move and show an error (only once)
+        var order = {
+            QueueBehavior : OrderQueueBehavior_t.DOTA_ORDER_QUEUE_DEFAULT,
+            ShowEffects : true,
+            OrderType : dotaunitorder_t.DOTA_UNIT_ORDER_ATTACK_MOVE,
+            Position : Entities.GetAbsOrigin( targetIndex ),
+        }
+
+        for (var i = 0; i < selectedEntities.length; i++)
+        {
+            if (!UnitCanAttackTarget(selectedEntities[i], targetIndex))
+            {
+                order.UnitIndex = selectedEntities[i]
+                Game.PrepareUnitOrders( order )
+                if (!bMessageShown)
+                {
+                    GameUI.CreateErrorMessage({text : "#error_cant_target_air", style : {color:'#E62020'}, duration : 2})
+                    bMessageShown = true
+                }
+            }
+        }
+        if (bMessageShown)
+        {
+            return true
+        }
+    }
+
     // Builder Right Click
     if ( IsBuilder( mainSelected ) )
     {
@@ -49,6 +79,32 @@ function OnRightButtonPressed()
 // Handle Left Button events
 function OnLeftButtonPressed() {
     return false
+}
+
+function OnAttacksEnabledChanged (args) {
+    attackTable = CustomNetTables.GetAllTableValues("attacks_enabled")
+}
+
+function UnitCanAttackTarget (unit, target) {
+    var attacks_enabled = GetAttacksEnabled(unit)
+    var target_type = GetMovementCapability(target)
+  
+    return (Entities.CanAcceptTargetToAttack(unit, target) || (attacks_enabled.indexOf(target_type) != -1))
+}
+
+function GetMovementCapability (entIndex) {
+    return Entities.HasFlyMovementCapability(entIndex ) ? "air" : "ground"
+}
+
+function GetAttacksEnabled (unit) {
+    var indexEntry = CustomNetTables.GetTableValue("attacks_enabled", unit)
+    if (indexEntry) return indexEntry.enabled
+    else
+    {
+        var unitName = Entities.GetUnitName(unit)
+        var attackTypes = CustomNetTables.GetTableValue("attacks_enabled", unitName)
+        return attackTypes ? attackTypes.enabled : "ground"
+    }
 }
 
 function IsCustomBuilding(entIndex) {
@@ -105,4 +161,8 @@ function HasModifier(entIndex, modifierName) {
             return true
     };
     return false
-}; 
+};
+
+(function () {
+    CustomNetTables.SubscribeNetTableListener("attacks_enabled", OnAttacksEnabledChanged);
+})();

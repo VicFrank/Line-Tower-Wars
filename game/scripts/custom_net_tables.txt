@@ -7,6 +7,7 @@
     "construction_size",
     "building_settings",
     "custom_shop",
-    "player_stats"
+    "player_stats",
+    "attacks_enabled"
   ]
 } 

@@ -27,6 +27,11 @@ function Units:Init( unit )
     end
   end
 
+  local attacks_enabled = unit:GetAttacksEnabled()
+  if attacks_enabled ~= "none" then
+    unit:AddNewModifier(unit, nil, "modifier_autoattack", {})
+  end
+
   local bBuilding = IsCustomBuilding(unit)
 
   ApplyMaterialGroup(unit)
@@ -277,6 +282,36 @@ end
 
 function CDOTA_BaseNPC:IsMechanical()
   return self:GetUnitLabel():match("mechanical")
+end
+
+function CDOTA_BaseNPC:CanAttackTarget(target)
+  if not target.IsCreature then return true end -- filter item drops
+
+  local attacks_enabled = self:GetAttacksEnabled()
+  local target_type = GetMovementCapability(target)
+
+  if not self:HasAttackCapability() or self:IsDisarmed() or target:IsInvulnerable()
+    or target:IsAttackImmune() or not self:CanEntityBeSeenByMyTeam(target)
+    or (self:GetAttackType() == "magic" and target:IsMagicImmune() and not IsCustomBuilding(target))
+    or (target:IsEthereal() and self:GetAttackType() ~= "magic") then
+      return false
+  end
+
+  -- Buildings are special ground unit targets
+  if attacks_enabled:match("building") and target_type == "ground" then
+    return IsCustomBuilding(target)
+  end
+
+  return string.match(attacks_enabled, target_type)
+end
+
+function GetMovementCapability(unit)
+  return unit:HasFlyMovementCapability() and "air" or "ground"
+end
+
+-- Default by omission is "none", other possible returns should be "ground,air" or "air"
+function CDOTA_BaseNPC:GetAttacksEnabled()
+    return self.attacksEnabled or self:GetKeyValue("AttacksEnabled") or "none"
 end
 
 -- MODIFIER_PROPERTY_HEALTH_BONUS doesn't work on npc_dota_creature
