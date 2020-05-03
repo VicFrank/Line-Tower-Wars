@@ -29,6 +29,7 @@ function OnRightButtonPressed()
     var mainSelected = Players.GetLocalPlayerPortraitUnit() 
     var targetIndex = GetMouseTarget()
     var pressedShift = GameUI.IsShiftDown()
+    var bMessageShown = false
 
     // Enemy right click
     if (targetIndex && Entities.IsEnemy(targetIndex))

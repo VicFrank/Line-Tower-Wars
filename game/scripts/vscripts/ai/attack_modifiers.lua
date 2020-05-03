@@ -30,8 +30,10 @@ function modifier_autoattack:GetDisableAutoAttack(params)
 end
 
 function modifier_autoattack:OnIntervalThink()
+  if not IsServer() then return end
+
   local unit = self:GetParent()
-  -- AggroFilter(unit)
+  AggroFilter(unit)
   
   -- Disabled autoattack state
   if unit.disable_autoattack == 1 then
@@ -40,7 +42,7 @@ function modifier_autoattack:OnIntervalThink()
       -- If an enemy is valid, attack it and stop the thinker
       for _,enemy in pairs(enemies) do
         if unit:CanAttackTarget(enemy) then
-          --print("[ATTACK] attacking unit from modifier_autoattack thinker")
+          print("[ATTACK] attacking unit from modifier_autoattack thinker")
           Attack(unit, enemy)
           return
         end
@@ -68,7 +70,6 @@ function AggroFilter(unit)
     -- The unit acquired a new attack target
     if target ~= unit.attack_target then
       if bCanAttackTarget then
-        unit:CheckSecondaryAttackAgainst(target)
         unit.attack_target = target --Update the target, keep the aggro
         return
       else
@@ -113,8 +114,6 @@ end
 
 -- Aggro a target
 function Attack(unit, target)
-  unit:CheckSecondaryAttackAgainst(target)
-  unit:AlertNearbyUnits(target, nil)
   unit:MoveToTargetToAttack(target)
   unit.attack_target = target
   unit.disable_autoattack = 0

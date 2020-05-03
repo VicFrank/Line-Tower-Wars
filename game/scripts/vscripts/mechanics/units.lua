@@ -292,8 +292,7 @@ function CDOTA_BaseNPC:CanAttackTarget(target)
 
   if not self:HasAttackCapability() or self:IsDisarmed() or target:IsInvulnerable()
     or target:IsAttackImmune() or not self:CanEntityBeSeenByMyTeam(target)
-    or (self:GetAttackType() == "magic" and target:IsMagicImmune() and not IsCustomBuilding(target))
-    or (target:IsEthereal() and self:GetAttackType() ~= "magic") then
+    or (self:GetAttackType() == "magic" and target:IsMagicImmune() and not IsCustomBuilding(target)) then
       return false
   end
 
