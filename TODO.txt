@@ -1,7 +1,5 @@
 - Implement Elemental system - (2 hours)
 - Implement custom gold - (1 hour)
-- Choose models/projectiles for remaining towers (Flam3s)
-- Create icons for remaining towers (Flam3s)
 - Addon English
   - Creep Abilities (10-20?) (1 hour)
 - Brainstorm Creep Abilities (2 hours)

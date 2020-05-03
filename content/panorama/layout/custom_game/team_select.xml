@@ -55,14 +55,12 @@
 						<Panel id="UnassignedPlayersDivider" />
 						<Panel id="UnassignedPlayersContainer" />
 					</Button>		
-				
-					<Button id="AutoAssignButton" onactivate="OnAutoAssignPressed()">
-						<Image src="file://{images}/control_icons/double_arrow_left.png" />
-						<Label text="#custom_game_team_select_auto_assign" />
-					</Button>
 				</Panel>
 				
 				<!--Start and lock button-->
+				<Button id="AutoAssignButton" onactivate="OnAutoAssignPressed()">
+						<Label text="#custom_game_team_select_auto_assign" />
+				</Button>
 				<Button id="LockAndStartButton" class="PlayButton" onactivate="OnLockAndStartPressed()">
 					<Label text="#custom_game_team_select_lock_start" />
 				</Button>

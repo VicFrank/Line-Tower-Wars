@@ -7,96 +7,15 @@
 
 .TitleBig
 {
-    vertical-align: top;
+	vertical-align: top;
     horizontal-align: left;
 	margin-left: 20px;
 	margin-top: 100px;
-	
 	font-size: 64px;
-	letter-spacing: 2px;
-	text-shadow: 0px 0px 4px #777f88;
+	letter-spacing: 3px;
+	color: #dfef4a;
+    text-shadow: 0px 1px 12px 3.0 #474c15;
 	text-transform: uppercase;
 	font-family: defaultFont;
-}
-
-.BattlePassCellTitle
-{
-	height: 30px;
-	background-color: accentColorSectionBG;
-	text-align: center;
-	color: white;
-	font-size: 16px;
-	padding: 6px;
-	letter-spacing: 2.25px;
-	text-transform: uppercase;
-	z-index: 2;
-	text-overflow: shrink;
-
-	transition-property: border, background-color, color;
-	transition-duration: .5s;
-	transition-timing-function: ease-in-out;
-}
-
-#NewsTab
-{
-	background-color: #000000aa;
-	width: 458px;
-	margin-left: 16px;
-	height: 282px;
-	vertical-align: top;
-	horizontal-align: center;
-	border: BRD;
-	margin-top: 16px;
-	margin-left: 16px;
-	margin-right: 450px;	
-}
-
-#PredictionWell
-{
-	background-color: #000000aa;
-	width: 458px;
-	margin-left: 16px;
-	height: 382px;
-	vertical-align: top;
-	border: BRD;
-	margin-top: 16px;
-}
-
-#CourierShowcase
-{
-	width: 240px;
-	height: 240px;
-	horizontal-align: center;
-	vertical-align: bottom;
-	overflow: noclip;
-	z-index: 2;
-	transform: translateY(-60px);	
-	transition-property: opacity-mask, opacity, saturation, wash-color, pre-transform-scale2d;
-	transition-duration: .2s;
-	transition-delay: .2s, 0s;
-	transition-timing-function: ease-in-out;
-}
-
-#NewBloom2019RoshanModel
-{
-	width: 380px;
-	height: 380px;
-	opacity: 0.99;
-	transform: translateX(-70px) translateY(-5px);
-}
-
-#CourierShowcaseBase
-{
-	width: 240px;
-	height: 116px;
-	background-image: url("s2r://panorama/images/events/frostivus/frostivus2018_snowglobebase_psd.vtex");
-	background-size: 100%;
-	vertical-align: bottom;
-	horizontal-align: center;
-	transform: translateX(5px) translateY(-63px);
-}
-
-#CourierShowcase:hover .InspectIcon
-{
-	opacity: 1;
+	font-weight: bold;
 }

@@ -437,7 +437,7 @@
   "cutter_tower"
   {
     "Model"                     "models/heroes/shredder/shredder.vmdl"
-    "ModelScale"                "0.6"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
@@ -488,7 +488,7 @@
   "grinder_tower"
   {
     "Model"                     "models/heroes/shredder/shredder.vmdl"
-    "ModelScale"                "0.6"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
@@ -539,7 +539,7 @@
   "carver_tower"
   {
     "Model"                     "models/heroes/shredder/shredder.vmdl"
-    "ModelScale"                "0.6"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
@@ -951,34 +951,91 @@
 
   "elemental_core"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/invoker_kid/invoker_kid.vmdl"
+    "ModelScale"                "1.2"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_invoker_kid/invoker_kid_base_attack_all.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Invoker"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 
     "Ability1"                  "upgrade_fire_pit"
     "Ability2"                  "upgrade_frozen_obelisk"
     "Ability3"                  "upgrade_shock_particle"
     "Ability4"                  "upgrade_light_flies"
-    "Ability5"                  "upgrade_poison_well"
-    "Ability6"                  "upgrade_splasher"
-    "Ability7"                  "upgrade_rockfall"
-    "Ability8"                  "upgrade_spellslinger"
+    "Ability5"                  "next_page"
+    "Ability6"                  ""
+    "Ability7"                  ""
+    "Ability8"                  ""
 
     "AttackDamageMin"           "6"
     "AttackDamageMax"           "7"
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
+    
+    "AttackType"                "normal"
+
+    "BaseClass"                 "npc_dota_creature"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "StatusHealth"              "75"
+    "ArmorPhysical"             "5.0"
+
+    "BuildTime"                 "1"
+    "ConstructionSize"          "2"
+    "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "683" } 	// Persona
+		"2"  { "ItemDef" "13042" } 	// Acolyte of the Lost Arts
+		"3"  { "ItemDef" "13043" } 	// Kid Head
+		"4"  { "ItemDef" "13044" } 	// Kid Shoulder
+		"5"  { "ItemDef" "13045" } 	// Kid Back
+		"6"  { "ItemDef" "13046" } 	// Kid Arms
+      }
+    }
+  }
+  
+   "elemental_core2"
+  {
+    "Model"                     "models/heroes/invoker_kid/invoker_kid.vmdl"
+    "ModelScale"                "1.2"
+    "ModelRotation"             "0"
+    "ModelOffset"               "1"
+    "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
+    "PedestalModelScale"        "0.5"
+    "PedestalOffset"            "5"
+    "ProjectileModel"           "particles/units/heroes/hero_invoker_kid/invoker_kid_base_attack_all.vpcf"
+    "ProjectileSpeed"           "1200"
+    "SoundSet"                  "Hero_Invoker"
+    "MinimapIconSize"           "10"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+
+    "Ability1"                  "upgrade_poison_well"
+    "Ability2"                  "upgrade_splasher"
+    "Ability3"                  "upgrade_rockfall"
+    "Ability4"                  "upgrade_spellslinger"
+    "Ability5"                  "previous_page"
+    "Ability6"                  ""
+    "Ability7"                  ""
+    "Ability8"                  ""
+
+    "AttackDamageMin"           "6"
+    "AttackDamageMax"           "7"
+    "AttackRange"               "600"
+    "AttackAcquisitionRange"    "600"
+    "AttackRate"                "1"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -993,22 +1050,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "683" } 	// Persona
+		"2"  { "ItemDef" "13042" } 	// Acolyte of the Lost Arts
+		"3"  { "ItemDef" "13043" } 	// Kid Head
+		"4"  { "ItemDef" "13044" } 	// Kid Shoulder
+		"5"  { "ItemDef" "13045" } 	// Kid Back
+		"6"  { "ItemDef" "13046" } 	// Kid Arms
+      }
+    }
   }
 
   "fire_pit"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/huskar/huskar.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
-    "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "ProjectileModel"           "particles/units/heroes/hero_huskar/huskar_base_attack.vpcf"
+    "ProjectileSpeed"           "1400"
+    "SoundSet"                  "Hero_Huskar"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
 
     "Ability1"                  "upgrade_magma_well"
     "Ability2"                  "custom_ignite"
@@ -1020,7 +1089,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "400"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.3"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1035,22 +1104,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "268" } 	// Weapon
+		"2"  { "ItemDef" "269" } 	// Off-Hand
+		"3"  { "ItemDef" "270" } 	// Head
+		"4"  { "ItemDef" "271" } 	// Shoulder
+		"5"  { "ItemDef" "272" } 	// Arms
+      }
+    }
   }
 
   "magma_well"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/huskar/huskar.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
-    "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "ProjectileModel"           "particles/units/heroes/hero_huskar/huskar_base_attack.vpcf"
+    "ProjectileSpeed"           "1400"
+    "SoundSet"                  "Hero_Huskar"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
 
     "Ability1"                  "upgrade_meteor_attractor"
     "Ability2"                  "upgrade_living_flame"
@@ -1078,22 +1158,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9292" } 	// Weapon
+		"2"  { "ItemDef" "7325" } 	// Off-Hand
+		"3"  { "ItemDef" "12757" } 	// Head
+		"4"  { "ItemDef" "13319" } 	// Shoulder
+		"5"  { "ItemDef" "12758" } 	// Arms
+      }
+    }
   }
 
   "meteor_attractor"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/lina/lina.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Lina"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
 
     "Ability1"                  "upgrade_armageddon"
     "Ability2"                  "overwhelming_impact"
@@ -1105,7 +1196,7 @@
     "AttackRange"               "800"
     "AttackAcquisitionRange"    "800"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.650000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1120,22 +1211,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "319" } 	// Head
+		"2"  { "ItemDef" "318" } 	// Neck
+		"3"  { "ItemDef" "321" } 	// Belt
+		"4"  { "ItemDef" "320" } 	// Arms
+      }
+    }
   }
 
   "armageddon"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/lina/lina.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Lina"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_moonbeam_projector"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -1163,22 +1264,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "4794" } 	// Head
+		"2"  { "ItemDef" "8003" } 	// Neck
+		"3"  { "ItemDef" "9243" } 	// Belt
+		"4"  { "ItemDef" "9071" } 	// Arms
+      }
+    }
   }
 
   "ultimate_moonbeam_projector"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/luna/luna.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_luna/luna_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Luna"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
 
     "Ability1"                  "lunar_strike"
 
@@ -1189,7 +1300,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "1000"
     "AttackRate"                "4.0"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.460000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1204,22 +1315,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "13000" } 	// Weapon
+		"2"  { "ItemDef" "8301" } 	// Shield
+		"3"  { "ItemDef" "7269" } 	// Head
+		"4"  { "ItemDef" "8855" } 	// Shoulder
+		"5"  { "ItemDef" "7217" } 	// Mount
+      }
+    }
   }
 
   "living_flame"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/phoenix/phoenix_bird.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Phoenix"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 
     "Ability1"                  "upgrade_hellfire"
     "Ability2"                  "rising_heat"
@@ -1231,7 +1353,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "400"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.350000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1246,22 +1368,30 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "592" } 	// Head
+		"2"  { "ItemDef" "626" } 	// Wings
+      }
+    }
   }
 
   "hellfire"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/phoenix/phoenix_bird.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Phoenix"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_firelord"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -1274,7 +1404,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.350000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1289,22 +1419,30 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7458" } 	// Head
+		"2"  { "ItemDef" "7837" } 	// Wings
+      }
+    }
   }
 
   "ultimate_firelord"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/shadow_fiend/shadow_fiend_arcana.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Nevermore"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
 
     "Ability1"                  "volcanic_eruption"
 
@@ -1315,7 +1453,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1330,22 +1468,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "6996" } 	// Head
+		"2"  { "ItemDef" "13507" } 	// Shoulder
+		"3"  { "ItemDef" "8259" } 	// Arms
+		"4"  { "ItemDef" "509" } 	// Ambient Effects
+      }
+    }
   }
 
   "frozen_obelisk"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/winterwyvern/winterwyvern.vmdl"
+    "ModelScale"                "0.5"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Winter_Wyvern"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
 
     "Ability1"                  "upgrade_runic_obelisk"
     "Ability2"                  "frost_attack"
@@ -1355,7 +1503,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.250000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1370,22 +1518,30 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9510" } 	// Head
+		"2"  { "ItemDef" "9511" } 	// Back
+      }
+    }
   }
 
   "runic_obelisk"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/winterwyvern/winterwyvern.vmdl"
+    "ModelScale"                "0.5"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Winter_Wyvern"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
 
     "Ability1"                  "upgrade_frozen_watcher"
     "Ability2"                  "upgrade_icicle"
@@ -1411,22 +1567,30 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "8017" } 	// Head
+		"2"  { "ItemDef" "8517" } 	// Back
+      }
+    }
   }
 
   "frozen_watcher"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_ancient_apparition"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 
     "Ability1"                  "upgrade_frozen_core"
     "Ability2"                  "frost_attack"
@@ -1438,7 +1602,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1.25"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.450000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1453,22 +1617,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "172" } 	// Head
+		"2"  { "ItemDef" "648" } 	// Shoulder
+		"3"  { "ItemDef" "649" } 	// Arms
+		"4"  { "ItemDef" "652" } 	// Tail
+		"5"  { "ItemDef" "501" } 	// Ambient Effects
+      }
+    }
   }
 
   "frozen_core"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_ancient_apparition"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_lich"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -1481,7 +1656,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.450000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1496,22 +1671,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7462" } 	// Head
+		"2"  { "ItemDef" "9462" } 	// Shoulder
+		"3"  { "ItemDef" "8714" } 	// Arms
+		"4"  { "ItemDef" "12569" } 	// Tail
+		"5"  { "ItemDef" "501" } 	// Ambient Effects
+      }
+    }
   }
 
   "ultimate_lich"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/lich/lich.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_lich/lich_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Lich"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
 
     "Ability1"                  "frost_attack"
 
@@ -1522,7 +1708,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.460000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1537,22 +1723,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12797" } 	// Head
+		"2"  { "ItemDef" "7576" } 	// Neck
+		"3"  { "ItemDef" "9560" } 	// Back
+		"4"  { "ItemDef" "9561" } 	// Belt
+		"5"  { "ItemDef" "7932" } 	// Arms
+      }
+    }
   }
 
   "icicle"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/tuskarr/tuskarr.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Tusk"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 
     "Ability1"                  "upgrade_tricicle"
     "Ability2"                  "ice_lance"
@@ -1562,7 +1759,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.360000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1577,22 +1774,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "417" } 	// Weapon
+		"2"  { "ItemDef" "413" } 	// Fist
+		"3"  { "ItemDef" "415" } 	// Head
+		"4"  { "ItemDef" "416" } 	// Tusks
+		"5"  { "ItemDef" "414" } 	// Shoulder
+		"6"  { "ItemDef" "418" } 	// Back
+      }
+    }
   }
 
   "tricicle"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/tuskarr/tuskarr.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Tusk"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_crystal"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -1603,7 +1812,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.360000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1618,22 +1827,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "5659" } 	// Weapon
+		"2"  { "ItemDef" "6806" } 	// Fist
+		"3"  { "ItemDef" "9701" } 	// Head
+		"4"  { "ItemDef" "9008" } 	// Tusks
+		"5"  { "ItemDef" "9700" } 	// Shoulder
+		"6"  { "ItemDef" "7375" } 	// Back
+      }
+    }
   }
 
   "ultimate_crystal"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/crystal_maiden/crystal_maiden.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Crystal"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
 
     "Ability1"                  "ice_barrage"
 
@@ -1642,7 +1863,7 @@
     "AttackRange"               "800"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.450000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1657,22 +1878,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "13532" } 	// Weapon
+		"2"  { "ItemDef" "6686" } 	// Head
+		"3"  { "ItemDef" "9205" } 	// Shoulder
+		"4"  { "ItemDef" "4386" } 	// Back
+		"5"  { "ItemDef" "6766" } 	// Arms
+      }
+    }
   }
 
   "shock_particle"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/storm_spirit/storm_spirit.vmdl"
+    "ModelScale"                "1"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_StormSpirit"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
 
     "Ability1"                  "upgrade_shock_generator"
     "Ability2"                  "overcharge"
@@ -1682,7 +1914,7 @@
     "AttackRange"               "150"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1697,22 +1929,31 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "308" } 	// Head
+		"2"  { "ItemDef" "310" } 	// Armor 
+		"3"  { "ItemDef" "309" } 	// Arms
+      }
+    }
   }
 
   "shock_generator"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/storm_spirit/storm_spirit.vmdl"
+    "ModelScale"                "1"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_StormSpirit"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
 
     "Ability1"                  "upgrade_lightning_beacon"
     "Ability2"                  "upgrade_voltage"
@@ -1723,7 +1964,7 @@
     "AttackRange"               "200"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.25"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -1738,22 +1979,31 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "6431" } 	// Head
+		"2"  { "ItemDef" "6019" } 	// Armor 
+		"3"  { "ItemDef" "12415" } 	// Arms
+      }
+    }
   }
 
   "lightning_beacon"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/razor/razor.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_razor/razor_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Razor"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
 
     "Ability1"                  "upgrade_lightning_generator"
     "Ability2"                  "focused_lightning"
@@ -1763,7 +2013,7 @@
     "AttackRange"               "900"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.300000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1778,22 +2028,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "340" } 	// Weapon
+		"2"  { "ItemDef" "341" } 	// Head 
+		"3"  { "ItemDef" "342" } 	// Armor
+		"4"  { "ItemDef" "344" } 	// Belt 
+		"5"  { "ItemDef" "343" } 	// Arms
+      }
+    }
   }
 
   "lightning_generator"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/razor/razor.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_razor/razor_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Razor"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_annihilation_glyph"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -1804,7 +2065,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.300000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1819,22 +2080,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "8000" } 	// Weapon
+		"2"  { "ItemDef" "6646" } 	// Head 
+		"3"  { "ItemDef" "8613" } 	// Armor
+		"4"  { "ItemDef" "9355" } 	// Belt 
+		"5"  { "ItemDef" "8615" } 	// Arms
+      }
+    }
   }
 
   "ultimate_annihilation_glyph"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/arc_warden/arc_warden.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_ArcWarden"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
 
     "Ability1"                  "annihilation"
 
@@ -1843,7 +2115,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.3"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1858,22 +2130,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9671" } 	// Head
+		"2"  { "ItemDef" "9622" } 	// Arms 
+		"3"  { "ItemDef" "9621" } 	// Shoulder
+		"4"  { "ItemDef" "9623" } 	// Back 
+      }
+    }
   }
 
   "voltage"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/zeus/zeus.vmdl"
+    "ModelScale"                "0.9"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_zuus"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 
     "Ability1"                  "upgrade_high_voltage"
     "Ability2"                  "electrocute"
@@ -1883,7 +2165,7 @@
     "AttackRange"               "200"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.3500"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1898,22 +2180,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "593" } 	// Weapon
+		"2"  { "ItemDef" "604" } 	// Head 
+		"3"  { "ItemDef" "607" } 	// Back
+		"4"  { "ItemDef" "606" } 	// Belt 
+		"5"  { "ItemDef" "589" } 	// Arms 
+      }
+    }
   }
 
   "high_voltage"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/zeus/zeus.vmdl"
+    "ModelScale"                "0.9"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_zuus"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_orb_keeper"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -1924,7 +2217,7 @@
     "AttackRange"               "200"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.3500"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1939,22 +2232,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "593" } 	// Weapon
+		"2"  { "ItemDef" "7954" } 	// Head 
+		"3"  { "ItemDef" "7952" } 	// Back
+		"4"  { "ItemDef" "9039" } 	// Belt 
+		"5"  { "ItemDef" "9038" } 	// Arms 
+      }
+    }
   }
 
   "ultimate_orb_keeper"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/disruptor/disruptor.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_disruptor/disruptor_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Disruptor"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
 
     "Ability1"                  "depth_current"
 
@@ -1963,7 +2267,7 @@
     "AttackRange"               "225"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -1978,22 +2282,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "4466" } 	// Mount
+		"2"  { "ItemDef" "12412" } 	// Weapon 
+		"3"  { "ItemDef" "7784" } 	// Head
+		"4"  { "ItemDef" "7783" } 	// Shoulder 
+		"5"  { "ItemDef" "8131" } 	// Back 
+		"6"  { "ItemDef" "13204" } 	// Arms 
+      }
+    }
   }
 
   "light_flies"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/chen/chen.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_chen/chen_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Chen"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 
     "Ability1"                  "upgrade_holy_lantern"
     "Ability2"                  "bursting_light"
@@ -2003,7 +2319,7 @@
     "AttackRange"               "800"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2018,22 +2334,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "221" } 	// Mount
+		"2"  { "ItemDef" "220" } 	// Weapon 
+		"3"  { "ItemDef" "222" } 	// Head
+		"4"  { "ItemDef" "224" } 	// Shoulder 
+		"5"  { "ItemDef" "223" } 	// Arms 
+      }
+    }
   }
 
   "holy_lantern"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/chen/chen.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_chen/chen_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Chen"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 
     "Ability1"                  "upgrade_lightshroom"
     "Ability2"                  "upgrade_sunray_tower"
@@ -2044,7 +2371,7 @@
     "AttackRange"               "850"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2059,22 +2386,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9151" } 	// Mount
+		"2"  { "ItemDef" "9152" } 	// Weapon 
+		"3"  { "ItemDef" "9155" } 	// Head
+		"4"  { "ItemDef" "9153" } 	// Shoulder 
+		"5"  { "ItemDef" "9156" } 	// Arms 
+		"6"  { "ItemDef" "9154" } 	// Misc 
+      }
+    }
   }
 
   "lightshroom"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/furion/furion.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_furion/furion_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Furion"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
 
     "Ability1"                  "upgrade_enchanted_lightshroom"
     "Ability2"                  "rejuvenating_spores"
@@ -2086,7 +2425,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2101,24 +2440,36 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "29" } 	// Weapon
+		"2"  { "ItemDef" "30" } 	// Head 
+		"3"  { "ItemDef" "31" } 	// Neck
+		"4"  { "ItemDef" "33" } 	// Shoulder 
+		"5"  { "ItemDef" "32" } 	// Back 
+		"6"  { "ItemDef" "49" } 	// Arms 
+      }
+    }
   }
 
   "enchanted_lightshroom"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/furion/furion.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_furion/furion_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Furion"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
 
-    "Ability1"                  "upgrade_ulitmate_enchanted_lightshroom"
+    "Ability1"                  "upgrade_ultimate_enchanted_lightshroom"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
     "Ability3"                  "rejuvenating_spores"
 
@@ -2129,7 +2480,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2144,22 +2495,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12488" } 	// Weapon
+		"2"  { "ItemDef" "6748" } 	// Head 
+		"3"  { "ItemDef" "9001" } 	// Neck
+		"4"  { "ItemDef" "4031" } 	// Shoulder 
+		"5"  { "ItemDef" "6747" } 	// Back 
+		"6"  { "ItemDef" "5715" } 	// Arms 
+      }
+    }
   }
 
   "ultimate_enchanted_lightshroom"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/furion/furion.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_furion/furion_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Furion"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
 
     "Ability1"                  "rejuvenating_spores"
 
@@ -2170,7 +2533,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2185,22 +2548,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "4566" } 	// Weapon
+		"2"  { "ItemDef" "12493" } 	// Head 
+		"3"  { "ItemDef" "12494" } 	// Neck
+		"4"  { "ItemDef" "12490" } 	// Shoulder 
+		"5"  { "ItemDef" "12489" } 	// Back 
+		"6"  { "ItemDef" "5715" } 	// Arms 
+      }
+    }
   }
 
   "sunray_tower"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/puck/puck.vmdl"
+    "ModelScale"                "0.9"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_puck/puck_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Puck"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
 
     "Ability1"                  "upgrade_purified_sunray_tower"
     "Ability2"                  "blinding_light"
@@ -2210,7 +2585,7 @@
     "AttackRange"               "900"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2225,24 +2600,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "372" } 	// Head
+		"2"  { "ItemDef" "371" } 	// Tail 
+		"3"  { "ItemDef" "370" } 	// Wings
+      }
+    }
   }
 
   "purified_sunray_tower"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/puck/puck.vmdl"
+    "ModelScale"                "0.9"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_puck/puck_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Puck"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
 
-    "Ability1"                  "upgrade_ulitmate_northrend_titan_vault"
+    "Ability1"                  "upgrade_ultimate_northrend_titan_vault"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
     "Ability3"                  "blinding_light"
 
@@ -2251,7 +2635,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2266,22 +2650,31 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "13341" } 	// Head
+		"2"  { "ItemDef" "13342" } 	// Tail 
+		"3"  { "ItemDef" "13340" } 	// Wings
+      }
+    }
   }
 
   "ultimate_northrend_titan_vault"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/keeper_of_the_light/keeper_of_the_light.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_KeeperOfTheLight"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 
     "Ability1"                  "titan_defense_mechanism"
 
@@ -2290,7 +2683,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.300000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2305,22 +2698,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12775" } 	// Mount
+		"2"  { "ItemDef" "12772" } 	// Weapon 
+		"3"  { "ItemDef" "12774" } 	// Head
+		"4"  { "ItemDef" "12773" } 	// Belt
+      }
+    }
   }
 
   "poison_well"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/enigma/enigma.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_enigma/enigma_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Enigma"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
 
     "Ability1"                  "upgrade_catacomb"
     "Ability2"                  "corruption"
@@ -2330,7 +2733,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2345,22 +2748,31 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "628" } 	// Head
+		"2"  { "ItemDef" "629" } 	// Armor 
+		"3"  { "ItemDef" "498" } 	// Ambient
+      }
+    }
   }
 
   "catacomb"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/enigma/enigma.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_enigma/enigma_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Enigma"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
 
     "Ability1"                  "upgrade_septic_tank"
     "Ability2"                  "upgrade_decayed_guardian"
@@ -2371,7 +2783,7 @@
     "AttackRange"               "650"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2386,22 +2798,31 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12332" } 	// Head
+		"2"  { "ItemDef" "12330" } 	// Armor 
+		"3"  { "ItemDef" "12329" } 	// Arms
+      }
+    }
   }
 
   "septic_tank"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/necrolyte/necrolyte.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_necrolyte/necrolyte_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Necrolyte"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 
     "Ability1"                  "upgrade_plague_fanatic"
     "Ability2"                  "death_plague"
@@ -2411,7 +2832,7 @@
     "AttackRange"               "700"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.40000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2426,22 +2847,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "211" } 	// Weapon
+		"2"  { "ItemDef" "213" } 	// Head 
+		"3"  { "ItemDef" "212" } 	// Beard
+		"4"  { "ItemDef" "214" } 	// Shoulder
+		"5"  { "ItemDef" "659" } 	// Legs
+      }
+    }
   }
 
   "plague_fanatic"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/necrolyte/necrolyte.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_necrolyte/necrolyte_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Necrolyte"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_gravedigger"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -2452,7 +2884,7 @@
     "AttackRange"               "700"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.40000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2467,22 +2899,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "8476" } 	// Weapon
+		"2"  { "ItemDef" "8927" } 	// Head 
+		"3"  { "ItemDef" "8475" } 	// Beard
+		"4"  { "ItemDef" "8477" } 	// Shoulder
+		"5"  { "ItemDef" "9840" } 	// Legs
+      }
+    }
   }
 
   "ultimate_gravedigger"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/clinkz/clinkz.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_clinkz/clinkz_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Clinkz"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
 
     "Ability1"                  "gravestrike"
 
@@ -2491,7 +2934,7 @@
     "AttackRange"               "700"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.700000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2506,22 +2949,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7872" } 	// Weapon
+		"2"  { "ItemDef" "7918" } 	// Head 
+		"3"  { "ItemDef" "8552" } 	// Shoulder
+		"4"  { "ItemDef" "7870" } 	// Back
+		"5"  { "ItemDef" "8560" } 	// Gloves
+      }
+    }
   }
 
   "decayed_guardian"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/abyssal_underlord/abyssal_underlord_v2.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_AbyssalUnderlord"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
 
     "Ability1"                  "upgrade_decayed_horror"
     "Ability2"                  "unholy_miasma"
@@ -2533,7 +2987,7 @@
     "AttackRange"               "300"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.450000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2548,22 +3002,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9742" } 	// Weapon
+		"2"  { "ItemDef" "9078" } 	// Head 
+		"3"  { "ItemDef" "9077" } 	// Armor
+		"4"  { "ItemDef" "620" } 	// HeadModel
+      }
+    }
   }
 
   "decayed_horror"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/abyssal_underlord/abyssal_underlord_v2.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_AbyssalUnderlord"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_diabolist"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -2576,7 +3040,7 @@
     "AttackRange"               "300"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.450000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2591,22 +3055,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12421" } 	// Weapon
+		"2"  { "ItemDef" "12293" } 	// Head 
+		"3"  { "ItemDef" "12294" } 	// Armor
+		"4"  { "ItemDef" "620" } 	// HeadModel
+      }
+    }
   }
 
   "ultimate_diabolist"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/doom/doom.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/base_attacks/ranged_tower_bad.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_DoomBringer"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
 
     "Ability1"                  "hellfire"
 
@@ -2617,7 +3091,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2632,22 +3106,35 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+       {
+         "1"  { "ItemDef" "9989" }
+         "2"  { "ItemDef" "8088" }
+         "3"  { "ItemDef" "6276" }
+         "4"  { "ItemDef" "9991" }
+         "5"  { "ItemDef" "9986" }
+         "6"  { "ItemDef" "8047" }
+         "7"  { "ItemDef" "9741" }
+       }
+    }
   }
 
   "splasher"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/morphling/morphling.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Morphling"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
 
     "Ability1"                  "upgrade_tidecaller"
     "Ability2"                  "crushing_wave"
@@ -2659,7 +3146,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2674,22 +3161,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "4537" } 	// Head
+		"2"  { "ItemDef" "4539" } 	// Shoulder 
+		"3"  { "ItemDef" "4403" } 	// Back
+		"4"  { "ItemDef" "4574" } 	// Arms
+		"5"  { "ItemDef" "5356" } 	// Misc
+      }
+    }
   }
 
   "tidecaller"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/morphling/morphling.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Morphling"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
 
     "Ability1"                  "upgrade_water_elemental"
     "Ability2"                  "upgrade_tidal_guardian"
@@ -2702,7 +3200,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2717,22 +3215,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7603" } 	// Head
+		"2"  { "ItemDef" "4296" } 	// Shoulder 
+		"3"  { "ItemDef" "7723" } 	// Back
+		"4"  { "ItemDef" "6833" } 	// Arms
+		"5"  { "ItemDef" "7558" } 	// Misc
+      }
+    }
   }
 
   "water_elemental"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/siren/siren.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_NagaSiren"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
 
     "Ability1"                  "upgrade_volatile_water_elemental"
     "Ability2"                  "pressuring_water"
@@ -2744,7 +3253,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2759,22 +3268,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "192" } 	// Weapon
+		"2"  { "ItemDef" "312" } 	// Off-Hand 
+		"3"  { "ItemDef" "191" } 	// Head
+		"4"  { "ItemDef" "194" } 	// Armor
+		"5"  { "ItemDef" "193" } 	// Tail
+      }
+    }
   }
 
   "volatile_water_elemental"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/siren/siren.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_NagaSiren"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_hurricane_elemental"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -2787,7 +3307,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2802,22 +3322,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7041" } 	// Weapon
+		"2"  { "ItemDef" "7042" } 	// Off-Hand 
+		"3"  { "ItemDef" "7040" } 	// Head
+		"4"  { "ItemDef" "7039" } 	// Armor
+		"5"  { "ItemDef" "7043" } 	// Tail
+      }
+    }
   }
 
   "ultimate_hurricane_elemental"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/medusa/medusa.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Medusa"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
 
     "Ability1"                  "hurricane_storm"
 
@@ -2826,7 +3357,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2841,22 +3372,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12626" } 	// Weapon
+		"2"  { "ItemDef" "12623" } 	// Head
+		"3"  { "ItemDef" "7911" } 	// Armor
+		"4"  { "ItemDef" "12622" } 	// Arms
+		"5"  { "ItemDef" "12624" } 	// Tail
+      }
+    }
   }
 
   "tidal_guardian"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/tidehunter/tidehunter.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/items/necrolyte/necronub_base_attack/necrolyte_base_attack_ka.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Tidehunter"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
 
     "Ability1"                  "upgrade_tidal_monstrosity"
     "Ability2"                  "torrent"
@@ -2868,7 +3410,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.600000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2883,22 +3425,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "13148" } 	// Weapon
+		"2"  { "ItemDef" "13147" } 	// Off-Hand
+		"3"  { "ItemDef" "13146" } 	// Head
+		"4"  { "ItemDef" "13151" } 	// Back
+		"5"  { "ItemDef" "13150" } 	// Belt
+		"6"  { "ItemDef" "13149" } 	// Arms
+      }
+    }
   }
 
   "tidal_monstrosity"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/tidehunter/tidehunter.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/items/necrolyte/necronub_base_attack/necrolyte_base_attack_ka.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Tidehunter"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_sludge_monstrosity"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -2911,7 +3465,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.600000"
     
     "AttackType"                "normal"
     "AttacksEnabled"            "ground"
@@ -2926,22 +3480,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9631" } 	// Weapon
+		"2"  { "ItemDef" "9632" } 	// Off-Hand
+		"3"  { "ItemDef" "9633" } 	// Head
+		"4"  { "ItemDef" "9635" } 	// Back
+		"5"  { "ItemDef" "9634" } 	// Belt
+		"6"  { "ItemDef" "9636" } 	// Arms
+      }
+    }
   }
 
   "ultimate_sludge_monstrosity"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/slardar/slardar.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_leshrac/leshrac_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Slardar"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
 
     "Ability1"                  "crippling_decay"
 
@@ -2952,7 +3518,7 @@
     "AttackRange"               "600"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.360000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -2967,22 +3533,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7506" } 	// Weapon
+		"2"  { "ItemDef" "12664" } 	// Head
+		"3"  { "ItemDef" "13531" } 	// Back
+		"4"  { "ItemDef" "12662" } 	// Arms
+      }
+    }
   }
 
   "rockfall"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/earth_spirit/earth_spirit.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/dire_tower_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_EarthSpirit"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
 
     "Ability1"                  "upgrade_avalanche"
     "Ability2"                  "shatter_armor"
@@ -2994,7 +3570,7 @@
     "AttackRange"               "300"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.350000"
     
     "AttackType"                "siege"
     "AttacksEnabled"            "ground"
@@ -3009,22 +3585,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "6006" } 	// Weapon
+		"2"  { "ItemDef" "8904" } 	// Head
+		"3"  { "ItemDef" "8905" } 	// Neck
+		"4"  { "ItemDef" "8903" } 	// Belt
+		"5"  { "ItemDef" "8712" } 	// Arms
+		"6"  { "ItemDef" "482" } // Head Model
+      }
+    }
   }
 
   "avalanche"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/earth_spirit/earth_spirit.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/dire_tower_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_EarthSpirit"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
 
     "Ability1"                  "upgrade_earth_protector"
     "Ability2"                  "upgrade_poisonous_roots"
@@ -3037,7 +3625,7 @@
     "AttackRange"               "300"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.350000"
     
     "AttackType"                "siege"
     "AttacksEnabled"            "ground"
@@ -3052,22 +3640,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7935" } 	// Weapon
+		"2"  { "ItemDef" "13389" } 	// Head
+		"3"  { "ItemDef" "7186" } 	// Neck
+		"4"  { "ItemDef" "13391" } 	// Belt
+		"5"  { "ItemDef" "13392" } 	// Arms
+		"6"  { "ItemDef" "482" } // Head Model
+      }
+    }
   }
 
   "earth_protector"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/elder_titan/elder_titan.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/radiant_tower_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_ElderTitan"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
 
     "Ability1"                  "upgrade_ancient_earth_protector"
     "Ability2"                  "devastating_attack"
@@ -3079,7 +3679,7 @@
     "AttackRange"               "400"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.350000"
     
     "AttackType"                "siege"
     "AttacksEnabled"            "ground"
@@ -3094,22 +3694,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7834" } 	// Weapon
+		"2"  { "ItemDef" "7832" } 	// Head
+		"3"  { "ItemDef" "7833" } 	// Shoulder
+		"4"  { "ItemDef" "7830" } 	// Back
+		"5"  { "ItemDef" "7831" } 	// Arms
+      }
+    }
   }
 
   "ancient_earth_protector"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/elder_titan/elder_titan.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/radiant_tower_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_ElderTitan"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_ancient_warden"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -3122,7 +3733,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.350000"
     
     "AttackType"                "siege"
     "AttacksEnabled"            "ground"
@@ -3137,22 +3748,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "13172" } 	// Weapon
+		"2"  { "ItemDef" "13171" } 	// Head
+		"3"  { "ItemDef" "13170" } 	// Shoulder
+		"4"  { "ItemDef" "9240" } 	// Back
+		"5"  { "ItemDef" "13169" } 	// Arms
+      }
+    }
   }
 
   "ultimate_ancient_warden"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/earthshaker/earthshaker.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/econ/events/ti9/rock_golem_tower/dire_tower_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Earthshaker"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
 
     "Ability1"                  "natures_guidance"
 
@@ -3163,7 +3785,7 @@
     "AttackRange"               "500"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "2.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.467000"
     
     "AttackType"                "siege"
     "AttacksEnabled"            "ground"
@@ -3178,22 +3800,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9730" } 	// Totem
+		"2"  { "ItemDef" "12692" } 	// Head
+		"3"  { "ItemDef" "8579" } 	// Belt
+		"4"  { "ItemDef" "8578" } 	// Arms
+      }
+    }
   }
 
   "poisonous_roots"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/venomancer/venomancer.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Venomancer"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
 
     "Ability1"                  "upgrade_paralyzing_roots"
     "Ability2"                  "paralyzing_poison"
@@ -3203,7 +3835,7 @@
     "AttackRange"               "650"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.7"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.300000"
     
     "AttackType"                "piercing"
     "AttacksEnabled"            "ground"
@@ -3218,22 +3850,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "8699" } 	// Stinger Limbs
+		"2"  { "ItemDef" "8690" } 	// Head
+		"3"  { "ItemDef" "8700" } 	// Shoulder
+		"4"  { "ItemDef" "8691" } 	// Tail
+      }
+    }
   }
 
   "paralyzing_roots"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/venomancer/venomancer.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Venomancer"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_scorpion"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -3244,7 +3886,7 @@
     "AttackRange"               "650"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.7"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.300000"
     
     "AttackType"                "piercing"
     "AttacksEnabled"            "ground"
@@ -3259,22 +3901,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9917" } 	// Stinger Limbs
+		"2"  { "ItemDef" "9558" } 	// Head
+		"3"  { "ItemDef" "9915" } 	// Shoulder
+		"4"  { "ItemDef" "9918" } 	// Tail
+      }
+    }
   }
 
   "ultimate_scorpion"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/viper/viper.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_viper/viper_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Viper"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
 
     "Ability1"                  "deadly_strike"
 
@@ -3283,7 +3935,7 @@
     "AttackRange"               "700"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.330000"
     
     "AttackType"                "piercing"
     "AttacksEnabled"            "ground"
@@ -3298,22 +3950,31 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7811" } 	// Head
+		"2"  { "ItemDef" "9233" } 	// Back
+		"3"  { "ItemDef" "9758" } 	// Tail
+      }
+    }
   }
 
   "spellslinger"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/silencer/silencer.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Silencer"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
 
     "Ability1"                  "upgrade_spellslinger_master"
     "Ability2"                  "arcanize"
@@ -3323,7 +3984,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.3"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3340,22 +4001,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12913" } 	// Weapon
+		"2"  { "ItemDef" "12911" } 	// Shield
+		"3"  { "ItemDef" "12912" } 	// Head
+		"4"  { "ItemDef" "12914" } 	// Armor
+		"5"  { "ItemDef" "12915" } 	// Belt
+		"6"  { "ItemDef" "12910" } 	// Arms
+      }
+    }
   }
 
   "spellslinger_master"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/silencer/silencer.vmdl"
+    "ModelScale"                "0.8"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Silencer"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
 
     "Ability1"                  "upgrade_archmage"
     "Ability2"                  "upgrade_arcane_pylon"
@@ -3366,7 +4039,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.25"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.500000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3383,22 +4056,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "12414" } 	// Weapon
+		"2"  { "ItemDef" "9110" } 	// Shield
+		"3"  { "ItemDef" "8033" } 	// Head
+		"4"  { "ItemDef" "9114" } 	// Armor
+		"5"  { "ItemDef" "6390" } 	// Belt
+		"6"  { "ItemDef" "9112" } 	// Arms
+      }
+    }
   }
 
   "archmage"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/rubick/rubick.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Rubick"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
 
     "Ability1"                  "upgrade_grand_archmage"
     "Ability2"                  "spellcast"
@@ -3408,7 +4093,7 @@
     "AttackRange"               "800"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3425,22 +4110,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "5651" } 	// Weapon
+		"2"  { "ItemDef" "5644" } 	// Head
+		"3"  { "ItemDef" "5649" } 	// Shoulder
+		"4"  { "ItemDef" "5646" } 	// Back
+      }
+    }
   }
 
   "grand_archmage"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/rubick/rubick.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_rubick/rubick_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Rubick"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_kirin_tor_wizard"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -3451,7 +4146,7 @@
     "AttackRange"               "800"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3468,22 +4163,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "8593" } 	// Weapon
+		"2"  { "ItemDef" "8591" } 	// Head
+		"3"  { "ItemDef" "8592" } 	// Shoulder
+		"4"  { "ItemDef" "8594" } 	// Back
+      }
+    }
   }
 
   "ultimate_kirin_tor_wizard"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/invoker/invoker.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_invoker/invoker_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Invoker"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 
     "Ability1"                  "spell_mastery"
 
@@ -3492,7 +4197,7 @@
     "AttackRange"               "800"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3509,22 +4214,33 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "8746" } 	// Head
+		"2"  { "ItemDef" "7987" } 	// Shoulder
+		"3"  { "ItemDef" "7979" } 	// Back
+		"4"  { "ItemDef" "7989" } 	// Belt
+		"5"  { "ItemDef" "7821" } 	// Arms
+      }
+    }
   }
 
   "arcane_pylon"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/skywrath_mage/skywrath_mage.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_SkywrathMage"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 
     "Ability1"                  "upgrade_unstable_arcane_pylon"
     "Ability2"                  "volatile_arcane"
@@ -3534,7 +4250,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3551,22 +4267,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "6972" } 	// Weapon
+		"2"  { "ItemDef" "6973" } 	// Head
+		"3"  { "ItemDef" "6974" } 	// Shoulder
+		"4"  { "ItemDef" "6975" } 	// Wings
+		"5"  { "ItemDef" "6734" } 	// Belt
+		"6"  { "ItemDef" "6733" } 	// Arms
+      }
+    }
   }
 
   "unstable_arcane_pylon"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/skywrath_mage/skywrath_mage.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_SkywrathMage"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 
     "Ability1"                  "upgrade_ultimate_arcane_orb"
     "Ability2"                  "upgrade_ultimate_unstable_elemental_core"
@@ -3577,7 +4305,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.5"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.400000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3594,22 +4322,34 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "6892" } 	// Weapon
+		"2"  { "ItemDef" "12518" } 	// Head
+		"3"  { "ItemDef" "12522" } 	// Shoulder
+		"4"  { "ItemDef" "13568" } 	// Wings
+		"5"  { "ItemDef" "12520" } 	// Belt
+		"6"  { "ItemDef" "12519" } 	// Arms
+      }
+    }
   }
 
   "ultimate_arcane_orb"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/oracle/oracle.vmdl"
+    "ModelScale"                "0.7"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_oracle/oracle_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_Oracle"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
 
     "Ability1"                  "overwhelming_arcane"
 
@@ -3618,7 +4358,7 @@
     "AttackRange"               "1000"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "0.33"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.300000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3635,22 +4375,32 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "9232" } 	// Weapon
+		"2"  { "ItemDef" "12601" } 	// Head
+		"3"  { "ItemDef" "12602" } 	// Armor
+		"4"  { "ItemDef" "12603" } 	// Back
+      }
+    }
   }
 
   "ultimate_unstable_elemental_core"
   {
-    "Model"                     "models/heroes/wisp/wisp.vmdl"
-    "ModelScale"                "1.0"
+    "Model"                     "models/heroes/obsidian_destroyer/obsidian_destroyer.vmdl"
+    "ModelScale"                "0.6"
     "ModelRotation"             "0"
     "ModelOffset"               "1"
     "PedestalModel"             "models/props_teams/logo_teams_tintable.vmdl"
     "PedestalModelScale"        "0.5"
     "PedestalOffset"            "5"
-    "ProjectileModel"           "particles/units/heroes/hero_wisp/wisp_base_attack.vpcf"
+    "ProjectileModel"           "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
     "ProjectileSpeed"           "1200"
-    "SoundSet"                  "Hero_Wisp"
+    "SoundSet"                  "Hero_ObsidianDestroyer"
     "MinimapIconSize"           "10"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
 
     "Ability1"                  ""
 
@@ -3661,7 +4411,7 @@
     "AttackRange"               "700"
     "AttackAcquisitionRange"    "600"
     "AttackRate"                "1"
-    "AttackAnimationPoint"      "0.15"
+    "AttackAnimationPoint"      "0.460000"
     
     "AttackType"                "chaos"
     "AttacksEnabled"            "ground"
@@ -3676,5 +4426,16 @@
     "BuildTime"                 "1"
     "ConstructionSize"          "2"
     "BlockPathingSize"          "2"
+	"Creature"
+    {
+      "AttachWearables"
+      {
+        "1"  { "ItemDef" "7509" } 	// Weapon
+		"2"  { "ItemDef" "13684" } 	// Head
+		"3"  { "ItemDef" "9795" } 	// Wings
+		"4"  { "ItemDef" "9370" } 	// Armor
+		"5"  { "ItemDef" "226"  }   // Head Model
+      }
+    }
   }  
 }
