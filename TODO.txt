@@ -1,17 +1,18 @@
-- Implement Elemental system - (2 hours)
-- Implement custom gold - (1 hour)
+- Implement Elemental system - (4 hours)
+- Brainstorm Creep Abilities (2 hours)
+- Code Creep Abilities (10-20) (5 hours)
 - Addon English
   - Creep Abilities (10-20?) (1 hour)
-- Brainstorm Creep Abilities (2 hours)
-- Code Creep Abilities (10-20) (5-10 hours)
-- Code Building Abilities (38)
-  - Test Abilities (6/38)
-- End game score screen (?)
-- Logic/UI for dead players (2 hours)
+- Test Building Abilities (38) (5 hours)
+- Logic/UI for dead players (3 hours)
+  - Dead players should be moved down the player list
+  - Lane spawning should move to the next player
+  - End of game logic
 - Spectator logic (2 hours)
-- Update lanes / map - prevent build on edge of lane (4 hours)
-- Leak damage (1 hour)
-
+- Update lanes / map - prevent build on edge of lane (6 hours)
+- Async Precaching (3 hours)
+  - Elemental towers shouldn't load at the start of the game (beyond the first tier)
+  - Test if the loading screen increases load times (how much)
 
 Research
   Start with 4 research points
@@ -150,29 +151,39 @@ Tier 1
 Sheep (5, 1)
 Frost Wolves (10, 2)
 Skeleton Warrior (20, 3)
+(item_zombie) 
   - Sturdy Armor
   - Damage from over 450 range reduced by 20%
 Acolytes (35, 5)
+(item_eidolon) 
   - Unholy Sacrifice
   - Heals all creeps for 2 health in a small radius when killed
 Corrupted Treants (50, 6)
+(item_treant) 
   - Evasion (10%)
 Swordsmen (70, 8)
+(item_ghoul) ()
   - Devotion Aura
   - Increase armor of nearby creeps by 1
 Fel Orc Grunts (100, 11)
+(item_kobold) 
   - Fel Blood
   - increased health regen
 Vile Temptress (150, 15)
+(item_wildkin_small) (devotion aura +1 armor)
   - Endurance Aura
   - +5s AS, +10% ms
 Shades (200, 18)
+(item_harpy_scout) 
   - Flying
 Mud Golems (350, 35)
+(item_ogre) 
   - Spell Immunity
 Demolish Machines (750, 30)
+(item_potato) 
   - Attacks enemy towers
 Rot Golem (1000, 75)
+(item_stone_golem) 
   - Boss (1)
   High base health regen and armor
   Spell Immunity
@@ -189,3 +200,71 @@ Forest Troll Berserkers (4000, 335)
   420 base ms
 Wraiths (7500, 600)
   Flying
+
+
+
+item_radiant_creep
+  - None
+item_night_wolf
+  - None
+item_zombie
+item_eidolon
+item_treant
+  - 10% evasion
+item_ghoul
+item_kobold
+  - Endurance Aura (1) 5% attack 10% movement
+item_wildkin_small
+  - +1 Armor Aura
+item_harpy_scout
+  - Flying
+item_ogre
+  - Magic Immune
+item_potato
+  - Attacker
+item_stone_golem
+  - Boss, Magic Immune
+item_dire_creep
+item_wolf
+item_angry_centaur
+  - Dash (1) 420 ms
+item_familiar
+  - Flying
+item_satyr
+  - Invisible
+item_ghost_creep
+item_kobold_taskmaster
+  - Endurance Aura (2) 20% movement, 10% attack
+item_wildkin
+  - Devotion Aura (2) (+3 armor) Magic Immune
+item_harpy
+  - Flying
+item_tomato
+  - Attacker
+item_earth_panda
+
+item_infernal
+  - Boss, Magic Immune
+item_bear
+  - Attacker
+item_mud_golem
+  - Magic Immune
+item_happy_centaur
+  - Dash (3) 475 movement speed
+item_satyr_warlord
+  - Fel Blood (2) increased health regeneration
+item_storm_panda
+  - Invisible, <needs one more ability>
+item_necro_warrior
+  - Magic Immune
+item_blue_lizard
+item_drake
+  - Flying, <needs one more ability>
+item_prowler
+  - <formerly Dash (4)>
+item_fire_panda
+  - Attacker
+item_dragon
+  - Flying, Invisible, Magic Immune
+item_roshan
+  - Boss, Attacker, Magic Immune

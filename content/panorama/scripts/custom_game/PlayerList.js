@@ -1,3 +1,6 @@
+"use strict";
+
+var localPlayerID = Players.GetLocalPlayer();
 var rootPanel = $("#Avatars");
 
 for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
@@ -54,20 +57,11 @@ function createPlayerPanel(id, steam_id){
   InterestText.AddClass("InterestText");
 }
 
-UpdateGold();
-
-function UpdateGold() {
-  for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
-    if (Game.GetPlayerInfo(i)) {
-      $("#gold_text" + i).text = Players.GetGold(i);
-    }
-  }
-
-  $.Schedule(0.1, UpdateGold);
+function UpdateGold(playerID, gold) {
+  $("#gold_text" + playerID).text = gold;
 }
 
 function UpdateIncomes() {
-  $.Msg("Update Incomes")
   for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
     if (Game.GetPlayerInfo(i)) {
       var data = CustomNetTables.GetTableValue("player_stats", i);
@@ -76,7 +70,7 @@ function UpdateIncomes() {
         $("#interest_text" + i).text = "(+" + income + ")";
       }
     }
-  }  
+  }
 }
 
 function OnIncomeChanged(table_name, key, data) {
@@ -86,8 +80,30 @@ function OnIncomeChanged(table_name, key, data) {
   $("#interest_text" + playerID).text = "(+" + income + ")";
 }
 
+function OnGoldUpdated(table_name, key, data) {
+  if (key.startsWith("gold")) {
+    var playerID = key.substring(4);
+    var gold = data.gold;
+    UpdateGold(playerID, gold);
+  }
+}
+
+function ResetGold() {
+  for (var i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS; i++){
+    if (Game.GetPlayerInfo(i)) {
+      var data = CustomNetTables.GetTableValue("custom_shop", "gold" + i);
+      if (data) {
+        var gold = data.gold;
+        UpdateGold(i, gold);
+      }
+    }
+  }
+}
+
 (function () {
   UpdateIncomes();
+  ResetGold();
 
   CustomNetTables.SubscribeNetTableListener("player_stats", OnIncomeChanged);
+  CustomNetTables.SubscribeNetTableListener("custom_shop", OnGoldUpdated);
 })();

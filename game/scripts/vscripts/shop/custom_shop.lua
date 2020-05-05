@@ -110,13 +110,13 @@ function OnAttemptPurchase(eventSourceIndex, args)
     return false
   end
 
-  if hero:GetGold() < cost then
+  if hero:GetCustomGold() < cost then
     SendErrorMessage(playerID, "#error_not_enough_gold")
     return false
   end
 
   -- Make the payment
-  hero:ModifyGold(-cost, false, 0)
+  hero:ModifyCustomGold(-cost)
 
   -- Successful purchase, update stock
   CustomNetTables:SetTableValue("custom_shop",

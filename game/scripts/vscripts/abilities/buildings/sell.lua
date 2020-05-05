@@ -12,7 +12,7 @@ function item_building_sell:OnSpellStart()
 
   local sellPrice = caster.gold_cost * 0.75
 
-  hero:ModifyGold(sellPrice, true, 0)
+  hero:ModifyCustomGold(sellPrice)
 
   SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, caster, sellPrice, nil)
 

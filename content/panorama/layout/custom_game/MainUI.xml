@@ -5,9 +5,10 @@
     </styles>
     
     <scripts>
-        <include src="file://{resources}/scripts/custom_game/MainUI.js" />
-		<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
-		<include src="file://{resources}/scripts/custom_game/Elements.js" />
+      <include src="file://{resources}/scripts/custom_game/MainUI.js" />
+			<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
+			<include src="file://{resources}/scripts/custom_game/Elements.js" />
+			<include src="file://{resources}/scripts/custom_game/resources.js" />
     </scripts>
 	
 	<Panel hittest="false" class="Root">

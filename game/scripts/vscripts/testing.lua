@@ -1,6 +1,8 @@
 function GameMode:OnScriptReload()
   print("Script Reload")
 
+  GameMode:SetupCustomAblityCosts()
+
   for _,hero in pairs(HeroList:GetAllHeroes()) do
   end
 end
@@ -33,9 +35,14 @@ function GameMode:GreedIsGood(playerID, value)
   value = tonumber(value) or 500
   for _,hero in pairs(HeroList:GetAllHeroes()) do
     if hero:IsAlive() then
-      hero:ModifyGold(value, false, DOTA_ModifyGold_CheatCommand)
+      hero:ModifyCustomGold(value)
     end
   end
+end
+
+function GameMode:GiveGold(playerID, value)
+  value = tonumber(value) or 0
+  ModifyCustomGold(playerID, value)
 end
 
 function GameMode:Spawn(playerID, unitname, count)
@@ -51,10 +58,11 @@ end
 
 
 CHEAT_CODES = {
-  ["greedisgood"] = function(...) GameMode:GreedIsGood(...) end,   -- "Gives you X gold and lumber"
+  ["greedisgood"] = function(...) GameMode:GreedIsGood(...) end,   -- "Gives you X gold or 500"
+  ["gold"] = function(...) GameMode:GiveGold(...) end,             -- "Gives you X gold"
   ["killallunits"] = function(...) KillAllUnits() end,             -- "Kills all units"
   ["killallbuildings"] = function(...) KillAllBuildings() end,     -- "Kills all buildings"
-  ["spawn"] = function(...) GameMode:Spawn(...) end,                  -- "Spawns units in each lane"
+  ["spawn"] = function(...) GameMode:Spawn(...) end,               -- "Spawns units in each lane"
 }
 
 function GameMode:OnPlayerChat(keys)

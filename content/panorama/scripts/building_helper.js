@@ -195,7 +195,7 @@ function StartBuildingHelper( params )
                         //$.Msg("Setting ",specialGrid[gridType].Radius," grid radius with ",gridType.toUpperCase()," [",GRID_TYPES[gridType.toUpperCase()],"]")
                         BlockGridInRadius(entPos, Number(specialGrid[gridType].Radius), GRID_TYPES[gridType.toUpperCase()])
                     }
-                }              
+                }
             }
         }
 
@@ -340,7 +340,7 @@ function StartBuildingHelper( params )
                     Particles.SetParticleControl(rangeOverlay, 2, [255,255,255])
                     Particles.SetParticleControl(rangeOverlay, 3, [range_overlay_alpha,0,0])
                     rangeOverlayActive = true
-                }              
+                }
             }
 
             if (rangeOverlay !== undefined)

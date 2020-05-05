@@ -12,7 +12,7 @@ function GameMode:PayIncome()
     SendOverheadEventMessage(hero, OVERHEAD_ALERT_GOLD, hero, income, hero)
 
     hero:AddNewModifier(hero, nil, "income_modifier", {duration=10})
-    hero:ModifyGold(income, false, 0)
+    hero:ModifyCustomGold(income)
   end
 end
 

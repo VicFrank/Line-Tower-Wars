@@ -4,21 +4,28 @@ function ResourceCheck(keys)
   local playerID = caster:GetPlayerOwnerID()
   local hero = caster:GetOwner()
 
-  local gold_cost = ability:GetGoldCost(1)
+  local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
 
-  -- if hero:GetGold() < gold_cost then
-  --   SendErrorMessage(playerID, "#error_not_enough_gold")
-  --   ability:EndChannel(true)
-  --   Timers:CreateTimer(.03, function()
-  --     ability:EndChannel(true)
-  --   end)
-  --   ability.refund = false
-  --   return false
-  -- end
+  -- If this isn't the main selected unit, don't show error messages
+  local mainSelection = CDOTA_PlayerResource:GetMainSelectedEntity(playerID)
+  local showErrors = mainSelection == caster:entindex()
 
-  -- Don't need to modify gold, it already happened
-  -- hero:ModifyGold(-gold_cost, false, 0)
-  -- ability.refund = true
+  if hero:GetCustomGold() < gold_cost then
+    if showErrors then
+      SendErrorMessage(playerID, "#error_not_enough_gold")
+    end
+    ability:EndChannel(true)
+    Timers:CreateTimer(.03, function()
+      ability:EndChannel(true)
+    end)
+    ability.refund = false
+    return false
+  end
+
+  hero:ModifyCustomGold(-gold_cost)
+  ability.refund = true
+
+  return true
 end
 
 function UpgradeBuilding(keys)
@@ -28,7 +35,7 @@ function UpgradeBuilding(keys)
   local playerID = caster:GetPlayerOwnerID()
   local hero = caster:GetOwner()
   local currentHealthPercentage = caster:GetHealthPercent() * 0.01
-  local gold_cost = ability:GetGoldCost(1)
+  local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
 
   -- Keep the gridnav blockers, hull radius and orientation
   local blockers = caster.blockers
@@ -62,9 +69,11 @@ end
 function RefundUpgradePrice(keys)
   local caster = keys.caster
   local ability = keys.ability
-  local gold_cost = ability:GetGoldCost(1)
+  local gold_cost = tonumber(ability:GetAbilityKeyValues()['GoldCost']) or 0
   local playerID = caster:GetPlayerOwnerID()
   local hero = caster:GetOwner()
   
-  hero:ModifyGold(gold_cost, false, 0)
+  if ability.refund then
+    hero:ModifyCustomGold(gold_cost)
+  end
 end

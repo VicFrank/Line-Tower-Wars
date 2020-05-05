@@ -35,8 +35,10 @@ function UpdateItem()
     $.GetContextPanel().SetHasClass("in_cooldown", true);
     var cooldownRemaining = restockTime - Game.GetGameTime();
     var cooldownPercent = Math.ceil(100 * cooldownRemaining / cooldownLength);
-    $("#CooldownTimer").text = Math.ceil( cooldownRemaining );
-    $("#CooldownOverlay").style.width = cooldownPercent+"%";
+    if (cooldownLength > 0) {
+      $("#CooldownTimer").text = Math.ceil( cooldownRemaining );
+      $("#CooldownOverlay").style.width = cooldownPercent+"%";
+    }
   }
   
   $.Schedule(0.1, UpdateItem);
@@ -56,7 +58,8 @@ function ItemHideTooltip()
 }
 
 function PurchaseItem() {
-  var gold = Players.GetGold(localPlayerID);
+  var data = CustomNetTables.GetTableValue("custom_shop", "gold" + localPlayerID);
+  var gold = data.gold;
   if (stock === 0 || gold < cost || Game.IsGamePaused()) {
     // Game.EmitSound("General.SecretShopNotInRange");
   } else {

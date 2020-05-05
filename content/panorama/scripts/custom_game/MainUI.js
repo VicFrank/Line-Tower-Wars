@@ -1,4 +1,8 @@
-GameUI.SetCameraDistance(1300);
+"use strict";
+
+var localPlayerID = Players.GetLocalPlayer();
+
+// GameUI.SetCameraDistance(1300);
 
 var itemToPanel = {
   arc: "Arcane",
@@ -30,9 +34,7 @@ function UIContinuePressed() {
 }
 
 function ResearchItem(item) {
-  
-
-  GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: "research_point"});
+  GameEvents.SendCustomGameEventToServer("attempt_research_purchase", {itemname: item});
 }
 
 function BuyResearchPoint() {
@@ -52,21 +54,21 @@ function UnlockResearchItem(itemPanel) {
 }
 
 function RefreshShop() {
-  var key = "research" + localPlayerID;
-  var data = CustomNetTables.GetTableValue("custom_shop", key);
+  // var key = "research" + localPlayerID;
+  // var data = CustomNetTables.GetTableValue("custom_shop", key);
 
-  var item = "";
-  var itemType = item.substring(0, 3);
-  var itemTier = item.substring(4);
+  // var item = "";
+  // var itemType = item.substring(0, 3);
+  // var itemTier = item.substring(4);
 
-  var panelID = itemToPanel[itemType];
+  // var panelID = itemToPanel[itemType];
 
-  SetItemPurchased($("#" + panelID + itemTier));
+  // SetItemPurchased($("#" + panelID + itemTier));
 
-  if (itemTier === "1") {
-    UnlockResearchItem($("#" + panelID + "1"));
-    UnlockResearchItem($("#" + panelID + "2"));
-  }  
+  // if (itemTier === "1") {
+  //   UnlockResearchItem($("#" + panelID + "1"));
+  //   UnlockResearchItem($("#" + panelID + "2"));
+  // }
 }
 
 function OnShopUpdated(table_name, key, data) {

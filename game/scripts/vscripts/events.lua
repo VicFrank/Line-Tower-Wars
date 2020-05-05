@@ -61,6 +61,13 @@ function GameMode:OnEntityKilled(keys)
   if keys.entindex_attacker ~= nil then
     killer = EntIndexToHScript( keys.entindex_attacker )
   end
+  
+  local bounty = killed:GetGoldBounty()
+
+  if killer and bounty and not (killer:GetEntityIndex() == killed:GetEntityIndex()) then
+    local playerID = killer:GetPlayerOwnerID()
+    ModifyCustomGold(playerID, bounty)
+  end
 end
 
 function GameMode:OnConnectFull(keys)

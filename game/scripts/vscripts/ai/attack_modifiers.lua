@@ -64,6 +64,7 @@ end
 function AggroFilter(unit)
   local target = unit:GetAttackTarget() or unit:GetAggroTarget()
   if not target then return end
+  if unit:IsChanneling() then return end
 
   local bCanAttackTarget = unit:CanAttackTarget(target)
   if unit.disable_autoattack == 0 then

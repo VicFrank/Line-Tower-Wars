@@ -8,6 +8,6 @@
     "building_settings",
     "custom_shop",
     "player_stats",
-    "attacks_enabled"
+    "attacks_enabled",
   ]
 } 
