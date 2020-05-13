@@ -40,7 +40,7 @@ function modifier_natures_guidance:OnAttackLanded(keys)
     local damage = keys.damage
     local heal = self.heal_percent * damage
 
-    self:Heal(heal, self.parent)
+    self.parent:Heal(heal, self.parent)
 
     local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
     local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, attacker)
@@ -57,7 +57,7 @@ modifier_natures_guidance_debuff = class({})
 function modifier_natures_guidance_debuff:IsDebuff() return true end
 
 function modifier_natures_guidance_debuff:OnCreated()
-  self.armor_reduction = self.ability:GetSpecialValueFor("armor_reduction")
+  self.armor_reduction = self:GetAbility():GetSpecialValueFor("armor_reduction")
 end
 
 function modifier_natures_guidance_debuff:DeclareFunctions()

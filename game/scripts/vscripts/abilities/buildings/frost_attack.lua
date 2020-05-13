@@ -16,7 +16,9 @@ function modifier_frost_attack:OnCreated()
   self.parent = self:GetParent()
 
   self.duration = self.ability:GetSpecialValueFor("duration")
-  self.radius = self.parent:GetKeyValue("SplashRadius") or 0
+
+  if not IsServer() then return end
+  self.radius = 0
 end
 
 function modifier_frost_attack:DeclareFunctions()
@@ -101,12 +103,12 @@ function modifier_frost_attack_debuff:DeclareFunctions()
 end
 
 function modifier_frost_attack_debuff:GetModifierMoveSpeedBonus_Percentage()
-  if not IsServer() then return end
+  -- if not IsServer() then return end
 
   local stacks = self:GetStackCount()
   local slow = math.min(self.initial_slow * stacks, self.max_slow)
 
-  return slow
+  return -slow
 end
 
 function modifier_frost_attack_debuff:GetStatusEffectName()

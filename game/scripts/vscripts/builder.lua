@@ -95,9 +95,11 @@ function Build( event )
         -- Give item to cancel
         unit.item_building_cancel = CreateItem("item_building_cancel", hero, hero)
         if unit.item_building_cancel then 
-            unit:AddItem(unit.item_building_cancel)
-            unit.gold_cost = gold_cost
+            unit:AddItem(unit.item_building_cancel)            
         end
+
+        -- Track the gold cost
+        unit.gold_cost = gold_cost
 
         -- Add the dust construction particle
         if not unit.construction_particle then

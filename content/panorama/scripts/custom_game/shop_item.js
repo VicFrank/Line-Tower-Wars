@@ -76,7 +76,9 @@ function SetItem(data)
   stock = data.stock;
   restockTime = data.restock_time;
   cooldownLength = data.cooldown_length;
-  cost = data.cost;
+  cost = data.cost || "";
+
+  $("#GoldCost").text = cost;
 }
 
 (function()

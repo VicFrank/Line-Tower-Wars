@@ -1,8 +1,6 @@
 function GameMode:OnScriptReload()
   print("Script Reload")
 
-  GameMode:SetupCustomAblityCosts()
-
   for _,hero in pairs(HeroList:GetAllHeroes()) do
   end
 end

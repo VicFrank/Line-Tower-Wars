@@ -32,6 +32,10 @@ function modifier_pressuring_water:OnAttackLanded(keys)
     local maxDistance = self.parent:Script_GetAttackRange()
     local distance = (attacker:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
 
+    -- For some reason need to do this for splash to work on this unit 
+    -- (Inflictor is not nil)
+    SplashAttackUnit(attacker, target:GetAbsOrigin())
+
     if distance > maxDistance then
       return
     else

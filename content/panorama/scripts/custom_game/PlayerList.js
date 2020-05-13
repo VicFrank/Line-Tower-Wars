@@ -57,8 +57,21 @@ function createPlayerPanel(id, steam_id){
   InterestText.AddClass("InterestText");
 }
 
+function RoundToK(number) {
+  var roundedNumber = number;
+
+  if (roundedNumber > 10000) {
+    roundedNumber = Math.floor(roundedNumber / 1000);
+    roundedNumber = roundedNumber + "k";
+  } else {
+    roundedNumber = Math.floor(number);
+  }
+
+  return roundedNumber;
+}
+
 function UpdateGold(playerID, gold) {
-  $("#gold_text" + playerID).text = gold;
+  $("#gold_text" + playerID).text = RoundToK(gold);
 }
 
 function UpdateIncomes() {
@@ -67,7 +80,7 @@ function UpdateIncomes() {
       var data = CustomNetTables.GetTableValue("player_stats", i);
       if (data) {
         var income = data.income;
-        $("#interest_text" + i).text = "(+" + income + ")";
+        $("#interest_text" + i).text = "(+" +  RoundToK(income) + ")";
       }
     }
   }
@@ -77,7 +90,7 @@ function OnIncomeChanged(table_name, key, data) {
   var playerID = key;
   var income = data.income;
 
-  $("#interest_text" + playerID).text = "(+" + income + ")";
+  $("#interest_text" + playerID).text = "(+" + RoundToK(income) + ")";
 }
 
 function OnGoldUpdated(table_name, key, data) {

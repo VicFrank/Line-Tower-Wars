@@ -13,6 +13,8 @@ function modifier_deadly_strike:OnCreated()
   self.parent = self:GetParent()
 
   self.duration = self.ability:GetSpecialValueFor("duration")
+  self.chance = self.ability:GetSpecialValueFor("chance")
+  self.bonus_damage_percent = self.ability:GetSpecialValueFor("bonus_damage_percent")
 end
 
 function modifier_deadly_strike:DeclareFunctions()
@@ -30,7 +32,7 @@ function modifier_deadly_strike:OnAttackLanded(keys)
   local target = keys.target
 
   if attacker == self.parent then
-    target:AddNewModifier(attacker, self.ability, "modifier_deadly_strike_debuff", self.duration)
+    target:AddNewModifier(attacker, self.ability, "modifier_deadly_strike_debuff",{duration = self.duration})
   end
 end
 

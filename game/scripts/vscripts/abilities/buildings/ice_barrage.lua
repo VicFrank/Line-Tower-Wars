@@ -66,14 +66,14 @@ function modifier_ice_barrage:OnAttack(keys)
         ability = self:GetAbility()
       })
 
-      target:AddNewModifier(
+      keys.target:AddNewModifier(
         self:GetParent(),
         self:GetAbility(),
         "modifier_stunned",
         {duration = self.stun_duration}
       )
 
-      target:EmitSound("Hero_Ancient_Apparition.ColdFeetTick")
+      keys.target:EmitSound("Hero_Ancient_Apparition.ColdFeetTick")
     end
   end
 end

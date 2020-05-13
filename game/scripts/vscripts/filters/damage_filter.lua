@@ -35,6 +35,7 @@ function GameMode:FilterDamage(filterTable)
     local wc3Reduction = (armor * 0.06) / (1 + (armor * 0.06))
 
     damage = (attack_damage * (1 - wc3Reduction)) * multiplier
+    damage = math.max(damage, 1)
 
     -- print(string.format("Damage (%s attack vs %.f %s armor): (%.f * %.2f) * %.2f = %.f", attack_type, armor, armor_type, attack_damage, 1-wc3Reduction, multiplier, damage))
 
@@ -76,8 +77,8 @@ end
 function SplashAttackUnit(attacker, position)
   local full_damage_radius = attacker:GetSplashRadius()
 
-  local medium_damage_radius = full_damage_radius * 2
-  local small_damage_radius = full_damage_radius * 6
+  local medium_damage_radius = full_damage_radius / 2
+  local small_damage_radius = full_damage_radius / 6
 
   local full_damage = attacker:GetAttackDamage()
   local medium_damage = full_damage * 0.4 or 0

@@ -12,10 +12,6 @@ function modifier_spellcast:OnCreated()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
 
-  self.slow_duration = self.ability:GetSpecialValueFor("slow_duration")
-  self.bonus_damage_percent = self.ability:GetSpecialValueFor("bonus_damage_percent")
-  self.stun_duration = self.ability:GetSpecialValueFor("stun_duration")
-
   self:StartIntervalThink(0.3)
 end
 
@@ -76,24 +72,30 @@ function modifier_spellcast:OnIntervalThink()
   end
 end
 
-function modifier_spellcast:OnProjectileHit_ExtraData(target, location, extraData)
+function spellcast:OnProjectileHit_ExtraData(target, location, extraData)
+  if not IsServer() then return end
+
+  local slow_duration = self:GetSpecialValueFor("slow_duration")
+  local bonus_damage_percent = self:GetSpecialValueFor("bonus_damage_percent")
+  local stun_duration = self:GetSpecialValueFor("stun_duration")
+
   if extraData.spell == "slow" then
     target:EmitSound("Hero_SkywrathMage.ConcussiveShot.Target")
-    target:AddNewModifier(self.parent, self.ability, "modifier_spellcast_slow", {duration = self.slow_duration})
+    target:AddNewModifier(self:GetCaster(), self, "modifier_spellcast_slow", {duration = slow_duration})
   elseif extraData.spell == "fireball" then
-    local damage = self.parent:GetAttackDamage() * self.bonus_damage_percent
+    local damage = self:GetCaster():GetAttackDamage() * bonus_damage_percent / 100
 
     target:EmitSound("Hero_Clinkz.SearingArrows.Impact")
 
     ApplyDamage({
-      attacker = self.parent,
+      attacker = self:GetCaster(),
       victim = target,
-      ability = self.ability,
+      ability = self,
       damage = damage,
       damage_type = DAMAGE_TYPE_PHYSICAL,
     })
 
-    target:AddNewModifier(self.parent, self.ability, "modifier_stunned", {duration = self.stun_duration})
+    target:AddNewModifier(self:GetCaster(), self, "modifier_stunned", {duration = stun_duration})
   end
 end
 
@@ -104,7 +106,7 @@ modifier_spellcast_slow = class({})
 function modifier_spellcast_slow:IsHidden() return true end
 
 function modifier_spellcast_slow:OnCreated()
-  self.slow_percent = self.ability:GetSpecialValueFor("slow_percent")
+  self.slow_percent = self:GetAbility():GetSpecialValueFor("slow_percent")
 end
 
 function modifier_spellcast_slow:DeclareFunctions()

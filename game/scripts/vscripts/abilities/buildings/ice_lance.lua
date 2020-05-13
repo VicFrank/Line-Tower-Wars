@@ -1,15 +1,15 @@
-LinkLuaModifier("modifier_frost_attack", "abilities/buildings/frost_attack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ice_lance", "abilities/buildings/ice_lance.lua", LUA_MODIFIER_MOTION_NONE)
 
-frost_attack = class({})
-function frost_attack:GetIntrinsicModifierName() return "modifier_frost_attack" end
+ice_lance = class({})
+function ice_lance:GetIntrinsicModifierName() return "modifier_ice_lance" end
 
 ---------------------
 
-modifier_frost_attack = class({})
+modifier_ice_lance = class({})
 
-function modifier_frost_attack:IsHidden() return false end
+function modifier_ice_lance:IsHidden() return false end
 
-function modifier_frost_attack:OnCreated()
+function modifier_ice_lance:OnCreated()
   self.caster = self:GetCaster()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
@@ -21,14 +21,14 @@ function modifier_frost_attack:OnCreated()
   self:SetStackCount(1)
 end
 
-function modifier_frost_attack:DeclareFunctions()
+function modifier_ice_lance:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
   return funcs
 end
 
-function modifier_frost_attack:OnAttackLanded(keys)
+function modifier_ice_lance:OnAttackLanded(keys)
   if not IsServer() then return end
 
   local attacker = keys.attacker

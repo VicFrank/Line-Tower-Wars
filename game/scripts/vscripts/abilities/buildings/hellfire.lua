@@ -33,8 +33,12 @@ function modifier_hellfire:OnAttackLanded(keys)
   if attacker == self.caster then
     local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
     local numEnemies = TableCount(enemies)
-    local damageMultiplier = self.damage_increase * numEnemies
-    local aoeDamage = damage * damageMultiplier
+    local damageMultiplier = self.damage_increase / 100
+    local aoeDamage = damage
+
+    for i=1,numEnemies do
+      aoeDamage = aoeDamage + aoeDamage * damageMultiplier
+    end
 
     for _,enemy in pairs(enemies) do
       ApplyDamage({

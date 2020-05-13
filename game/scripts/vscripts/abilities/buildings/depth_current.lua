@@ -31,29 +31,29 @@ function modifier_depth_current:OnAttackLanded(keys)
   local attacker = keys.attacker
   local target = keys.target
 
-  if attacker == self.caster then
-    if RollPercentage(chance) then
+  if attacker == self.parent then
+    if RollPercentage(self.chance) then
       local particleName = "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
-      local casterPosition = self:GetParent():GetAbsOrigin()
+      local casterPosition = self.parent:GetAbsOrigin()
 
-      caster:EmitSound("Hero_Zuus.StaticField")
+      self.parent:EmitSound("Hero_Zuus.StaticField")
 
       local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
 
       for _,enemy in pairs(enemies) do
         local damage = enemy:GetHealth() * self.health_as_damage / 100
 
-        local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
+        local particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControl(particle, 0, casterPosition)
         ParticleManager:SetParticleControl(particle, 1, casterPosition * 100)
         ParticleManager:ReleaseParticleIndex(particle)
 
         ApplyDamage({
           victim = enemy,
-          attacker = self:GetParent(),
+          attacker = self.parent,
           damage = damage,
           damage_type = self:GetAbility():GetAbilityDamageType(),
-          ability = self:GetAbility(),
+          ability = self.ability,
         })
       end
     end

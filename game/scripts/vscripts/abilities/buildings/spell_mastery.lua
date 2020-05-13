@@ -14,13 +14,12 @@ function modifier_spell_mastery:OnCreated()
 
   self.nova_aoe_damage_percent = self.ability:GetSpecialValueFor("nova_aoe_damage_percent")
   self.slow_duration = self.ability:GetSpecialValueFor("slow_duration")
-  self.stun_duration = self.ability:GetSpecialValueFor("stun_duration")
   self.aoe_slow_percent = self.ability:GetSpecialValueFor("aoe_slow_percent")
   self.nova_radius = self.ability:GetSpecialValueFor("nova_radius")
   self.blizzard_radius = self.ability:GetSpecialValueFor("blizzard_radius")
   self.blizzard_aoe_damage_percent = self.ability:GetSpecialValueFor("blizzard_aoe_damage_percent")
   self.arcane_barrage_targets = self.ability:GetSpecialValueFor("arcane_barrage_targets")
-  self.arcane_barrage_damage_percent = self.ability:GetSpecialValueFor("arcane_barrage_damage_percent")
+  
 
   self:StartIntervalThink(0.3)
 end
@@ -55,7 +54,7 @@ function modifier_spell_mastery:OnIntervalThink()
 
       EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Crystal.CrystalNova", self:GetCaster())
 
-      enemies = FindAllEnemiesInRadius(self.parent, self.nova_radius, self.target:GetAbsOrigin())
+      enemies = FindAllEnemiesInRadius(self.parent, self.nova_radius, target:GetAbsOrigin())
 
       for _,enemy in pairs(enemies) do
         ApplyDamage({
@@ -68,8 +67,7 @@ function modifier_spell_mastery:OnIntervalThink()
 
         enemy:AddNewModifier(self.parent, self.ability, "modifier_spell_mastery_slow", {duration = self.slow_duration})
       end
-
-    else if randomInt < 66 then
+    elseif randomInt < 66 then
       -- Blizzard
       local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
 
@@ -80,7 +78,7 @@ function modifier_spell_mastery:OnIntervalThink()
 
       EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Ancient_Apparition.IceBlast.Target", self:GetCaster())
 
-      enemies = FindAllEnemiesInRadius(self.parent, self.blizzard_radius, self.target:GetAbsOrigin())
+      enemies = FindAllEnemiesInRadius(self.parent, self.blizzard_radius, target:GetAbsOrigin())
 
       for _,enemy in pairs(enemies) do
         ApplyDamage({
@@ -95,34 +93,49 @@ function modifier_spell_mastery:OnIntervalThink()
       -- Cast Arcane Barrage
       self.parent:EmitSound("Hero_SkywrathMage.ArcaneBolt.Cast")
 
-      ProjectileManager:CreateTrackingProjectile({
-        Target = target,
-        Source = self.parent,
-        Ability = self.ability,
-        EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
-        iMoveSpeed = 900,
-        bDodgeable = true,
-        bVisibleToEnemies = true,
-        bProvidesVision = false,
-      })
+      enemies = FindAllEnemiesInRadius(self.parent, self.nova_radius, target:GetAbsOrigin())
+
+      local numBolts = self.arcane_barrage_targets
+      for _,enemy in pairs(enemies) do
+        ProjectileManager:CreateTrackingProjectile({
+          Target = target,
+          Source = self.parent,
+          Ability = self.ability,
+          EffectName = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf",
+          iMoveSpeed = 900,
+          bDodgeable = true,
+          bVisibleToEnemies = true,
+          bProvidesVision = false,
+        })
+
+        local numBolts = numBolts - 1
+        if numBolts == 0 then
+          break
+        end
+      end
     end
 
     self.parent:SetMana(0)
   end
 end
 
-function modifier_spell_mastery:OnProjectileHit(target, location)
+function spell_mastery:OnProjectileHit(target, location)
+  if not IsServer() then return end
+
+  local arcane_barrage_damage_percent = self:GetSpecialValueFor("arcane_barrage_damage_percent")
+  local stun_duration = self:GetSpecialValueFor("stun_duration")
+
   target:EmitSound("Hero_SkywrathMage.ArcaneBolt.Impact")
 
   ApplyDamage({
-    attacker = self.parent,
+    attacker = self:GetCaster(),
     victim = target,
-    ability = self.ability,
-    damage = self.parent:GetAttackDamage() * self.arcane_barrage_damage_percent / 100,
+    ability = self,
+    damage = self:GetCaster():GetAttackDamage() * arcane_barrage_damage_percent / 100,
     damage_type = DAMAGE_TYPE_PHYSICAL,
   })
 
-  target:AddNewModifier(self.parent, self.ability, "modifier_stunned", {duration = self.stun_duration})
+  target:AddNewModifier(self:GetCaster(), self, "modifier_stunned", {duration = stun_duration})
 end
 
 -------------------------------
@@ -132,7 +145,7 @@ modifier_spell_mastery_slow = class({})
 function modifier_spell_mastery_slow:IsHidden() return true end
 
 function modifier_spell_mastery_slow:OnCreated()
-  self.nova_slow_percent = self.ability:GetSpecialValueFor("nova_slow_percent")
+  self.nova_slow_percent = self:GetAbility():GetSpecialValueFor("nova_slow_percent")
 end
 
 function modifier_spell_mastery_slow:DeclareFunctions()

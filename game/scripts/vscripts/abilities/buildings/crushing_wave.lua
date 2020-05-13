@@ -11,7 +11,6 @@ function modifier_crushing_wave:OnCreated()
   self.parent = self:GetParent()
 
   self.num_attacks = self.ability:GetSpecialValueFor("num_attacks")
-  self.damage = self.ability:GetSpecialValueFor("damage")
   self.radius = self.ability:GetSpecialValueFor("radius")
   self.distance = self.ability:GetSpecialValueFor("distance")
   self.speed = self.ability:GetSpecialValueFor("speed")
@@ -65,14 +64,16 @@ function modifier_crushing_wave:OnAttack(keys)
   end
 end
 
-function modifier_crushing_wave:OnProjectileHit(target, location)
+function crushing_wave:OnProjectileHit(target, location)
   if not IsServer() then return end
+
+  if not IsValidAlive(target) or target:HasFlyMovementCapability() then return end
 
   ApplyDamage({
     victim = target,
-    attacker = self:GetParent(),
-    damage = self.damage,
-    damage_type = self:GetAbility():GetAbilityDamageType(),
-    ability = self:GetAbility()
+    attacker = self:GetCaster(),
+    damage = self:GetSpecialValueFor("damage"),
+    damage_type = self:GetAbilityDamageType(),
+    ability = self
   })
 end

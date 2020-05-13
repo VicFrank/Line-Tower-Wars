@@ -1,8 +1,8 @@
 LinkLuaModifier("modifier_corruption", "abilities/buildings/corruption.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_corruption_debuff", "abilities/buildings/corruption.lua", LUA_MODIFIER_MOTION_NONE)
 
-void_walker_corruption = class({})
-function void_walker_corruption:GetIntrinsicModifierName() return "modifier_corruption" end
+corruption = class({})
+function corruption:GetIntrinsicModifierName() return "modifier_corruption" end
 
 modifier_corruption = class({})
 

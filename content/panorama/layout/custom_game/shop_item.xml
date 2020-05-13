@@ -20,6 +20,7 @@
         <Label hittest="false" id="CooldownTimer" />
         <Label hittest="false" id="InactiveOverlay" />
       </Panel>
+      <Label hittest="false" class="GoldCost" id="GoldCost" />
       <Label hittest="false" class="Charges" id="ChargeCount" />
     </Button>
     <!-- <Panel hittest="false" id="Hotkey">

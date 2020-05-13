@@ -17,6 +17,7 @@ function modifier_volcanic_eruption:OnCreated()
   self.num_enemies = self.ability:GetSpecialValueFor("num_enemies")
   self.attack_speed_bonus = self.ability:GetSpecialValueFor("attack_speed_bonus")
   self.enemy_health_threshold = self.ability:GetSpecialValueFor("enemy_health_threshold")
+  self.radius = 450
 end
 
 function modifier_volcanic_eruption:DeclareFunctions()

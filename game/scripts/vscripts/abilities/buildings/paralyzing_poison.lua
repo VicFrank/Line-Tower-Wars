@@ -29,7 +29,7 @@ function modifier_paralyzing_poison:OnAttackLanded(keys)
   local target = keys.target
 
   if attacker == self.parent then
-    target:AddNewModifier(attacker, self.ability, "modifier_paralyzing_poison_debuff", self.duration)
+    target:AddNewModifier(attacker, self.ability, "modifier_paralyzing_poison_debuff", {duration = self.duration})
   end
 end
 

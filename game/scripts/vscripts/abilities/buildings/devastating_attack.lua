@@ -44,7 +44,7 @@ modifier_devastating_attack_debuff = class({})
 function modifier_devastating_attack_debuff:IsDebuff() return true end
 
 function modifier_devastating_attack_debuff:OnCreated()
-  self.armor_reduction = self.ability:GetSpecialValueFor("armor_reduction")
+  self.armor_reduction = self:GetAbility():GetSpecialValueFor("armor_reduction")
 end
 
 function modifier_devastating_attack_debuff:DeclareFunctions()

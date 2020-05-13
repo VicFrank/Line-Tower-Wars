@@ -43,7 +43,7 @@ modifier_shatter_armor_debuff = class({})
 function modifier_shatter_armor_debuff:IsDebuff() return true end
 
 function modifier_shatter_armor_debuff:OnCreated()
-  self.armor_reduction = self.ability:GetSpecialValueFor("armor_reduction")
+  self.armor_reduction = self:GetAbility():GetSpecialValueFor("armor_reduction")
 end
 
 function modifier_shatter_armor_debuff:DeclareFunctions()

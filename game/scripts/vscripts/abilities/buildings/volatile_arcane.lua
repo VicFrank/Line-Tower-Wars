@@ -44,7 +44,6 @@ function volatile_arcane:OnProjectileHit_ExtraData(target, position, extraData)
     
     local damage = tonumber(extraData.damage)
     local bounces = tonumber(extraData.bounces) or 0
-    local targets = extraData.targets
 
     local damageTable = {
       victim = target,
@@ -57,17 +56,19 @@ function volatile_arcane:OnProjectileHit_ExtraData(target, position, extraData)
 
     ApplyDamage(damageTable)
 
-    caster:GiveMana(self.mana_gained)
+    caster:GiveMana(self:GetSpecialValueFor("mana_gained"))
+
+    print(bounces)
 
     if bounces > 0 then
-      local radius = ability:GetSpecialValueFor("range")
+      local radius = 300
       local damage_reduction_percent = ability:GetSpecialValueFor("damage_reduction_percent")
 
       local reduction = (100 - damage_reduction_percent) / 100
       local enemies = FindEnemiesInRadius(caster, radius, target:GetAbsOrigin())
 
       for _,enemy in pairs(enemies) do
-        if not extraData[tostring(enemy:GetEntityIndex())] and not IsCustomBuilding(enemy) then
+        if not extraData[tostring(enemy:GetEntityIndex())] then
           local extraData = {
             damage =  damage * reduction,
             bounces = bounces - 1

@@ -26,6 +26,10 @@ function GameMode:OnNPCSpawned(keys)
     GameMode:OnHeroInGame(npc)
   end
 
+  if not IsCustomBuilding(npc) then
+    npc:AddNewModifier(npc, nil, "modifier_wave_creep", {})
+  end
+
   for i=0,16 do
     local ability = npc:GetAbilityByIndex(i)
     if ability then
@@ -66,7 +70,9 @@ function GameMode:OnEntityKilled(keys)
 
   if killer and bounty and not (killer:GetEntityIndex() == killed:GetEntityIndex()) then
     local playerID = killer:GetPlayerOwnerID()
-    ModifyCustomGold(playerID, bounty)
+    if playerID >= 0 and bounty then
+      ModifyCustomGold(playerID, bounty)
+    end
   end
 end
 

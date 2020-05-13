@@ -12,6 +12,7 @@ function modifier_hurricane_storm:OnCreated()
   self.parent = self:GetParent()
 
   self.max_bonus_damage = self.ability:GetSpecialValueFor("max_bonus_damage")
+  self.radius = self.ability:GetSpecialValueFor("radius")
 end
 
 function modifier_hurricane_storm:DeclareFunctions()
@@ -32,7 +33,7 @@ function modifier_hurricane_storm:OnAttackLanded(keys)
     local maxDistance = self.parent:Script_GetAttackRange()
     local attackerPosition = attacker:GetAbsOrigin()
    
-    EmitSoundOn("Hero_Kunkka.TidebringerDamage", caster)
+    -- EmitSoundOn("Hero_Kunkka.TidebringerDamage", caster)
 
     local enemies = FindAllEnemiesInRadius(attacker, self.radius, target:GetAbsOrigin())
 
@@ -51,11 +52,16 @@ function modifier_hurricane_storm:OnAttackLanded(keys)
       if distance < maxDistance then
         local distanceMultiplier = 1 - (distance / maxDistance)
         local damageMultiplier = distanceMultiplier * self.max_bonus_damage / 100
+        local totalDamage = damage * damageMultiplier
+        -- Also apply the base damage if this isn't the original target
+        if enemy:GetEntityIndex() ~= target:GetEntityIndex() then
+          totalDamage = totalDamage + damage
+        end
 
         ApplyDamage({
           victim = enemy,
           attacker = attacker,
-          damage = damage * damageMultiplier,
+          damage = totalDamage,
           damage_type = DAMAGE_TYPE_PHYSICAL,
           ability = self.ability
         })

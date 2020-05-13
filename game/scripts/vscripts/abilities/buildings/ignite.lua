@@ -49,6 +49,7 @@ function modifier_custom_ignite_debuff:IsHidden() return false end
 function modifier_custom_ignite_debuff:IsDebuff() return true end
 
 function modifier_custom_ignite_debuff:OnCreated()
+  if not IsServer() then return end
   self.damageTable = {
     victim = self:GetParent(),
     attacker = self:GetCaster(),

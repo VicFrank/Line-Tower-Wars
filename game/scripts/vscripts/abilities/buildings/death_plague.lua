@@ -106,6 +106,8 @@ function modifier_gravestrike_debuff:OnCreated()
   self.chance = self:GetAbility():GetSpecialValueFor("chance")
   self.bonus_health_percent = self:GetAbility():GetSpecialValueFor("bonus_health_percent")
 
+  if not IsServer() then return end
+
   local playerID = self:GetCaster():GetPlayerOwnerID()
   self.hero = PlayerResource:GetSelectedHeroEntity(playerID)
 end

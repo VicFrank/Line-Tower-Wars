@@ -42,7 +42,7 @@ function modifier_autoattack:OnIntervalThink()
       -- If an enemy is valid, attack it and stop the thinker
       for _,enemy in pairs(enemies) do
         if unit:CanAttackTarget(enemy) then
-          print("[ATTACK] attacking unit from modifier_autoattack thinker")
+          -- print("[ATTACK] attacking unit from modifier_autoattack thinker")
           Attack(unit, enemy)
           return
         end

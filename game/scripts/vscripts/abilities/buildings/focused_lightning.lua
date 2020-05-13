@@ -5,8 +5,6 @@ function focused_lightning:GetIntrinsicModifierName() return "modifier_focused_l
 
 modifier_focused_lightning = class({})
 
-function modifier_focused_lightning:IsHidden() return true end
-
 function modifier_focused_lightning:OnCreated()
   self.caster = self:GetCaster()
   self.ability = self:GetAbility()
@@ -32,7 +30,7 @@ function modifier_focused_lightning:OnAttackLanded(keys)
   if attacker == self.caster then
     self:IncrementStackCount()
 
-    if not self.lastTarget == target then
+    if not IsValidAlive(self.lastTarget) or not (self.lastTarget:GetEntityIndex() == target:GetEntityIndex()) then
       self:SetStackCount(0)
     end
 
@@ -41,5 +39,5 @@ function modifier_focused_lightning:OnAttackLanded(keys)
 end
 
 function modifier_focused_lightning:GetModifierBaseDamageOutgoing_Percentage()
-  return (self.bonus_damage_percent / 100) * self:GetStackCount()
+  return self.bonus_damage_percent * self:GetStackCount()
 end

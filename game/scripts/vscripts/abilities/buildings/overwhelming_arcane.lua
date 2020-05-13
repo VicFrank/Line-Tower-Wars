@@ -39,7 +39,7 @@ function overwhelming_arcane:OnProjectileHit_ExtraData(target, position, extraDa
   if not IsServer() then return end
 
   if target then
-    local caster = self.caster
+    local caster = self:GetCaster()
     local ability = self
     
     local damage = tonumber(extraData.damage)
@@ -57,10 +57,10 @@ function overwhelming_arcane:OnProjectileHit_ExtraData(target, position, extraDa
 
     ApplyDamage(damageTable)
 
-    caster:GiveMana(self.mana_gained)
+    caster:GiveMana(ability:GetSpecialValueFor("mana_gained"))
 
     if bounces > 0 then
-      local radius = ability:GetSpecialValueFor("range")
+      local radius = 300
       local damage_reduction_percent = ability:GetSpecialValueFor("damage_reduction_percent")
 
       local reduction = (100 - damage_reduction_percent) / 100
@@ -94,8 +94,6 @@ function modifier_overwhelming_arcane:OnCreated()
   self.mana_gained = self.ability:GetSpecialValueFor("mana_gained")
   self.damage_increase = self.ability:GetSpecialValueFor("damage_increase")
   self.range = 300
-
-  
 end
 
 function modifier_overwhelming_arcane:DeclareFunctions()
@@ -106,7 +104,7 @@ function modifier_overwhelming_arcane:DeclareFunctions()
 end
 
 function modifier_overwhelming_arcane:GetModifierBaseDamageOutgoing_Percentage()
-  return self.damage_increase * self.parent:GetManaPercent()
+  return self.damage_increase * self.parent:GetMana() / 10
 end
 
 function modifier_overwhelming_arcane:OnTakeDamage(keys)

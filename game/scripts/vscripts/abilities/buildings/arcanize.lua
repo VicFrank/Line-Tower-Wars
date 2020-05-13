@@ -18,7 +18,7 @@ end
 function modifier_arcanize:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE
   }
   return funcs
 end
@@ -34,7 +34,7 @@ function modifier_arcanize:OnAttackLanded(keys)
   end
 end
 
-function modifier_arcanize:GetModifierPreAttack_BonusDamage()
+function modifier_arcanize:GetModifierBaseDamageOutgoing_Percentage()
   if self.parent:GetMana() == self.parent:GetMaxMana() then
     return self.bonus_damage
   end

@@ -48,9 +48,9 @@ function Precache( context )
   -- PrecacheResource( "soundfile", "soundevents/soundevents_minigames.vsndevts", context )
 
   -- Precache all towers
-  for _,tower in pairs(PrecacheTables.towers) do
-    PrecacheUnitByNameSync(tower, context)
-  end
+  -- for _,tower in pairs(PrecacheTables.towers) do
+  --   PrecacheUnitByNameSync(tower, context)
+  -- end
 
   -- Precache all creeps
   for _,tier in pairs(PrecacheTables.creeps) do
@@ -179,6 +179,7 @@ function GameMode:InitGameMode()
   -- Lua Modifiers
   LinkLuaModifier("modifier_disable_turning", "libraries/modifiers/modifier_disable_turning", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_under_construction", "libraries/modifiers/modifier_under_construction", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_wave_creep", "libraries/modifiers/modifier_wave_creep", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("income_modifier", "abilities/income_modifier", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_autoattack", "ai/attack_modifiers", LUA_MODIFIER_MOTION_NONE)
 
@@ -221,4 +222,6 @@ function GameMode:SetupCustomAbilityCosts()
       })
     end
   end
+
+  CustomGameEventManager:Send_ServerToAllClients("init_ability_prices", {})
 end

@@ -40,7 +40,7 @@ function modifier_rising_heat:OnAttackLanded(keys)
 end
 
 function modifier_rising_heat:GetModifierFixedAttackRate(keys)
-  if not IsServer() then return end
+  -- if not IsServer() then return end
 
   local charges = self:GetStackCount()
   local attackRate = self:GetParent():GetBaseAttackTime()

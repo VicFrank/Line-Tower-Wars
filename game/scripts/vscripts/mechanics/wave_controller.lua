@@ -34,6 +34,15 @@ function SendCreep(hero, unitname, income)
   local laneToSend = GetNextLane(laneNumber)
   local spawnLocation = laneToSend.spawner
 
+  -- In tools, send to sender's lane
+  if IsInToolsMode() then
+    local senderLane = GetLane(laneNumber)
+    local senderSpawn = senderLane.spawner
+
+    local waveUnit = CreateUnitByName(unitname, senderSpawn, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    waveUnit.lane = laneNumber
+  end
+
   -- Spawn the creep
   local waveUnit = CreateUnitByName(unitname, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
   waveUnit.lane = laneToSend.laneNumber

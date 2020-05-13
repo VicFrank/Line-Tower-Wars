@@ -3,7 +3,6 @@
 - Code Creep Abilities (10-20) (5 hours)
 - Addon English
   - Creep Abilities (10-20?) (1 hour)
-- Test Building Abilities (38) (5 hours)
 - Logic/UI for dead players (3 hours)
   - Dead players should be moved down the player list
   - Lane spawning should move to the next player
@@ -13,6 +12,7 @@
 - Async Precaching (3 hours)
   - Elemental towers shouldn't load at the start of the game (beyond the first tier)
   - Test if the loading screen increases load times (how much)
+- Give units with splash a modifier
 
 Research
   Start with 4 research points

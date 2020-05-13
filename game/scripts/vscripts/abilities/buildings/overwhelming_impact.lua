@@ -13,6 +13,9 @@ modifier_overwhelming_impact = class({})
 function modifier_overwhelming_impact:IsPurgable()
   return false
 end
+function modifier_overwhelming_impact:IsHidden()
+  return true
+end
 
 function modifier_overwhelming_impact:OnCreated()
   self.caster = self:GetCaster()

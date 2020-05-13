@@ -16,6 +16,8 @@ function modifier_annihilation:OnCreated()
 
   self.attack_rate_min = self.ability:GetSpecialValueFor("attack_rate_min")
   self.attack_rate_max = self.ability:GetSpecialValueFor("attack_rate_max")
+
+  self.current_attack_rate = self.attack_rate_min
 end
 
 function modifier_annihilation:DeclareFunctions()
@@ -30,20 +32,16 @@ function modifier_annihilation:OnAttackLanded(keys)
   if not IsServer() then return end
 
   local attacker = keys.attacker
-  local target = keys.target
-  local damage = keys.damage
 
-  if attacker == self.caster then
-    self:IncrementStackCount()
+  if attacker == self.parent then
+    if RollPercentage(50) then
+      self.current_attack_rate = self.attack_rate_min
+    else
+      self.current_attack_rate = self.attack_rate_max
+    end
   end
 end
 
 function modifier_annihilation:GetModifierFixedAttackRate(keys)
-  if not IsServer() then return end
-
-  if RollPercentage(50) then
-    return self.attack_rate_min
-  else
-    return self.attack_rate_max
-  end
+  return self.current_attack_rate
 end

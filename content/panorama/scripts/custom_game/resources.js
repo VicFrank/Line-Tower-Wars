@@ -57,5 +57,5 @@ function DelayedUpdateAbilityUI() {
   DelayedUpdateAbilityUI();
   GameEvents.Subscribe("dota_player_update_selected_unit", UpdateAbilityUI);
   GameEvents.Subscribe("dota_player_update_query_unit", UpdateAbilityUI);
-  GameEvents.Subscribe("round_started", UpdateAbilityUI);
+  GameEvents.Subscribe("init_ability_prices", UpdateAbilityUI);
 })();
