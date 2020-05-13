@@ -11,8 +11,11 @@
 - Update lanes / map - prevent build on edge of lane (6 hours)
 - Async Precaching (3 hours)
   - Elemental towers shouldn't load at the start of the game (beyond the first tier)
-  - Test if the loading screen increases load times (how much)
-- Give units with splash a modifier
+  - Load elemental towers as they are unlocked
+  - Full Precache is almost 4 minutes!
+- Give units with splash a modifier (1 hour)
+  - Modifier/Ability should describe how much splash they have
+- Give players a max number of creeps they can have spawned at one time (1 hour)
 
 Research
   Start with 4 research points

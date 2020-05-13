@@ -36,7 +36,7 @@ function modifier_torrent:OnAttackLanded(keys)
   if attacker == self.parent then
     local targetPosition = target:GetAbsOrigin()
 
-    local bubbleParticleName = "particles/hero/kunkka/torrent_bubbles.vpcf"
+    local bubbleParticleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
     local bubbleParticle = ParticleManager:CreateParticle(bubbleParticleName, PATTACH_ABSORIGIN, self.parent)
     ParticleManager:SetParticleControl(bubbleParticle, 0, targetPosition)
     ParticleManager:SetParticleControl(bubbleParticle, 1, Vector(self.radius,0,0))
@@ -47,7 +47,7 @@ function modifier_torrent:OnAttackLanded(keys)
 
         EmitSoundOnLocationWithCaster(targetPosition, "Ability.Torrent", self.parent)
         
-        local splashParticleName = "particles/hero/kunkka/torrent_splash.vpcf"
+        local splashParticleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
         local splashParticle = ParticleManager:CreateParticle(splashParticleName, PATTACH_CUSTOMORIGIN, self.parent)
         ParticleManager:SetParticleControl(splashParticle, 0, targetPosition)
         ParticleManager:SetParticleControl(splashParticle, 1, Vector(self.radius,0,0))
@@ -66,15 +66,15 @@ function modifier_torrent:OnAttackLanded(keys)
         end
     end)
 
-    if self.ability:GetAbilityName() == "torent2" then
+    if self.ability:GetAbilityName() == "torrent2" then
       Timers:CreateTimer(self.second_delay, function()
-        local splashRadius = self.radius * self.second_splash_percent / 100
+        local splashRadius = self.radius
         ParticleManager:DestroyParticle(bubbleParticle, false)
         ParticleManager:ReleaseParticleIndex(bubbleParticle)
 
         EmitSoundOnLocationWithCaster(targetPosition, "Ability.Torrent", self.parent)
         
-        local splashParticleName = "particles/hero/kunkka/torrent_splash.vpcf"
+        local splashParticleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
         local splashParticle = ParticleManager:CreateParticle(splashParticleName, PATTACH_CUSTOMORIGIN, self.parent)
         ParticleManager:SetParticleControl(splashParticle, 0, targetPosition)
         ParticleManager:SetParticleControl(splashParticle, 1, Vector(splashRadius,0,0))
@@ -86,7 +86,7 @@ function modifier_torrent:OnAttackLanded(keys)
           ApplyDamage({
             victim = enemy,
             attacker = attacker,
-            damage = self.parent:GetAttackDamage() * second_splash_percent / 100,
+            damage = self.parent:GetAttackDamage() * self.second_splash_percent / 100,
             damage_type = DAMAGE_TYPE_PHYSICAL,
             ability = self.ability
           })
