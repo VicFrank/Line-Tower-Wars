@@ -1,4 +1,6 @@
-- Implement Elemental system - (4 hours)
+- Add in elemental requirements for buildings
+  - Set ability disabled if not buildable
+  - Add requirements in addon english
 - Brainstorm Creep Abilities (2 hours)
 - Code Creep Abilities (10-20) (5 hours)
 - Addon English

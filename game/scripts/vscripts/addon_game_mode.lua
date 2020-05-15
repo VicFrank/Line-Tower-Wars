@@ -171,6 +171,8 @@ function GameMode:InitGameMode()
 
   -- Custom Event Hooks
   CustomGameEventManager:RegisterListener('attempt_purchase', OnAttemptPurchase)
+  CustomGameEventManager:RegisterListener('attempt_research_purchase', OnAttemptResearch)
+  CustomGameEventManager:RegisterListener('buy_research_point', BuyResearchPoint)
 
   -- Filters
   -- mode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)

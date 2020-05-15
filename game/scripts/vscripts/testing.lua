@@ -1,5 +1,5 @@
 function GameMode:OnScriptReload()
-  print("Script Reload")
+  print("Script Reload") 
 
   for _,hero in pairs(HeroList:GetAllHeroes()) do
   end

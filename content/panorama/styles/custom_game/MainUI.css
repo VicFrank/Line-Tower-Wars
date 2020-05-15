@@ -102,7 +102,7 @@
   flow-children: right;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
-  width: 180px;
+  width: fit-children;
   height: 60px;
   margin-top: 5px;
   margin-bottom: 175px;
@@ -135,12 +135,14 @@
 
 #ResearchPointsHolder
 {
-	width: 18%;
+	width: 40px;
 	height: 70%;
 	margin-left: 4px;
+  margin-right: 10px;
 	margin-top: 7px;
 	background-color: gradient( linear, 0% 0%, 0% 5%, from( #000e ), to( #000e ) );
 	border-radius: 5px;
+  text-align: center;
 }
 
 #ResearchPoints
@@ -148,6 +150,7 @@
   font-size: 25px;
   align: center top;
   text-transform: uppercase;
+  text-align: center;
   margin-right: 5px;
   margin-top: 2px;
   text-shadow: 0px 0px 2px #CD6BFB;

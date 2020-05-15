@@ -108,13 +108,13 @@
 					<Button id="BuyRPButton" hittest="true" onactivate="BuyResearchPoint()" onmouseover="UIShowTextTooltip(#BuyRP_Note)"  onmouseout="UIHideTextTooltip()">
 						<Label id="BuyRPButtonLabel" text="#BuyRP" />
 					</Button>
-					<Label class="RPInformation" text="#BuyRP_Description" />
+					<Label id= "RPInformation" class="RPInformation" text="" />
 				</Panel>
 			</Panel>
 			<Button id="ShopButton" hittest="true" onactivate="OnShopButtonPressed()" oncontextmenu="OnShopButtonPressed()">
 				<Label id="ShopLabel" text="#Elements" />
 				<Panel id="ResearchPointsHolder" onmouseover="UIShowTextTooltip(Research Points)"  onmouseout="UIHideTextTooltip()">
-					<Label id="ResearchPoints" text="4" onmouseover="UIShowTextTooltip(Research Points)" onmouseout="UIHideTextTooltip()"/>
+					<Label id="ResearchPoints" text="" onmouseover="UIShowTextTooltip(Research Points)" onmouseout="UIHideTextTooltip()"/>
 				</Panel>
 			</Button>
 		</Panel>

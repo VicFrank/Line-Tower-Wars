@@ -34,12 +34,36 @@ function UIContinuePressed() {
 }
 
 function ResearchItem(item) {
+  // make responsive by doing an optimistic ui update before the server responds
+  var data = CustomNetTables.GetTableValue("custom_shop", "research_point" + localPlayerID);
+  var unspent = data.unspent;
+
+  var panel = GetResearchPanel(item);
+  var unpurchaseable = panel.BHasClass("Unpurchasable")
+
+  if (unspent < 1 || Game.IsGamePaused() || unpurchaseable) {
+    // Game.EmitSound("General.SecretShopNotInRange");
+  } else {
+    Game.EmitSound("General.Buy");
+  }
+
   GameEvents.SendCustomGameEventToServer("attempt_research_purchase", {itemname: item});
 }
 
 function BuyResearchPoint() {
-  $.Msg("Buy Research Point");
-  GameEvents.SendCustomGameEventToServer("attempt_purchase", {itemname: "research_point"});
+  var gold = CustomNetTables.GetTableValue("custom_shop", "gold" + localPlayerID).gold;
+
+  var data = CustomNetTables.GetTableValue("custom_shop", "research_point" + localPlayerID);
+  var cost = data.cost;
+  var remaining = data.remaining;
+
+  if (gold < cost || remaining <= 0 || Game.IsGamePaused()) {
+    // Game.EmitSound("General.SecretShopNotInRange");
+  } else {
+    Game.EmitSound("General.Buy");
+  }
+
+  GameEvents.SendCustomGameEventToServer("buy_research_point", {itemname: "research_point"});
 }
 
 function SetItemPurchased(itemPanel) {
@@ -53,27 +77,69 @@ function UnlockResearchItem(itemPanel) {
   itemPanel.SetHasClass("Unpurchasable", false);
 }
 
+function GetResearchPanel(research) {
+  var itemType = research.substring(0, 3);
+  var itemTier = research.substring(3, 4);
+
+  return $("#" + itemToPanel[itemType] + itemTier);
+}
+
+function UpdateResearchItem(data) {
+  if (!data.research) return;
+
+  // Update the shop on research purchased
+  var item = data.research;
+  var itemType = item.substring(0, 3);
+  var itemTier = data.tier;
+
+  var panelID = "#" + itemToPanel[itemType] + itemTier;
+  var panel = $(panelID);
+
+  if (data.purchased) {
+    SetItemPurchased(panel);
+  }
+  if (data.purchaseable) {
+    UnlockResearchItem(panel);
+  }
+}
+
 function RefreshShop() {
-  // var key = "research" + localPlayerID;
-  // var data = CustomNetTables.GetTableValue("custom_shop", key);
+  // update research
+  var researchTypes = Object.keys(itemToPanel);
+  for (var i = 0; i < researchTypes.length; i++) {
+    for (var tier = 1; tier <= 3; tier++) {
+      var type = researchTypes[i];
+      var shopKey = type + tier + localPlayerID;
+      var data = CustomNetTables.GetTableValue("custom_shop", shopKey);
+      if (data) {
+        UpdateResearchItem(data);
+      }
+    }
+  }
 
-  // var item = "";
-  // var itemType = item.substring(0, 3);
-  // var itemTier = item.substring(4);
+  // update research points
+  var key = "research_point" + localPlayerID;
+  var data = CustomNetTables.GetTableValue("custom_shop", key);
 
-  // var panelID = itemToPanel[itemType];
+  UpdateResearchPoints(data);
+}
 
-  // SetItemPurchased($("#" + panelID + itemTier));
-
-  // if (itemTier === "1") {
-  //   UnlockResearchItem($("#" + panelID + "1"));
-  //   UnlockResearchItem($("#" + panelID + "2"));
-  // }
+function UpdateResearchPoints(data) {
+  $("#ResearchPoints").text = data.unspent;
+  $("#RPInformation").text = "1 RP = " + data.cost + " gold";
 }
 
 function OnShopUpdated(table_name, key, data) {
   if (data.playerID === localPlayerID) {
-    RefreshShop();
+    if (data.research) {
+      // update the research shop
+      RefreshShop();
+    }
+
+    if (data.unspent) {
+      // the number of research points has changed
+      UpdateResearchPoints(data);
+    }
   }
 }
 
