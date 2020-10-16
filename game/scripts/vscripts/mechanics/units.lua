@@ -30,6 +30,7 @@ function Units:Init( unit )
   local attacks_enabled = unit:GetAttacksEnabled()
   if attacks_enabled ~= "none" then
     unit:AddNewModifier(unit, nil, "modifier_autoattack", {})
+    unit:AddNewModifier(unit, nil, "modifier_splash", {})
   end
 
   local bBuilding = IsCustomBuilding(unit)
@@ -313,6 +314,12 @@ function CDOTA_BaseNPC:GetAttacksEnabled()
     return self.attacksEnabled or self:GetKeyValue("AttacksEnabled") or "none"
 end
 
+function CDOTABaseAbility:GetElements()
+  local elements = self:GetAbilityKeyValues()['RequiredElements']
+  
+  return string.split(elements, ",")
+end
+
 -- MODIFIER_PROPERTY_HEALTH_BONUS doesn't work on npc_dota_creature
 function CDOTA_BaseNPC_Creature:IncreaseMaxHealth(bonus)
   local newHP = self:GetMaxHealth() + bonus
@@ -321,4 +328,19 @@ function CDOTA_BaseNPC_Creature:IncreaseMaxHealth(bonus)
   self:SetMaxHealth(newHP)
   self:SetBaseMaxHealth(newHP)
   self:SetHealth(newHP * relativeHP)
+end
+
+function CDOTA_BaseNPC:AddHealth(bonus)
+  if bonus < 0 then return end
+
+  local currentHealth = self:GetHealth()
+  local maxHealth = self:GetMaxHealth()
+  local newHealth = currentHealth + bonus
+
+  if newHealth > maxHealth then
+    self:SetMaxHealth(newHealth)
+    self:SetBaseMaxHealth(newHealth)
+  end
+  
+  self:SetHealth(newHealth)
 end

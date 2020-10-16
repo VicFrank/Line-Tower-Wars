@@ -8,7 +8,7 @@ function GameMode:OnGameRulesStateChange()
 end
 
 function GameMode:OnGameInProgress()
-  StartSpawning()
+  -- StartTestSpawning()
   GameMode:StartPayingIncome()
 end
 
@@ -26,9 +26,14 @@ function GameMode:OnNPCSpawned(keys)
     GameMode:OnHeroInGame(npc)
   end
 
-  if not IsCustomBuilding(npc) then
-    npc:AddNewModifier(npc, nil, "modifier_wave_creep", {})
-  end
+  Timers:CreateTimer(0.1, function()
+    if not IsCustomBuilding(npc) then
+      npc:AddNewModifier(npc, nil, "modifier_wave_creep", {})
+    end
+  end)
+
+  -- deactive abilities that aren't researched yet
+  npc:UpdateResearchAbilitiesActive()
 
   for i=0,16 do
     local ability = npc:GetAbilityByIndex(i)
@@ -48,6 +53,8 @@ function GameMode:OnHeroInGame(hero)
   hero:ModifyIncome(STARTING_INCOME)
   GameMode:SetupShopForPlayer(hero:GetPlayerOwnerID())
 
+  hero.numSent = 0
+
   Timers:CreateTimer(.03, function()
     for i=0,16 do
       local item = hero:GetItemInSlot(i)
@@ -63,7 +70,13 @@ function GameMode:OnEntityKilled(keys)
   local killer = nil
 
   if keys.entindex_attacker ~= nil then
-    killer = EntIndexToHScript( keys.entindex_attacker )
+    killer = EntIndexToHScript(keys.entindex_attacker)
+  end
+
+  if IsValidAlive(killed.sender) then
+    local sender = killed.sender
+    sender.numSent = sender.numSent - 1
+    print(sender.numSent)
   end
   
   local bounty = killed:GetGoldBounty()
@@ -73,6 +86,35 @@ function GameMode:OnEntityKilled(keys)
     if playerID >= 0 and bounty then
       ModifyCustomGold(playerID, bounty)
     end
+  end
+
+  if killed:IsRealHero() then
+    GameMode:OnHeroKilled(killed)
+  end
+end
+
+function GameMode:OnHeroKilled(hero)
+  local playerID = hero:GetPlayerOwnerID()
+  -- Destroy all their buildings
+  local buildings = BuildingHelper:GetBuildings(playerID)
+
+  for _,building in pairs(buildings) do
+    -- building:AddEffects(EF_NODRAW)
+    building:ForceKill(true)
+  end
+
+  -- Check if we have a winner
+  local numAlive = 0
+  local winner
+  for _,playerHero in pairs(HeroList:GetAllHeroes()) do
+    if playerHero:IsAlive() then
+      numAlive = numAlive + 1
+      winner = playerHero
+    end
+  end
+
+  if numAlive == 1 then
+    GameRules:SetGameWinner(winner:GetTeam())
   end
 end
 

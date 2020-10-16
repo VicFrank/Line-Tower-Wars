@@ -35,7 +35,8 @@ function UpdateItem()
     $.GetContextPanel().SetHasClass("in_cooldown", true);
     var cooldownRemaining = restockTime - Game.GetGameTime();
     var cooldownPercent = Math.ceil(100 * cooldownRemaining / cooldownLength);
-    if (cooldownLength > 0) {
+    var onCooldown = cooldownLength > 0;
+    if (onCooldown) {
       $("#CooldownTimer").text = Math.ceil( cooldownRemaining );
       $("#CooldownOverlay").style.width = cooldownPercent+"%";
     }

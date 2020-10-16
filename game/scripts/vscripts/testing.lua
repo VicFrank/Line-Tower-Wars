@@ -1,5 +1,5 @@
 function GameMode:OnScriptReload()
-  print("Script Reload") 
+  print("Script Reload")
 
   for _,hero in pairs(HeroList:GetAllHeroes()) do
   end
@@ -52,6 +52,41 @@ function GameMode:Reset()
   GameRules.rightRoundsWon = 0
   GameRules.roundCount = 0
   GameMode:EndRound(DOTA_TEAM_NEUTRALS)
+end
+
+function StartTestSpawning()
+  if GameRules.SpawningWaves then return end
+  GameRules.SpawningWaves = true
+
+  local waveDelay = 30
+
+  Timers:CreateTimer(function()
+    SpawnWave("radiant_creep", 5)
+
+    return waveDelay
+  end)
+end
+
+function SpawnWave(creepName, count)
+  local spawnDelay = 0.2
+  local count = count or 1
+
+  if not creepName then return end
+
+  for i=1,GameRules.numLanes do
+    local numToSpawn = count
+    local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. i):GetAbsOrigin()
+
+    Timers:CreateTimer(function()
+      local waveUnit = CreateUnitByName(creepName, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
+      waveUnit.lane = i
+
+      numToSpawn = numToSpawn - 1
+      if numToSpawn == 0 then return end
+
+      return spawnDelay
+    end)
+  end
 end
 
 

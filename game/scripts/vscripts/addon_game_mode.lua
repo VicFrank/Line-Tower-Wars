@@ -182,7 +182,8 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_disable_turning", "libraries/modifiers/modifier_disable_turning", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_under_construction", "libraries/modifiers/modifier_under_construction", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_wave_creep", "libraries/modifiers/modifier_wave_creep", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("income_modifier", "abilities/income_modifier", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("income_modifier", "abilities/modifiers/income_modifier", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_splash", "abilities/modifiers/modifier_splash", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_autoattack", "ai/attack_modifiers", LUA_MODIFIER_MOTION_NONE)
 
   self.vUserIds = {}

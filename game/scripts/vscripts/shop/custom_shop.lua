@@ -158,6 +158,11 @@ function OnAttemptPurchase(eventSourceIndex, args)
     return false
   end
 
+  if hero.numSent > MAX_CREEPS then
+    SendErrorMessage(playerID, "#error_too_many_creeps")
+    return false
+  end
+
   -- Make the payment
   hero:ModifyCustomGold(-cost)
 

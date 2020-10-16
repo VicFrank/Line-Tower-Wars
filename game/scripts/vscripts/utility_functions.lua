@@ -12,6 +12,14 @@ function startsWith(str, start)
   return str:sub(1, #start) == start
 end
 
+function string:split(sep)
+  local sep, fields = sep or ":", {}
+  if not self then return fields end
+  local pattern = string.format("([^%s]+)", sep)
+  self:gsub(pattern, function(c) fields[#fields+1] = c end)
+  return fields
+end
+
 function GetRandomTableElement( table )
   if #table == 0 then return nil end
   local nRandomIndex = RandomInt( 1, #table )

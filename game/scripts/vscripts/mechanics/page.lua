@@ -35,5 +35,7 @@ function ChangePage(keys)
     PlayerResource:AddToSelection(playerID, new_building)
   end
 
+  new_building:UpdateResearchAbilitiesActive()
+
   return new_building
 end

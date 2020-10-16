@@ -123,6 +123,8 @@ function Build( event )
             unit:AddNoDraw()
         end
 
+        unit:UpdateResearchAbilitiesActive()
+
     end)
 
     -- A building finished construction

@@ -123,7 +123,15 @@ function CompleteResearch(playerID, research)
   nettable.purchased = true
   nettable.purchaseable = false
 
+  -- Update all buildings controlled by this player
+  local buildings = BuildingHelper:GetBuildings(playerID)
+
   CustomNetTables:SetTableValue("custom_shop", key, nettable)
+
+  for _,building in pairs(buildings) do
+    -- Unlock abilities that needed this research
+    building:UpdateResearchAbilitiesActive()
+  end
 end
 
 function HasResearch(playerID, research)
@@ -132,10 +140,35 @@ function HasResearch(playerID, research)
   local key = research .. playerID
   local nettable = CustomNetTables:GetTableValue("custom_shop", key)
 
-  return nettable.purchased
+
+  return nettable.purchased == 1
 end
 
 function CDOTA_BaseNPC:HasResearch(research)
   local playerID = self:GetPlayerOwnerID()  
   return HasResearch(playerID, research)
+end
+
+function CDOTABaseAbility:HasResearched(playerID)
+  local elements = self:GetElements()
+
+  for _,element in pairs(elements) do
+    if not HasResearch(playerID, element) then
+      return false
+    end
+  end
+
+  return true
+end
+
+function CDOTA_BaseNPC:UpdateResearchAbilitiesActive()
+  local playerID = self:GetPlayerOwnerID()
+
+  for i=0,16 do
+    local ability = self:GetAbilityByIndex(i)
+    if ability then
+      local active = ability:HasResearched(playerID)
+      ability:SetActivated(active)
+    end
+  end
 end

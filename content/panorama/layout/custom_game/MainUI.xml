@@ -7,7 +7,7 @@
     <scripts>
       <include src="file://{resources}/scripts/custom_game/MainUI.js" />
 			<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
-			<include src="file://{resources}/scripts/custom_game/Elements.js" />
+			<include src="file://{resources}/scripts/custom_game/elements.js" />
 			<include src="file://{resources}/scripts/custom_game/resources.js" />
     </scripts>
 	
@@ -27,28 +27,28 @@
 			<Panel id="Items" class="ShopHidden">
 				<Panel class="ItemColumnLeft">
 				<Panel class="ItemRow">
-					<Panel id="Arcane1" onactivate="ResearchItem('arc1')" onmouseover="UIShowTextTooltip(Arcane 1)"  onmouseout="UIHideTextTooltip()" />
-				</Panel>
-				<Panel class="ItemRow2">
-					<Panel id="Earth1" onactivate="ResearchItem('ear1')" onmouseover="UIShowTextTooltip(Earth 1)"  onmouseout="UIHideTextTooltip()" />
-				</Panel>
-				<Panel class="ItemRow3">
 					<Panel id="Fire1" onactivate="ResearchItem('fir1')" onmouseover="UIShowTextTooltip(Fire 1)" onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow4">
+				<Panel class="ItemRow2">
 					<Panel id="Ice1" onactivate="ResearchItem('ice1')" onmouseover="UIShowTextTooltip(Ice 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow5">
-					<Panel id="Light1" onactivate="ResearchItem('lit1')" onmouseover="UIShowTextTooltip(Light 1)"  onmouseout="UIHideTextTooltip()" />
-				</Panel>
-				<Panel class="ItemRow6">
+				<Panel class="ItemRow3">
 					<Panel id="Lightning1" onactivate="ResearchItem('lig1')" onmouseover="UIShowTextTooltip(Lightning 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow7">
+				<Panel class="ItemRow4">
+					<Panel id="Light1" onactivate="ResearchItem('lit1')" onmouseover="UIShowTextTooltip(Light 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow5">
 					<Panel id="Unholy1" onactivate="ResearchItem('unh1')" onmouseover="UIShowTextTooltip(Unholy 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow8">
+				<Panel class="ItemRow6">
 					<Panel id="Water1" onactivate="ResearchItem('wat1')" onmouseover="UIShowTextTooltip(Water 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow7">
+					<Panel id="Earth1" onactivate="ResearchItem('ear1')" onmouseover="UIShowTextTooltip(Earth 1)"  onmouseout="UIHideTextTooltip()" />
+				</Panel>
+				<Panel class="ItemRow8">
+					<Panel id="Arcane1" onactivate="ResearchItem('arc1')" onmouseover="UIShowTextTooltip(Arcane 1)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>
 				<Panel class="ItemColumnUpgrade1">

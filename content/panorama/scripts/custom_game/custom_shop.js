@@ -34,8 +34,6 @@ function OnPageClicked(tier) {
 }
 
 function LoadItems() {
-  $.Msg("Load Items");
-
   tier1 = CustomNetTables.GetTableValue("custom_shop", "tier1");
   tier2 = CustomNetTables.GetTableValue("custom_shop", "tier2");
   tier3 = CustomNetTables.GetTableValue("custom_shop", "tier3");

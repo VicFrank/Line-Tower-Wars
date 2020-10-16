@@ -22,6 +22,18 @@ function ResourceCheck(keys)
     return false
   end
 
+  if not ability:HasResearched(playerID) then
+    if showErrors then
+      SendErrorMessage(playerID, "#error_not_researched")
+    end
+    ability:EndChannel(true)
+    Timers:CreateTimer(.03, function()
+      ability:EndChannel(true)
+    end)
+    ability.refund = false
+    return false
+  end
+
   hero:ModifyCustomGold(-gold_cost)
   ability.refund = true
 
@@ -64,6 +76,7 @@ function UpgradeBuilding(keys)
   local newRelativeHP = math.max(building:GetMaxHealth() * currentHealthPercentage, 1)
   building:SetHealth(newRelativeHP)
 
+  building:UpdateResearchAbilitiesActive()
 end
 
 function RefundUpgradePrice(keys)

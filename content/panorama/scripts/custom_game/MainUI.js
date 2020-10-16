@@ -23,9 +23,13 @@ function OnLeaderboardButtonPressed() {
 	Game.EmitSound("ui_chat_slide_in")
 }
 
+var hideShop = false;
+$("#Items").SetHasClass("ShopHidden", false);
+
 function OnShopButtonPressed() {
-  Game.EmitSound("ui_chat_slide_out")
-  $("#Items").ToggleClass("ShopHidden");
+  Game.EmitSound("ui_chat_slide_out");
+  hideShop = !hideShop;
+  $("#Items").SetHasClass("ShopHidden", hideShop);
 }
 
 function UIContinuePressed() {
@@ -125,6 +129,7 @@ function RefreshShop() {
 }
 
 function UpdateResearchPoints(data) {
+  if (!data) return;
   $("#ResearchPoints").text = data.unspent;
   $("#RPInformation").text = "1 RP = " + data.cost + " gold";
 }
