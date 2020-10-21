@@ -59,7 +59,7 @@
 
 #Hotkey
 {
-	margin-left: -4px;
+	margin-left: 0px;
 
 	vertical-align: top;
 	horizontal-align: left;
@@ -75,8 +75,8 @@
 {
 	color: #bba995;
  	text-shadow: 1px 1px 2px 2 #000000;
-    font-size: 14px;
-    font-weight: bold;
+  font-size: 14px;
+  font-weight: bold;
 	vertical-align: center;
 	text-align: center;
 	width: 100%;
@@ -100,4 +100,21 @@
   color: #FFFF99;
   font-size: 18px;
   text-shadow: 0px 0px 3px 3.0 #000000;
+}
+
+#ItemImage
+{
+  transition-property: brightness;
+  transition-duration: 0.2s;
+  vertical-align: top;
+}
+
+#ItemButton:hover
+{
+  brightness: 1.6;
+}
+
+#ItemButton:Active
+{
+  brightness: 0.8;
 }

@@ -75,10 +75,9 @@ function SplashAttackGround(attacker, position)
 end
 
 function SplashAttackUnit(attacker, position)
-  local full_damage_radius = attacker:GetSplashRadius()
-
-  local medium_damage_radius = full_damage_radius / 2
-  local small_damage_radius = full_damage_radius / 6
+  local small_damage_radius = attacker:GetSplashRadius()
+  local medium_damage_radius = small_damage_radius / 2
+  local full_damage_radius = small_damage_radius / 6
 
   local full_damage = attacker:GetAttackDamage()
   local medium_damage = full_damage * 0.4 or 0

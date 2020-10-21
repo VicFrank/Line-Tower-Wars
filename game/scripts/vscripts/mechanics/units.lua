@@ -30,7 +30,9 @@ function Units:Init( unit )
   local attacks_enabled = unit:GetAttacksEnabled()
   if attacks_enabled ~= "none" then
     unit:AddNewModifier(unit, nil, "modifier_autoattack", {})
-    unit:AddNewModifier(unit, nil, "modifier_splash", {})
+    if unit:HasSplashAttack() then
+      unit:AddNewModifier(unit, nil, "modifier_splash", {})
+    end
   end
 
   local bBuilding = IsCustomBuilding(unit)
@@ -303,6 +305,10 @@ function CDOTA_BaseNPC:CanAttackTarget(target)
   end
 
   return string.match(attacks_enabled, target_type)
+end
+
+function CDOTA_BaseNPC:_GetMainControllingPlayer()
+  return self.issuer_player_id or self:GetMainControllingPlayer()
 end
 
 function GetMovementCapability(unit)

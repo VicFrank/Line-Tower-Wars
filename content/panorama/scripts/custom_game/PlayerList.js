@@ -1,8 +1,8 @@
 "use strict";
 
-var localPlayerID = Players.GetLocalPlayer();
 var rootPanel = $("#Avatars");
 
+var LocalPlayerID = Players.GetLocalPlayer();
 var playerPanels = [];
 
 function Initialize() {
@@ -10,28 +10,41 @@ function Initialize() {
   rootPanel.RemoveAndDeleteChildren();
   playerPanels = [];
 
+  let players = [];
+
   for (let i = 0; i < 8; i++){
     if (Game.GetPlayerInfo(i)) {
       let steam_id = Game.GetPlayerInfo(i).player_steamid;
       let team = Players.GetTeam(i);
-      let hero = Players.GetPlayerSelectedHero(i);
 
-      let playerPanel = CreatePlayerPanel(i, steam_id);
-
-      playerPanels.push(playerPanel);
-    } else {
-      // this is just for testing
-      // let playerPanel = CreatePlayerPanel(i, 0);
+      players.push({
+        steam_id,
+        playerID: i,
+        team,
+      })
     }
   }
+
+  players.sort(function(a,b) {
+    return a.team - b.team;
+  });
+
+  players.forEach(function(playerInfo) {
+    let steam_id = playerInfo.steam_id;
+    let playerID = playerInfo.playerID;
+
+    let playerPanel = CreatePlayerPanel(playerID, steam_id);
+    playerPanels.push(playerPanel);
+  });
 }
 
 function CreatePlayerPanel(id, steam_id) {
   // $.Msg("Creating Panel " + id);
-  let isLocal = id == localPlayerID;
+  let isLocal = id == LocalPlayerID;
 
   let playerPanel = $.CreatePanel("Panel", rootPanel, "PlayerPanel");
   playerPanel.SetHasClass("IsLocalPlayer", isLocal);
+  playerPanel.playerID = id;
 
   let AvatarContainer = $.CreatePanel("Panel", playerPanel, "");
   AvatarContainer.AddClass("AvatarContainer");
@@ -139,15 +152,16 @@ function ResetGold() {
 function UpdatePanels() {
   for(let i=0; i<playerPanels.length; i++) {
     let panel = playerPanels[i];
-
-    let connectionState = Game.GetPlayerInfo(i).player_connection_state;
+    const playerID = panel.playerID;
+    
+    let connectionState = Game.GetPlayerInfo(playerID).player_connection_state;
     let isDisconnected = connectionState != DOTAConnectionState_t.DOTA_CONNECTION_STATE_CONNECTED
 
     panel.SetHasClass("Disconnected", isDisconnected);
 
-    if (Game.GetPlayerInfo(i)) {
-      let hero = Players.GetPlayerHeroEntityIndex(i);
-      let HealthIconText = $("#health_text" + i);
+    if (Game.GetPlayerInfo(playerID)) {
+      let hero = Players.GetPlayerHeroEntityIndex(playerID);
+      let HealthIconText = $("#health_text" + playerID);
       const health = Entities.GetHealth(hero);
 
       HealthIconText.text = health;

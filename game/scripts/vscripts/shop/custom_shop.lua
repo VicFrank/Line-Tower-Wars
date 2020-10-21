@@ -30,6 +30,7 @@ function GameMode:SetupShopForPlayer(playerID)
       local cd = itemData.cd
       local unit = itemData.unit
       local max_stock = itemData.max_stock
+      local hotkey = itemData.hotkey
 
       local shopKey = GetShopItemKey(itemname, playerID)
 
@@ -46,6 +47,7 @@ function GameMode:SetupShopForPlayer(playerID)
           cooldown_length = initial_cd,
           cd = cd,
           max_stock = max_stock,
+          hotkey = hotkey,
         }
       )
 
@@ -115,6 +117,7 @@ function StartRestockTimer(shopKey, initial_cd)
           cooldown_length = itemData.cd,
           cd = itemData.cd,
           max_stock = itemData.max_stock,
+          hotkey = itemData.hotkey,
       })
     else
       return 1
@@ -145,6 +148,11 @@ function OnAttemptPurchase(eventSourceIndex, args)
 
   if GameRules:IsGamePaused() then
     SendErrorMessage(playerID, "#error_game_paused")
+    return false
+  end
+
+  if not hero:IsAlive() then
+    SendErrorMessage(playerID, "#error_dead")
     return false
   end
 
@@ -180,6 +188,7 @@ function OnAttemptPurchase(eventSourceIndex, args)
       cooldown_length = cooldown_length,
       cd = itemData.cd,
       max_stock = itemData.max_stock,
+      hotkey = itemData.hotkey
     })
 
   -- Send the creep

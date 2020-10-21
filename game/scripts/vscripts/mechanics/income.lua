@@ -1,5 +1,5 @@
 function GameMode:StartPayingIncome()
-  Timers:CreateTimer(function()
+  Timers:CreateTimer(INCOME_TICK_RATE, function()
     GameMode:PayIncome()
     return INCOME_TICK_RATE
   end)
@@ -7,6 +7,9 @@ end
 
 function GameMode:PayIncome()
   for _,hero in pairs(HeroList:GetAllHeroes()) do
+    -- this is here for weird bot purposes
+    if not hero then return end
+
     local income = hero.income
 
     SendOverheadEventMessage(hero, OVERHEAD_ALERT_GOLD, hero, income, hero)

@@ -1,7 +1,10 @@
 function GameMode:OnScriptReload()
   print("Script Reload")
 
+  GameMode:SetupShopForPlayer(0)
+
   for _,hero in pairs(HeroList:GetAllHeroes()) do
+    
   end
 end
 
@@ -73,19 +76,26 @@ function SpawnWave(creepName, count)
 
   if not creepName then return end
 
-  for i=1,GameRules.numLanes do
-    local numToSpawn = count
-    local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. i):GetAbsOrigin()
+  for i=1,8 do
+    if GameRules.lanes[i] then
+      local lane = GameRules.lanes[i]
+      local laneNumber = lane.laneNumber
+      print("Spawning lane", laneNumber)
+      local numToSpawn = count
+      local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. laneNumber):GetAbsOrigin()
+      local target = Entities:FindByName(nil, "wave_target" .. laneNumber):GetAbsOrigin()
 
-    Timers:CreateTimer(function()
-      local waveUnit = CreateUnitByName(creepName, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
-      waveUnit.lane = i
+      Timers:CreateTimer(function()
+        local waveUnit = CreateUnitByName(creepName, spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
+        waveUnit.lane = laneNumber
+        waveUnit:SetGoal(target)
 
-      numToSpawn = numToSpawn - 1
-      if numToSpawn == 0 then return end
+        numToSpawn = numToSpawn - 1
+        if numToSpawn == 0 then return end
 
-      return spawnDelay
-    end)
+        return spawnDelay
+      end)
+    end
   end
 end
 
@@ -101,7 +111,7 @@ CHEAT_CODES = {
 function GameMode:OnPlayerChat(keys)
   local text = keys.text
   local userID = keys.userid
-  local playerID = self.vUserIds[userID] and self.vUserIds[userID]:GetPlayerID()
+  local playerID = GameRules.vUserIds[userID] and GameRules.vUserIds[userID]:GetPlayerID()
   if not playerID then return end
 
   -- Cheats are only available in the tools

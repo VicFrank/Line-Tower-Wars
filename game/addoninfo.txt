@@ -19,7 +19,7 @@
 	CheckAFKPlayers = false
 	DefaultMap = ""
 	Default_Keys = [  ]
-	DisableIK = false
+	DisableIK = true
 	EnablePickRules = false
 	EventGame = false
 	hero_picker = 
@@ -29,5 +29,74 @@
 	ForceDefaultGuide = false
 	MinimalPrecache = true
 	MinPlayers = 1
-	MaxPlayers = 10
+	MaxPlayers = 8
+
+	Default_Keys = 
+	[
+		{
+			Key = "SPACE"
+			Command = "+SpacePressed"
+			Name = "Space Pressed"
+		},
+		{
+      Key =       "1"
+      Command =   "+PurchaseSlot1"
+      Name =      "Purchase the creep in slot 1"
+    },
+    {
+      Key =       "2"
+      Command =   "+PurchaseSlot2"
+      Name =      "Purchase the creep in slot 2"
+    },
+    {
+      Key =       "3"
+      Command =   "+PurchaseSlot3"
+      Name =      "Purchase the creep in slot 3"
+    },
+    {
+      Key =       "4"
+      Command =   "+PurchaseSlot4"
+      Name =      "Purchase the creep in slot 4"
+    },
+    {
+      Key =       "5"
+      Command =   "+PurchaseSlot5"
+      Name =      "Purchase the creep in slot 5"
+    },
+    {
+      Key =       "6"
+      Command =   "+PurchaseSlot6"
+      Name =      "Purchase the creep in slot 6"
+    },
+    {
+      Key =       "7"
+      Command =   "+PurchaseSlot7"
+      Name =      "Purchase the creep in slot 7"
+    },
+    {
+      Key =       "8"
+      Command =   "+PurchaseSlot8"
+      Name =      "Purchase the creep in slot 8"
+    },
+    {
+      Key =       "9"
+      Command =   "+PurchaseSlot9"
+      Name =      "Purchase the creep in slot 9"
+    },
+    {
+      Key =       "0"
+      Command =   "+PurchaseSlot10"
+      Name =      "Purchase the creep in slot 10"
+    },
+    {
+      Key =       "-"
+      Command =   "+PurchaseSlot11"
+      Name =      "Purchase the creep in slot 11"
+    },
+    {
+      Key =       "="
+      Command =   "+PurchaseSlot12"
+      Name =      "Purchase the creep in slot 12"
+    },
+	]
 }

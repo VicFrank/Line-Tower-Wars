@@ -5,6 +5,7 @@
     </styles>
     
     <scripts>
+			<include src="file://{resources}/scripts/keybinds.js" />
       <include src="file://{resources}/scripts/custom_game/MainUI.js" />
 			<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
 			<include src="file://{resources}/scripts/custom_game/elements.js" />
@@ -52,55 +53,55 @@
 				</Panel>
 				</Panel>
 				<Panel class="ItemColumnUpgrade1">
-					<Panel class="ItemRow">
+					<Panel class="ItemRow8">
 					<Panel class="Unpurchasable" id="Arcane2" onactivate="ResearchItem('arc2')" onmouseover="UIShowTextTooltip(Arcane 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow2">
+				<Panel class="ItemRow7">
 					<Panel class="Unpurchasable" id="Earth2" onactivate="ResearchItem('ear2')" onmouseover="UIShowTextTooltip(Earth 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow3">
+				<Panel class="ItemRow">
 					<Panel class="Unpurchasable" id="Fire2" onactivate="ResearchItem('fir2')" onmouseover="UIShowTextTooltip(Fire 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow4">
+				<Panel class="ItemRow2">
 					<Panel class="Unpurchasable" id="Ice2" onactivate="ResearchItem('ice2')" onmouseover="UIShowTextTooltip(Ice 2)"  onmouseout="UIHideTextTooltip()" >
 					</Panel>
 				</Panel>
-				<Panel class="ItemRow5">
+				<Panel class="ItemRow4">
 					<Panel class="Unpurchasable" id="Light2" onactivate="ResearchItem('lit2')" onmouseover="UIShowTextTooltip(Light 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow6">
+				<Panel class="ItemRow3">
 					<Panel class="Unpurchasable" id="Lightning2" onactivate="ResearchItem('lig2')" onmouseover="UIShowTextTooltip(Lightning 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow7">
+				<Panel class="ItemRow5">
 					<Panel class="Unpurchasable" id="Unholy2" onactivate="ResearchItem('unh2')" onmouseover="UIShowTextTooltip(Unholy 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow8">
+				<Panel class="ItemRow6">
 					<Panel class="Unpurchasable" id="Water2" onactivate="ResearchItem('wat2')" onmouseover="UIShowTextTooltip(Water 2)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>
 				<Panel class="ItemColumnUpgrade2">
-				<Panel class="ItemRow">
+				<Panel class="ItemRow8">
 					<Panel class="Unpurchasable" id="Arcane3" onactivate="ResearchItem('arc3')" onmouseover="UIShowTextTooltip(Arcane 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow2">
+				<Panel class="ItemRow7">
 					<Panel class="Unpurchasable" id="Earth3" onactivate="ResearchItem('ear3')" onmouseover="UIShowTextTooltip(Earth 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow3">
+				<Panel class="ItemRow">
 					<Panel class="Unpurchasable" id="Fire3" onactivate="ResearchItem('fir3')" onmouseover="UIShowTextTooltip(Fire 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow4">
+				<Panel class="ItemRow2">
 					<Panel class="Unpurchasable" id="Ice3" onactivate="ResearchItem('ice3')" onmouseover="UIShowTextTooltip(Ice 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow5">
+				<Panel class="ItemRow4">
 					<Panel class="Unpurchasable" id="Light3" onactivate="ResearchItem('lit3')" onmouseover="UIShowTextTooltip(Light 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow6">
+				<Panel class="ItemRow3">
 					<Panel class="Unpurchasable" id="Lightning3" onactivate="ResearchItem('lig3')" onmouseover="UIShowTextTooltip(Lightning 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow7">
+				<Panel class="ItemRow5">
 					<Panel class="Unpurchasable" id="Unholy3" onactivate="ResearchItem('unh3')" onmouseover="UIShowTextTooltip(Unholy 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
-				<Panel class="ItemRow8">
+				<Panel class="ItemRow6">
 					<Panel class="Unpurchasable" id="Water3" onactivate="ResearchItem('wat3')" onmouseover="UIShowTextTooltip(Water 3)"  onmouseout="UIHideTextTooltip()" />
 				</Panel>
 				</Panel>

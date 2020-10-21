@@ -16,6 +16,7 @@ require("mechanics/resources")
 require("shop/custom_shop")
 
 require("filters/damage_filter")
+require("filters/order_filter")
 
 local PrecacheTables = require("tables/precache_tables")
 
@@ -81,7 +82,7 @@ end
 function GameMode:InitGameMode()
   GameMode = self
 
-  LimitPathingSearchDepth(0.5)
+  LimitPathingSearchDepth(0.25)
 
   GameRules:SetCustomGameAllowMusicAtGameStart(true)
   GameRules:SetCustomGameAllowBattleMusic(true)
@@ -175,7 +176,7 @@ function GameMode:InitGameMode()
   CustomGameEventManager:RegisterListener('buy_research_point', BuyResearchPoint)
 
   -- Filters
-  -- mode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
+  mode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
   mode:SetDamageFilter(Dynamic_Wrap(GameMode, "FilterDamage"), self)
 
   -- Lua Modifiers
@@ -186,7 +187,7 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_splash", "abilities/modifiers/modifier_splash", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_autoattack", "ai/attack_modifiers", LUA_MODIFIER_MOTION_NONE)
 
-  self.vUserIds = {}
+  GameRules.vUserIds = {}
 
   GameRules.roundStartTime = 0
   GameRules.playerIDs = {}

@@ -2,5 +2,202 @@
 {
   "Version"   "1"
 
-  
+  // neutral_spell_immunity
+
+  "custom_evasion"
+  {
+    "AbilityTextureName"          "blue_dragonspawn_sorcerer_evasion"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/custom_evasion"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "evasion"       "10"
+      }
+    }
+  }
+
+  "undead"
+  {
+    "AbilityTextureName"          "skeleton_king_reincarnation"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/undead"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "delay"         "1"
+      }
+      "02"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "health_percent" "20"
+      }
+    }
+  }
+
+  "deathly_regen"
+  {
+    "AbilityTextureName"          "enigma_demonic_conversion"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/deathly_regen"
+    "MaxLevel"                    "2"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "300"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"         "300"
+      }
+      "02"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "heal"           "2 3200"
+      }
+    }
+  }
+
+  "volatile_death"
+  {
+    "AbilityTextureName"          "techies_suicide"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/volatile_death"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "500"
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_techies/techies_suicide.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"         "500"
+      }
+      "02"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "damage"         "500"
+      }
+    }
+  }
+
+  "endurance_aura"
+  {
+    "AbilityTextureName"          "kobold_taskmaster_speed_aura"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/endurance_aura"
+    "MaxLevel"                    "3"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "800"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"         "800"
+      }
+      "02"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "move_speed"     "10 20 25"
+      }
+      "03"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "attack_speed"   "5 10 15"
+      }
+    }
+  }
+
+  "devotion_aura"
+  {
+    "AbilityTextureName"          "blue_dragonspawn_overseer_devotion_aura"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/devotion_aura"
+    "MaxLevel"                    "3"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "800"
+
+    "precache"
+    {
+      "particle"  "particles/custom/aura_devotion.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"         "800"
+      }
+      "02"
+      {
+        "var_type"       "FIELD_INTEGER"
+        "bonus_armor"     "1 3 5"
+      }
+    }
+  }
+
+  "custom_cleave"
+  {
+    "AbilityTextureName"          "sven_great_cleave"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/custom_cleave"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "precache"
+    {
+      "particle"  "particles/custom/aura_devotion.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "cleave_damage"   "100"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "cleave_radius"   "10"
+      }
+    }
+  }
+
+  "invisibility"
+  {
+    "AbilityTextureName"          "riki_permanent_invisibility"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/creeps/invisibility"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  }
 }

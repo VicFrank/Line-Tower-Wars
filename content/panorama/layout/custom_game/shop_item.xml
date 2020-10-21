@@ -23,8 +23,8 @@
       <Label hittest="false" class="GoldCost" id="GoldCost" />
       <Label hittest="false" class="Charges" id="ChargeCount" />
     </Button>
-    <!-- <Panel hittest="false" id="Hotkey">
+    <Panel hittest="false" id="Hotkey">
       <Label hittest="false" id="HotkeyText" />
-    </Panel> -->
+    </Panel>
   </Panel>
 </root>

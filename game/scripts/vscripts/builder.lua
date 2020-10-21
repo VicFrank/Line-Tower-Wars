@@ -139,8 +139,8 @@ function Build( event )
         end
 
         -- Add the sell item
-        local sell_item = CreateItem("item_building_sell", hero, hero)
-        unit:AddItem(sell_item)
+        -- local sell_item = CreateItem("item_building_sell", hero, hero)
+        -- unit:AddItem(sell_item)
         -- unit:SwapItems(0,1)
 
         -- Remove the dust construction particle

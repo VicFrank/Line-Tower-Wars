@@ -59,8 +59,8 @@ function UpgradeBuilding(keys)
   building:SetHullRadius(hull_radius)
 
   -- Add the self destruct item
-  local self_destruct_item = CreateItem("item_building_sell", hero, hero)
-  building:AddItem(self_destruct_item)
+  -- local self_destruct_item = CreateItem("item_building_sell", hero, hero)
+  -- building:AddItem(self_destruct_item)
 
   -- If the building to upgrade is selected, change the selection to the new one
   if PlayerResource:IsUnitSelected(playerID, caster) then

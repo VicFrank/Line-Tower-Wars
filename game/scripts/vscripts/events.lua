@@ -10,6 +10,7 @@ end
 function GameMode:OnGameInProgress()
   -- StartTestSpawning()
   GameMode:StartPayingIncome()
+  GameMode:SpawnLaneTruesight()
 end
 
 function GameMode:OnNPCSpawned(keys)
@@ -21,6 +22,10 @@ function GameMode:OnNPCSpawned(keys)
   if unitName == "npc_dota_units_base" then return end
   if unitName == "dotacraft_corpse" then return end
   if unitName == "" then return end
+
+  if npc:IsCourier() then
+    return
+  end
 
   if npc:IsHero() then
     GameMode:OnHeroInGame(npc)
@@ -53,9 +58,21 @@ function GameMode:OnHeroInGame(hero)
   hero:ModifyIncome(STARTING_INCOME)
   GameMode:SetupShopForPlayer(hero:GetPlayerOwnerID())
 
+  -- set the model to be the player's courier
+  local player = hero:GetPlayerOwner()
+  local courier = player:SpawnCourierAtPosition(hero:GetAbsOrigin())
+  local model = courier:GetModelName()
+
+  courier:RemoveSelf()
+
+  hero:SetOriginalModel(model)
+  hero:SetModel(model)
+
   hero.numSent = 0
 
   Timers:CreateTimer(.03, function()
+    hero:SetCustomGold(STARTING_GOLD)
+    
     for i=0,16 do
       local item = hero:GetItemInSlot(i)
       if item ~= nil then
@@ -76,7 +93,6 @@ function GameMode:OnEntityKilled(keys)
   if IsValidAlive(killed.sender) then
     local sender = killed.sender
     sender.numSent = sender.numSent - 1
-    print(sender.numSent)
   end
   
   local bounty = killed:GetGoldBounty()
@@ -96,11 +112,14 @@ end
 function GameMode:OnHeroKilled(hero)
   local playerID = hero:GetPlayerOwnerID()
   -- Destroy all their buildings
-  local buildings = BuildingHelper:GetBuildings(playerID)
+  -- get a deep copy since we'll be removing buildings from the table as we delete them
+  local buildings = deepcopy(BuildingHelper:GetBuildings(playerID))
 
   for _,building in pairs(buildings) do
-    -- building:AddEffects(EF_NODRAW)
-    building:ForceKill(true)
+    if IsValidAlive(building) then
+      -- building:AddEffects(EF_NODRAW)
+      building:ForceKill(true)
+    end
   end
 
   -- Check if we have a winner
@@ -128,8 +147,8 @@ function GameMode:OnConnectFull(keys)
 
   if playerID < 0 then return end
 
-  self.vUserIds = self.vUserIds or {}
-  self.vUserIds[userID] = ply
+  GameRules.vUserIds = GameRules.vUserIds or {}
+  GameRules.vUserIds[userID] = ply
   print(playerID .. " connected")
 end
 

@@ -2,9 +2,33 @@
 {
   "Version"   "1"
 
+  "magic_sentry"
+  {
+    "AbilityTextureName"          "magic_sentry"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/magic_sentry"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityCastRange"            "800"
+
+    "precache"
+    {
+      "particle"  "particles/items2_fx/ward_true_sight.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"          "800"
+      }
+    }
+  }
+
   // Ignite 1: Periodically put a nearby random enemy on fire, dealing 1 damage per second
   // over 7 seconds
-  // TODO: how often is periodically?
   "custom_ignite"
   {
     "AbilityTextureName"          "ogre_magi_ignite"

@@ -1,7 +1,5 @@
 modifier_splash = class({})
 
-function modifier_splash:IsHidden() return self.splash > 0 end
-
 function modifier_splash:GetTexture()
   return "black_dragon_splash_attack"
 end

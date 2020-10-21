@@ -17,6 +17,20 @@
     "Ability1"          "dummy_passive"
   }
 
+  "truesight_dummy_unit"
+  {
+    "BaseClass"         "npc_dota_creature"
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"    "0" 
+    "VisionNighttimeRange"    "0"
+    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+    "AbilityLayout"       "4"
+    "Level"             "2"
+    "Ability1"          "dummy_passive"
+    "Ability2"          "magic_sentry"
+  }
+
   "dotacraft_corpse"
   {
     "BaseClass"         "npc_dota_creature"

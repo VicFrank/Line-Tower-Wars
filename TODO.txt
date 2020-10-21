@@ -1,22 +1,11 @@
-Creeps (8 hours):
-
-- Brainstorm Creep Abilities (2 hours)
-- Code Creep Abilities (10-20) (5 hours)
-- Addon English
-  - Creep Abilities (10-20?) (1 hour)
-
-Post Launch:
-
 UI:
-- Spectator logic
+- Make creep shop load faster
 
-Bugs/Optimizations (3 hours):
-- Async Precaching (3 hours)
-  - Elemental towers shouldn't load at the start of the game (beyond the first tier)
-  - Load elemental towers as they are unlocked
-  - Full Precache is almost 4 minutes!
+BUGS:
 
-  
+test ghost player again
+
+Vg9%LXq,4rHYXkY1  
 
 Research
   Start with 4 research points
@@ -212,14 +201,21 @@ item_radiant_creep
 item_night_wolf
   - None
 item_zombie
+  - Undead
+    Comes back to life with 10% health once after dying
 item_eidolon
+  - Deathly Regeneration
+    Heals nearby creeps for 2 health when killed
 item_treant
   - 10% evasion
 item_ghoul
+  - Undead
+    Comes back to life with 10% health once after dying
 item_kobold
   - Endurance Aura (1) 5% attack 10% movement
 item_wildkin_small
-  - +1 Armor Aura
+  - Devotion  Aura (1)
+    Increases armor of nearby creeps by 1
 item_harpy_scout
   - Flying
 item_ogre
@@ -228,8 +224,11 @@ item_potato
   - Attacker
 item_stone_golem
   - Boss, Magic Immune
+
 item_dire_creep
+  - None
 item_wolf
+  - None
 item_angry_centaur
   - Dash (1) 420 ms
 item_familiar
@@ -237,6 +236,8 @@ item_familiar
 item_satyr
   - Invisible
 item_ghost_creep
+  - Undead
+    Comes back to life with 10% health once after dying
 item_kobold_taskmaster
   - Endurance Aura (2) 20% movement, 10% attack
 item_wildkin
@@ -246,9 +247,10 @@ item_harpy
 item_tomato
   - Attacker
 item_earth_panda
-
+  - Magic Immune
 item_infernal
   - Boss, Magic Immune
+
 item_bear
   - Attacker
 item_mud_golem
@@ -258,17 +260,22 @@ item_happy_centaur
 item_satyr_warlord
   - Fel Blood (2) increased health regeneration
 item_storm_panda
-  - Invisible, <needs one more ability>
+  - Invisible, Endurance Aura (3) 25% ms, 15% attack
 item_necro_warrior
   - Magic Immune
 item_blue_lizard
+  - 10% evasion
 item_drake
-  - Flying, <needs one more ability>
+  - Flying
+  - Devotion Aura (3) (+5 armor)
 item_prowler
-  - <formerly Dash (4)>
+  - Dash (4) 500 ms
 item_fire_panda
   - Attacker
+  - Cleave (90 radius: 10/50/90 100%/0%/0% damage radii)
 item_dragon
   - Flying, Invisible, Magic Immune
 item_roshan
   - Boss, Attacker, Magic Immune
+  - Volatile Death
+    This creep will explode on death, dealing up to 500 damage to nearby enemy towers."

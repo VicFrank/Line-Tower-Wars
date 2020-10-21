@@ -8,6 +8,7 @@ return {
       initial_cd = 25,
       cd = 3,
       max_stock = 32,
+      hotkey = "1",
     },
     {
       itemname = "item_night_wolf",
@@ -17,6 +18,7 @@ return {
       initial_cd = 40,
       cd = 3,
       max_stock = 32,
+      hotkey = "2",
     },
     {
       itemname = "item_zombie",
@@ -26,6 +28,7 @@ return {
       initial_cd = 55,
       cd = 5,
       max_stock = 32,
+      hotkey = "3",
     },
     {
       itemname = "item_eidolon",
@@ -35,6 +38,7 @@ return {
       initial_cd = 70,
       cd = 5,
       max_stock = 32,
+      hotkey = "4",
     },
     {
       itemname = "item_treant",
@@ -44,6 +48,7 @@ return {
       initial_cd = 85,
       cd = 5,
       max_stock = 32,
+      hotkey = "5",
     },
     {
       itemname = "item_ghoul",
@@ -53,6 +58,7 @@ return {
       initial_cd = 100,
       cd = 5,
       max_stock = 32,
+      hotkey = "6",
     },
     {
       itemname = "item_kobold",
@@ -62,6 +68,7 @@ return {
       initial_cd = 115,
       cd = 5,
       max_stock = 32,
+      hotkey = "7",
     },
     {
       itemname = "item_wildkin_small",
@@ -71,6 +78,7 @@ return {
       initial_cd = 130,
       cd = 5,
       max_stock = 32,
+      hotkey = "8",
     },
     {
       itemname = "item_harpy_scout",
@@ -80,6 +88,7 @@ return {
       initial_cd = 145,
       cd = 5,
       max_stock = 16,
+      hotkey = "9",
     },
     {
       itemname = "item_ogre",
@@ -89,6 +98,7 @@ return {
       initial_cd = 160,
       cd = 5,
       max_stock = 32,
+      hotkey = "0",
     },
     {
       itemname = "item_potato",
@@ -98,6 +108,7 @@ return {
       initial_cd = 200,
       cd = 5,
       max_stock = 16,
+      hotkey = "-",
     },
     {
       itemname = "item_stone_golem",
@@ -107,6 +118,7 @@ return {
       initial_cd = 250,
       cd = 10,
       max_stock = 8,
+      hotkey = "+",
     },
   },
   {
@@ -118,6 +130,7 @@ return {
       initial_cd = 300,
       cd = 5,
       max_stock = 32,
+      hotkey = "1",
     },
     {
       itemname = "item_wolf",
@@ -127,6 +140,7 @@ return {
       initial_cd = 330,
       cd = 5,
       max_stock = 32,
+      hotkey = "2",
     },
     {
       itemname = "item_angry_centaur",
@@ -136,6 +150,7 @@ return {
       initial_cd = 360,
       cd = 5,
       max_stock = 32,
+      hotkey = "3",
     },
     {
       itemname = "item_familiar",
@@ -145,6 +160,7 @@ return {
       initial_cd = 390,
       cd = 5,
       max_stock = 16,
+      hotkey = "4",
     },
     {
       itemname = "item_satyr",
@@ -154,6 +170,7 @@ return {
       initial_cd = 420,
       cd = 5,
       max_stock = 32,
+      hotkey = "5",
     },
     {
       itemname = "item_ghost_creep",
@@ -163,6 +180,7 @@ return {
       initial_cd = 450,
       cd = 5,
       max_stock = 32,
+      hotkey = "6",
     },
     {
       itemname = "item_kobold_taskmaster",
@@ -172,6 +190,7 @@ return {
       initial_cd = 480,
       cd = 5,
       max_stock = 32,
+      hotkey = "7",
     },
     {
       itemname = "item_wildkin",
@@ -181,6 +200,7 @@ return {
       initial_cd = 510,
       cd = 5,
       max_stock = 32,
+      hotkey = "8",
     },
     {
       itemname = "item_harpy",
@@ -190,6 +210,7 @@ return {
       initial_cd = 540,
       cd = 5,
       max_stock = 16,
+      hotkey = "9",
     },
     {
       itemname = "item_tomato",
@@ -199,6 +220,7 @@ return {
       initial_cd = 600,
       cd = 5,
       max_stock = 16,
+      hotkey = "0",
     },
     {
       itemname = "item_earth_panda",
@@ -208,6 +230,7 @@ return {
       initial_cd = 650,
       cd = 5,
       max_stock = 32,
+      hotkey = "-",
     },
     {
       itemname = "item_infernal",
@@ -217,6 +240,7 @@ return {
       initial_cd = 700,
       cd = 10,
       max_stock = 8,
+      hotkey = "=",
     }, 
   },
   {
@@ -228,6 +252,7 @@ return {
       initial_cd = 800,
       cd = 5,
       max_stock = 16,
+      hotkey = "1",
     },
     {
       itemname = "item_mud_golem",
@@ -237,6 +262,7 @@ return {
       initial_cd = 830,
       cd = 5,
       max_stock = 32,
+      hotkey = "2",
     },
     {
       itemname = "item_happy_centaur",
@@ -246,6 +272,7 @@ return {
       initial_cd = 860,
       cd = 5,
       max_stock = 32,
+      hotkey = "3",
     },
     {
       itemname = "item_satyr_warlord",
@@ -255,6 +282,7 @@ return {
       initial_cd = 890,
       cd = 5,
       max_stock = 32,
+      hotkey = "4",
     },
     {
       itemname = "item_storm_panda",
@@ -264,6 +292,7 @@ return {
       initial_cd = 920,
       cd = 5,
       max_stock = 32,
+      hotkey = "5",
     },
     {
       itemname = "item_necro_warrior",
@@ -273,6 +302,7 @@ return {
       initial_cd = 950,
       cd = 5,
       max_stock = 32,
+      hotkey = "6",
     },
     {
       itemname = "item_blue_lizard",
@@ -282,6 +312,7 @@ return {
       initial_cd = 1000,
       cd = 5,
       max_stock = 32,
+      hotkey = "7",
     },
     {
       itemname = "item_drake",
@@ -291,6 +322,7 @@ return {
       initial_cd = 1050,
       cd = 5,
       max_stock = 16,
+      hotkey = "8",
     },
     {
       itemname = "item_prowler",
@@ -300,6 +332,7 @@ return {
       initial_cd = 1100,
       cd = 5,
       max_stock = 32,
+      hotkey = "9",
     },
     {
       itemname = "item_fire_panda",
@@ -309,6 +342,7 @@ return {
       initial_cd = 1200,
       cd = 5,
       max_stock = 32,
+      hotkey = "0",
     },
     {
       itemname = "item_dragon",
@@ -318,6 +352,7 @@ return {
       initial_cd = 1300,
       cd = 5,
       max_stock = 32,
+      hotkey = "-",
     },
     {
       itemname = "item_roshan",
@@ -327,6 +362,7 @@ return {
       initial_cd = 1500,
       cd = 10,
       max_stock = 8,
+      hotkey = "=",
     },  
   },
 }

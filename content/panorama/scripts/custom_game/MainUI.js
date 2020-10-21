@@ -1,8 +1,23 @@
 "use strict";
 
-var localPlayerID = Players.GetLocalPlayer();
+var IsSpectator = !Players.IsValidPlayerID(Players.GetLocalPlayer());
 
-// GameUI.SetCameraDistance(1300);
+var LocalPlayerID = Players.GetLocalPlayer();
+var LocalPlayerTeam = Players.GetTeam(LocalPlayerID);
+
+var DefaultPlayerID = 0;
+if (!IsSpectator)
+  DefaultPlayerID = LocalPlayerID;
+
+function GetPlayerIDToShow() {
+  var queryUnit = Players.GetLocalPlayerPortraitUnit();
+  var queryUnitTeam = Entities.GetTeamNumber(queryUnit);
+  var queryUnitPlayerOwnerID = Entities.GetPlayerOwnerID(queryUnit);
+  if (IsSpectator && queryUnitPlayerOwnerID >= 0)
+    return queryUnitPlayerOwnerID;
+  else
+    return DefaultPlayerID;
+}
 
 var itemToPanel = {
   arc: "Arcane",
@@ -16,18 +31,20 @@ var itemToPanel = {
 }
 
 function OnScoreboardButtonPressed() {
-	Game.EmitSound("ui_chat_slide_in")
+	Game.EmitSound("ui_chat_slide_in");
 }
 
 function OnLeaderboardButtonPressed() {
-	Game.EmitSound("ui_chat_slide_in")
+	Game.EmitSound("ui_chat_slide_in");
 }
 
 var hideShop = false;
 $("#Items").SetHasClass("ShopHidden", false);
 
 function OnShopButtonPressed() {
-  Game.EmitSound("ui_chat_slide_out");
+  if (hideShop) Game.EmitSound("ui_chat_slide_in");
+  else Game.EmitSound("ui_chat_slide_out");
+  
   hideShop = !hideShop;
   $("#Items").SetHasClass("ShopHidden", hideShop);
 }
@@ -39,7 +56,7 @@ function UIContinuePressed() {
 
 function ResearchItem(item) {
   // make responsive by doing an optimistic ui update before the server responds
-  var data = CustomNetTables.GetTableValue("custom_shop", "research_point" + localPlayerID);
+  var data = CustomNetTables.GetTableValue("custom_shop", "research_point" + LocalPlayerID);
   var unspent = data.unspent;
 
   var panel = GetResearchPanel(item);
@@ -55,9 +72,9 @@ function ResearchItem(item) {
 }
 
 function BuyResearchPoint() {
-  var gold = CustomNetTables.GetTableValue("custom_shop", "gold" + localPlayerID).gold;
+  var gold = CustomNetTables.GetTableValue("custom_shop", "gold" + LocalPlayerID).gold;
 
-  var data = CustomNetTables.GetTableValue("custom_shop", "research_point" + localPlayerID);
+  var data = CustomNetTables.GetTableValue("custom_shop", "research_point" + LocalPlayerID);
   var cost = data.cost;
   var remaining = data.remaining;
 
@@ -113,7 +130,7 @@ function RefreshShop() {
   for (var i = 0; i < researchTypes.length; i++) {
     for (var tier = 1; tier <= 3; tier++) {
       var type = researchTypes[i];
-      var shopKey = type + tier + localPlayerID;
+      var shopKey = type + tier + GetPlayerIDToShow();
       var data = CustomNetTables.GetTableValue("custom_shop", shopKey);
       if (data) {
         UpdateResearchItem(data);
@@ -122,7 +139,7 @@ function RefreshShop() {
   }
 
   // update research points
-  var key = "research_point" + localPlayerID;
+  var key = "research_point" + GetPlayerIDToShow();
   var data = CustomNetTables.GetTableValue("custom_shop", key);
 
   UpdateResearchPoints(data);
@@ -135,7 +152,7 @@ function UpdateResearchPoints(data) {
 }
 
 function OnShopUpdated(table_name, key, data) {
-  if (data.playerID === localPlayerID) {
+  if (data.playerID === GetPlayerIDToShow()) {
     if (data.research) {
       // update the research shop
       RefreshShop();
@@ -151,4 +168,7 @@ function OnShopUpdated(table_name, key, data) {
 (function () {
   RefreshShop();
   CustomNetTables.SubscribeNetTableListener("custom_shop", OnShopUpdated);
+
+  if (!GameUI.Keybinds) GameUI.Keybinds = {};
+  GameUI.Keybinds.SpacePressed = function() { OnShopButtonPressed() };
 })();

@@ -1,6 +1,8 @@
 "use strict";
 
 var localPlayerID = Players.GetLocalPlayer();
+var IsSpectator = !Players.IsValidPlayerID(Players.GetLocalPlayer());
+
 var m_Item = -1;
 var m_QueryUnit = -1;
 var itemname = "";
@@ -8,10 +10,10 @@ var restockTime = -1;
 var cooldownLength = -1;
 var stock = -1;
 var cost = -1;
+var hotkey = "";
 
 function UpdateItem()
 {
-  var hotkey = "a";
   var isPassive = false;
 
   var cooldownReady = stock > 0;
@@ -20,7 +22,7 @@ function UpdateItem()
   $.GetContextPanel().SetHasClass("show_charges", true);
   $.GetContextPanel().SetHasClass("is_passive", isPassive);
   
-  // $( "#HotkeyText" ).text = hotkey;
+  $("#HotkeyText").text = hotkey;
   $("#ItemImage").itemname = itemname;
   $("#ChargeCount").text = stock;
   
@@ -59,6 +61,8 @@ function ItemHideTooltip()
 }
 
 function PurchaseItem() {
+  if (IsSpectator) return;
+  
   var data = CustomNetTables.GetTableValue("custom_shop", "gold" + localPlayerID);
   var gold = data.gold;
   if (stock === 0 || gold < cost || Game.IsGamePaused()) {
@@ -78,13 +82,15 @@ function SetItem(data)
   restockTime = data.restock_time;
   cooldownLength = data.cooldown_length;
   cost = data.cost || "";
-
+  hotkey = data.hotkey;
+  
   $("#GoldCost").text = cost;
 }
 
 (function()
 {
   $.GetContextPanel().SetItem = SetItem;
+  $.GetContextPanel().PurchaseItem = PurchaseItem;
 
   UpdateItem(); // initial update of dynamic state
 })();
