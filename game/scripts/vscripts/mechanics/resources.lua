@@ -130,7 +130,9 @@ function CompleteResearch(playerID, research)
 
   for _,building in pairs(buildings) do
     -- Unlock abilities that needed this research
-    building:UpdateResearchAbilitiesActive()
+    if IsValidAlive(building) then
+      building:UpdateResearchAbilitiesActive()
+    end
   end
 end
 

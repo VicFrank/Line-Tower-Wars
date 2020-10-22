@@ -1,5 +1,4 @@
 income_modifier = class({})
-income_modifier_enemy = class({})
 
 function income_modifier:GetTexture()
   return "alchemist_goblins_greed"

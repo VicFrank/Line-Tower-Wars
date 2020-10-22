@@ -34,6 +34,18 @@ function GameMode:OnNPCSpawned(keys)
   Timers:CreateTimer(0.1, function()
     if not IsCustomBuilding(npc) then
       npc:AddNewModifier(npc, nil, "modifier_wave_creep", {})
+    else
+      -- Async precach buildings when they're built
+      -- Note that this crashes the game xd
+      -- if not GameRules.precached[unitName] then
+      --   GameRules.numToCache = GameRules.numToCache + 1
+      --   PrecacheUnitByNameAsync(unitName, function(unitName)
+      --     GameRules.numToCache = GameRules.numToCache - 1
+      --     print(GameRules.numToCache)
+      --   end)
+
+      --   GameRules.precached[unitName] = true
+      -- end
     end
   end)
 

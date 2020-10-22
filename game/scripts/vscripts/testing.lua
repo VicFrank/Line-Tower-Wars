@@ -1,10 +1,7 @@
 function GameMode:OnScriptReload()
   print("Script Reload")
 
-  GameMode:SetupShopForPlayer(0)
-
   for _,hero in pairs(HeroList:GetAllHeroes()) do
-    
   end
 end
 
@@ -80,7 +77,6 @@ function SpawnWave(creepName, count)
     if GameRules.lanes[i] then
       local lane = GameRules.lanes[i]
       local laneNumber = lane.laneNumber
-      print("Spawning lane", laneNumber)
       local numToSpawn = count
       local spawnLocation = Entities:FindByName(nil, "wave_spawner" .. laneNumber):GetAbsOrigin()
       local target = Entities:FindByName(nil, "wave_target" .. laneNumber):GetAbsOrigin()
@@ -99,6 +95,25 @@ function SpawnWave(creepName, count)
   end
 end
 
+function GameMode:AllSend(playerID, unitName, count)
+  if not unitName then return end
+
+  local spawnDelay = 0.2
+
+  for _,hero in pairs(HeroList:GetAllHeroes()) do
+    local count = count or 1
+
+    Timers:CreateTimer(function()
+      SendCreep(hero, unitName, 0)
+
+      count = count - 1
+      if count <= 0 then return end
+
+      return spawnDelay
+    end)
+  end
+end
+
 
 CHEAT_CODES = {
   ["greedisgood"] = function(...) GameMode:GreedIsGood(...) end,   -- "Gives you X gold or 500"
@@ -106,6 +121,7 @@ CHEAT_CODES = {
   ["killallunits"] = function(...) KillAllUnits() end,             -- "Kills all units"
   ["killallbuildings"] = function(...) KillAllBuildings() end,     -- "Kills all buildings"
   ["spawn"] = function(...) GameMode:Spawn(...) end,               -- "Spawns units in each lane"
+  ["send"] = function(...) GameMode:AllSend(...) end,              -- "Spawns units in each lane"
 }
 
 function GameMode:OnPlayerChat(keys)

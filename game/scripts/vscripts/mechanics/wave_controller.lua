@@ -131,11 +131,6 @@ function OnCreepReachedGoal(creep)
     EmitSoundOnClient("General.CompendiumLevelUpMinor", player)
 
     hero:ModifyHealth(hero:GetHealth() - damage, nil, true, 0)
-    -- if hero:GetHealth() <= 0 then
-    --   hero:ForceKill(true)
-    --   hero:AddNoDraw()
-    --   GameMode:OnHeroKilled(hero)
-    -- end
 
     SendOverheadEventMessage(hero, OVERHEAD_ALERT_LAST_HIT_MISS, hero, damage, nil)
     ScreenShake(hero:GetAbsOrigin(), 5, 150, 0.25, 2000, 0, true)
@@ -143,7 +138,12 @@ function OnCreepReachedGoal(creep)
     -- Heal the sender, only if the player we're damaging is still alive
     if IsValidAlive(sender) then
       sender:AddHealth(damage)
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, sender, damage, nil) 
+
+      local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN, sender)
+      ParticleManager:SetParticleControl(particle, 1, Vector(100, 100, 100))
+      ParticleManager:ReleaseParticleIndex(particle)
+
+      -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, sender, damage, nil) 
     end
   end
 end

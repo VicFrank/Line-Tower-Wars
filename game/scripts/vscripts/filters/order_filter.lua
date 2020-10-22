@@ -21,7 +21,9 @@ function GameMode:OrderFilter(filterTable)
   for _,entindex in pairs(units) do
     local unit = EntIndexToHScript(entindex)
 
-    if playerID < 0 then
+    if IsInToolsMode() then
+      unit.issuer_player_id = 0
+    elseif playerID < 0 then
       unit.issuer_player_id = nil
     else
       unit.issuer_player_id = playerID
@@ -46,7 +48,6 @@ function GameMode:OrderFilter(filterTable)
 
     for _,entityIndex in pairs(entityList) do
       local caster = EntIndexToHScript(entityIndex)
-      print(caster:GetUnitName())
       -- Make sure the original caster unit doesn't cast twice
       if caster and caster ~= unit and caster:HasAbility(abilityName) then
         local abil = caster:FindAbilityByName(abilityName)

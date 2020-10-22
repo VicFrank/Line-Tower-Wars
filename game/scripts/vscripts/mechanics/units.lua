@@ -336,7 +336,7 @@ function CDOTA_BaseNPC_Creature:IncreaseMaxHealth(bonus)
   self:SetHealth(newHP * relativeHP)
 end
 
-function CDOTA_BaseNPC:AddHealth(bonus)
+function CDOTA_BaseNPC_Hero:AddHealth(bonus)
   if bonus < 0 then return end
 
   local currentHealth = self:GetHealth()
@@ -344,8 +344,15 @@ function CDOTA_BaseNPC:AddHealth(bonus)
   local newHealth = currentHealth + bonus
 
   if newHealth > maxHealth then
-    self:SetMaxHealth(newHealth)
-    self:SetBaseMaxHealth(newHealth)
+    local modifier = self:FindModifierByName("modifier_max_health")
+
+    if not modifier then
+      modifier = self:AddNewModifier(self, nil, "modifier_max_health", {})
+    end
+
+    modifier:SetStackCount(newHealth - 25)
+
+    self:CalculateStatBonus()
   end
   
   self:SetHealth(newHealth)

@@ -82,7 +82,7 @@
   "DOTA_Tooltip_Ability_item_potato_Description"               "<h1><font color='white'>Statistics</font></h1><font color='#5e98d9'>Health:</font> <font color='white'>225</font><br><font color='#5e98d9'>Armor Type:</font> <font color='white'>Heavy</font><br><font color='#5e98d9'>Movement:</font> <font color='white'>Ground</font><br><font color='#5e98d9'>Interest:</font> <font color='lime'>+25 Gold</font>\n\n<h1><font color='white'>Abilities:</font></h1><font color='white'>- Attacker</font>"
 
 
-  "DOTA_Tooltip_Ability_item_stone_golem"                      "<font color='#ade55c'>Stone Golem★</font>"
+  "DOTA_Tooltip_Ability_item_stone_golem"                      "<font color='#ade55c'>Stone Golem ★</font>"
   "DOTA_Tooltip_Ability_item_stone_golem_Description"          "<h1><font color='white'>Statistics</font></h1><font color='#5e98d9'>Health:</font> <font color='white'>1060</font><br><font color='#5e98d9'>Armor Type:</font> <font color='white'>Hero</font><br><font color='#5e98d9'>Movement:</font> <font color='white'>Ground</font><br><font color='#5e98d9'>Interest:</font> <font color='lime'>+75 Gold</font>\n\n<h1><font color='white'>Abilities:</font></h1><font color='white'>- Boss<br>- Magic Immune</font>"
 
 
@@ -134,7 +134,7 @@
   "DOTA_Tooltip_Ability_item_earth_panda_Description"          "<h1><font color='white'>Statistics</font></h1><font color='#5e98d9'>Health:</font> <font color='white'>27.200</font><br><font color='#5e98d9'>Armor Type:</font> <font color='white'>Heavy</font><br><font color='#5e98d9'>Movement:</font> <font color='white'>Ground</font><br><font color='#5e98d9'>Interest:</font> <font color='lime'>+3500 Gold</font>\n\n<h1><font color='white'>Abilities:</font></h1><font color='white'>- Magic Immune</font>"
 
 
-  "DOTA_Tooltip_Ability_item_infernal"                          "<font color='#ade55c'>Infernal★</font>"
+  "DOTA_Tooltip_Ability_item_infernal"                          "<font color='#ade55c'>Infernal ★</font>"
   "DOTA_Tooltip_Ability_item_infernal_Description"              "<h1><font color='white'>Statistics</font></h1><font color='#5e98d9'>Health:</font> <font color='white'>63.100</font><br><font color='#5e98d9'>Armor Type:</font> <font color='white'>Hero</font><br><font color='#5e98d9'>Movement:</font> <font color='white'>Ground</font><br><font color='#5e98d9'>Interest:</font> <font color='lime'>+4750 Gold</font>\n\n<h1><font color='white'>Abilities:</font></h1><font color='white'>- Boss<br>- Magic Immune</font>"
 
 
@@ -182,7 +182,7 @@
   "DOTA_Tooltip_Ability_item_dragon_Description"               "<h1><font color='white'>Statistics</font></h1><font color='#5e98d9'>Health:</font> <font color='white'>315.000</font><br><font color='#5e98d9'>Armor Type:</font> <font color='white'>Heavy</font><br><font color='#5e98d9'>Movement:</font> <font color='white'>Flying</font><br><font color='#5e98d9'>Interest:</font> <font color='orangered'>-50.000 Gold</font>\n\n<h1><font color='white'>Abilities:</font></h1><font color='white'>- Invisible<br>- Magic Immune</font>"
 
 
-  "DOTA_Tooltip_Ability_item_roshan"                           "<font color='#ade55c'>Roshan★</font>"
+  "DOTA_Tooltip_Ability_item_roshan"                           "<font color='#ade55c'>Roshan ★</font>"
   "DOTA_Tooltip_Ability_item_roshan_Description"               "<h1><font color='white'>Statistics</font></h1><font color='#5e98d9'>Health:</font> <font color='white'>622.000</font><br><font color='#5e98d9'>Armor Type:</font> <font color='white'>Hero</font><br><font color='#5e98d9'>Movement:</font> <font color='white'>Ground</font><br><font color='#5e98d9'>Interest:</font> <font color='orangered'>-100.000 Gold</font>\n\n<h1><font color='white'>Abilities:</font></h1><font color='white'>- Boss<br>- Attacker<br>- Magic Immune<br>- Volatile Death: Explodes on death, dealing up to 500 damage to nearby enemy towers</font>"
 
 
@@ -226,6 +226,7 @@
   "fire_panda"       "Fire Panda"
   "custom_roshan"    "Roshan"
   "skeleton"         "Skeleton"
+  "harpy"            "Harpy"
 
 
   //------------------------

@@ -27,6 +27,21 @@
     }
   }
 
+  "ogre_splash_attack"
+  {
+    "AbilityTextureName"          "ogre_magi_unrefined_fireblast"
+    "BaseClass"                   "ability_lua"
+    "ScriptFile"                  "abilities/buildings/ogre_splash_attack"
+    "MaxLevel"                    "1"
+
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+    "precache"
+    {
+      "particle"  "particles/test_particle/ogre_melee_smash.vpcf"
+    }
+  }
+
   // Ignite 1: Periodically put a nearby random enemy on fire, dealing 1 damage per second
   // over 7 seconds
   "custom_ignite"

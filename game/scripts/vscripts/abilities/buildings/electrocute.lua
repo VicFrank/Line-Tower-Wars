@@ -12,8 +12,6 @@ function modifier_electrocute:OnCreated()
   self.ability = self:GetAbility()
   self.parent = self:GetParent()
 
-  print("electrocute created")
-
   self.health_as_damage = self.ability:GetSpecialValueFor("health_as_damage")
 end
 

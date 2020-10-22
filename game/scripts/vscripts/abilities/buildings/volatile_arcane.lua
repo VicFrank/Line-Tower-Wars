@@ -58,8 +58,6 @@ function volatile_arcane:OnProjectileHit_ExtraData(target, position, extraData)
 
     caster:GiveMana(self:GetSpecialValueFor("mana_gained"))
 
-    print(bounces)
-
     if bounces > 0 then
       local radius = 300
       local damage_reduction_percent = ability:GetSpecialValueFor("damage_reduction_percent")
