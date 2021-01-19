@@ -98,5 +98,10 @@
       Command =   "+PurchaseSlot12"
       Name =      "Purchase the creep in slot 12"
     },
+    {
+      Key =       "n"
+      Command =   "+NextLane"
+      Name =      "Move the camera to the closest lane to the right"
+    },
 	]
 }

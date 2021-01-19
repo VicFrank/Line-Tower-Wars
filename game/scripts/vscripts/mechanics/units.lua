@@ -352,7 +352,7 @@ function CDOTA_BaseNPC_Hero:AddHealth(bonus)
 
     modifier:SetStackCount(newHealth - 25)
 
-    self:CalculateStatBonus()
+    self:CalculateStatBonus(true)
   end
   
   self:SetHealth(newHealth)

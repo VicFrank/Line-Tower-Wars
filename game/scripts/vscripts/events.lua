@@ -134,6 +134,16 @@ function GameMode:OnHeroKilled(hero)
     end
   end
 
+  -- update the nettable
+  local lane = hero.lane
+  local data = CustomNetTables:GetTableValue("player_stats", "lane2")
+
+  CustomNetTables:SetTableValue("player_stats", "lane" .. lane, {
+    x_position = data.x_position,
+    active = false,
+    player_id = data.player_id,
+  })
+
   -- Check if we have a winner
   local numAlive = 0
   local winner
@@ -146,6 +156,9 @@ function GameMode:OnHeroKilled(hero)
 
   if numAlive == 1 then
     GameRules:SetGameWinner(winner:GetTeam())
+  elseif numAlive < 1 then
+    -- this should never happen, but you know
+    GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
   end
 end
 

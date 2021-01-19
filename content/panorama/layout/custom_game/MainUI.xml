@@ -10,6 +10,7 @@
 			<include src="file://{resources}/scripts/custom_game/PlayerList.js" />
 			<include src="file://{resources}/scripts/custom_game/elements.js" />
 			<include src="file://{resources}/scripts/custom_game/resources.js" />
+			<include src="file://{resources}/scripts/camera.js" />
     </scripts>
 	
 	<Panel hittest="false" class="Root">

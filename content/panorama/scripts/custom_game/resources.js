@@ -3,16 +3,16 @@ var newUI = HUD.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").
 var AbilitiesContainer = newUI.FindChildTraverse("AbilitiesAndStatBranch").FindChildTraverse("abilities");
 
 function SetCustomAbilityCosts(abilityNumber, goldCost) {
-  var AbilityPanel = AbilitiesContainer.FindChildTraverse("Ability" + abilityNumber);
+  let AbilityPanel = AbilitiesContainer.FindChildTraverse("Ability" + abilityNumber);
   if (!AbilityPanel) return;
-  var AbilityButton = AbilityPanel.FindChildTraverse("ButtonAndLevel").FindChildTraverse("ButtonWithLevelUpTab").FindChildTraverse("ButtonWell").FindChildTraverse("ButtonSize");
+  let AbilityButton = AbilityPanel.FindChildTraverse("ButtonAndLevel").FindChildTraverse("ButtonWithLevelUpTab").FindChildTraverse("ButtonWell").FindChildTraverse("ButtonSize");
 
   if (goldCost == 0) goldCost = "";
 
   if (AbilityButton.FindChildTraverse("CustomGoldCost")) {
     AbilityButton.FindChildTraverse("CustomGoldCost").text = goldCost;
   } else {
-    var goldCostLabel = $.CreatePanel("Label", AbilityButton, "CustomGoldCost");
+    let goldCostLabel = $.CreatePanel("Label", AbilityButton, "CustomGoldCost");
     goldCostLabel.text = goldCost;
     goldCostLabel.style.fontSize = "14px";
     goldCostLabel.style.verticalAlign = "bottom";
@@ -24,27 +24,30 @@ function SetCustomAbilityCosts(abilityNumber, goldCost) {
 }
 
 function UpdateAbilityUI() {
-  var queryUnit = Players.GetLocalPlayerPortraitUnit();
+  let queryUnit = Players.GetLocalPlayerPortraitUnit();
 
-  for (var i=0; i < Entities.GetAbilityCount(queryUnit); ++i) {
-    var ability = Entities.GetAbility(queryUnit, i);
+  let abilityIndex = 0;
+  for (let i=0; i < Entities.GetAbilityCount(queryUnit); ++i) {
+    const ability = Entities.GetAbility(queryUnit, i);
     if (ability == -1)
       continue;
 
     if (!Abilities.IsDisplayedAbility(ability))
       continue;
 
-    var abilityname = Abilities.GetAbilityName(ability);
+    const abilityname = Abilities.GetAbilityName(ability);
+    const index = abilityIndex;
+    abilityIndex += 1;
 
-    var abilityCostData = CustomNetTables.GetTableValue("building_settings", abilityname);
+    const abilityCostData = CustomNetTables.GetTableValue("building_settings", abilityname);
     if (!abilityCostData) {
-      SetCustomAbilityCosts(i, "");
+      SetCustomAbilityCosts(index, "");
       continue;
     }
 
-    var goldCost = abilityCostData.goldCost;
+    const goldCost = abilityCostData.goldCost;
 
-    SetCustomAbilityCosts(i, goldCost);
+    SetCustomAbilityCosts(index, goldCost);
   }
 }
 

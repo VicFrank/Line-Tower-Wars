@@ -1,11 +1,16 @@
-UI:
-- Make creep shop load faster
+Make creep shop load faster
 
-BUGS:
 
-test ghost player again
+income timer/current gold ui somewhere
+show abilities as disabled while upgrading
+update map in hammer
+better preview image
 
-Vg9%LXq,4rHYXkY1  ]
+
+
+
+Map
+  8x31
 
 Research
   Start with 4 research points

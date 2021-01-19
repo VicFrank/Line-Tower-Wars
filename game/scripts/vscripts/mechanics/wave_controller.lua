@@ -43,6 +43,13 @@ function InitializeLane(hero)
 
   GameRules.lanes[lane] = laneData
 
+  -- update the nettable
+  CustomNetTables:SetTableValue("player_stats", "lane" .. lane, {
+    x_position = hero.waveSpawner.x,
+    active = true,
+    player_id = hero:GetPlayerOwnerID(),
+  })
+
   print("Initialized Lane " .. lane)
 end
 
@@ -61,17 +68,41 @@ function GameMode:SpawnLaneTruesight()
   -- end
 end
 
+-- Get a random location along a line centered at the spawn location
+function GetRandomSpawnLocation(center)
+  local numTries = 0
+  local maxDistance = 600
+  local position = nil
+
+  while position == nil do
+    position = Vector(center.x, center.y, center.z)
+    position.x = center.x + RandomInt(-maxDistance, maxDistance)
+    local pathLength = GridNav:FindPathLength(center, position)
+    if (pathLength < 0 or pathLength > maxDistance) then       
+      position = nil
+    end
+    numTries = numTries + 1
+
+    if numTries >= 50 then
+      print("Couldn't find spawn location from center", center)
+      return center
+    end
+  end
+  return position
+end
+
 function SendCreep(hero, unitname, income)
   local laneNumber = hero.lane
   local laneToSend = GetNextLane(laneNumber)
   local goal = laneToSend.target
   local spawnLocation = laneToSend.spawner
 
+  spawnLocation = GetRandomSpawnLocation(spawnLocation)
+
   -- In tools, send to sender's lane
   if IsInToolsMode() then
     local senderLane = GetLane(laneNumber)
-    local senderSpawn = senderLane.spawner
-
+    local senderSpawn = GetRandomSpawnLocation(senderLane.spawner)
     local waveUnit = CreateUnitByName(unitname, senderSpawn, true, nil, nil, DOTA_TEAM_NEUTRALS)
     waveUnit.lane = laneNumber
     waveUnit:SetGoal(senderLane.target)

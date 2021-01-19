@@ -32,3 +32,6 @@ Game.AddCommand("-PurchaseSlot12", function() {}, "", 0);
 
 Game.AddCommand("+SpacePressed", WrapFunction("SpacePressed"), "", 0);
 Game.AddCommand("-SpacePressed", function() {}, "", 0);
+
+Game.AddCommand("+NextLane", WrapFunction("NextLane"), "", 0);
+Game.AddCommand("-NextLane", function() {}, "", 0);

@@ -41,8 +41,6 @@ function GameMode:OrderFilter(filterTable)
     local ability = EntIndexToHScript(entindex_ability)
     local abilityName = ability:GetAbilityName()
 
-    if abilityName == "building_sell" then return true end
-
     local entityList = PlayerResource:GetSelectedEntities(issuer)
     if not entityList or #entityList == 1 then return true end
 
