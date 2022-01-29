@@ -5,9 +5,18 @@
 *.tmp
 
 # Compiled formats
+*.vcss_c
+*.vxml_c
+*.vtex_c
+*.vjs_c
+*.vpcf_c
 *.vmat_c
-*.vagrp_c
+*.vmdl_c
 *.vmesh_c
+*.vsndevts_c
+*.vsnd_c
+
+panorama_debugger.cfg
 
 # Map files
 *.vpk
