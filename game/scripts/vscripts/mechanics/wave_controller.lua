@@ -110,7 +110,7 @@ function SendCreep(hero, unitname, income)
 
   -- Spawn the creep
   local team = hero:GetTeam()
-  if TableCount(GameRules.vUserIds) == 1 then team = DOTA_TEAM_NEUTRALS end
+  if GameRules.numConnected == 1 then team = DOTA_TEAM_NEUTRALS end
   local waveUnit = CreateUnitByName(unitname, spawnLocation, true, nil, nil, team)
   waveUnit.lane = laneToSend.laneNumber
   waveUnit.sender = hero
@@ -142,7 +142,7 @@ function OnCreepReachedGoal(creep)
   local senderLaneNumber = sender.lane -- lane of the sender
 
   local damage = 1
-  if TableCount(GameRules.vUserIds) == 1 then damage = 0 end
+  if GameRules.numConnected == 1 then damage = 0 end
 
   if senderLaneNumber == nextLaneNumber then
     -- If we've looped all the way around, just kill the creep

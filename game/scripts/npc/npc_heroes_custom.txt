@@ -30,6 +30,7 @@
     "Ability17"   ""
     "Ability18"   ""
     "Ability19"   ""
+    "Ability25"		""
 
     "AttributeBaseStrength"         "0"
     "AttributeBaseAgility"          "0"

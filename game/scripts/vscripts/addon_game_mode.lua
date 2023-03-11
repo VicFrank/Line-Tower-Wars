@@ -241,13 +241,12 @@ function GameMode:InitGameMode()
   LinkLuaModifier("modifier_max_health", "abilities/modifiers/modifier_max_health", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_autoattack", "ai/attack_modifiers", LUA_MODIFIER_MOTION_NONE)
 
-  GameRules.vUserIds = {}
-
   GameRules.roundStartTime = 0
   GameRules.playerIDs = {}
   GameRules.numToCache = 0
   GameRules.precached = {}
   GameRules.income = {}
+  GameRules.numConnected = 0
 
   GameRules.numLanes = 0
   GameRules.lanes = {}

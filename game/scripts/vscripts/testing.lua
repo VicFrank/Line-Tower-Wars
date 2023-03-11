@@ -127,7 +127,7 @@ CHEAT_CODES = {
 function GameMode:OnPlayerChat(keys)
   local text = keys.text
   local userID = keys.userid
-  local playerID = GameRules.vUserIds[userID] and GameRules.vUserIds[userID]:GetPlayerID()
+  local playerID = keys.playerid
   if not playerID then return end
 
   -- Cheats are only available in the tools

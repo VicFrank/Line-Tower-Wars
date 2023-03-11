@@ -163,18 +163,7 @@ function GameMode:OnHeroKilled(hero)
 end
 
 function GameMode:OnConnectFull(keys)
-  local entIndex = keys.index+1
-  -- The Player entity of the joining user
-  local ply = EntIndexToHScript(entIndex)
-  -- The Player ID of the joining player
-  local playerID = ply:GetPlayerID()
-  local userID = keys.userid
-
-  if playerID < 0 then return end
-
-  GameRules.vUserIds = GameRules.vUserIds or {}
-  GameRules.vUserIds[userID] = ply
-  print(playerID .. " connected")
+  GameRules.numConnected = GameRules.numConnected + 1
 end
 
 function GameMode:OnConstructionCompleted(building, ability, isUpgrade, previousIncomeValue)
