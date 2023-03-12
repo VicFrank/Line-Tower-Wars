@@ -39,6 +39,7 @@ function GameMode:OrderFilter(filterTable)
     local point = Vector(x,y,z)
 
     local ability = EntIndexToHScript(entindex_ability)
+    if ability == null then return true end
     local abilityName = ability:GetAbilityName()
 
     local entityList = PlayerResource:GetSelectedEntities(issuer)
