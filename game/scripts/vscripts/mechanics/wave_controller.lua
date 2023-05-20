@@ -131,7 +131,7 @@ function OnCreepReachedGoal(creep)
 
   -- This should only be true when testing in tools mode and spawning test waves
   if not creep.sender then
-    creep:ForceKill(false)
+    ForceKill(creep)
     creep:AddNoDraw()
     return
   end
@@ -146,7 +146,7 @@ function OnCreepReachedGoal(creep)
 
   if senderLaneNumber == nextLaneNumber then
     -- If we've looped all the way around, just kill the creep
-    creep:ForceKill(false)
+    ForceKill(creep)
     creep:AddNoDraw()
   else
     -- Move the creep to the next lane

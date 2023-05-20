@@ -17,7 +17,7 @@ function ChangePage(keys)
   -- Kill the old building
   tower:AddEffects(EF_NODRAW) --Hide it, so that it's still accessible after this script
   tower.upgraded = true --Skips visual effects
-  tower:ForceKill(true) --Kill the tower
+  ForceKill(tower)
   
   -- Create the new building
   local new_building = BuildingHelper:PlaceBuilding(playerID, newName, pos, BuildingHelper:GetConstructionSize(newName), BuildingHelper:GetBlockPathingSize(newName), angle)

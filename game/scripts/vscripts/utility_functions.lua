@@ -1,3 +1,7 @@
+function ForceKill(unit)
+  unit:Kill(nil, nil)
+end
+
 function GetOpposingTeam(team)
   if team == DOTA_TEAM_GOODGUYS then
     return DOTA_TEAM_BADGUYS

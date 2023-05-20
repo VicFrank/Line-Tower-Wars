@@ -8,7 +8,7 @@ end
 function KillAllUnits()
   for _,unit in pairs(FindAllUnits()) do
     if not IsCustomBuilding(unit) and not unit:IsHero() then
-      unit:ForceKill(false)
+      ForceKill(building)
     end
   end
 end
@@ -16,7 +16,7 @@ end
 function KillAllBuildings()
   for _,unit in pairs(FindAllUnits()) do
     if IsCustomBuilding(unit) and unit:GetUnitName() ~= "castle" then
-      unit:ForceKill(false)
+      ForceKill(building)
     end
   end
 end
@@ -24,7 +24,7 @@ end
 function KillEverything()
   for _,unit in pairs(FindAllUnits()) do
     if not unit:IsHero() and unit:GetUnitName() ~= "castle" then
-      unit:ForceKill(false)
+      ForceKill(building)
     end
   end
 end

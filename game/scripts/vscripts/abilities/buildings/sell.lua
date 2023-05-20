@@ -18,7 +18,7 @@ function item_building_sell:OnSpellStart()
   SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, caster, sellPrice, nil)
 
   caster:AddEffects(EF_NODRAW)
-  caster:ForceKill(true)
+  ForceKill(caster)
 end
 
 function building_sell:OnSpellStart()
@@ -38,5 +38,5 @@ function building_sell:OnSpellStart()
   SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, caster, sellPrice, nil)
 
   caster:AddEffects(EF_NODRAW)
-  caster:ForceKill(true)
+  ForceKill(caster)
 end

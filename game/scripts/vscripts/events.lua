@@ -130,7 +130,7 @@ function GameMode:OnHeroKilled(hero)
   for _,building in pairs(buildings) do
     if IsValidAlive(building) then
       -- building:AddEffects(EF_NODRAW)
-      building:ForceKill(true)
+      ForceKill(building)
     end
   end
 
